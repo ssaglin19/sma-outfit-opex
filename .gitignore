@@ -1,0 +1,28 @@
+# --- secrets: never commit ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*token*
+*secret*
+credentials*
+*_credentials.json
+
+# engine-local config that may carry live values
+engine/.env
+engine/config.local.py
+
+# --- python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# --- os / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
