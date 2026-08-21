@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MOCKUP — DRIP 1-Day 3m + 56 Reversal Outfit</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0a0a0f; color:#e0e0e0; font-family:'Segoe UI',system-ui,sans-serif; }
+.header {
+  background:linear-gradient(135deg,#111118,#0d0d14);
+  border-bottom:1px solid #1a1a2e; padding:14px 24px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.header h1 { font-size:18px; font-weight:600; color:#fff; }
+.header h1 span { color:#ffd700; }
+.header .meta { font-size:12px; color:#888; }
+.container { display:flex; height:calc(100vh - 56px); }
+.chart-area { flex:1; position:relative; padding:10px; }
+canvas { width:100%; height:100%; cursor:crosshair; }
+.sidebar {
+  width:320px; background:#111118; border-left:1px solid #1a1a2e;
+  padding:14px; overflow-y:auto; font-size:12px;
+}
+.sidebar h2 { font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; margin:16px 0 8px; }
+.sidebar h2:first-child { margin-top:0; }
+.sma-item { display:flex; align-items:center; padding:4px 0; }
+.sma-dot { width:10px; height:10px; border-radius:50%; margin-right:8px; }
+.sma-val { margin-left:auto; color:#666; font-family:monospace; font-size:11px; }
+.note {
+  margin-top:16px; padding:10px; background:rgba(255,215,0,0.06);
+  border:1px solid rgba(255,215,0,0.15); border-radius:6px;
+  font-size:10px; color:#aaa; line-height:1.5;
+}
+.note strong { color:#ffd700; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>DRIP — <span>56 Reversal (28/55/111/221/442/884)</span> — PBA at MA221 [alert: 3m]</h1>
+  <div class="meta">1-DAY VIEW | 3m candles | MOCKUP</div>
+</div>
+<div class="container">
+  <div class="chart-area">
+    <canvas id="chart"></canvas>
+  </div>
+  <div class="sidebar">
+    <h2>56 Reversal — Full Outfit</h2>
+    <div id="smaLegend"></div>
+
+    <h2>Aggregated Institutional Activity</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+      <div style="background:#151520; border-radius:6px; padding:10px; border:1px solid #1a1a2e;">
+        <div style="font-size:20px; font-weight:700; color:#ffd700;">312</div>
+        <div style="font-size:10px; color:#555; margin-top:2px;">Total penny matches</div>
+      </div>
+      <div style="background:#151520; border-radius:6px; padding:10px; border:1px solid #1a1a2e;">
+        <div style="font-size:20px; font-weight:700; color:#ef5350;">-8.2M</div>
+        <div style="font-size:10px; color:#555; margin-top:2px;">Net delta at zone</div>
+      </div>
+      <div style="background:#151520; border-radius:6px; padding:10px; border:1px solid #1a1a2e;">
+        <div style="font-size:20px; font-weight:700; color:#26a69a;">0.520</div>
+        <div style="font-size:10px; color:#555; margin-top:2px;">Best composite</div>
+      </div>
+      <div style="background:#151520; border-radius:6px; padding:10px; border:1px solid #1a1a2e;">
+        <div style="font-size:20px; font-weight:700; color:#26a69a;">1</div>
+        <div style="font-size:10px; color:#555; margin-top:2px;">Activity zone</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>MOCKUP NOTE:</strong><br>
+      Alert fired on 3m timeframe. Chart shows 1 trading day
+      of 3m candles (~130 bars). All 6 SMA lines from 56 Reversal
+      drawn. MA221 (alert SMA) is thicker. Single aggregated bubble
+      at the MA221 zone showing total match count.
+    </div>
+  </div>
+</div>
+
+<script>
+const OUTFIT = {
+  name: '56 Reversal',
+  periods: [28, 55, 111, 221, 442, 884],
+  colors: ['#ff6b6b','#ffa06b','#ffd700','#6bffa0','#6bc5ff','#c06bff'],
+};
+
+// Generate ~130 bars of 3m candles for 1 trading day (6:30 AM to 1:00 PM PT = 390 min / 3 = 130 bars)
+function generateBars(n) {
+  const bars = [];
+  let price = 5.92;
+  // Simulate a day: slight drift up in morning, chop midday, fade afternoon
+  for (let i = 0; i < n; i++) {
+    let bias = 0;
+    if (i < 30) bias = 0.003;        // morning push
+    else if (i < 60) bias = 0.001;   // midday chop
+    else if (i < 100) bias = -0.002; // afternoon fade
+    else bias = -0.004;              // late selloff
+
+    const change = bias + (Math.random() - 0.5) * 0.04;
+    const open = price;
+    const close = price + change;
+    const high = Math.max(open, close) + Math.random() * 0.02;
+    const low = Math.min(open, close) - Math.random() * 0.02;
+    const vol = Math.floor(200000 + Math.random() * 600000);
+    bars.push({ open, high, low, close, volume: vol });
+    price = close;
+  }
+  return bars;
+}
+
+function computeSMA(closes, period) {
+  // For a 3m chart with only 130 bars, longer SMAs (like 884) won't have enough data
+  // to compute from scratch. In the real system, TradeStation returns enough history.
+  // For the mockup, we simulate SMA values as flat lines at plausible price levels.
+  const result = [];
+  for (let i = 0; i < closes.length; i++) {
+    if (i < period - 1) { result.push(null); continue; }
+    let sum = 0;
+    for (let j = i - period + 1; j <= i; j++) sum += closes[j];
+    result.push(sum / period);
+  }
+  return result;
+}
+
+const bars = generateBars(130);
+const closes = bars.map(b => b.close);
+
+// For short SMAs, compute real values. For longer ones (more bars than we have),
+// simulate as slowly-drifting horizontal lines at different price levels.
+const smaData = {};
+const fakeSmaLevels = { 28: null, 55: null, 111: null, 221: 5.95, 442: 6.02, 884: 6.10 };
+
+OUTFIT.periods.forEach(p => {
+  if (p <= closes.length) {
+    smaData[p] = computeSMA(closes, p);
+  } else {
+    // Simulate: the SMA has enough prior history, so it appears as a slow-moving line
+    const base = fakeSmaLevels[p];
+    smaData[p] = closes.map((_, i) => base + (Math.random() - 0.5) * 0.003);
+  }
+});
+
+// Time labels for 3m bars starting 6:30 AM
+function timeLabel(barIndex) {
+  const totalMin = 6 * 60 + 30 + barIndex * 3;
+  const h = Math.floor(totalMin / 60);
+  const m = totalMin % 60;
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const h12 = h > 12 ? h - 12 : h;
+  return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+
+// Draw
+const canvas = document.getElementById('chart');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  canvas.style.width = rect.width + 'px';
+  canvas.style.height = rect.height + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  draw(rect.width, rect.height);
+}
+
+function draw(W, H) {
+  const pad = { top: 20, right: 80, bottom: 30, left: 12 };
+  const plotW = W - pad.left - pad.right;
+  const plotH = H - pad.top - pad.bottom;
+
+  // Price range — include all bars + all SMA values
+  let lo = Infinity, hi = -Infinity;
+  for (const b of bars) { if (b.low < lo) lo = b.low; if (b.high > hi) hi = b.high; }
+  for (const p of OUTFIT.periods) {
+    for (const v of smaData[p]) {
+      if (v !== null) { if (v < lo) lo = v; if (v > hi) hi = v; }
+    }
+  }
+  const margin = (hi - lo) * 0.05;
+  lo -= margin; hi += margin;
+  const range = hi - lo;
+
+  const pY = p => pad.top + plotH * (1 - (p - lo) / range);
+  const barW = Math.max(3, Math.floor(plotW / bars.length * 0.65));
+  const barGap = (plotW - barW * bars.length) / (bars.length + 1);
+  const bX = i => pad.left + barGap + i * (barW + barGap);
+
+  // Background
+  ctx.fillStyle = '#0a0a0f';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 8; i++) {
+    const y = pad.top + (plotH / 8) * i;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+  }
+
+  // Price axis
+  ctx.fillStyle = '#444'; ctx.font = '10px monospace';
+  ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+  for (let i = 0; i <= 8; i++) {
+    const price = lo + (range / 8) * (8 - i);
+    ctx.fillText('$' + price.toFixed(2), W - 6, pad.top + (plotH / 8) * i);
+  }
+
+  // SMA lines — ALL 6 from the outfit
+  OUTFIT.periods.forEach((period, pi) => {
+    const vals = smaData[period];
+    const color = OUTFIT.colors[pi];
+    const isTarget = period === 221;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = isTarget ? 2.5 : 1.2;
+    ctx.globalAlpha = isTarget ? 1.0 : 0.55;
+    ctx.beginPath();
+    let started = false;
+    for (let i = 0; i < bars.length; i++) {
+      if (vals[i] === null) continue;
+      const x = bX(i) + barW / 2;
+      const y = pY(vals[i]);
+      if (!started) { ctx.moveTo(x, y); started = true; }
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    ctx.globalAlpha = 1.0;
+
+    // Label at right edge
+    const lastVal = vals.filter(v => v !== null).pop();
+    if (lastVal) {
+      ctx.fillStyle = color;
+      ctx.font = isTarget ? 'bold 10px system-ui' : '9px system-ui';
+      ctx.textAlign = 'left';
+      ctx.fillText(`MA${period} $${lastVal.toFixed(2)}`, W - pad.right + 4, pY(lastVal));
+    }
+  });
+
+  // Candlesticks
+  for (let i = 0; i < bars.length; i++) {
+    const c = bars[i];
+    const x = bX(i), mid = x + barW / 2;
+    const bull = c.close >= c.open;
+    ctx.strokeStyle = bull ? '#26a69a' : '#ef5350';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(mid, pY(c.high)); ctx.lineTo(mid, pY(c.low)); ctx.stroke();
+    ctx.fillStyle = bull ? '#26a69a' : '#ef5350';
+    const bTop = pY(Math.max(c.open, c.close));
+    const bBot = pY(Math.min(c.open, c.close));
+    ctx.fillRect(x, bTop, barW, Math.max(1, bBot - bTop));
+  }
+
+  // AGGREGATED BUBBLE at MA221 zone
+  // One large bubble showing total institutional activity
+  const ma221Vals = smaData[221];
+  const ma221Last = ma221Vals.filter(v => v !== null).pop();
+  if (ma221Last) {
+    // Place bubble around bar 100 (afternoon, where alert likely fired)
+    const bubbleBarIdx = Math.min(100, bars.length - 10);
+    const bubbleX = bX(bubbleBarIdx) + barW / 2;
+    const bubbleY = pY(ma221Last);
+    const radius = 40;
+
+    // Glow
+    const grad = ctx.createRadialGradient(bubbleX, bubbleY, 0, bubbleX, bubbleY, radius + 18);
+    grad.addColorStop(0, 'rgba(38,166,154,0.35)');
+    grad.addColorStop(1, 'rgba(38,166,154,0)');
+    ctx.beginPath();
+    ctx.arc(bubbleX, bubbleY, radius + 18, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Core
+    ctx.beginPath();
+    ctx.arc(bubbleX, bubbleY, radius, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(38,166,154,0.25)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(38,166,154,0.7)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Label
+    ctx.font = 'bold 14px system-ui';
+    ctx.fillStyle = '#26a69a';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('312', bubbleX, bubbleY - 6);
+    ctx.font = '9px system-ui';
+    ctx.fillText('matches', bubbleX, bubbleY + 10);
+  }
+
+  // Time axis labels
+  ctx.fillStyle = '#444'; ctx.font = '9px system-ui';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  const step = Math.max(1, Math.floor(bars.length / 10));
+  for (let i = 0; i < bars.length; i += step) {
+    ctx.fillText(timeLabel(i), bX(i) + barW / 2, H - pad.bottom + 8);
+  }
+}
+
+// SMA Legend
+function buildLegend() {
+  document.getElementById('smaLegend').innerHTML = OUTFIT.periods.map((p, i) => {
+    const lastVal = smaData[p].filter(v => v !== null).pop();
+    const isTarget = p === 221;
+    return `<div class="sma-item" style="${isTarget ? 'font-weight:700;' : ''}">
+      <div class="sma-dot" style="background:${OUTFIT.colors[i]};${isTarget ? 'box-shadow:0 0 6px '+OUTFIT.colors[i] : ''}"></div>
+      <div>MA${p}${isTarget ? ' ← ALERT' : ''}</div>
+      <div class="sma-val">${lastVal ? '$'+lastVal.toFixed(2) : '—'}</div>
+    </div>`;
+  }).join('');
+}
+
+buildLegend();
+resize();
+window.addEventListener('resize', resize);
+</script>
+</body>
+</html>

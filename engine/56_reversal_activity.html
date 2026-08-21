@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>56 Reversal — MA28/55/111/221/442/884 Activity</title>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #1e2d45;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --green: #22c55e;
+    --red: #ef4444;
+    --amber: #f59e0b;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --cyan: #06b6d4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'SF Mono','Fira Code','Cascadia Code', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    color: var(--cyan);
+  }
+  h1 span { color: var(--amber); }
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+  .status {
+    padding: 8px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .status.ok { border-color: var(--green); color: var(--green); }
+  .status.err { border-color: var(--red); color: var(--red); }
+
+  .stats-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 20px;
+    min-width: 140px;
+    text-align: center;
+  }
+  .stat-card .val {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  .stat-card .label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .val.pba { color: var(--green); }
+  .val.aso { color: var(--red); }
+  .val.oba { color: var(--blue); }
+  .val.sphs { color: var(--purple); }
+  .val.total { color: var(--cyan); }
+
+  .section-title {
+    font-size: 0.9rem;
+    color: var(--amber);
+    margin: 20px 0 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    padding: 8px 10px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover td { background: var(--surface2); }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .badge.pba { background: rgba(34,197,94,0.15); color: var(--green); }
+  .badge.aso { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge.oba { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .badge.sphs, .badge.sphs-buy, .badge.sphs-sell {
+    background: rgba(168,85,247,0.15); color: var(--purple);
+  }
+
+  .penny-table { margin-top: 10px; }
+  .sma-highlight { color: var(--amber); font-weight: 700; }
+
+  #alertTable { max-height: 50vh; overflow-y: auto; display: block; }
+  #pennyTable { max-height: 40vh; overflow-y: auto; display: block; }
+</style>
+</head>
+<body>
+
+<h1>56 Reversal — <span>MA28 / MA55 / MA111 / MA221 / MA442 / MA884</span></h1>
+<div class="subtitle">Flipped cryptogram outfit · 112→221→442→884 · All historical activity from InfluxDB</div>
+
+<div class="status" id="status">Connecting to InfluxDB...</div>
+
+<div class="stats-row" id="statsRow" style="display:none;">
+  <div class="stat-card"><div class="val total" id="totalCount">0</div><div class="label">Total Alerts</div></div>
+  <div class="stat-card"><div class="val pba" id="pbaCount">0</div><div class="label">PBA</div></div>
+  <div class="stat-card"><div class="val aso" id="asoCount">0</div><div class="label">ASO</div></div>
+  <div class="stat-card"><div class="val oba" id="obaCount">0</div><div class="label">OBA</div></div>
+  <div class="stat-card"><div class="val sphs" id="sphsCount">0</div><div class="label">SPHS</div></div>
+  <div class="stat-card"><div class="val" style="color:var(--amber);" id="tickerCount">0</div><div class="label">Unique Tickers</div></div>
+</div>
+
+<div class="section-title">ALERTS — 56 Reversal Outfit</div>
+<div id="alertTable">
+  <table>
+    <thead><tr>
+      <th>Time (ET)</th><th>Ticker</th><th>Type</th><th>SMA Period</th><th>SMA Value</th><th>Price</th><th>Timeframe</th><th>Detail</th>
+    </tr></thead>
+    <tbody id="alertBody"><tr><td colspan="8" style="color:var(--muted)">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<div class="section-title">PENNY MATCHES — SMA Periods 28, 55, 111, 221, 442, 884</div>
+<div id="pennyTable">
+  <table>
+    <thead><tr>
+      <th>Time (ET)</th><th>Ticker</th><th>SMA Period</th><th>SMA Value</th><th>Price Field</th><th>Price</th><th>Timeframe</th><th>Diff</th>
+    </tr></thead>
+    <tbody id="pennyBody"><tr><td colspan="8" style="color:var(--muted)">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<script>
+const INFLUX_URL = 'http://localhost:8086';
+const INFLUX_TOKEN = '__INFLUXDB_TOKEN__';
+const INFLUX_ORG = 'sma-alerts';
+
+const OUTFIT_NAME = '56 Reversal (28/55/111/221/442/884)';
+const SMA_PERIODS = [28, 55, 111, 221, 442, 884];
+
+async function fluxQuery(query) {
+  const resp = await fetch(`${INFLUX_URL}/api/v2/query?org=${encodeURIComponent(INFLUX_ORG)}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Token ${INFLUX_TOKEN}`,
+      'Content-Type': 'application/vnd.flux',
+      'Accept': 'application/csv',
+    },
+    body: query,
+  });
+  if (!resp.ok) throw new Error(`InfluxDB ${resp.status}: ${await resp.text()}`);
+  return await resp.text();
+}
+
+function parseInfluxCSV(csv) {
+  const lines = csv.trim().split('\n');
+  const results = [];
+  let headers = null;
+  for (const line of lines) {
+    if (!line || line.startsWith('#') || line.startsWith(',result,')) continue;
+    if (line.startsWith(',_result')) continue;
+    const cols = line.split(',');
+    if (!headers) {
+      headers = cols;
+      continue;
+    }
+    if (cols.length !== headers.length) {
+      // could be a new table — reset headers
+      headers = cols;
+      continue;
+    }
+    const row = {};
+    for (let i = 0; i < headers.length; i++) {
+      row[headers[i].trim()] = (cols[i] || '').trim();
+    }
+    results.push(row);
+  }
+  return results;
+}
+
+function fmtET(iso) {
+  if (!iso) return '--';
+  try {
+    return new Date(iso).toLocaleString('en-US', {
+      timeZone: 'America/New_York',
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: '2-digit', minute: '2-digit', hour12: false
+    });
+  } catch { return iso; }
+}
+
+function badgeClass(type) {
+  if (!type) return '';
+  if (type.startsWith('sphs')) return 'sphs';
+  return type;
+}
+
+async function loadAlerts() {
+  const flux = `
+from(bucket: "alerts")
+  |> range(start: -365d)
+  |> filter(fn: (r) => r._measurement == "alert")
+  |> filter(fn: (r) => r.outfit == "${OUTFIT_NAME}")
+  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> sort(columns: ["_time"], desc: true)
+  |> limit(n: 500)
+`;
+  const csv = await fluxQuery(flux);
+  return parseInfluxCSV(csv).map(r => ({
+    time: r._time || '',
+    ticker: r.ticker || '',
+    type: r.type || '',
+    outfit: r.outfit || '',
+    timeframe: r.timeframe || '',
+    detail: r.detail || '',
+    price: r.price || '',
+    sma_value: r.sma_value || '',
+    sma_period: r.sma_period || '',
+  }));
+}
+
+async function loadPennyMatches() {
+  // Query penny_matches for any of the 6 SMA periods in this outfit
+  const periodFilter = SMA_PERIODS.map(p => `r.sma_period == "${p}"`).join(' or ');
+  const flux = `
+from(bucket: "penny_matches")
+  |> range(start: -365d)
+  |> filter(fn: (r) => r._measurement == "penny_match")
+  |> filter(fn: (r) => ${periodFilter})
+  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> sort(columns: ["_time"], desc: true)
+  |> limit(n: 1000)
+`;
+  const csv = await fluxQuery(flux);
+  return parseInfluxCSV(csv).map(r => ({
+    time: r._time || '',
+    ticker: r.ticker || '',
+    sma_period: r.sma_period || '',
+    sma_value: r.sma_value || '',
+    price_field: r.price_field || '',
+    price: r.price || r.close || '',
+    timeframe: r.timeframe || '',
+    diff: r.diff || '',
+  }));
+}
+
+function renderAlerts(data) {
+  const body = document.getElementById('alertBody');
+  if (data.length === 0) {
+    body.innerHTML = '<tr><td colspan="8" style="color:var(--muted)">No alerts found for 56 Reversal outfit</td></tr>';
+    return;
+  }
+  body.innerHTML = data.map(a => {
+    const bc = badgeClass(a.type);
+    const isMa884 = a.sma_period === '884' ? ' sma-highlight' : '';
+    return `<tr>
+      <td>${fmtET(a.time)}</td>
+      <td style="font-weight:700">${a.ticker}</td>
+      <td><span class="badge ${bc}">${a.type.toUpperCase().replace('_',' ')}</span></td>
+      <td class="${isMa884}">MA${a.sma_period}</td>
+      <td>${a.sma_value}</td>
+      <td>${a.price}</td>
+      <td>${a.timeframe}</td>
+      <td>${a.detail}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderPennyMatches(data) {
+  const body = document.getElementById('pennyBody');
+  if (data.length === 0) {
+    body.innerHTML = '<tr><td colspan="8" style="color:var(--muted)">No penny matches found for these SMA periods</td></tr>';
+    return;
+  }
+  body.innerHTML = data.map(r => {
+    const isMa884 = r.sma_period === '884' ? ' sma-highlight' : '';
+    return `<tr>
+      <td>${fmtET(r.time)}</td>
+      <td style="font-weight:700">${r.ticker}</td>
+      <td class="${isMa884}">MA${r.sma_period}</td>
+      <td>${r.sma_value}</td>
+      <td>${r.price_field}</td>
+      <td>${r.price}</td>
+      <td>${r.timeframe}</td>
+      <td>${r.diff}</td>
+    </tr>`;
+  }).join('');
+}
+
+function updateStats(alerts) {
+  const types = { pba: 0, aso: 0, oba: 0, sphs: 0 };
+  const tickers = new Set();
+  for (const a of alerts) {
+    tickers.add(a.ticker);
+    if (a.type.startsWith('sphs')) types.sphs++;
+    else if (types[a.type] !== undefined) types[a.type]++;
+  }
+  document.getElementById('totalCount').textContent = alerts.length;
+  document.getElementById('pbaCount').textContent = types.pba;
+  document.getElementById('asoCount').textContent = types.aso;
+  document.getElementById('obaCount').textContent = types.oba;
+  document.getElementById('sphsCount').textContent = types.sphs;
+  document.getElementById('tickerCount').textContent = tickers.size;
+  document.getElementById('statsRow').style.display = 'flex';
+}
+
+async function init() {
+  const statusEl = document.getElementById('status');
+  try {
+    const [alerts, pennies] = await Promise.all([loadAlerts(), loadPennyMatches()]);
+    statusEl.className = 'status ok';
+    statusEl.textContent = `Connected — ${alerts.length} alerts, ${pennies.length} penny matches loaded`;
+    updateStats(alerts);
+    renderAlerts(alerts);
+    renderPennyMatches(pennies);
+  } catch (e) {
+    statusEl.className = 'status err';
+    statusEl.textContent = `Error: ${e.message}`;
+    console.error(e);
+  }
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SMA EOD Report — 2026-03-19 16:05:05</title>
+<style>
+  :root { --bg:#0a0e17; --surface:#111827; --border:#1e2d45; --text:#e2e8f0; --muted:#64748b; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'SF Mono','Fira Code',monospace; background:var(--bg); color:var(--text); padding:24px; }
+  h1 { font-size:18px; letter-spacing:2px; text-transform:uppercase;
+       background:linear-gradient(90deg,#06b6d4,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+       margin-bottom:4px; }
+  .meta { font-size:11px; color:var(--muted); margin-bottom:20px; }
+  .section { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:16px; margin-bottom:16px; }
+  .section h2 { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  table { width:100%; border-collapse:collapse; font-size:11px; }
+  th { padding:5px 6px; text-align:left; font-size:9px; text-transform:uppercase; letter-spacing:0.5px;
+       color:var(--muted); border-bottom:1px solid var(--border); }
+  td { padding:4px 6px; border-bottom:1px solid rgba(30,45,69,0.4); }
+  .num { text-align:right; font-variant-numeric:tabular-nums; }
+  .summary-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+  .summary-card { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:14px; text-align:center; }
+  .summary-card .value { font-size:24px; font-weight:700; color:#06b6d4; }
+  .summary-card .label { font-size:10px; color:var(--muted); margin-top:4px; }
+  .vix-info { display:inline-block; padding:4px 10px; border-radius:4px; font-weight:700; font-size:12px; }
+  .vix-high { background:rgba(239,68,68,0.2); color:#ef4444; }
+  .vix-elevated { background:rgba(245,158,11,0.2); color:#f59e0b; }
+  .vix-normal { background:rgba(34,197,94,0.1); color:#22c55e; }
+</style>
+</head>
+<body>
+<h1>SMA Outfit Scoring — EOD Report</h1>
+<div class="meta">
+  Generated: 2026-03-19 16:05:05 &middot; Lookback: 1 day(s) &middot; Institutional Hours Only (0930-1600 EST)
+</div>
+
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="value">921</div>
+    <div class="label">Total SMA Hits</div>
+  </div>
+  <div class="summary-card">
+    <div class="value">25</div>
+    <div class="label">Outfits Scored</div>
+  </div>
+  <div class="summary-card">
+    <div class="value">23</div>
+    <div class="label">Tickers Active</div>
+  </div>
+  <div class="summary-card">
+    <div class="value"><span class="vix-info vix-elevated">VIX 25.09</span></div>
+    <div class="label">HIGH VOLATILITY</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>System Status</h2>
+  <table>
+    <thead><tr><th>System</th><th>Status</th><th>Detail</th></tr></thead>
+    <tbody>
+        <tr>
+          <td style="font-weight:700;">S&P 500</td>
+          <td style="color:#ef4444; font-weight:700;">NEGATIVE</td>
+          <td style="color:#64748b; font-size:11px;">OHLC4 6631.21 < SMA50 6687.28</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;">NASDAQ</td>
+          <td style="color:#ef4444; font-weight:700;">NEGATIVE</td>
+          <td style="color:#64748b; font-size:11px;">OHLC4 24442.35 < SMA100 24632.43</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;">Dow Jones</td>
+          <td style="color:#ef4444; font-weight:700;">NEGATIVE</td>
+          <td style="color:#64748b; font-size:11px;">OHLC4 462.23 < SMA300 473.36</td>
+        </tr></tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Outfit Ranking — Top 25</h2>
+  <table>
+    <thead><tr><th>#</th><th>Outfit</th><th class="num">Total</th><th class="num">Long</th><th class="num">Short</th><th class="num">L-S</th></tr></thead>
+    <tbody>
+        <tr>
+          <td style="color:#64748b;">1</td>
+          <td style="font-weight:600;">Time/365 (23/46/91/183/365/730)</td>
+          <td class="num">48</td>
+          <td class="num" style="color:#22c55e;">35</td>
+          <td class="num" style="color:#ef4444;">13</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+22</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">2</td>
+          <td style="font-weight:600;">AN (11/44/88/111/444/888)</td>
+          <td class="num">46</td>
+          <td class="num" style="color:#22c55e;">30</td>
+          <td class="num" style="color:#ef4444;">16</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+14</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">3</td>
+          <td style="font-weight:600;">S&P (10/50/200)</td>
+          <td class="num">43</td>
+          <td class="num" style="color:#22c55e;">33</td>
+          <td class="num" style="color:#ef4444;">10</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+23</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">4</td>
+          <td style="font-weight:600;">Base 2/NVDA (16/32/64/128/256/512)</td>
+          <td class="num">42</td>
+          <td class="num" style="color:#22c55e;">31</td>
+          <td class="num" style="color:#ef4444;">11</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+20</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">5</td>
+          <td style="font-weight:600;">Russia 2000 (16/31/63/125/250/500)</td>
+          <td class="num">42</td>
+          <td class="num" style="color:#22c55e;">30</td>
+          <td class="num" style="color:#ef4444;">12</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+18</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">6</td>
+          <td style="font-weight:600;">Time/366 (23/46/92/183/366/732)</td>
+          <td class="num">42</td>
+          <td class="num" style="color:#22c55e;">30</td>
+          <td class="num" style="color:#ef4444;">12</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+18</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">7</td>
+          <td style="font-weight:600;">US President/46 (23/46/92/184/368/736)</td>
+          <td class="num">41</td>
+          <td class="num" style="color:#22c55e;">30</td>
+          <td class="num" style="color:#ef4444;">11</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+19</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">8</td>
+          <td style="font-weight:600;">US President/47 (24/47/94/188/376/752)</td>
+          <td class="num">41</td>
+          <td class="num" style="color:#22c55e;">28</td>
+          <td class="num" style="color:#ef4444;">13</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+15</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">9</td>
+          <td style="font-weight:600;">SVIX (26/52/106/211/422/844)</td>
+          <td class="num">40</td>
+          <td class="num" style="color:#22c55e;">26</td>
+          <td class="num" style="color:#ef4444;">14</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+12</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">10</td>
+          <td style="font-weight:600;">Alphabet (25/50/100/200/400/800)</td>
+          <td class="num">39</td>
+          <td class="num" style="color:#22c55e;">28</td>
+          <td class="num" style="color:#ef4444;">11</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+17</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">11</td>
+          <td style="font-weight:600;">France President (25/50/100/200/400/600)</td>
+          <td class="num">39</td>
+          <td class="num" style="color:#22c55e;">28</td>
+          <td class="num" style="color:#ef4444;">11</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+17</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">12</td>
+          <td style="font-weight:600;">Turkey President (24/48/96/192/384/768)</td>
+          <td class="num">39</td>
+          <td class="num" style="color:#22c55e;">29</td>
+          <td class="num" style="color:#ef4444;">10</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+19</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">13</td>
+          <td style="font-weight:600;">Regression (27/54/108/216/432/864)</td>
+          <td class="num">37</td>
+          <td class="num" style="color:#22c55e;">27</td>
+          <td class="num" style="color:#ef4444;">10</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+17</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">14</td>
+          <td style="font-weight:600;">Resource Missing/404 (25/51/101/202/404/808)</td>
+          <td class="num">36</td>
+          <td class="num" style="color:#22c55e;">27</td>
+          <td class="num" style="color:#ef4444;">9</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+18</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">15</td>
+          <td style="font-weight:600;">China Chair (28/56/112/224/448/976)</td>
+          <td class="num">35</td>
+          <td class="num" style="color:#22c55e;">27</td>
+          <td class="num" style="color:#ef4444;">8</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+19</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">16</td>
+          <td style="font-weight:600;">Speaker House/56 (28/56/112/224/448/896)</td>
+          <td class="num">35</td>
+          <td class="num" style="color:#22c55e;">26</td>
+          <td class="num" style="color:#ef4444;">9</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+17</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">17</td>
+          <td style="font-weight:600;">Waring's Problem (19/37/73/143/279/548)</td>
+          <td class="num">35</td>
+          <td class="num" style="color:#22c55e;">26</td>
+          <td class="num" style="color:#ef4444;">9</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+17</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">18</td>
+          <td style="font-weight:600;">Time/1440 (18/36/72/144/288/576)</td>
+          <td class="num">33</td>
+          <td class="num" style="color:#22c55e;">27</td>
+          <td class="num" style="color:#ef4444;">6</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+21</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">19</td>
+          <td style="font-weight:600;">DJI (30/60/90/300/600/900)</td>
+          <td class="num">32</td>
+          <td class="num" style="color:#22c55e;">28</td>
+          <td class="num" style="color:#ef4444;">4</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+24</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">20</td>
+          <td style="font-weight:600;">TSLA (27/53/105/210/420/840)</td>
+          <td class="num">32</td>
+          <td class="num" style="color:#22c55e;">25</td>
+          <td class="num" style="color:#ef4444;">7</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+18</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">21</td>
+          <td style="font-weight:600;">AN (22/55/77/222/555/777)</td>
+          <td class="num">31</td>
+          <td class="num" style="color:#22c55e;">24</td>
+          <td class="num" style="color:#ef4444;">7</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+17</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">22</td>
+          <td style="font-weight:600;">US President/45 (29/57/114/227/455/911)</td>
+          <td class="num">31</td>
+          <td class="num" style="color:#22c55e;">23</td>
+          <td class="num" style="color:#ef4444;">8</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+15</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">23</td>
+          <td style="font-weight:600;">WTC/911 (28/57/114/228/456/911)</td>
+          <td class="num">31</td>
+          <td class="num" style="color:#22c55e;">22</td>
+          <td class="num" style="color:#ef4444;">9</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+13</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">24</td>
+          <td style="font-weight:600;">AN (33/66/99/333/666/999)</td>
+          <td class="num">28</td>
+          <td class="num" style="color:#22c55e;">18</td>
+          <td class="num" style="color:#ef4444;">10</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+8</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">25</td>
+          <td style="font-weight:600;">NAS (20/100/250)</td>
+          <td class="num">23</td>
+          <td class="num" style="color:#22c55e;">17</td>
+          <td class="num" style="color:#ef4444;">6</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+11</td>
+        </tr></tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Ticker Ranking — Top 23</h2>
+  <table>
+    <thead><tr><th>#</th><th>Ticker</th><th class="num">Total</th><th class="num">Long</th><th class="num">Short</th><th class="num">L-S</th><th>Dom. Outfit</th><th class="num">Cnt</th></tr></thead>
+    <tbody>
+        <tr>
+          <td style="color:#64748b;">1</td>
+          <td style="font-weight:600;">AAPD</td>
+          <td class="num">304</td>
+          <td class="num" style="color:#22c55e;">300</td>
+          <td class="num" style="color:#ef4444;">4</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+296</td>
+          <td style="color:#06b6d4; font-size:10px;">Turkey President (24/48/96/192/384/768)</td>
+          <td class="num" style="color:#22c55e;">15</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">2</td>
+          <td style="font-weight:600;">TSLT</td>
+          <td class="num">97</td>
+          <td class="num" style="color:#22c55e;">67</td>
+          <td class="num" style="color:#ef4444;">30</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+37</td>
+          <td style="color:#06b6d4; font-size:10px;">SVIX (26/52/106/211/422/844)</td>
+          <td class="num" style="color:#22c55e;">7</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">3</td>
+          <td style="font-weight:600;">AAPU</td>
+          <td class="num">66</td>
+          <td class="num" style="color:#22c55e;">20</td>
+          <td class="num" style="color:#ef4444;">46</td>
+          <td class="num" style="color:#ef4444; font-weight:700;">-26</td>
+          <td style="color:#06b6d4; font-size:10px;">Base 2/NVDA (16/32/64/128/256/512)</td>
+          <td class="num" style="color:#22c55e;">5</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">4</td>
+          <td style="font-weight:600;">TSLQ</td>
+          <td class="num">64</td>
+          <td class="num" style="color:#22c55e;">46</td>
+          <td class="num" style="color:#ef4444;">18</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+28</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (22/55/77/222/555/777)</td>
+          <td class="num" style="color:#22c55e;">5</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">5</td>
+          <td style="font-weight:600;">ENPH</td>
+          <td class="num">61</td>
+          <td class="num" style="color:#22c55e;">39</td>
+          <td class="num" style="color:#ef4444;">22</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+17</td>
+          <td style="color:#06b6d4; font-size:10px;">Regression (27/54/108/216/432/864)</td>
+          <td class="num" style="color:#22c55e;">7</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">6</td>
+          <td style="font-weight:600;">AI</td>
+          <td class="num">56</td>
+          <td class="num" style="color:#22c55e;">37</td>
+          <td class="num" style="color:#ef4444;">19</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+18</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (11/44/88/111/444/888)</td>
+          <td class="num" style="color:#22c55e;">7</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">7</td>
+          <td style="font-weight:600;">TLT</td>
+          <td class="num">40</td>
+          <td class="num" style="color:#22c55e;">20</td>
+          <td class="num" style="color:#ef4444;">20</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+0</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (11/44/88/111/444/888)</td>
+          <td class="num" style="color:#22c55e;">4</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">8</td>
+          <td style="font-weight:600;">GM</td>
+          <td class="num">30</td>
+          <td class="num" style="color:#22c55e;">10</td>
+          <td class="num" style="color:#ef4444;">20</td>
+          <td class="num" style="color:#ef4444; font-weight:700;">-10</td>
+          <td style="color:#06b6d4; font-size:10px;">Base 2/NVDA (16/32/64/128/256/512)</td>
+          <td class="num" style="color:#22c55e;">4</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">9</td>
+          <td style="font-weight:600;">TBT</td>
+          <td class="num">28</td>
+          <td class="num" style="color:#22c55e;">28</td>
+          <td class="num" style="color:#ef4444;">0</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+28</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (11/44/88/111/444/888)</td>
+          <td class="num" style="color:#22c55e;">2</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">10</td>
+          <td style="font-weight:600;">RBLX</td>
+          <td class="num">26</td>
+          <td class="num" style="color:#22c55e;">18</td>
+          <td class="num" style="color:#ef4444;">8</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+10</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (11/44/88/111/444/888)</td>
+          <td class="num" style="color:#22c55e;">3</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">11</td>
+          <td style="font-weight:600;">INTC</td>
+          <td class="num">25</td>
+          <td class="num" style="color:#22c55e;">15</td>
+          <td class="num" style="color:#ef4444;">10</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+5</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (33/66/99/333/666/999)</td>
+          <td class="num" style="color:#22c55e;">3</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">12</td>
+          <td style="font-weight:600;">UNH</td>
+          <td class="num">24</td>
+          <td class="num" style="color:#22c55e;">18</td>
+          <td class="num" style="color:#ef4444;">6</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+12</td>
+          <td style="color:#06b6d4; font-size:10px;">Turkey President (24/48/96/192/384/768)</td>
+          <td class="num" style="color:#22c55e;">4</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">13</td>
+          <td style="font-weight:600;">ARM</td>
+          <td class="num">21</td>
+          <td class="num" style="color:#22c55e;">15</td>
+          <td class="num" style="color:#ef4444;">6</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+9</td>
+          <td style="color:#06b6d4; font-size:10px;">China Chair (28/56/112/224/448/976)</td>
+          <td class="num" style="color:#22c55e;">4</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">14</td>
+          <td style="font-weight:600;">QCOM</td>
+          <td class="num">17</td>
+          <td class="num" style="color:#22c55e;">13</td>
+          <td class="num" style="color:#ef4444;">4</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+9</td>
+          <td style="color:#06b6d4; font-size:10px;">Resource Missing/404 (25/51/101/202/404/808)</td>
+          <td class="num" style="color:#22c55e;">4</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">15</td>
+          <td style="font-weight:600;">JPM</td>
+          <td class="num">16</td>
+          <td class="num" style="color:#22c55e;">9</td>
+          <td class="num" style="color:#ef4444;">7</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+2</td>
+          <td style="color:#06b6d4; font-size:10px;">Time/365 (23/46/91/183/365/730)</td>
+          <td class="num" style="color:#22c55e;">2</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">16</td>
+          <td style="font-weight:600;">BABA</td>
+          <td class="num">11</td>
+          <td class="num" style="color:#22c55e;">6</td>
+          <td class="num" style="color:#ef4444;">5</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+1</td>
+          <td style="color:#06b6d4; font-size:10px;">S&P (10/50/200)</td>
+          <td class="num" style="color:#22c55e;">2</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">17</td>
+          <td style="font-weight:600;">V</td>
+          <td class="num">9</td>
+          <td class="num" style="color:#22c55e;">0</td>
+          <td class="num" style="color:#ef4444;">9</td>
+          <td class="num" style="color:#ef4444; font-weight:700;">-9</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (33/66/99/333/666/999)</td>
+          <td class="num" style="color:#22c55e;">1</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">18</td>
+          <td style="font-weight:600;">PYPL</td>
+          <td class="num">8</td>
+          <td class="num" style="color:#22c55e;">3</td>
+          <td class="num" style="color:#ef4444;">5</td>
+          <td class="num" style="color:#ef4444; font-weight:700;">-2</td>
+          <td style="color:#06b6d4; font-size:10px;">Waring's Problem (19/37/73/143/279/548)</td>
+          <td class="num" style="color:#22c55e;">2</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">19</td>
+          <td style="font-weight:600;">AMD</td>
+          <td class="num">7</td>
+          <td class="num" style="color:#22c55e;">3</td>
+          <td class="num" style="color:#ef4444;">4</td>
+          <td class="num" style="color:#ef4444; font-weight:700;">-1</td>
+          <td style="color:#06b6d4; font-size:10px;">US President/45 (29/57/114/227/455/911)</td>
+          <td class="num" style="color:#22c55e;">2</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">20</td>
+          <td style="font-weight:600;">UPST</td>
+          <td class="num">4</td>
+          <td class="num" style="color:#22c55e;">4</td>
+          <td class="num" style="color:#ef4444;">0</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+4</td>
+          <td style="color:#06b6d4; font-size:10px;">NAS (20/100/250)</td>
+          <td class="num" style="color:#22c55e;">2</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">21</td>
+          <td style="font-weight:600;">TSM</td>
+          <td class="num">4</td>
+          <td class="num" style="color:#22c55e;">4</td>
+          <td class="num" style="color:#ef4444;">0</td>
+          <td class="num" style="color:#22c55e; font-weight:700;">+4</td>
+          <td style="color:#06b6d4; font-size:10px;">S&P (10/50/200)</td>
+          <td class="num" style="color:#22c55e;">1</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">22</td>
+          <td style="font-weight:600;">AAPL</td>
+          <td class="num">2</td>
+          <td class="num" style="color:#22c55e;">0</td>
+          <td class="num" style="color:#ef4444;">2</td>
+          <td class="num" style="color:#ef4444; font-weight:700;">-2</td>
+          <td style="color:#06b6d4; font-size:10px;">Turkey President (24/48/96/192/384/768)</td>
+          <td class="num" style="color:#22c55e;">1</td>
+        </tr>
+        <tr>
+          <td style="color:#64748b;">23</td>
+          <td style="font-weight:600;">NVDA</td>
+          <td class="num">1</td>
+          <td class="num" style="color:#22c55e;">0</td>
+          <td class="num" style="color:#ef4444;">1</td>
+          <td class="num" style="color:#ef4444; font-weight:700;">-1</td>
+          <td style="color:#06b6d4; font-size:10px;">AN (11/44/88/111/444/888)</td>
+          <td class="num" style="color:#22c55e;">1</td>
+        </tr></tbody>
+  </table>
+</div>
+
+</body>
+</html>

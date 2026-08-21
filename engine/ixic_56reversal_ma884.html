@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMA Live Chart</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0f; color: #e0e0e0; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+.header {
+    background: linear-gradient(135deg, #111118 0%, #0d0d14 100%);
+    border-bottom: 1px solid #1a1a2e;
+    padding: 14px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.header h1 { font-size: 18px; font-weight: 600; color: #fff; }
+.header h1 span { color: #ffd700; }
+.header .meta { font-size: 12px; color: #888; }
+
+.container { display: flex; height: calc(100vh - 56px); }
+
+.chart-area {
+    flex: 1; position: relative; padding: 10px;
+    display: flex; flex-direction: column;
+}
+canvas#chart { flex: 1; width: 100%; cursor: crosshair; }
+
+.sidebar {
+    width: 360px; background: #111118; border-left: 1px solid #1a1a2e;
+    padding: 14px; overflow-y: auto; font-size: 12px;
+}
+.sidebar h2 {
+    font-size: 12px; color: #666; text-transform: uppercase;
+    letter-spacing: 1px; margin: 16px 0 8px 0;
+}
+.sidebar h2:first-child { margin-top: 0; }
+
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stat-card {
+    background: #151520; border-radius: 6px; padding: 10px;
+    border: 1px solid #1a1a2e;
+}
+.stat-value { font-size: 20px; font-weight: 700; }
+.stat-value.green { color: #26a69a; }
+.stat-value.red { color: #ef5350; }
+.stat-value.gold { color: #ffd700; }
+.stat-label { font-size: 10px; color: #555; margin-top: 2px; }
+
+.bar-row {
+    display: flex; align-items: center; padding: 5px 8px; border-radius: 4px;
+    margin-bottom: 2px; gap: 6px; font-size: 11px; font-family: monospace;
+}
+.bar-row:hover { background: #1a1a2e; }
+.bar-row.highlight { background: rgba(38, 166, 154, 0.1); border-left: 3px solid #26a69a; }
+.bar-time { width: 42px; color: #888; flex-shrink: 0; }
+.bar-vol { width: 65px; text-align: right; }
+.bar-trade { width: 50px; text-align: right; }
+.bar-delta { width: 55px; text-align: right; }
+.bar-flags { flex: 1; font-size: 9px; font-family: system-ui; }
+.flag-tag {
+    display: inline-block; padding: 1px 5px; border-radius: 3px;
+    margin-left: 3px; font-weight: 600;
+}
+.flag-tag.buy { background: rgba(38,166,154,0.2); color: #26a69a; }
+.flag-tag.vol { background: rgba(255,215,0,0.15); color: #ffd700; }
+.flag-tag.big { background: rgba(100,180,255,0.15); color: #6bc5ff; }
+
+.outfit-row {
+    display: flex; align-items: center; padding: 5px 8px; border-radius: 4px;
+    margin-bottom: 2px;
+}
+.outfit-row.top { background: rgba(255,215,0,0.06); border: 1px solid rgba(255,215,0,0.15); }
+.outfit-rank { width: 20px; font-size: 10px; color: #555; font-weight: 700; }
+.outfit-name { flex: 1; font-size: 11px; }
+.outfit-hits {
+    background: #1e1e2e; padding: 1px 6px; border-radius: 8px;
+    font-size: 10px; font-weight: 700; min-width: 24px; text-align: center;
+}
+.outfit-row.top .outfit-hits { background: rgba(255,215,0,0.12); color: #ffd700; }
+
+.sma-item { display: flex; align-items: center; padding: 3px 0; }
+.sma-dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; flex-shrink: 0; }
+.sma-val { margin-left: auto; color: #666; font-family: monospace; font-size: 11px; }
+
+.tooltip {
+    display: none; position: absolute; background: rgba(8, 8, 16, 0.97);
+    border: 1px solid #333; border-radius: 6px; padding: 10px 14px;
+    font-size: 12px; pointer-events: none; z-index: 10;
+    min-width: 220px; max-width: 340px;
+}
+.tooltip .tt-time { color: #888; margin-bottom: 4px; font-size: 11px; }
+.tooltip .tt-ohlc { display: grid; grid-template-columns: auto auto; gap: 1px 10px; }
+.tooltip .tt-label { color: #555; }
+
+.crosshair-x, .crosshair-y { position: absolute; pointer-events: none; z-index: 5; }
+.crosshair-x { width: 1px; height: 100%; border-left: 1px dashed rgba(255,255,255,0.1); }
+.crosshair-y { height: 1px; width: 100%; border-top: 1px dashed rgba(255,255,255,0.1); }
+
+.status-bar {
+    background: #111118; border-top: 1px solid #1a1a2e;
+    padding: 4px 16px; font-size: 10px; color: #444; display: flex; gap: 16px;
+}
+.status-bar span { color: #666; }
+
+.no-data {
+    display: flex; align-items: center; justify-content: center;
+    height: 100%; font-size: 16px; color: #555; flex-direction: column; gap: 10px;
+}
+.no-data code { background: #1a1a2e; padding: 6px 14px; border-radius: 6px; font-size: 13px; color: #ffd700; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1 id="headerTitle">Loading...</h1>
+    <div class="meta" id="headerMeta">Loading...</div>
+</div>
+
+<div class="container">
+    <div class="chart-area">
+        <canvas id="chart"></canvas>
+        <div class="tooltip" id="tooltip"></div>
+        <div class="crosshair-x" id="crossX"></div>
+        <div class="crosshair-y" id="crossY"></div>
+    </div>
+    <div class="sidebar">
+        <h2 id="sidebarTitle">SMA Level — Institutional Activity</h2>
+        <div class="stat-grid" id="statGrid"></div>
+
+        <h2 id="barsAtLabel">Bars at SMA Level (±$0.25)</h2>
+        <div id="barList"></div>
+
+        <h2>Outfit Rankings</h2>
+        <div id="outfitList"></div>
+
+        <h2>Outfit SMAs</h2>
+        <div id="smaLegend"></div>
+    </div>
+</div>
+
+<div class="status-bar">
+    <div><span id="sbInterval">—</span></div>
+    <div>Bars: <span id="sbBars">—</span></div>
+    <div>TZ: <span id="sbTZ">—</span></div>
+    <div>Interactions: <span id="sbInteractions">—</span></div>
+    <div>Bars at level: <span id="sbAtLevel">—</span></div>
+</div>
+
+<script>
+
+const SMA_COLORS = ['#ff6b6b','#ffa06b','#ffd700','#6bffa0','#6bc5ff','#c06bff'];
+let DATA = null;
+const CHART_PAD = { top: 20, right: 70, bottom: 28, left: 12 };
+let chartW, chartH, plotW, plotH, priceMin, priceMax, priceRange, barWidth, barGap;
+const canvas = document.getElementById('chart');
+const ctx = canvas.getContext('2d');
+
+function parseETTime(iso) {
+    const m = iso.match(/T(\d{2}):(\d{2})/);
+    return m ? `${m[1]}:${m[2]}` : iso;
+}
+
+async function loadData() {
+    // INLINE DATA — no chart_server needed
+    DATA = {"symbol": "IXIC", "date": "2026-03-20", "interval": "2h", "timezone": "US/Eastern", "sma_period": 884, "outfit": "56 Reversal (28/55/111/221/442/884)", "candles": [{"time": "2026-03-13T15:30:00+00:00", "open": 24660.19, "high": 24786.65, "low": 24448.29, "close": 24452.33, "volume": 34833950, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "15:30", "date_str": "2026-03-13"}, {"time": "2026-03-13T17:30:00+00:00", "open": 24452.59, "high": 24477.31, "low": 24375.47, "close": 24435.34, "volume": 18163670, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "17:30", "date_str": "2026-03-13"}, {"time": "2026-03-13T19:30:00+00:00", "open": 24435.69, "high": 24453.5, "low": 24340.55, "close": 24359.09, "volume": 15195800, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "19:30", "date_str": "2026-03-13"}, {"time": "2026-03-13T20:00:00+00:00", "open": 24359.96, "high": 24385.82, "low": 24336.53, "close": 24379.77, "volume": 9000150, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "20:00", "date_str": "2026-03-13"}, {"time": "2026-03-16T15:30:00+00:00", "open": 24646.18, "high": 24742.74, "low": 24606.66, "close": 24700.64, "volume": 33436080, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "15:30", "date_str": "2026-03-16"}, {"time": "2026-03-16T17:30:00+00:00", "open": 24700.36, "high": 24721.34, "low": 24606.46, "close": 24681.46, "volume": 17722150, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "17:30", "date_str": "2026-03-16"}, {"time": "2026-03-16T19:30:00+00:00", "open": 24681.37, "high": 24794.29, "low": 24637.99, "close": 24664.32, "volume": 16450000, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "19:30", "date_str": "2026-03-16"}, {"time": "2026-03-16T20:00:00+00:00", "open": 24663.83, "high": 24675.27, "low": 24619.95, "close": 24655.98, "volume": 8618390, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "20:00", "date_str": "2026-03-16"}, {"time": "2026-03-17T15:30:00+00:00", "open": 24760.27, "high": 24884.68, "low": 24749.01, "close": 24781.84, "volume": 37820090, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "15:30", "date_str": "2026-03-17"}, {"time": "2026-03-17T17:30:00+00:00", "open": 24781.42, "high": 24804.5, "low": 24721.56, "close": 24787.28, "volume": 16666940, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "17:30", "date_str": "2026-03-17"}, {"time": "2026-03-17T19:30:00+00:00", "open": 24787.46, "high": 24825.17, "low": 24751.62, "close": 24776.94, "volume": 16144130, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "19:30", "date_str": "2026-03-17"}, {"time": "2026-03-17T20:00:00+00:00", "open": 24777.05, "high": 24796.34, "low": 24763.8, "close": 24783.94, "volume": 8937980, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "20:00", "date_str": "2026-03-17"}, {"time": "2026-03-18T15:30:00+00:00", "open": 24727.07, "high": 24763.58, "low": 24591.64, "close": 24664.4, "volume": 44265530, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "15:30", "date_str": "2026-03-18"}, {"time": "2026-03-18T17:30:00+00:00", "open": 24663.67, "high": 24687.29, "low": 24572.22, "close": 24604.77, "volume": 15670620, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "17:30", "date_str": "2026-03-18"}, {"time": "2026-03-18T19:30:00+00:00", "open": 24604.98, "high": 24683.99, "low": 24486.07, "close": 24495.93, "volume": 17153770, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "19:30", "date_str": "2026-03-18"}, {"time": "2026-03-18T20:00:00+00:00", "open": 24496.19, "high": 24513.65, "low": 24417.38, "close": 24425.25, "volume": 9286360, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "20:00", "date_str": "2026-03-18"}, {"time": "2026-03-19T15:30:00+00:00", "open": 24119.37, "high": 24355.48, "low": 24100.88, "close": 24247.98, "volume": 38910230, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "15:30", "date_str": "2026-03-19"}, {"time": "2026-03-19T17:30:00+00:00", "open": 24246.69, "high": 24299.92, "low": 24166.05, "close": 24231.99, "volume": 15764950, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "17:30", "date_str": "2026-03-19"}, {"time": "2026-03-19T19:30:00+00:00", "open": 24231.83, "high": 24462.15, "low": 24196.4, "close": 24372.48, "volume": 16275670, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "19:30", "date_str": "2026-03-19"}, {"time": "2026-03-19T20:00:00+00:00", "open": 24373.07, "high": 24387.39, "low": 24326.41, "close": 24355.01, "volume": 8657950, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "20:00", "date_str": "2026-03-19"}, {"time": "2026-03-20T15:30:00+00:00", "open": 24257.56, "high": 24267.33, "low": 24022.77, "close": 24055.33, "volume": 36209140, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "15:30", "date_str": "2026-03-20"}, {"time": "2026-03-20T17:30:00+00:00", "open": 24055.58, "high": 24140.32, "low": 24018.76, "close": 24022.05, "volume": 14511890, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "17:30", "date_str": "2026-03-20"}, {"time": "2026-03-20T19:30:00+00:00", "open": 24022.29, "high": 24028.82, "low": 23835.55, "close": 23843.78, "volume": 16688010, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "19:30", "date_str": "2026-03-20"}, {"time": "2026-03-20T20:00:00+00:00", "open": 23844.86, "high": 23903.81, "low": 23759.97, "close": 23903.81, "volume": 13087610, "up_volume": 0, "down_volume": 0, "up_ticks": 0, "down_ticks": 0, "total_ticks": 0, "time_et": "20:00", "date_str": "2026-03-20"}], "sma_lines": {"28": [{"time": "2026-03-13T15:30:00+00:00", "value": 24848.38}, {"time": "2026-03-13T17:30:00+00:00", "value": 24823.41}, {"time": "2026-03-13T19:30:00+00:00", "value": 24796.34}, {"time": "2026-03-13T20:00:00+00:00", "value": 24770.98}, {"time": "2026-03-16T15:30:00+00:00", "value": 24762.55}, {"time": "2026-03-16T17:30:00+00:00", "value": 24759.66}, {"time": "2026-03-16T19:30:00+00:00", "value": 24750.48}, {"time": "2026-03-16T20:00:00+00:00", "value": 24737.44}, {"time": "2026-03-17T15:30:00+00:00", "value": 24736.38}, {"time": "2026-03-17T17:30:00+00:00", "value": 24735.83}, {"time": "2026-03-17T19:30:00+00:00", "value": 24741.26}, {"time": "2026-03-17T20:00:00+00:00", "value": 24746.46}, {"time": "2026-03-18T15:30:00+00:00", "value": 24748.15}, {"time": "2026-03-18T17:30:00+00:00", "value": 24748.88}, {"time": "2026-03-18T19:30:00+00:00", "value": 24733.59}, {"time": "2026-03-18T20:00:00+00:00", "value": 24714.23}, {"time": "2026-03-19T15:30:00+00:00", "value": 24683.27}, {"time": "2026-03-19T17:30:00+00:00", "value": 24649.27}, {"time": "2026-03-19T19:30:00+00:00", "value": 24628.22}, {"time": "2026-03-19T20:00:00+00:00", "value": 24606.65}, {"time": "2026-03-20T15:30:00+00:00", "value": 24575.96}, {"time": "2026-03-20T17:30:00+00:00", "value": 24541.64}, {"time": "2026-03-20T19:30:00+00:00", "value": 24503.47}, {"time": "2026-03-20T20:00:00+00:00", "value": 24465.65}], "55": [{"time": "2026-03-13T15:30:00+00:00", "value": 24897.03}, {"time": "2026-03-13T17:30:00+00:00", "value": 24893.05}, {"time": "2026-03-13T19:30:00+00:00", "value": 24886.55}, {"time": "2026-03-13T20:00:00+00:00", "value": 24876.02}, {"time": "2026-03-16T15:30:00+00:00", "value": 24871.23}, {"time": "2026-03-16T17:30:00+00:00", "value": 24866.43}, {"time": "2026-03-16T19:30:00+00:00", "value": 24860.69}, {"time": "2026-03-16T20:00:00+00:00", "value": 24849.88}, {"time": "2026-03-17T15:30:00+00:00", "value": 24840.68}, {"time": "2026-03-17T17:30:00+00:00", "value": 24831.02}, {"time": "2026-03-17T19:30:00+00:00", "value": 24820.91}, {"time": "2026-03-17T20:00:00+00:00", "value": 24816.66}, {"time": "2026-03-18T15:30:00+00:00", "value": 24812.82}, {"time": "2026-03-18T17:30:00+00:00", "value": 24805.96}, {"time": "2026-03-18T19:30:00+00:00", "value": 24796.15}, {"time": "2026-03-18T20:00:00+00:00", "value": 24787.03}, {"time": "2026-03-19T15:30:00+00:00", "value": 24775.75}, {"time": "2026-03-19T17:30:00+00:00", "value": 24762.94}, {"time": "2026-03-19T19:30:00+00:00", "value": 24752.28}, {"time": "2026-03-19T20:00:00+00:00", "value": 24743.57}, {"time": "2026-03-20T15:30:00+00:00", "value": 24726.48}, {"time": "2026-03-20T17:30:00+00:00", "value": 24709.99}, {"time": "2026-03-20T19:30:00+00:00", "value": 24689.16}, {"time": "2026-03-20T20:00:00+00:00", "value": 24676.77}], "111": [{"time": "2026-03-13T15:30:00+00:00", "value": 24932.79}, {"time": "2026-03-13T17:30:00+00:00", "value": 24920.95}, {"time": "2026-03-13T19:30:00+00:00", "value": 24908.52}, {"time": "2026-03-13T20:00:00+00:00", "value": 24899.44}, {"time": "2026-03-16T15:30:00+00:00", "value": 24894.71}, {"time": "2026-03-16T17:30:00+00:00", "value": 24889.81}, {"time": "2026-03-16T19:30:00+00:00", "value": 24883.72}, {"time": "2026-03-16T20:00:00+00:00", "value": 24880.37}, {"time": "2026-03-17T15:30:00+00:00", "value": 24879.82}, {"time": "2026-03-17T17:30:00+00:00", "value": 24878.28}, {"time": "2026-03-17T19:30:00+00:00", "value": 24877.21}, {"time": "2026-03-17T20:00:00+00:00", "value": 24878.17}, {"time": "2026-03-18T15:30:00+00:00", "value": 24878.44}, {"time": "2026-03-18T17:30:00+00:00", "value": 24879.03}, {"time": "2026-03-18T19:30:00+00:00", "value": 24878.49}, {"time": "2026-03-18T20:00:00+00:00", "value": 24874.09}, {"time": "2026-03-19T15:30:00+00:00", "value": 24867.31}, {"time": "2026-03-19T17:30:00+00:00", "value": 24860.2}, {"time": "2026-03-19T19:30:00+00:00", "value": 24853.91}, {"time": "2026-03-19T20:00:00+00:00", "value": 24845.69}, {"time": "2026-03-20T15:30:00+00:00", "value": 24834.88}, {"time": "2026-03-20T17:30:00+00:00", "value": 24823.58}, {"time": "2026-03-20T19:30:00+00:00", "value": 24810.81}, {"time": "2026-03-20T20:00:00+00:00", "value": 24798.54}], "221": [{"time": "2026-03-13T15:30:00+00:00", "value": 25251.84}, {"time": "2026-03-13T17:30:00+00:00", "value": 25247.72}, {"time": "2026-03-13T19:30:00+00:00", "value": 25242.65}, {"time": "2026-03-13T20:00:00+00:00", "value": 25237.77}, {"time": "2026-03-16T15:30:00+00:00", "value": 25234.36}, {"time": "2026-03-16T17:30:00+00:00", "value": 25230.86}, {"time": "2026-03-16T19:30:00+00:00", "value": 25227.02}, {"time": "2026-03-16T20:00:00+00:00", "value": 25223.03}, {"time": "2026-03-17T15:30:00+00:00", "value": 25219.48}, {"time": "2026-03-17T17:30:00+00:00", "value": 25215.89}, {"time": "2026-03-17T19:30:00+00:00", "value": 25212.03}, {"time": "2026-03-17T20:00:00+00:00", "value": 25208.09}, {"time": "2026-03-18T15:30:00+00:00", "value": 25203.6}, {"time": "2026-03-18T17:30:00+00:00", "value": 25198.79}, {"time": "2026-03-18T19:30:00+00:00", "value": 25193.55}, {"time": "2026-03-18T20:00:00+00:00", "value": 25187.98}, {"time": "2026-03-19T15:30:00+00:00", "value": 25181.65}, {"time": "2026-03-19T17:30:00+00:00", "value": 25175.95}, {"time": "2026-03-19T19:30:00+00:00", "value": 25170.9}, {"time": "2026-03-19T20:00:00+00:00", "value": 25165.55}, {"time": "2026-03-20T15:30:00+00:00", "value": 25158.89}, {"time": "2026-03-20T17:30:00+00:00", "value": 25151.94}, {"time": "2026-03-20T19:30:00+00:00", "value": 25144.33}, {"time": "2026-03-20T20:00:00+00:00", "value": 25137.14}], "442": [{"time": "2026-03-13T15:30:00+00:00", "value": 25219.3}, {"time": "2026-03-13T17:30:00+00:00", "value": 25218.41}, {"time": "2026-03-13T19:30:00+00:00", "value": 25217.24}, {"time": "2026-03-13T20:00:00+00:00", "value": 25216.04}, {"time": "2026-03-16T15:30:00+00:00", "value": 25215.6}, {"time": "2026-03-16T17:30:00+00:00", "value": 25215.05}, {"time": "2026-03-16T19:30:00+00:00", "value": 25214.69}, {"time": "2026-03-16T20:00:00+00:00", "value": 25214.38}, {"time": "2026-03-17T15:30:00+00:00", "value": 25214.37}, {"time": "2026-03-17T17:30:00+00:00", "value": 25213.99}, {"time": "2026-03-17T19:30:00+00:00", "value": 25213.45}, {"time": "2026-03-17T20:00:00+00:00", "value": 25212.93}, {"time": "2026-03-18T15:30:00+00:00", "value": 25212.23}, {"time": "2026-03-18T17:30:00+00:00", "value": 25211.64}, {"time": "2026-03-18T19:30:00+00:00", "value": 25210.84}, {"time": "2026-03-18T20:00:00+00:00", "value": 25209.92}, {"time": "2026-03-19T15:30:00+00:00", "value": 25208.59}, {"time": "2026-03-19T17:30:00+00:00", "value": 25206.78}, {"time": "2026-03-19T19:30:00+00:00", "value": 25205.21}, {"time": "2026-03-19T20:00:00+00:00", "value": 25203.5}, {"time": "2026-03-20T15:30:00+00:00", "value": 25201.06}, {"time": "2026-03-20T17:30:00+00:00", "value": 25198.77}, {"time": "2026-03-20T19:30:00+00:00", "value": 25196.2}, {"time": "2026-03-20T20:00:00+00:00", "value": 25193.56}], "884": [{"time": "2026-03-13T15:30:00+00:00", "value": 23885.48}, {"time": "2026-03-13T17:30:00+00:00", "value": 23891.48}, {"time": "2026-03-13T19:30:00+00:00", "value": 23897.4}, {"time": "2026-03-13T20:00:00+00:00", "value": 23903.25}, {"time": "2026-03-16T15:30:00+00:00", "value": 23909.42}, {"time": "2026-03-16T17:30:00+00:00", "value": 23915.34}, {"time": "2026-03-16T19:30:00+00:00", "value": 23921.32}, {"time": "2026-03-16T20:00:00+00:00", "value": 23927.23}, {"time": "2026-03-17T15:30:00+00:00", "value": 23933.53}, {"time": "2026-03-17T17:30:00+00:00", "value": 23939.88}, {"time": "2026-03-17T19:30:00+00:00", "value": 23945.96}, {"time": "2026-03-17T20:00:00+00:00", "value": 23952.02}, {"time": "2026-03-18T15:30:00+00:00", "value": 23957.92}, {"time": "2026-03-18T17:30:00+00:00", "value": 23963.74}, {"time": "2026-03-18T19:30:00+00:00", "value": 23969.34}, {"time": "2026-03-18T20:00:00+00:00", "value": 23974.87}, {"time": "2026-03-19T15:30:00+00:00", "value": 23980.45}, {"time": "2026-03-19T17:30:00+00:00", "value": 23985.97}, {"time": "2026-03-19T19:30:00+00:00", "value": 23991.62}, {"time": "2026-03-19T20:00:00+00:00", "value": 23997.02}, {"time": "2026-03-20T15:30:00+00:00", "value": 24001.63}, {"time": "2026-03-20T17:30:00+00:00", "value": 24006.29}, {"time": "2026-03-20T19:30:00+00:00", "value": 24010.73}, {"time": "2026-03-20T20:00:00+00:00", "value": 24015.4}]}, "top_outfit": "56 Reversal (28/55/111/221/442/884)", "interactions": [], "rankings": [{"outfit": "DJI (30/60/90/300/600/900)", "hits": 2, "periods": [30, 60, 90, 300, 600, 900]}, {"outfit": "AN (33/66/99/333/666/999)", "hits": 2, "periods": [33, 66, 99, 333, 666, 999]}, {"outfit": "Turkey President (24/48/96/192/384/768)", "hits": 2, "periods": [24, 48, 96, 192, 384, 768]}, {"outfit": "Time/365 (23/46/91/183/365/730)", "hits": 1, "periods": [23, 46, 91, 183, 365, 730]}, {"outfit": "Time/366 (23/46/92/183/366/732)", "hits": 1, "periods": [23, 46, 92, 183, 366, 732]}, {"outfit": "Resource Missing/404 (25/51/101/202/404/808)", "hits": 1, "periods": [25, 51, 101, 202, 404, 808]}, {"outfit": "US President/45 (29/57/114/227/455/911)", "hits": 1, "periods": [29, 57, 114, 227, 455, 911]}, {"outfit": "US President/46 (23/46/92/184/368/736)", "hits": 1, "periods": [23, 46, 92, 184, 368, 736]}, {"outfit": "US President/47 (24/47/94/188/376/752)", "hits": 1, "periods": [24, 47, 94, 188, 376, 752]}, {"outfit": "WTC/911 (28/57/114/228/456/911)", "hits": 1, "periods": [28, 57, 114, 228, 456, 911]}, {"outfit": "France President (25/50/100/200/400/600)", "hits": 1, "periods": [25, 50, 100, 200, 400, 600]}, {"outfit": "Apple Cipher (31/61/122/244/446/668)", "hits": 1, "periods": [31, 61, 122, 244, 446, 668]}], "ma720_analysis": [{"time": "2026-03-20T15:30:00+00:00", "time_et": "15:30", "open": 24257.56, "high": 24267.33, "low": 24022.77, "close": 24055.33, "ma884": 24001.63, "ma720": 24001.63, "min_distance": 21.14, "spans_ma": false, "volume": 36209140, "vol_ratio": 1.81, "avg_trade_size": 0, "trade_size_sigma": 0, "up_volume": 0, "down_volume": 0, "net_delta": 0, "delta_pct": 0.0, "up_ticks": 0, "down_ticks": 0, "ticks_total": 0, "scores": {"absorption": {"score": 0.0, "absorbed": false, "delta_pct": 0.0, "vol_ratio": 1.81}, "rejection_wick": {"score": 0.0, "wick_below": false, "closed_above": true}, "volume_concentration": {"score": 0.755, "pct_of_day": 7.55}, "trade_size": {"score": 0.0, "sigma": 0, "avg_trade": 0, "day_avg": 0}, "_composite": 0.151, "_max": 1.0}}, {"time": "2026-03-20T17:30:00+00:00", "time_et": "17:30", "open": 24055.58, "high": 24140.32, "low": 24018.76, "close": 24022.05, "ma884": 24006.29, "ma720": 24006.29, "min_distance": 12.47, "spans_ma": false, "volume": 14511890, "vol_ratio": 0.73, "avg_trade_size": 0, "trade_size_sigma": 0, "up_volume": 0, "down_volume": 0, "net_delta": 0, "delta_pct": 0.0, "up_ticks": 0, "down_ticks": 0, "ticks_total": 0, "scores": {"absorption": {"score": 0.0, "absorbed": false, "delta_pct": 0.0, "vol_ratio": 0.73}, "rejection_wick": {"score": 0.0, "wick_below": false, "closed_above": true}, "volume_concentration": {"score": 0.202, "pct_of_day": 3.03}, "trade_size": {"score": 0.0, "sigma": 0, "avg_trade": 0, "day_avg": 0}, "_composite": 0.04, "_max": 1.0}}, {"time": "2026-03-20T19:30:00+00:00", "time_et": "19:30", "open": 24022.29, "high": 24028.82, "low": 23835.55, "close": 23843.78, "ma884": 24010.73, "ma720": 24010.73, "min_distance": 11.56, "spans_ma": true, "volume": 16688010, "vol_ratio": 0.84, "avg_trade_size": 0, "trade_size_sigma": 0, "up_volume": 0, "down_volume": 0, "net_delta": 0, "delta_pct": 0.0, "up_ticks": 0, "down_ticks": 0, "ticks_total": 0, "scores": {"absorption": {"score": 0.0, "absorbed": false, "delta_pct": 0.0, "vol_ratio": 0.84}, "rejection_wick": {"score": 0.0, "wick_below": true, "closed_above": false}, "volume_concentration": {"score": 0.232, "pct_of_day": 3.48}, "trade_size": {"score": 0.0, "sigma": 0, "avg_trade": 0, "day_avg": 0}, "_composite": 0.046, "_max": 1.0}}], "ma720_baselines": {"day_avg_volume": 19977961.0, "day_total_volume": 479471060, "day_avg_trade_size": 0, "day_std_trade_size": 0.0, "proximity_dollars": 50.0}};
+
+    document.getElementById('headerTitle').innerHTML =
+        'IXIC — <span>56 Reversal (28/55/111/221/442/884) MA884</span> — PRECISION_BUY_ALGORITHM [2h]';
+    document.getElementById('headerMeta').textContent =
+        `${DATA.date} | 2h | ${DATA.candles.length} bars | US/Eastern`;
+    document.title = 'IXIC MA884 2h — 56 Reversal';
+
+    if (!DATA.candles || DATA.candles.length === 0) {
+        document.querySelector('.chart-area').innerHTML =
+            '<div class="no-data"><div>No bar data found for IXIC 2h</div></div>';
+        return;
+    }
+    init();
+}
+
+
+function init() {
+    const analysis = DATA.ma720_analysis || [];
+    const baselines = DATA.ma720_baselines || {};
+
+    const smaPeriod = DATA.sma_period || '720';
+    document.getElementById('headerMeta').textContent =
+        `${DATA.date} | ${DATA.interval} | ${DATA.candles.length} bars | US/Eastern`;
+    document.getElementById('sidebarTitle').textContent =
+        `MA${smaPeriod} Level — Institutional Activity`;
+    document.getElementById('barsAtLabel').textContent =
+        `Bars at MA${smaPeriod} (±$0.25)`;
+
+    document.getElementById('sbInterval').textContent = DATA.interval;
+    document.getElementById('sbBars').textContent = DATA.candles.length;
+    document.getElementById('sbTZ').textContent = 'US/Eastern';
+    document.getElementById('sbInteractions').textContent = DATA.interactions.length;
+    document.getElementById('sbAtLevel').textContent = analysis.length;
+
+    // Stat cards — reversal absorption metrics
+    const totalVol = analysis.reduce((s, b) => s + b.volume, 0);
+    const totalUp = analysis.reduce((s, b) => s + b.up_volume, 0);
+    const totalDown = analysis.reduce((s, b) => s + b.down_volume, 0);
+    const absorbedBars = analysis.filter(b => b.scores && b.scores.absorption && b.scores.absorption.absorbed).length;
+    const wickBars = analysis.filter(b => b.scores && b.scores.rejection_wick && b.scores.rejection_wick.wick_below && b.scores.rejection_wick.closed_above).length;
+    const bestComposite = analysis.length > 0
+        ? Math.max(...analysis.map(b => (b.scores && b.scores._composite) || 0)) : 0;
+    const dayVol = baselines.day_total_volume || 1;
+    const volConc = (totalVol / dayVol * 100);
+
+    document.getElementById('statGrid').innerHTML = `
+        <div class="stat-card">
+            <div class="stat-value ${absorbedBars > 0 ? 'green' : ''}">${absorbedBars}</div>
+            <div class="stat-label">Absorption bars</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value ${wickBars > 0 ? 'green' : ''}">${wickBars}</div>
+            <div class="stat-label">Rejection wicks</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value gold">${volConc.toFixed(1)}%</div>
+            <div class="stat-label">Day vol at level</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${(totalVol/1000).toFixed(0)}K</div>
+            <div class="stat-label">Volume at MA720</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value red">${((totalUp-totalDown)/1000).toFixed(0)}K</div>
+            <div class="stat-label">Net delta (sellers)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value ${bestComposite >= 0.3 ? 'green' : ''}">${bestComposite.toFixed(3)}</div>
+            <div class="stat-label">Best composite</div>
+        </div>
+    `;
+
+    // Bar list — reversal signals
+    const barEl = document.getElementById('barList');
+    barEl.innerHTML = analysis.map(b => {
+        const s = b.scores || {};
+        const flags = [];
+        if (s.absorption && s.absorption.absorbed) flags.push('<span class="flag-tag buy">ABSORBED</span>');
+        if (s.rejection_wick && s.rejection_wick.wick_below && s.rejection_wick.closed_above) flags.push('<span class="flag-tag buy">WICK REJECT</span>');
+        if (b.vol_ratio >= 1.5) flags.push('<span class="flag-tag vol">HIGH VOL</span>');
+        if (b.trade_size_sigma >= 1.0) flags.push('<span class="flag-tag big">LG TRADES</span>');
+        const composite = s._composite || 0;
+        const highlight = composite > 0.1;
+        return `<div class="bar-row ${highlight ? 'highlight' : ''}">
+            <div class="bar-time">${b.time_et}</div>
+            <div class="bar-vol">${(b.volume/1000).toFixed(1)}K</div>
+            <div class="bar-delta" style="color:${b.delta_pct>0?'#26a69a':'#ef5350'}">${b.delta_pct>0?'+':''}${b.delta_pct}%</div>
+            <div style="width:45px;text-align:right;font-family:monospace;color:${composite>0.2?'#26a69a':'#666'}">${composite.toFixed(3)}</div>
+            <div class="bar-flags">${flags.join('')}</div>
+        </div>`;
+    }).join('') || '<div style="color:#555;">No bars near MA720</div>';
+
+    // Outfits
+    document.getElementById('outfitList').innerHTML = DATA.rankings.slice(0, 8).map((r, i) =>
+        `<div class="outfit-row ${i === 0 ? 'top' : ''}">
+            <div class="outfit-rank">${i+1}</div>
+            <div class="outfit-name">${r.outfit}</div>
+            <div class="outfit-hits">${r.hits}</div>
+        </div>`
+    ).join('');
+
+    // SMA legend
+    const periods = Object.keys(DATA.sma_lines).sort((a, b) => +a - +b);
+    document.getElementById('smaLegend').innerHTML = periods.map((p, i) => {
+        const vals = DATA.sma_lines[p];
+        const last = vals[vals.length - 1].value;
+        return `<div class="sma-item">
+            <div class="sma-dot" style="background:${SMA_COLORS[i % SMA_COLORS.length]}"></div>
+            <div>MA${p}</div>
+            <div class="sma-val">$${last.toFixed(2)}</div>
+        </div>`;
+    }).join('');
+
+    resize();
+    window.addEventListener('resize', resize);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseleave', onMouseLeave);
+}
+
+function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = (rect.height - 30) * dpr;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = (rect.height - 30) + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    chartW = rect.width;
+    chartH = rect.height - 30;
+    plotW = chartW - CHART_PAD.left - CHART_PAD.right;
+    plotH = chartH - CHART_PAD.top - CHART_PAD.bottom;
+    computeScales();
+    draw();
+}
+
+function computeScales() {
+    if (!DATA) return;
+    let lo = Infinity, hi = -Infinity;
+    for (const c of DATA.candles) { if (c.low < lo) lo = c.low; if (c.high > hi) hi = c.high; }
+    for (const p of Object.keys(DATA.sma_lines))
+        for (const v of DATA.sma_lines[p])
+            { if (v.value < lo) lo = v.value; if (v.value > hi) hi = v.value; }
+    const pad = (hi - lo) * 0.05;
+    priceMin = lo - pad; priceMax = hi + pad; priceRange = priceMax - priceMin;
+    const n = DATA.candles.length;
+    barWidth = Math.max(4, Math.floor(plotW / n * 0.6));
+    barGap = (plotW - barWidth * n) / (n + 1);
+}
+
+function pY(p) { return CHART_PAD.top + plotH * (1 - (p - priceMin) / priceRange); }
+function bX(i) { return CHART_PAD.left + barGap + i * (barWidth + barGap); }
+
+function draw() {
+    if (!DATA) return;
+    ctx.clearRect(0, 0, chartW, chartH);
+    drawGrid();
+    drawMA720Zone();
+    drawSMALines();
+    drawCandles();
+    drawBuyBubbles();
+    drawInteractions();
+    drawPriceAxis();
+    drawTimeAxis();
+}
+
+function drawGrid() {
+    ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 8; i++) {
+        const y = CHART_PAD.top + (plotH / 8) * i;
+        ctx.beginPath(); ctx.moveTo(CHART_PAD.left, y); ctx.lineTo(chartW - CHART_PAD.right, y); ctx.stroke();
+    }
+}
+
+function drawMA720Zone() {
+    // Draw a horizontal band at MA720 ± proximity
+    const analysis = DATA.ma720_analysis || [];
+    if (!analysis.length) return;
+    const ma = analysis[0].ma720;
+    const band = DATA.ma720_baselines.proximity_dollars || 0.25;
+    const yTop = pY(ma + band);
+    const yBot = pY(ma - band);
+
+    ctx.fillStyle = 'rgba(38, 166, 154, 0.04)';
+    ctx.fillRect(CHART_PAD.left, yTop, plotW, yBot - yTop);
+
+    // MA720 line
+    ctx.strokeStyle = 'rgba(38, 166, 154, 0.3)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(CHART_PAD.left, pY(ma));
+    ctx.lineTo(chartW - CHART_PAD.right, pY(ma));
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Label
+    ctx.font = '10px system-ui';
+    ctx.fillStyle = '#26a69a';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText(`MA${DATA.sma_period || '720'} $${ma.toFixed(2)}`, CHART_PAD.left + 4, pY(ma) - 3);
+}
+
+function drawSMALines() {
+    const periods = Object.keys(DATA.sma_lines).sort((a, b) => +a - +b);
+    const timeToIdx = {};
+    DATA.candles.forEach((c, i) => { timeToIdx[c.time] = i; });
+
+    periods.forEach((p, pi) => {
+        const color = SMA_COLORS[pi % SMA_COLORS.length];
+        const vals = DATA.sma_lines[p];
+        ctx.strokeStyle = color;
+        const isTarget = p === String(DATA.sma_period || '720');
+        ctx.lineWidth = isTarget ? 2 : 1.2;
+        ctx.globalAlpha = isTarget ? 0.9 : 0.5;
+        ctx.beginPath();
+        let started = false;
+        for (const v of vals) {
+            const idx = timeToIdx[v.time];
+            if (idx === undefined) continue;
+            const x = bX(idx) + barWidth / 2;
+            const y = pY(v.value);
+            if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        ctx.globalAlpha = 1.0;
+    });
+}
+
+function drawCandles() {
+    for (let i = 0; i < DATA.candles.length; i++) {
+        const c = DATA.candles[i];
+        const x = bX(i), mid = x + barWidth / 2;
+        const bull = c.close >= c.open;
+        const bTop = pY(Math.max(c.open, c.close));
+        const bBot = pY(Math.min(c.open, c.close));
+
+        ctx.strokeStyle = bull ? '#26a69a' : '#ef5350';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(mid, pY(c.high)); ctx.lineTo(mid, pY(c.low)); ctx.stroke();
+        ctx.fillStyle = bull ? '#26a69a' : '#ef5350';
+        ctx.fillRect(x, bTop, barWidth, Math.max(1, bBot - bTop));
+    }
+}
+
+function drawBuyBubbles() {
+    const analysis = DATA.ma720_analysis || [];
+    if (!analysis.length) return;
+    const timeToIdx = {};
+    DATA.candles.forEach((c, i) => { timeToIdx[c.time] = i; });
+
+    for (const b of analysis) {
+        const idx = timeToIdx[b.time];
+        if (idx === undefined) continue;
+
+        const s = b.scores || {};
+        const composite = s._composite || 0;
+        if (composite <= 0) continue;  // skip bars with no signal
+
+        const x = bX(idx) + barWidth / 2;
+        const y = pY(b.ma720);
+
+        // Bubble size scales with composite score
+        const r = Math.min(35, Math.max(12, composite * 60 + 10));
+        const alpha = Math.min(0.55, 0.1 + composite * 0.8);
+
+        // Green for absorption/reversal
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, r + 12);
+        grad.addColorStop(0, `rgba(38, 166, 154, ${alpha})`);
+        grad.addColorStop(1, 'rgba(38, 166, 154, 0)');
+        ctx.beginPath();
+        ctx.arc(x, y, r + 12, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(38, 166, 154, ${alpha * 0.6})`;
+        ctx.fill();
+        ctx.strokeStyle = `rgba(38, 166, 154, ${Math.min(0.8, alpha + 0.2)})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Label: show what signals fired
+        const labels = [];
+        if (s.absorption && s.absorption.absorbed) labels.push('ABS');
+        if (s.rejection_wick && s.rejection_wick.score > 0) labels.push('WCK');
+        if (b.vol_ratio >= 1.5) labels.push(`${b.vol_ratio.toFixed(1)}x`);
+
+        if (labels.length) {
+            ctx.font = 'bold 8px system-ui';
+            ctx.fillStyle = '#26a69a';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(labels.join(' '), x, y);
+        }
+    }
+}
+
+function drawInteractions() {
+    const timeToIdx = {};
+    DATA.candles.forEach((c, i) => { timeToIdx[c.time] = i; });
+
+    const grouped = {};
+    for (const ix of DATA.interactions) {
+        const key = `${ix.time}|${ix.price}`;
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(ix);
+    }
+
+    for (const key of Object.keys(grouped)) {
+        const items = grouped[key];
+        const ix = items[0];
+        const idx = timeToIdx[ix.time];
+        if (idx === undefined) continue;
+
+        const x = bX(idx) + barWidth / 2;
+        const y = pY(ix.price);
+        const isTop = ix.outfit === DATA.top_outfit;
+        const r = isTop ? 5 : 3;
+
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = isTop ? '#ffd700' : 'rgba(100,200,255,0.4)';
+        ctx.globalAlpha = 0.8;
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+
+        if (items.length > 1) {
+            ctx.font = '8px system-ui'; ctx.fillStyle = '#000';
+            ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.fillText(items.length, x, y);
+        }
+    }
+}
+
+function drawPriceAxis() {
+    ctx.fillStyle = '#444'; ctx.font = '10px monospace';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (let i = 0; i <= 8; i++) {
+        const price = priceMin + (priceRange / 8) * (8 - i);
+        ctx.fillText('$' + price.toFixed(2), chartW - 6, CHART_PAD.top + (plotH / 8) * i);
+    }
+}
+
+function drawTimeAxis() {
+    ctx.fillStyle = '#444'; ctx.font = '10px system-ui';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    const step = Math.max(1, Math.floor(DATA.candles.length / 8));
+    for (let i = 0; i < DATA.candles.length; i += step) {
+        const x = bX(i) + barWidth / 2;
+        ctx.fillText(parseETTime(DATA.candles[i].time) + ' ET', x, chartH - CHART_PAD.bottom + 6);
+    }
+}
+
+function onMouseMove(e) {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+
+    document.getElementById('crossX').style.cssText =
+        `display:block;left:${mx + rect.left - canvas.parentElement.getBoundingClientRect().left}px;top:${CHART_PAD.top}px;height:${plotH}px;`;
+    document.getElementById('crossY').style.cssText =
+        `display:block;top:${my}px;left:${CHART_PAD.left}px;width:${plotW}px;`;
+
+    let closest = -1, closestDist = Infinity;
+    DATA.candles.forEach((c, i) => {
+        const d = Math.abs(mx - (bX(i) + barWidth / 2));
+        if (d < closestDist) { closestDist = d; closest = i; }
+    });
+
+    if (closest >= 0 && closestDist < barWidth * 2) {
+        const c = DATA.candles[closest];
+        const timeStr = parseETTime(c.time) + ' ET';
+
+        // Interactions
+        const barIx = DATA.interactions.filter(ix => ix.time === c.time);
+        let ixHtml = '';
+        if (barIx.length) {
+            ixHtml = `<div style="margin-top:5px;padding-top:5px;border-top:1px solid #222;">
+                <div style="color:#ffd700;font-weight:600;font-size:10px;">Penny Interactions (${barIx.length})</div>
+                ${barIx.map(ix => `<div style="font-size:10px;color:#888;">${ix.ohlc_field}=MA${ix.sma_period} $${ix.price} — ${ix.outfit}</div>`).join('')}
+            </div>`;
+        }
+
+        // MA720 bar data — reversal signals
+        const ma = (DATA.ma720_analysis || []).find(b => b.time === c.time);
+        let maHtml = '';
+        if (ma) {
+            const s = ma.scores || {};
+            const abs = s.absorption || {};
+            const wick = s.rejection_wick || {};
+            const conc = s.volume_concentration || {};
+            const trd = s.trade_size || {};
+            maHtml = `<div style="margin-top:5px;padding-top:5px;border-top:1px solid #222;">
+                <div style="color:#26a69a;font-weight:600;font-size:10px;">MA${DATA.sma_period || '720'} $${ma.ma720} — Institutional Signals</div>
+                <div style="font-size:10px;color:#aaa;line-height:1.6;">
+                    Volume: ${ma.volume.toLocaleString()} (${ma.vol_ratio.toFixed(1)}x avg)<br>
+                    Delta: <span style="color:#ef5350">${ma.delta_pct>0?'+':''}${ma.delta_pct}%</span>
+                    (sell=${ma.down_volume.toLocaleString()})<br>
+                    <span style="color:${abs.absorbed?'#26a69a':'#555'};">Absorption: ${abs.score ? abs.score.toFixed(3) : '—'}${abs.absorbed ? ' ✓ ABSORBED' : ''}</span><br>
+                    <span style="color:${wick.score>0?'#26a69a':'#555'};">Wick rejection: ${wick.score ? wick.score.toFixed(3) : '—'}${wick.wick_below && wick.closed_above ? ' ✓ REJECTED' : ''}</span><br>
+                    <span style="color:${conc.pct_of_day>5?'#ffd700':'#555'};">Vol concentration: ${conc.pct_of_day ? conc.pct_of_day.toFixed(1) : '—'}% of day</span><br>
+                    <span style="color:${trd.sigma>=1?'#6bc5ff':'#555'};">Trade size: ${trd.sigma ? trd.sigma.toFixed(1) : '—'}σ</span><br>
+                    <b style="color:#26a69a;">Composite: ${(s._composite || 0).toFixed(3)}</b>
+                </div>
+            </div>`;
+        }
+
+        const tt = document.getElementById('tooltip');
+        tt.innerHTML = `
+            <div class="tt-time">${timeStr}</div>
+            <div class="tt-ohlc">
+                <span class="tt-label">O</span><span>$${c.open.toFixed(2)}</span>
+                <span class="tt-label">H</span><span>$${c.high.toFixed(2)}</span>
+                <span class="tt-label">L</span><span>$${c.low.toFixed(2)}</span>
+                <span class="tt-label">C</span><span>$${c.close.toFixed(2)}</span>
+                <span class="tt-label">V</span><span>${c.volume.toLocaleString()}</span>
+            </div>${ixHtml}${maHtml}`;
+        tt.style.display = 'block';
+        let tx = mx + 16, ty = my - 10;
+        if (tx + 300 > chartW) tx = mx - 300;
+        if (ty + 250 > chartH) ty = chartH - 260;
+        tt.style.left = tx + 'px'; tt.style.top = ty + 'px';
+    } else {
+        document.getElementById('tooltip').style.display = 'none';
+    }
+}
+
+function onMouseLeave() {
+    document.getElementById('tooltip').style.display = 'none';
+    document.getElementById('crossX').style.display = 'none';
+    document.getElementById('crossY').style.display = 'none';
+}
+
+loadData();
+</script>
+</body>
+</html>

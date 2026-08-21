@@ -1,0 +1,439 @@
+{
+  "report_type": "eod_sma_report",
+  "generated_at": "2026-03-19T21:05:05.482023+00:00",
+  "lookback_days": 1,
+  "institutional_hours_only": true,
+  "total_matches": 921,
+  "outfit_ranking": [
+    {
+      "outfit": "Time/365 (23/46/91/183/365/730)",
+      "total": 48,
+      "long": 35,
+      "short": 13,
+      "l_minus_s": 22
+    },
+    {
+      "outfit": "AN (11/44/88/111/444/888)",
+      "total": 46,
+      "long": 30,
+      "short": 16,
+      "l_minus_s": 14
+    },
+    {
+      "outfit": "S&P (10/50/200)",
+      "total": 43,
+      "long": 33,
+      "short": 10,
+      "l_minus_s": 23
+    },
+    {
+      "outfit": "Base 2/NVDA (16/32/64/128/256/512)",
+      "total": 42,
+      "long": 31,
+      "short": 11,
+      "l_minus_s": 20
+    },
+    {
+      "outfit": "Russia 2000 (16/31/63/125/250/500)",
+      "total": 42,
+      "long": 30,
+      "short": 12,
+      "l_minus_s": 18
+    },
+    {
+      "outfit": "Time/366 (23/46/92/183/366/732)",
+      "total": 42,
+      "long": 30,
+      "short": 12,
+      "l_minus_s": 18
+    },
+    {
+      "outfit": "US President/46 (23/46/92/184/368/736)",
+      "total": 41,
+      "long": 30,
+      "short": 11,
+      "l_minus_s": 19
+    },
+    {
+      "outfit": "US President/47 (24/47/94/188/376/752)",
+      "total": 41,
+      "long": 28,
+      "short": 13,
+      "l_minus_s": 15
+    },
+    {
+      "outfit": "SVIX (26/52/106/211/422/844)",
+      "total": 40,
+      "long": 26,
+      "short": 14,
+      "l_minus_s": 12
+    },
+    {
+      "outfit": "Alphabet (25/50/100/200/400/800)",
+      "total": 39,
+      "long": 28,
+      "short": 11,
+      "l_minus_s": 17
+    },
+    {
+      "outfit": "France President (25/50/100/200/400/600)",
+      "total": 39,
+      "long": 28,
+      "short": 11,
+      "l_minus_s": 17
+    },
+    {
+      "outfit": "Turkey President (24/48/96/192/384/768)",
+      "total": 39,
+      "long": 29,
+      "short": 10,
+      "l_minus_s": 19
+    },
+    {
+      "outfit": "Regression (27/54/108/216/432/864)",
+      "total": 37,
+      "long": 27,
+      "short": 10,
+      "l_minus_s": 17
+    },
+    {
+      "outfit": "Resource Missing/404 (25/51/101/202/404/808)",
+      "total": 36,
+      "long": 27,
+      "short": 9,
+      "l_minus_s": 18
+    },
+    {
+      "outfit": "China Chair (28/56/112/224/448/976)",
+      "total": 35,
+      "long": 27,
+      "short": 8,
+      "l_minus_s": 19
+    },
+    {
+      "outfit": "Speaker House/56 (28/56/112/224/448/896)",
+      "total": 35,
+      "long": 26,
+      "short": 9,
+      "l_minus_s": 17
+    },
+    {
+      "outfit": "Waring's Problem (19/37/73/143/279/548)",
+      "total": 35,
+      "long": 26,
+      "short": 9,
+      "l_minus_s": 17
+    },
+    {
+      "outfit": "Time/1440 (18/36/72/144/288/576)",
+      "total": 33,
+      "long": 27,
+      "short": 6,
+      "l_minus_s": 21
+    },
+    {
+      "outfit": "DJI (30/60/90/300/600/900)",
+      "total": 32,
+      "long": 28,
+      "short": 4,
+      "l_minus_s": 24
+    },
+    {
+      "outfit": "TSLA (27/53/105/210/420/840)",
+      "total": 32,
+      "long": 25,
+      "short": 7,
+      "l_minus_s": 18
+    },
+    {
+      "outfit": "AN (22/55/77/222/555/777)",
+      "total": 31,
+      "long": 24,
+      "short": 7,
+      "l_minus_s": 17
+    },
+    {
+      "outfit": "US President/45 (29/57/114/227/455/911)",
+      "total": 31,
+      "long": 23,
+      "short": 8,
+      "l_minus_s": 15
+    },
+    {
+      "outfit": "WTC/911 (28/57/114/228/456/911)",
+      "total": 31,
+      "long": 22,
+      "short": 9,
+      "l_minus_s": 13
+    },
+    {
+      "outfit": "AN (33/66/99/333/666/999)",
+      "total": 28,
+      "long": 18,
+      "short": 10,
+      "l_minus_s": 8
+    },
+    {
+      "outfit": "NAS (20/100/250)",
+      "total": 23,
+      "long": 17,
+      "short": 6,
+      "l_minus_s": 11
+    }
+  ],
+  "ticker_ranking": [
+    {
+      "ticker": "AAPD",
+      "total": 304,
+      "long": 300,
+      "short": 4,
+      "l_minus_s": 296,
+      "dominant_outfit": "Turkey President (24/48/96/192/384/768)",
+      "dominant_outfit_count": 15
+    },
+    {
+      "ticker": "TSLT",
+      "total": 97,
+      "long": 67,
+      "short": 30,
+      "l_minus_s": 37,
+      "dominant_outfit": "SVIX (26/52/106/211/422/844)",
+      "dominant_outfit_count": 7
+    },
+    {
+      "ticker": "AAPU",
+      "total": 66,
+      "long": 20,
+      "short": 46,
+      "l_minus_s": -26,
+      "dominant_outfit": "Base 2/NVDA (16/32/64/128/256/512)",
+      "dominant_outfit_count": 5
+    },
+    {
+      "ticker": "TSLQ",
+      "total": 64,
+      "long": 46,
+      "short": 18,
+      "l_minus_s": 28,
+      "dominant_outfit": "AN (22/55/77/222/555/777)",
+      "dominant_outfit_count": 5
+    },
+    {
+      "ticker": "ENPH",
+      "total": 61,
+      "long": 39,
+      "short": 22,
+      "l_minus_s": 17,
+      "dominant_outfit": "Regression (27/54/108/216/432/864)",
+      "dominant_outfit_count": 7
+    },
+    {
+      "ticker": "AI",
+      "total": 56,
+      "long": 37,
+      "short": 19,
+      "l_minus_s": 18,
+      "dominant_outfit": "AN (11/44/88/111/444/888)",
+      "dominant_outfit_count": 7
+    },
+    {
+      "ticker": "TLT",
+      "total": 40,
+      "long": 20,
+      "short": 20,
+      "l_minus_s": 0,
+      "dominant_outfit": "AN (11/44/88/111/444/888)",
+      "dominant_outfit_count": 4
+    },
+    {
+      "ticker": "GM",
+      "total": 30,
+      "long": 10,
+      "short": 20,
+      "l_minus_s": -10,
+      "dominant_outfit": "Base 2/NVDA (16/32/64/128/256/512)",
+      "dominant_outfit_count": 4
+    },
+    {
+      "ticker": "TBT",
+      "total": 28,
+      "long": 28,
+      "short": 0,
+      "l_minus_s": 28,
+      "dominant_outfit": "AN (11/44/88/111/444/888)",
+      "dominant_outfit_count": 2
+    },
+    {
+      "ticker": "RBLX",
+      "total": 26,
+      "long": 18,
+      "short": 8,
+      "l_minus_s": 10,
+      "dominant_outfit": "AN (11/44/88/111/444/888)",
+      "dominant_outfit_count": 3
+    },
+    {
+      "ticker": "INTC",
+      "total": 25,
+      "long": 15,
+      "short": 10,
+      "l_minus_s": 5,
+      "dominant_outfit": "AN (33/66/99/333/666/999)",
+      "dominant_outfit_count": 3
+    },
+    {
+      "ticker": "UNH",
+      "total": 24,
+      "long": 18,
+      "short": 6,
+      "l_minus_s": 12,
+      "dominant_outfit": "Turkey President (24/48/96/192/384/768)",
+      "dominant_outfit_count": 4
+    },
+    {
+      "ticker": "ARM",
+      "total": 21,
+      "long": 15,
+      "short": 6,
+      "l_minus_s": 9,
+      "dominant_outfit": "China Chair (28/56/112/224/448/976)",
+      "dominant_outfit_count": 4
+    },
+    {
+      "ticker": "QCOM",
+      "total": 17,
+      "long": 13,
+      "short": 4,
+      "l_minus_s": 9,
+      "dominant_outfit": "Resource Missing/404 (25/51/101/202/404/808)",
+      "dominant_outfit_count": 4
+    },
+    {
+      "ticker": "JPM",
+      "total": 16,
+      "long": 9,
+      "short": 7,
+      "l_minus_s": 2,
+      "dominant_outfit": "Time/365 (23/46/91/183/365/730)",
+      "dominant_outfit_count": 2
+    },
+    {
+      "ticker": "BABA",
+      "total": 11,
+      "long": 6,
+      "short": 5,
+      "l_minus_s": 1,
+      "dominant_outfit": "S&P (10/50/200)",
+      "dominant_outfit_count": 2
+    },
+    {
+      "ticker": "V",
+      "total": 9,
+      "long": 0,
+      "short": 9,
+      "l_minus_s": -9,
+      "dominant_outfit": "AN (33/66/99/333/666/999)",
+      "dominant_outfit_count": 1
+    },
+    {
+      "ticker": "PYPL",
+      "total": 8,
+      "long": 3,
+      "short": 5,
+      "l_minus_s": -2,
+      "dominant_outfit": "Waring's Problem (19/37/73/143/279/548)",
+      "dominant_outfit_count": 2
+    },
+    {
+      "ticker": "AMD",
+      "total": 7,
+      "long": 3,
+      "short": 4,
+      "l_minus_s": -1,
+      "dominant_outfit": "US President/45 (29/57/114/227/455/911)",
+      "dominant_outfit_count": 2
+    },
+    {
+      "ticker": "UPST",
+      "total": 4,
+      "long": 4,
+      "short": 0,
+      "l_minus_s": 4,
+      "dominant_outfit": "NAS (20/100/250)",
+      "dominant_outfit_count": 2
+    },
+    {
+      "ticker": "TSM",
+      "total": 4,
+      "long": 4,
+      "short": 0,
+      "l_minus_s": 4,
+      "dominant_outfit": "S&P (10/50/200)",
+      "dominant_outfit_count": 1
+    },
+    {
+      "ticker": "AAPL",
+      "total": 2,
+      "long": 0,
+      "short": 2,
+      "l_minus_s": -2,
+      "dominant_outfit": "Turkey President (24/48/96/192/384/768)",
+      "dominant_outfit_count": 1
+    },
+    {
+      "ticker": "NVDA",
+      "total": 1,
+      "long": 0,
+      "short": 1,
+      "l_minus_s": -1,
+      "dominant_outfit": "AN (11/44/88/111/444/888)",
+      "dominant_outfit_count": 1
+    }
+  ],
+  "system_status": {
+    "S&P 500": {
+      "status": "NEGATIVE",
+      "method": "VOL REGIME",
+      "detail": "OHLC4 6631.21 < SMA50 6687.28",
+      "spread_pct": -0.358,
+      "short_sma": "SMA10=6663.37",
+      "long_sma": "SMA50=6687.28",
+      "key_sma": "SMA200=6776.43",
+      "key_alert": null,
+      "price": 6631.21,
+      "ticker": "SPX",
+      "timeframe": "30m"
+    },
+    "NASDAQ": {
+      "status": "NEGATIVE",
+      "method": "VOL REGIME",
+      "detail": "OHLC4 24442.35 < SMA100 24632.43",
+      "spread_pct": -0.078,
+      "short_sma": "SMA20=24613.28",
+      "long_sma": "SMA100=24632.43",
+      "key_sma": "SMA250=24775.69",
+      "key_alert": null,
+      "price": 24442.35,
+      "ticker": "IXIC",
+      "timeframe": "20m"
+    },
+    "Dow Jones": {
+      "status": "NEGATIVE",
+      "method": "VOL REGIME",
+      "detail": "OHLC4 462.23 < SMA300 473.36",
+      "spread_pct": -1.048,
+      "short_sma": "SMA90=468.4",
+      "long_sma": "SMA300=473.36",
+      "key_sma": "SMA900=487.04",
+      "key_alert": null,
+      "price": 462.23,
+      "ticker": "DJI",
+      "timeframe": "15m"
+    },
+    "_vix": {
+      "level": 25.09,
+      "regime": "HIGH VOLATILITY",
+      "threshold": 20
+    }
+  }
+}

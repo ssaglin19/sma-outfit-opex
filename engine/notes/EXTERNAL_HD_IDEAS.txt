@@ -1,0 +1,39 @@
+DEDICATED MACHINE FOR SMA ALERT ENGINE
+=======================================
+
+WHY:
+- InfluxDB is a time-series database designed to run continuously
+- Currently querying millions of penny matches, running detection cycles every 60s during market hours, and auto-refreshing a dashboard — all on the same machine used for everything else
+- The SMA period ranking panel (1-999) alone aggregates 5M+ records every refresh cycle, enough to bog down a normal PC
+
+HARDWARE:
+- A small mini PC (Intel NUC, cheap refurbished Dell, etc.) with 16GB RAM and an SSD would handle this easily
+- Runs headless, stays on 24/7
+- Access the dashboard from main PC via browser (point to mini PC's IP instead of localhost)
+
+BENEFITS:
+- InfluxDB runs permanently without needing to start it after every reboot
+- Ingest and detector can run as services that auto-start on boot
+- Main PC stays fast and unaffected
+- No risk of accidentally closing a terminal and killing the pipeline
+- Can run overnight backfills without tying up the main machine
+
+PORTABILITY:
+- The whole stack is portable — just copy the sma-alerts folder and install InfluxDB + Python
+- Update INFLUXDB_URL in .env and config.py from localhost to the mini PC's local IP
+- Dashboard HTML: change INFLUX_URL from http://localhost:8086 to http://<mini-pc-ip>:8086
+
+SERVICES TO AUTO-START ON DEDICATED MACHINE:
+1. InfluxDB (influxd.exe)
+2. ingest.py (runs during market hours, pulls from TradeStation)
+3. detector.py (runs during market hours, 60s cycle)
+4. EOD report scheduled task (runs at 16:05 EST daily)
+
+DASHBOARD ACCESS FROM MAIN PC:
+- Open http://<mini-pc-ip>:8086 for InfluxDB admin
+- Open dashboard.html locally but pointed at mini PC's InfluxDB
+- Or host dashboard.html on the mini PC with a simple HTTP server (python -m http.server 8080)
+
+CURRENT BOTTLENECK:
+- SMA Period Ranking panel (currently paused) — aggregates all penny matches by individual SMA period
+- Re-enable once on dedicated hardware

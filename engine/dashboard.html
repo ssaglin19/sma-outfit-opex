@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMA Outfit Scoring Dashboard</title>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #1e2d45;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --green: #22c55e;
+    --red: #ef4444;
+    --amber: #f59e0b;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --cyan: #06b6d4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'SF Mono','Fira Code','Cascadia Code', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-left { display:flex; align-items:center; gap:14px; }
+  .header h1 {
+    font-size: 17px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .header .subtitle { font-size:10px; color:var(--muted); letter-spacing:1px; }
+  .status-dot {
+    width:10px; height:10px; border-radius:50%; background:var(--green);
+    animation: pulse 2s infinite;
+  }
+  .status-dot.error { background:var(--red); }
+  .status-dot.stale { background:var(--amber); }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+  .header-right { display:flex; align-items:center; gap:14px; font-size:11px; color:var(--muted); }
+  .vix-badge {
+    padding:4px 10px; border-radius:4px; font-size:11px; font-weight:700; letter-spacing:1px;
+    background:var(--surface2); border:1px solid var(--border);
+  }
+  .vix-badge.high { background:rgba(239,68,68,0.2); border-color:var(--red); color:var(--red); }
+  .vix-badge.elevated { background:rgba(245,158,11,0.2); border-color:var(--amber); color:var(--amber); }
+  .vix-badge.normal { background:rgba(34,197,94,0.1); border-color:var(--green); color:var(--green); }
+  .vol-regime {
+    padding:4px 10px; border-radius:4px; font-size:10px; font-weight:700; letter-spacing:1px;
+    background:var(--surface2); border:1px solid var(--border); color:var(--muted);
+  }
+  .vol-regime.high-vol { background:rgba(239,68,68,0.15); border-color:var(--red); color:var(--red); }
+  .vol-regime.normal-vol { background:rgba(34,197,94,0.08); border-color:rgba(34,197,94,0.3); color:var(--green); }
+  .refresh-info { font-size:10px; color:var(--muted); }
+
+  /* SYSTEMS BAR */
+  .systems-bar {
+    background:var(--surface); padding:10px 24px; display:flex; gap:20px;
+    align-items:center; border-bottom:1px solid var(--border);
+  }
+  .system-card {
+    display:flex; align-items:center; gap:10px; padding:8px 14px;
+    background:var(--surface2); border-radius:6px; border:1px solid var(--border); min-width:260px;
+  }
+  .system-indicator { width:6px; height:36px; border-radius:3px; flex-shrink:0; }
+  .system-indicator.positive { background:var(--green); box-shadow:0 0 8px var(--green); }
+  .system-indicator.negative { background:var(--red); box-shadow:0 0 8px var(--red); }
+  .system-indicator.unknown { background:var(--muted); }
+  .sys-label { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+  .sys-state { font-size:13px; font-weight:700; letter-spacing:1px; }
+  .sys-state.positive { color:var(--green); }
+  .sys-state.negative { color:var(--red); }
+  .sys-state.unknown { color:var(--muted); }
+  .sys-detail { font-size:9px; color:var(--muted); margin-top:2px; }
+
+  /* MAIN LAYOUT */
+  .main {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:1px; background:var(--border);
+  }
+
+  /* PANELS */
+  .panel {
+    background:var(--surface); padding:16px; overflow-y:auto;
+  }
+  .panel-title {
+    font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px;
+    margin-bottom:12px; display:flex; align-items:center; justify-content:space-between;
+  }
+  .panel-title .count { color:var(--cyan); font-weight:700; }
+
+  /* TABLES */
+  .score-table { width:100%; border-collapse:collapse; font-size:10px; }
+  .score-table th {
+    padding:5px 6px; text-align:left; font-size:9px; text-transform:uppercase;
+    letter-spacing:0.5px; color:var(--muted); background:var(--bg);
+    border-bottom:1px solid var(--border); position:sticky; top:0; z-index:1;
+  }
+  .score-table th.num { text-align:right; }
+  .score-table td { padding:4px 6px; border-bottom:1px solid rgba(30,45,69,0.4); }
+  .score-table td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .score-table tr:hover { background:rgba(59,130,246,0.06); }
+  .score-table .rank { color:var(--muted); font-weight:600; width:28px; }
+  .score-table .name { font-weight:600; }
+  .score-table .long { color:var(--green); }
+  .score-table .short { color:var(--red); }
+  .score-table .ls { font-weight:700; }
+  .score-table .ls.pos { color:var(--green); }
+  .score-table .ls.neg { color:var(--red); }
+  .score-table .dom { color:var(--cyan); font-size:9px; }
+  .score-table .dom-count { color:var(--green); font-weight:600; }
+
+  /* TICKER GROUPS */
+  .ticker-groups { margin-bottom:14px; }
+  .ticker-group-row { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+  .ticker-group-label {
+    font-size:9px; color:var(--muted); text-transform:uppercase; letter-spacing:1px;
+    width:60px; flex-shrink:0; text-align:right;
+  }
+  .ticker-tabs { display:flex; gap:3px; flex-wrap:wrap; }
+  .ticker-tab {
+    padding:3px 7px; background:var(--surface2); border:1px solid var(--border);
+    border-radius:3px; cursor:pointer; font-family:inherit; font-size:10px;
+    color:var(--muted); font-weight:600;
+  }
+  .ticker-tab:hover { border-color:var(--blue); color:var(--text); }
+  .ticker-tab.active { background:var(--blue); color:white; border-color:var(--blue); }
+
+  /* FULL WIDTH PANELS */
+  .full-width {
+    grid-column: 1 / -1;
+    background:var(--surface);
+    padding:16px;
+  }
+
+  /* LOOKBACK SELECTOR */
+  .lookback-selector { display:flex; gap:4px; align-items:center; }
+  .lookback-btn {
+    padding:3px 8px; background:var(--surface2); border:1px solid var(--border);
+    border-radius:3px; color:var(--muted); font-family:inherit; font-size:10px; cursor:pointer;
+  }
+  .lookback-btn.active { color:var(--cyan); border-color:var(--cyan); background:rgba(6,182,212,0.1); }
+
+  /* SORT BUTTONS */
+  .sort-btn {
+    padding:2px 6px; background:none; border:1px solid transparent;
+    border-radius:2px; color:var(--muted); font-family:inherit; font-size:9px; cursor:pointer;
+  }
+  .sort-btn:hover { color:var(--text); }
+  .sort-btn.active { color:var(--cyan); border-color:var(--cyan); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width:5px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+
+  /* MARKET CLOSED BANNER */
+  .market-closed-banner {
+    background:rgba(245,158,11,0.1); border:1px solid var(--amber);
+    border-radius:4px; padding:6px 14px; font-size:10px; color:var(--amber);
+    text-align:center; display:none;
+  }
+
+  /* COMPOSITE SCORE BAR */
+  .comp-bar-bg {
+    width:60px; height:6px; background:var(--surface2); border-radius:3px; display:inline-block; vertical-align:middle;
+  }
+  .comp-bar-fill {
+    height:100%; border-radius:3px; background:linear-gradient(90deg, var(--cyan), var(--purple));
+  }
+  .comp-score { color:var(--cyan); font-weight:700; font-variant-numeric:tabular-nums; }
+  .comp-dim { color:var(--muted); font-size:9px; font-variant-numeric:tabular-nums; }
+
+  /* COMPOSITE SORT CONTROLS */
+  .comp-sort-controls { display:flex; gap:4px; }
+  .comp-sort-btn {
+    padding:2px 6px; background:var(--surface2); border:1px solid var(--border);
+    border-radius:3px; color:var(--muted); font-family:inherit; font-size:9px; cursor:pointer;
+  }
+  .comp-sort-btn.active { color:var(--cyan); border-color:var(--cyan); background:rgba(6,182,212,0.1); }
+
+  /* LOADING */
+  .loading { text-align:center; padding:40px; color:var(--muted); font-size:11px; }
+  .spinner { display:inline-block; width:16px; height:16px; border:2px solid var(--border);
+    border-top-color:var(--cyan); border-radius:50%; animation:spin 0.8s linear infinite; }
+  @keyframes spin { to{transform:rotate(360deg);} }
+
+  /* MATCH TOTAL */
+  .match-total {
+    font-size:24px; font-weight:700; color:var(--cyan); margin-right:12px;
+  }
+  .match-label { font-size:10px; color:var(--muted); }
+
+  /* ALERT PANEL */
+  .alert-panel {
+    grid-column: 1 / -1;
+    background:var(--surface);
+    padding:16px;
+    border-top:1px solid var(--border);
+    max-height:340px;
+    overflow-y:auto;
+  }
+  .alert-header {
+    display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;
+  }
+  .alert-filters { display:flex; gap:4px; }
+  .alert-filter-btn {
+    padding:3px 8px; background:var(--surface2); border:1px solid var(--border);
+    border-radius:3px; color:var(--muted); font-family:inherit; font-size:10px;
+    cursor:pointer; font-weight:600;
+  }
+  .alert-filter-btn.active { border-color:var(--cyan); color:var(--cyan); background:rgba(6,182,212,0.1); }
+  .alert-filter-btn.type-pba.active { border-color:var(--green); color:var(--green); background:rgba(34,197,94,0.1); }
+  .alert-filter-btn.type-aso.active { border-color:var(--red); color:var(--red); background:rgba(239,68,68,0.1); }
+  .alert-filter-btn.type-sphs.active { border-color:var(--amber); color:var(--amber); background:rgba(245,158,11,0.1); }
+  .alert-filter-btn.type-oba.active { border-color:var(--purple); color:var(--purple); background:rgba(168,85,247,0.1); }
+
+  .alert-row {
+    display:grid; grid-template-columns:70px 60px 80px 1fr 100px 90px;
+    gap:8px; align-items:center; padding:5px 8px;
+    border-bottom:1px solid rgba(30,45,69,0.4); font-size:10px;
+  }
+  .alert-row:hover { background:rgba(59,130,246,0.06); }
+  .alert-row-header {
+    font-size:9px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px;
+    background:var(--bg); position:sticky; top:0; z-index:1;
+  }
+  .alert-type-badge {
+    padding:2px 6px; border-radius:3px; font-size:9px; font-weight:700;
+    letter-spacing:0.5px; text-align:center; display:inline-block;
+  }
+  .alert-type-badge.pba { background:rgba(34,197,94,0.15); color:var(--green); }
+  .alert-type-badge.aso { background:rgba(239,68,68,0.15); color:var(--red); }
+  .alert-type-badge.osa { background:rgba(239,68,68,0.15); color:var(--red); }
+  .alert-type-badge.sphs { background:rgba(245,158,11,0.15); color:var(--amber); }
+  .alert-type-badge.oba { background:rgba(168,85,247,0.15); color:var(--purple); }
+  .alert-severity-badge {
+    padding:2px 6px; border-radius:3px; font-size:9px; font-weight:600; text-align:center;
+  }
+  .alert-severity-badge.high { background:rgba(239,68,68,0.2); color:var(--red); }
+  .alert-severity-badge.medium { background:rgba(245,158,11,0.2); color:var(--amber); }
+  .alert-severity-badge.low { background:rgba(100,116,139,0.2); color:var(--muted); }
+  .alert-ticker { font-weight:700; color:var(--text); }
+  .alert-detail { color:var(--muted); font-size:9px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .alert-time { color:var(--muted); font-size:9px; font-variant-numeric:tabular-nums; }
+  .no-alerts { text-align:center; padding:30px; color:var(--muted); font-size:11px; }
+  .alert-row { cursor:pointer; }
+  .alert-row:hover { background:rgba(6,182,212,0.08) !important; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="status-dot" id="statusDot"></div>
+    <div>
+      <h1>SMA Outfit Scoring</h1>
+      <div class="subtitle">32 OUTFITS &middot; 3 SYSTEMS &middot; <span id="tickerCount">77</span> TICKERS</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="market-closed-banner" id="marketBanner">MARKET CLOSED &mdash; showing last session data</div>
+    <span class="vix-badge" id="vixBadge">VIX: --</span>
+    <span class="vol-regime" id="volRegime">REGIME: --</span>
+    <span class="refresh-info" id="refreshInfo">Loading...</span>
+  </div>
+</div>
+
+<!-- SYSTEM STATUS BAR -->
+<div class="systems-bar">
+  <div class="system-card">
+    <div class="system-indicator unknown" id="ind-sp500"></div>
+    <div>
+      <div class="sys-label">S&P 500 (SPX 30M)</div>
+      <div class="sys-state unknown" id="state-sp500">LOADING</div>
+      <div class="sys-detail" id="detail-sp500">MA10 / MA50 / MA200</div>
+    </div>
+  </div>
+  <div class="system-card">
+    <div class="system-indicator unknown" id="ind-nasdaq"></div>
+    <div>
+      <div class="sys-label">NASDAQ (IXIC 20M)</div>
+      <div class="sys-state unknown" id="state-nasdaq">LOADING</div>
+      <div class="sys-detail" id="detail-nasdaq">MA20 / MA100 / MA250</div>
+    </div>
+  </div>
+  <div class="system-card">
+    <div class="system-indicator unknown" id="ind-dji"></div>
+    <div>
+      <div class="sys-label">Dow Jones (DJI 15M)</div>
+      <div class="sys-state unknown" id="state-dji">LOADING</div>
+      <div class="sys-detail" id="detail-dji">MA90 / MA300 / MA900</div>
+    </div>
+  </div>
+  <div style="flex:1;"></div>
+  <div class="lookback-selector">
+    <span style="font-size:9px;color:var(--muted);letter-spacing:1px;">LOOKBACK:</span>
+    <button class="lookback-btn" data-days="1" onclick="setLookback(1,this)">1D</button>
+    <button class="lookback-btn" data-days="7" onclick="setLookback(7,this)">7D</button>
+    <button class="lookback-btn active" data-days="14" onclick="setLookback(14,this)">14D</button>
+    <button class="lookback-btn" data-days="30" onclick="setLookback(30,this)">30D</button>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main">
+
+  <!-- LEFT: OUTFIT RANKING -->
+  <div class="panel" style="max-height:calc(100vh - 160px); overflow-y:auto;">
+    <div class="panel-title">
+      <div>
+        <span class="match-total" id="totalMatches">--</span>
+        <span class="match-label">SMA HITS</span>
+      </div>
+      <span>OUTFIT RANKING <span class="count" id="outfitCount">25</span></span>
+    </div>
+    <table class="score-table" id="outfitTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Outfit</th>
+          <th class="num">Total</th>
+          <th class="num">Long</th>
+          <th class="num">Short</th>
+          <th class="num">L-S</th>
+        </tr>
+      </thead>
+      <tbody id="outfitBody">
+        <tr><td colspan="6" class="loading"><div class="spinner"></div> Querying InfluxDB...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RIGHT: TICKER RANKING -->
+  <div class="panel" style="max-height:calc(100vh - 160px); overflow-y:auto;">
+    <div class="panel-title">
+      <div class="ticker-groups">
+        <div class="ticker-group-row">
+          <span class="ticker-group-label">Filter</span>
+          <div class="ticker-tabs">
+            <button class="ticker-tab active" onclick="setTickerFilter('all',this)">ALL</button>
+            <button class="ticker-tab" onclick="setTickerFilter('S&P',this)">S&P</button>
+            <button class="ticker-tab" onclick="setTickerFilter('NAS',this)">NAS</button>
+            <button class="ticker-tab" onclick="setTickerFilter('DOW',this)">DOW</button>
+            <button class="ticker-tab" onclick="setTickerFilter('RUT',this)">RUT</button>
+            <button class="ticker-tab" onclick="setTickerFilter('VIX',this)">VIX</button>
+            <button class="ticker-tab" onclick="setTickerFilter('SEMI',this)">SEMI</button>
+            <button class="ticker-tab" onclick="setTickerFilter('ENERGY',this)">ENERGY</button>
+            <button class="ticker-tab" onclick="setTickerFilter('MEGA',this)">MEGA</button>
+          </div>
+        </div>
+      </div>
+      <span>TICKER RANKING <span class="count" id="tickerVisCount">--</span></span>
+    </div>
+    <table class="score-table" id="tickerTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ticker</th>
+          <th class="num">Total</th>
+          <th class="num">Long</th>
+          <th class="num">Short</th>
+          <th class="num">L-S</th>
+          <th>Dominant Outfit</th>
+          <th class="num">Cnt</th>
+        </tr>
+      </thead>
+      <tbody id="tickerBody">
+        <tr><td colspan="8" class="loading"><div class="spinner"></div> Querying InfluxDB...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RIGHT: SMA PERIOD RANKING -->
+  <div class="panel" style="max-height:calc(100vh - 160px); overflow-y:auto;">
+    <div class="panel-title">
+      <span>SMA PERIOD RANKING <span class="count" id="smaPeriodCount">--</span></span>
+    </div>
+    <table class="score-table" id="smaTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>SMA</th>
+          <th class="num">Total</th>
+          <th class="num">Long</th>
+          <th class="num">Short</th>
+          <th class="num">L-S</th>
+        </tr>
+      </thead>
+      <tbody id="smaBody">
+        <tr><td colspan="6" class="loading"><div class="spinner"></div> Querying InfluxDB...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COMPOSITE SCORING -->
+  <div class="panel" style="max-height:calc(100vh - 160px); overflow-y:auto;">
+    <div class="panel-title">
+      <span>COMPOSITE SCORING <span class="count" id="compositeCount">--</span></span>
+      <div class="comp-sort-controls">
+        <button class="comp-sort-btn active" onclick="setCompSort('composite_score',this)">SCORE</button>
+        <button class="comp-sort-btn" onclick="setCompSort('hit_count',this)">HITS</button>
+        <button class="comp-sort-btn" onclick="setCompSort('recency_raw',this)">RECENCY</button>
+        <button class="comp-sort-btn" onclick="setCompSort('precision',this)">PRECISION</button>
+      </div>
+    </div>
+    <table class="score-table" id="compositeTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ticker</th>
+          <th>TF</th>
+          <th>SMA</th>
+          <th>Outfit</th>
+          <th class="num">Score</th>
+          <th class="num">Hits</th>
+          <th class="num">L-S</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="compositeBody">
+        <tr><td colspan="9" class="loading"><div class="spinner"></div> Querying scoring bucket...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BOTTOM: ALERT FEED -->
+  <div class="alert-panel" id="alertPanel">
+    <div class="alert-header">
+      <div class="panel-title" style="margin-bottom:0;">
+        <span>DETECTION ALERTS <span class="count" id="alertCount">0</span></span>
+      </div>
+      <div class="alert-filters">
+        <button class="alert-filter-btn active" onclick="setAlertFilter('all',this)">ALL</button>
+        <button class="alert-filter-btn type-pba" onclick="setAlertFilter('pba',this)">PBA</button>
+        <button class="alert-filter-btn type-aso" onclick="setAlertFilter('aso',this)">ASO</button>
+        <button class="alert-filter-btn type-sphs" onclick="setAlertFilter('sphs',this)">SPHS</button>
+        <button class="alert-filter-btn type-oba" onclick="setAlertFilter('oba',this)">OBA</button>
+        <button class="alert-filter-btn type-oba" onclick="setAlertFilter('osa',this)">OSA</button>
+      </div>
+    </div>
+    <div class="alert-row alert-row-header">
+      <div>TIME</div>
+      <div>TICKER</div>
+      <div>TYPE</div>
+      <div>DETAIL</div>
+      <div>OUTFIT</div>
+      <div>SEVERITY</div>
+    </div>
+    <div id="alertBody">
+      <div class="no-alerts">No alerts yet — run detector.py to generate detections</div>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+// =============================================================================
+// CONFIG
+// =============================================================================
+const INFLUX_URL = 'http://localhost:8086';
+const INFLUX_TOKEN = '__INFLUXDB_TOKEN__';
+const INFLUX_ORG = 'sma-alerts';
+
+const SYSTEMS = {
+  "S&P 500": { symbol: "SPX", timeframe: "30m", shortP: 10, longP: 50, keyP: 200, indId: "ind-sp500", stateId: "state-sp500", detailId: "detail-sp500" },
+  "NASDAQ":  { symbol: "IXIC", timeframe: "20m", shortP: 20, longP: 100, keyP: 250, indId: "ind-nasdaq", stateId: "state-nasdaq", detailId: "detail-nasdaq" },
+  "Dow Jones": { symbol: "DJI", timeframe: "15m", shortP: 90, longP: 300, keyP: 900, indId: "ind-dji", stateId: "state-dji", detailId: "detail-dji" },
+};
+
+const TICKER_GROUPS = {
+  'SPX':'S&P','SPY':'S&P','UPRO':'S&P','SPXU':'S&P','SPXL':'S&P','SSO':'S&P','SDS':'S&P','SPXS':'S&P','SH':'S&P',
+  'IXIC':'NAS','QQQ':'NAS','TQQQ':'NAS','SQQQ':'NAS','QLD':'NAS','QID':'NAS','PSQ':'NAS',
+  'DJI':'DOW','DIA':'DOW','UDOW':'DOW','SDOW':'DOW','DDM':'DOW','DXD':'DOW','DOG':'DOW',
+  'IWM':'RUT','UWM':'RUT','TNA':'RUT','RWM':'RUT',
+  'VIX':'VIX','VXX':'VIX','SVIX':'VIX','UVXY':'VIX','SVXY':'VIX',
+  'SOXS':'SEMI','SOXL':'SEMI',
+  'ERX':'ENERGY','GUSH':'ENERGY','DRIP':'ENERGY','BOIL':'ENERGY','USO':'ENERGY',
+  'AAPL':'MEGA','MSFT':'MEGA','AMZN':'MEGA','GOOG':'MEGA','NVDA':'MEGA','META':'MEGA','TSLA':'MEGA',
+};
+
+const SMA_OUTFITS = {
+  "S&P (10/50/200)": [10,50,200],
+  "NAS (20/100/250)": [20,100,250],
+  "DJI (30/60/90/300/600/900)": [30,60,90,300,600,900],
+  "AN (33/66/99/333/666/999)": [33,66,99,333,666,999],
+  "AN (11/44/88/111/444/888)": [11,44,88,111,444,888],
+  "AN (22/55/77/222/555/777)": [22,55,77,222,555,777],
+  "Waring's Problem (19/37/73/143/279/548)": [19,37,73,143,279,548],
+  "Base 2/NVDA (16/32/64/128/256/512)": [16,32,64,128,256,512],
+  "TSLA (27/53/105/210/420/840)": [27,53,105,210,420,840],
+  "Time/365 (23/46/91/183/365/730)": [23,46,91,183,365,730],
+  "Time/366 (23/46/92/183/366/732)": [23,46,92,183,366,732],
+  "Time/1440 (18/36/72/144/288/576)": [18,36,72,144,288,576],
+  "Resource Missing/404 (25/51/101/202/404/808)": [25,51,101,202,404,808],
+  "US President/45 (29/57/114/227/455/911)": [29,57,114,227,455,911],
+  "US President/46 (23/46/92/184/368/736)": [23,46,92,184,368,736],
+  "US President/47 (24/47/94/188/376/752)": [24,47,94,188,376,752],
+  "Speaker House/56 (28/56/112/224/448/896)": [28,56,112,224,448,896],
+  "WTC/911 (28/57/114/228/456/911)": [28,57,114,228,456,911],
+  "Russia 2000 (16/31/63/125/250/500)": [16,31,63,125,250,500],
+  "China Chair (28/56/112/224/448/976)": [28,56,112,224,448,976],
+  "France President (25/50/100/200/400/600)": [25,50,100,200,400,600],
+  "SVIX (26/52/106/211/422/844)": [26,52,106,211,422,844],
+  "Turkey President (24/48/96/192/384/768)": [24,48,96,192,384,768],
+  "Alphabet (25/50/100/200/400/800)": [25,50,100,200,400,800],
+  "Regression (27/54/108/216/432/864)": [27,54,108,216,432,864],
+  "56 Reversal (28/55/111/221/442/884)": [28,55,111,221,442,884],
+  "Tesla Cipher (39/78/156/311/622/944)": [39,78,156,311,622,944],
+  "Apple Cipher (31/61/122/244/446/668)": [31,61,122,244,446,668],
+  "BIT1 (16/31/62/124/248/746)": [16,31,62,124,248,746],
+  "BIT2 (16/31/62/124/246/748)": [16,31,62,124,246,748],
+  "GOOG (50/100/200/400/800)": [50,100,200,400,800],
+  "OIL (29/58/116/232/464/898)": [29,58,116,232,464,898],
+  "SOXS (26/51/102/204/408/816)": [26,51,102,204,408,816],
+};
+
+// =============================================================================
+// STATE
+// =============================================================================
+let lookbackDays = 14;
+let tickerFilter = 'all';
+let refreshTimer = null;
+let lastRefresh = null;
+let cachedOutfitData = null;
+let cachedTickerData = null;
+let cachedAlertData = null;
+let alertFilter = 'all';
+let cachedCompositeData = null;
+let compositeSortField = 'composite_score';
+
+// =============================================================================
+// INFLUXDB QUERY HELPER
+// =============================================================================
+async function fluxQuery(query) {
+  const resp = await fetch(`${INFLUX_URL}/api/v2/query?org=${encodeURIComponent(INFLUX_ORG)}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Token ${INFLUX_TOKEN}`,
+      'Content-Type': 'application/vnd.flux',
+      'Accept': 'application/csv',
+    },
+    body: query,
+  });
+  if (!resp.ok) throw new Error(`InfluxDB ${resp.status}: ${await resp.text()}`);
+  return await resp.text();
+}
+
+function parseCSV(csv) {
+  const lines = csv.trim().split('\n');
+  if (lines.length < 2) return [];
+  // Find header lines (skip empty result annotations)
+  const results = [];
+  let headers = null;
+  for (const line of lines) {
+    if (line.startsWith('#') || line.startsWith(',result,')) continue;
+    if (line.startsWith(',_result') || line === '') {
+      continue;
+    }
+    // Header row starts with empty first cell or actual headers
+    if (!headers && line.includes('_value')) {
+      headers = line.split(',');
+      continue;
+    }
+    if (!headers) {
+      // Try as header
+      const parts = line.split(',');
+      if (parts.length > 2) {
+        headers = parts;
+        continue;
+      }
+    }
+    if (headers) {
+      const vals = line.split(',');
+      const row = {};
+      for (let i = 0; i < headers.length; i++) {
+        row[headers[i]] = vals[i] || '';
+      }
+      results.push(row);
+    }
+  }
+  return results;
+}
+
+// Better CSV parser for InfluxDB annotated CSV
+function parseInfluxCSV(csv) {
+  const lines = csv.trim().split('\n');
+  const rows = [];
+  let headers = null;
+  for (const line of lines) {
+    if (line.startsWith('#')) continue; // skip annotations
+    if (line.trim() === '') { headers = null; continue; } // new table
+    const parts = line.split(',');
+    if (!headers) {
+      headers = parts;
+      continue;
+    }
+    const row = {};
+    for (let i = 0; i < headers.length; i++) {
+      row[headers[i].trim()] = (parts[i] || '').trim();
+    }
+    rows.push(row);
+  }
+  return rows;
+}
+
+// =============================================================================
+// MARKET HOURS CHECK (EST)
+// =============================================================================
+function isMarketOpen() {
+  const now = new Date();
+  // Convert to EST
+  const est = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  const day = est.getDay(); // 0=Sun, 6=Sat
+  if (day === 0 || day === 6) return false;
+  const h = est.getHours();
+  const m = est.getMinutes();
+  const mins = h * 60 + m;
+  return mins >= 570 && mins <= 960; // 0930-1600
+}
+
+function getESTTime() {
+  return new Date().toLocaleString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+}
+
+// =============================================================================
+// QUERY: PENNY MATCHES AGGREGATED BY OUTFIT
+// =============================================================================
+async function queryOutfitScores() {
+  const flux = `
+from(bucket: "penny_matches")
+  |> range(start: -${lookbackDays}d)
+  |> filter(fn: (r) => r._measurement == "penny_match")
+  |> filter(fn: (r) => r._field == "close")
+  |> group(columns: ["outfit", "direction"])
+  |> count()
+  |> group()
+`;
+  const csv = await fluxQuery(flux);
+  const rows = parseInfluxCSV(csv);
+
+  const scores = {};
+  for (const row of rows) {
+    const outfit = row.outfit || '';
+    const direction = row.direction || '';
+    const count = parseInt(row._value) || 0;
+    if (!outfit) continue;
+    if (!scores[outfit]) scores[outfit] = { outfit, total: 0, long: 0, short: 0 };
+    scores[outfit].total += count;
+    if (direction === 'LONG') scores[outfit].long += count;
+    else scores[outfit].short += count;
+  }
+
+  const results = Object.values(scores).map(o => ({
+    ...o,
+    l_minus_s: o.long - o.short,
+  }));
+  results.sort((a, b) => b.total - a.total);
+  return results;
+}
+
+// =============================================================================
+// QUERY: PENNY MATCHES AGGREGATED BY TICKER
+// =============================================================================
+async function queryTickerScores() {
+  // Two queries: ticker totals and ticker+outfit counts for dominant outfit
+  const fluxTicker = `
+from(bucket: "penny_matches")
+  |> range(start: -${lookbackDays}d)
+  |> filter(fn: (r) => r._measurement == "penny_match")
+  |> filter(fn: (r) => r._field == "close")
+  |> group(columns: ["ticker", "direction"])
+  |> count()
+  |> group()
+`;
+  const fluxDom = `
+from(bucket: "penny_matches")
+  |> range(start: -${lookbackDays}d)
+  |> filter(fn: (r) => r._measurement == "penny_match")
+  |> filter(fn: (r) => r._field == "close")
+  |> group(columns: ["ticker", "outfit"])
+  |> count()
+  |> group()
+`;
+
+  const [csvTicker, csvDom] = await Promise.all([fluxQuery(fluxTicker), fluxQuery(fluxDom)]);
+  const tickerRows = parseInfluxCSV(csvTicker);
+  const domRows = parseInfluxCSV(csvDom);
+
+  // Build ticker scores
+  const scores = {};
+  for (const row of tickerRows) {
+    const ticker = row.ticker || '';
+    const direction = row.direction || '';
+    const count = parseInt(row._value) || 0;
+    if (!ticker) continue;
+    if (!scores[ticker]) scores[ticker] = { ticker, total: 0, long: 0, short: 0 };
+    scores[ticker].total += count;
+    if (direction === 'LONG') scores[ticker].long += count;
+    else scores[ticker].short += count;
+  }
+
+  // Build dominant outfit per ticker
+  const tickerOutfitCounts = {};
+  for (const row of domRows) {
+    const ticker = row.ticker || '';
+    const outfit = row.outfit || '';
+    const count = parseInt(row._value) || 0;
+    if (!ticker || !outfit) continue;
+    if (!tickerOutfitCounts[ticker]) tickerOutfitCounts[ticker] = {};
+    tickerOutfitCounts[ticker][outfit] = (tickerOutfitCounts[ticker][outfit] || 0) + count;
+  }
+
+  const results = Object.values(scores).map(t => {
+    t.l_minus_s = t.long - t.short;
+    const oc = tickerOutfitCounts[t.ticker] || {};
+    const sorted = Object.entries(oc).sort((a, b) => b[1] - a[1]);
+    if (sorted.length > 0) {
+      t.dominant_outfit = sorted[0][0];
+      t.dominant_outfit_count = sorted[0][1];
+    } else {
+      t.dominant_outfit = 'N/A';
+      t.dominant_outfit_count = 0;
+    }
+    return t;
+  });
+
+  results.sort((a, b) => b.total - a.total);
+  return results;
+}
+
+// =============================================================================
+// QUERY: PENNY MATCHES AGGREGATED BY SMA PERIOD
+// =============================================================================
+async function querySmaPeriodScores() {
+  const flux = `
+from(bucket: "penny_matches")
+  |> range(start: -${lookbackDays}d)
+  |> filter(fn: (r) => r._measurement == "penny_match")
+  |> filter(fn: (r) => r._field == "close")
+  |> group(columns: ["sma_period", "direction"])
+  |> count()
+  |> group()
+`;
+  const csv = await fluxQuery(flux);
+  const rows = parseInfluxCSV(csv);
+
+  const scores = {};
+  for (const row of rows) {
+    const period = row.sma_period || '';
+    const direction = row.direction || '';
+    const count = parseInt(row._value) || 0;
+    if (!period) continue;
+    if (!scores[period]) scores[period] = { period, total: 0, long: 0, short: 0 };
+    scores[period].total += count;
+    if (direction === 'LONG') scores[period].long += count;
+    else scores[period].short += count;
+  }
+
+  const results = Object.values(scores).map(s => ({
+    ...s,
+    l_minus_s: s.long - s.short,
+    period_num: parseInt(s.period) || 0,
+  }));
+  results.sort((a, b) => b.total - a.total);
+  return results;
+}
+
+// =============================================================================
+// QUERY: SYSTEM STATUS (VIX + SMA EVALUATION)
+// =============================================================================
+async function querySystemStatus() {
+  // Get VIX level
+  let vixLevel = null;
+  for (const tf of ['30m', '1h', '15m', '5m']) {
+    try {
+      const flux = `
+from(bucket: "market_data")
+  |> range(start: -7d)
+  |> filter(fn: (r) => r._measurement == "ohlcv")
+  |> filter(fn: (r) => r.ticker == "VIX")
+  |> filter(fn: (r) => r.timeframe == "${tf}")
+  |> filter(fn: (r) => r._field == "close")
+  |> last()
+`;
+      const csv = await fluxQuery(flux);
+      const rows = parseInfluxCSV(csv);
+      if (rows.length > 0 && rows[0]._value) {
+        vixLevel = parseFloat(rows[0]._value);
+        break;
+      }
+    } catch (e) { /* try next */ }
+  }
+
+  const highVol = vixLevel !== null && vixLevel > 20;
+
+  // Update VIX UI
+  const vixBadge = document.getElementById('vixBadge');
+  const volRegime = document.getElementById('volRegime');
+  if (vixLevel !== null) {
+    vixBadge.textContent = `VIX: ${vixLevel.toFixed(1)}`;
+    if (vixLevel >= 30) vixBadge.className = 'vix-badge high';
+    else if (vixLevel >= 20) vixBadge.className = 'vix-badge elevated';
+    else vixBadge.className = 'vix-badge normal';
+  }
+  if (highVol) {
+    volRegime.textContent = 'REGIME: HIGH VOL';
+    volRegime.className = 'vol-regime high-vol';
+  } else {
+    volRegime.textContent = 'REGIME: NORMAL';
+    volRegime.className = 'vol-regime normal-vol';
+  }
+
+  // Evaluate each system
+  for (const [name, sys] of Object.entries(SYSTEMS)) {
+    try {
+      const maxSma = Math.max(sys.shortP, sys.longP, sys.keyP);
+      const flux = `
+from(bucket: "market_data")
+  |> range(start: -90d)
+  |> filter(fn: (r) => r._measurement == "ohlcv")
+  |> filter(fn: (r) => r.ticker == "${sys.symbol}")
+  |> filter(fn: (r) => r.timeframe == "${sys.timeframe}")
+  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> sort(columns: ["_time"])
+  |> tail(n: ${maxSma + 50})
+`;
+      const csv = await fluxQuery(flux);
+      const rows = parseInfluxCSV(csv);
+
+      if (rows.length < sys.longP) {
+        updateSystemUI(sys, 'unknown', `Not enough data (${rows.length} bars)`);
+        continue;
+      }
+
+      // Extract close values and compute SMAs
+      const closes = rows.map(r => parseFloat(r.close)).filter(v => !isNaN(v));
+      const shortSma = sma(closes, sys.shortP);
+      const longSma = sma(closes, sys.longP);
+
+      if (shortSma === null || longSma === null) {
+        updateSystemUI(sys, 'unknown', 'Insufficient data for SMA');
+        continue;
+      }
+
+      // OHLC4 price
+      const last = rows[rows.length - 1];
+      const price = ((parseFloat(last.open) || 0) + (parseFloat(last.high) || 0) +
+                     (parseFloat(last.low) || 0) + (parseFloat(last.close) || 0)) / 4;
+      const priceRound = Math.round(price * 100) / 100;
+
+      let state, detail;
+      if (highVol) {
+        state = priceRound > longSma ? 'POSITIVE' : 'NEGATIVE';
+        detail = `OHLC4 ${priceRound.toFixed(2)} ${state === 'POSITIVE' ? '>' : '<'} SMA${sys.longP} ${longSma.toFixed(2)} [VOL REGIME]`;
+      } else {
+        state = shortSma > longSma ? 'POSITIVE' : 'NEGATIVE';
+        detail = `SMA${sys.shortP} ${shortSma.toFixed(2)} ${state === 'POSITIVE' ? '>' : '<'} SMA${sys.longP} ${longSma.toFixed(2)}`;
+      }
+
+      updateSystemUI(sys, state.toLowerCase(), detail);
+
+    } catch (e) {
+      updateSystemUI(sys, 'unknown', `Error: ${e.message}`);
+    }
+  }
+}
+
+function sma(values, period) {
+  if (values.length < period) return null;
+  const slice = values.slice(-period);
+  return Math.round(slice.reduce((a, b) => a + b, 0) / period * 100) / 100;
+}
+
+function updateSystemUI(sys, state, detail) {
+  document.getElementById(sys.indId).className = `system-indicator ${state}`;
+  const stateEl = document.getElementById(sys.stateId);
+  stateEl.className = `sys-state ${state}`;
+  stateEl.textContent = state.toUpperCase();
+  document.getElementById(sys.detailId).textContent = detail;
+}
+
+// =============================================================================
+// RENDER: OUTFIT TABLE
+// =============================================================================
+function renderOutfitTable(data) {
+  cachedOutfitData = data;
+  const tbody = document.getElementById('outfitBody');
+  const totalMatches = data.reduce((sum, o) => sum + o.total, 0);
+  document.getElementById('totalMatches').textContent = totalMatches.toLocaleString();
+  document.getElementById('outfitCount').textContent = data.length;
+
+  tbody.innerHTML = data.map((o, i) => `
+    <tr>
+      <td class="rank">${i + 1}</td>
+      <td class="name">${esc(o.outfit)}</td>
+      <td class="num">${o.total.toLocaleString()}</td>
+      <td class="num long">${o.long.toLocaleString()}</td>
+      <td class="num short">${o.short.toLocaleString()}</td>
+      <td class="num ls ${o.l_minus_s >= 0 ? 'pos' : 'neg'}">${o.l_minus_s >= 0 ? '+' : ''}${o.l_minus_s.toLocaleString()}</td>
+    </tr>
+  `).join('');
+}
+
+// =============================================================================
+// RENDER: TICKER TABLE
+// =============================================================================
+function renderTickerTable(data) {
+  cachedTickerData = data;
+  let filtered = data;
+  if (tickerFilter !== 'all') {
+    filtered = data.filter(t => TICKER_GROUPS[t.ticker] === tickerFilter);
+  }
+
+  document.getElementById('tickerVisCount').textContent = filtered.length;
+  const tbody = document.getElementById('tickerBody');
+  tbody.innerHTML = filtered.map((t, i) => `
+    <tr>
+      <td class="rank">${i + 1}</td>
+      <td class="name">${esc(t.ticker)}</td>
+      <td class="num">${t.total.toLocaleString()}</td>
+      <td class="num long">${t.long.toLocaleString()}</td>
+      <td class="num short">${t.short.toLocaleString()}</td>
+      <td class="num ls ${t.l_minus_s >= 0 ? 'pos' : 'neg'}">${t.l_minus_s >= 0 ? '+' : ''}${t.l_minus_s.toLocaleString()}</td>
+      <td class="dom">${esc(t.dominant_outfit)}</td>
+      <td class="num dom-count">${t.dominant_outfit_count.toLocaleString()}</td>
+    </tr>
+  `).join('');
+}
+
+// =============================================================================
+// RENDER: SMA PERIOD TABLE
+// =============================================================================
+function renderSmaPeriodTable(data) {
+  document.getElementById('smaPeriodCount').textContent = data.length;
+  const tbody = document.getElementById('smaBody');
+  tbody.innerHTML = data.map((s, i) => `
+    <tr>
+      <td class="rank">${i + 1}</td>
+      <td class="name">SMA ${esc(String(s.period))}</td>
+      <td class="num">${s.total.toLocaleString()}</td>
+      <td class="num long">${s.long.toLocaleString()}</td>
+      <td class="num short">${s.short.toLocaleString()}</td>
+      <td class="num ls ${s.l_minus_s >= 0 ? 'pos' : 'neg'}">${s.l_minus_s >= 0 ? '+' : ''}${s.l_minus_s.toLocaleString()}</td>
+    </tr>
+  `).join('');
+}
+
+function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// Map full InfluxDB type names to short display names
+function alertTypeShort(fullType) {
+  const map = {
+    'precision_buy_algorithm': 'pba',
+    'automated_short_order': 'aso',
+    'optimized_buying_algorithm': 'oba',
+    'optimized_short_algorithm': 'osa',
+    'singular_point_hard_stop': 'sphs',
+  };
+  return map[fullType] || fullType;
+}
+function alertTypeLabel(fullType) {
+  const map = {
+    'precision_buy_algorithm': 'PBA',
+    'automated_short_order': 'ASO',
+    'optimized_buying_algorithm': 'OBA',
+    'optimized_short_algorithm': 'OSA',
+    'singular_point_hard_stop': 'SPHS',
+  };
+  return map[fullType] || fullType.toUpperCase().replace(/_/g, ' ');
+}
+
+// =============================================================================
+// QUERY: ALERTS FROM DETECTION ENGINE
+// =============================================================================
+async function queryAlerts() {
+  const flux = `
+from(bucket: "alerts")
+  |> range(start: -${lookbackDays}d)
+  |> filter(fn: (r) => r._measurement == "alert")
+  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> sort(columns: ["_time"], desc: true)
+  |> limit(n: 200)
+`;
+  try {
+    const csv = await fluxQuery(flux);
+    const rows = parseInfluxCSV(csv);
+    return rows.map(r => ({
+      time: r._time || '',
+      ticker: r.ticker || '',
+      type: r.type || '',
+      severity: r.severity || 'medium',
+      outfit: r.outfit || '',
+      timeframe: r.timeframe || '',
+      detail: r.detail || '',
+      price: r.price || '',
+      sma_value: r.sma_value || '',
+      sma_period: r.sma_period || '',
+    }));
+  } catch (e) {
+    // alerts bucket may not exist yet
+    if (e.message && e.message.includes('not found')) return [];
+    console.warn('Alert query error:', e);
+    return [];
+  }
+}
+
+function renderAlerts(data) {
+  cachedAlertData = data;
+  let filtered = data;
+  if (alertFilter !== 'all') {
+    filtered = data.filter(a => alertTypeShort(a.type) === alertFilter);
+  }
+
+  document.getElementById('alertCount').textContent = filtered.length;
+  const body = document.getElementById('alertBody');
+
+  if (filtered.length === 0) {
+    body.innerHTML = '<div class="no-alerts">No alerts found for current filters</div>';
+    return;
+  }
+
+  body.innerHTML = filtered.map(a => {
+    const ts = a.time ? new Date(a.time) : null;
+    const timeStr = ts ? ts.toLocaleString('en-US', {
+      timeZone: 'America/New_York', month:'short', day:'numeric',
+      hour:'2-digit', minute:'2-digit', hour12:false
+    }) : '--';
+
+    const typeClass = alertTypeShort(a.type);
+    const typeBadge = alertTypeLabel(a.type);
+
+    let detail = a.detail;
+    if (!detail && a.price && a.sma_value) {
+      detail = `Price ${a.price} @ SMA${a.sma_period} ${a.sma_value} [${a.timeframe}]`;
+    }
+    if (!detail) detail = `${a.timeframe} SMA${a.sma_period}`;
+
+    return `<div class="alert-row" onclick="openChart('${esc(a.ticker)}','${esc(a.timeframe)}','${esc(a.sma_period)}','${esc(a.outfit)}','${esc(a.type)}','${esc(a.sma_value)}')">
+      <div class="alert-time">${esc(timeStr)}</div>
+      <div class="alert-ticker">${esc(a.ticker)}</div>
+      <div><span class="alert-type-badge ${esc(typeClass)}">${typeBadge}</span></div>
+      <div class="alert-detail" title="${esc(detail)}">${esc(detail)}</div>
+      <div class="alert-detail">${esc(a.outfit)}</div>
+      <div><span class="alert-severity-badge ${esc(a.severity)}">${esc(a.severity.toUpperCase())}</span></div>
+    </div>`;
+  }).join('');
+}
+
+function setAlertFilter(type, btn) {
+  alertFilter = type;
+  document.querySelectorAll('.alert-filters .alert-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (cachedAlertData) renderAlerts(cachedAlertData);
+}
+
+// =============================================================================
+// QUERY: COMPOSITE SCORING FROM SCORING BUCKET
+// =============================================================================
+async function queryCompositeScores() {
+  const flux = `
+from(bucket: "scoring")
+  |> range(start: -30d)
+  |> filter(fn: (r) => r._measurement == "composite_score")
+  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> sort(columns: ["_time"], desc: true)
+  |> unique(column: "ticker")
+`;
+  try {
+    const csv = await fluxQuery(flux);
+    const rows = parseInfluxCSV(csv);
+
+    // Deduplicate by key (ticker+timeframe+outfit+sma_period+ohlc_field), keep latest
+    const seen = {};
+    for (const row of rows) {
+      const key = `${row.ticker}|${row.timeframe}|${row.outfit}|${row.sma_period}|${row.ohlc_field}`;
+      if (!seen[key]) {
+        seen[key] = {
+          ticker: row.ticker || '',
+          timeframe: row.timeframe || '',
+          outfit: row.outfit || '',
+          sma_period: row.sma_period || '',
+          ohlc_field: row.ohlc_field || '',
+          composite_score: parseFloat(row.composite_score) || 0,
+          hit_count: parseInt(row.hit_count) || 0,
+          long_count: parseInt(row.long_count) || 0,
+          short_count: parseInt(row.short_count) || 0,
+          l_minus_s: parseInt(row.l_minus_s) || 0,
+          precision: parseFloat(row.precision) || 0,
+          recency_raw: parseFloat(row.recency_raw) || 0,
+          time_at_level: parseInt(row.time_at_level) || 0,
+        };
+      }
+    }
+    return Object.values(seen);
+  } catch (e) {
+    if (e.message && e.message.includes('not found')) return [];
+    console.warn('Composite query error:', e);
+    return [];
+  }
+}
+
+function renderCompositeTable(data) {
+  cachedCompositeData = data;
+  // Sort by selected field
+  const sorted = [...data].sort((a, b) => b[compositeSortField] - a[compositeSortField]);
+  // Show top 200
+  const top = sorted.slice(0, 200);
+
+  document.getElementById('compositeCount').textContent = data.length.toLocaleString();
+  const tbody = document.getElementById('compositeBody');
+
+  if (top.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="9" class="no-alerts">No composite scores — run scorer.py --composite --write</td></tr>';
+    return;
+  }
+
+  const maxScore = Math.max(...top.map(r => r.composite_score), 0.01);
+
+  tbody.innerHTML = top.map((r, i) => {
+    const pct = Math.round((r.composite_score / maxScore) * 100);
+    return `<tr>
+      <td class="rank">${i + 1}</td>
+      <td class="name">${esc(r.ticker)}</td>
+      <td class="comp-dim">${esc(r.timeframe)}</td>
+      <td class="comp-dim">${esc(r.sma_period)}</td>
+      <td class="comp-dim">${esc(r.outfit)}</td>
+      <td class="num comp-score">${r.composite_score.toFixed(3)}</td>
+      <td class="num">${r.hit_count.toLocaleString()}</td>
+      <td class="num ls ${r.l_minus_s >= 0 ? 'pos' : 'neg'}">${r.l_minus_s >= 0 ? '+' : ''}${r.l_minus_s}</td>
+      <td><div class="comp-bar-bg"><div class="comp-bar-fill" style="width:${pct}%"></div></div></td>
+    </tr>`;
+  }).join('');
+}
+
+function setCompSort(field, btn) {
+  compositeSortField = field;
+  document.querySelectorAll('.comp-sort-controls .comp-sort-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (cachedCompositeData) renderCompositeTable(cachedCompositeData);
+}
+
+// =============================================================================
+// CONTROLS
+// =============================================================================
+function setLookback(days, btn) {
+  lookbackDays = days;
+  document.querySelectorAll('.lookback-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  refreshAll();
+}
+
+function setTickerFilter(group, btn) {
+  tickerFilter = group;
+  document.querySelectorAll('.ticker-tabs .ticker-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (cachedTickerData) renderTickerTable(cachedTickerData);
+}
+
+// =============================================================================
+// CHART: OPEN IN NEW WINDOW
+// =============================================================================
+function openChart(ticker, timeframe, smaPeriod, outfit, type, smaValue) {
+  const params = new URLSearchParams({
+    ticker: ticker,
+    timeframe: timeframe,
+    sma: smaPeriod,
+    outfit: outfit,
+    type: type,
+    bars: '300',
+  });
+  window.open(`live_chart.html?${params.toString()}`, '_blank',
+    'width=1400,height=800,menubar=no,toolbar=no,location=no,status=no');
+}
+
+// =============================================================================
+// MAIN REFRESH LOOP
+// =============================================================================
+async function refreshAll() {
+  const dot = document.getElementById('statusDot');
+  const info = document.getElementById('refreshInfo');
+
+  try {
+    info.textContent = 'Refreshing...';
+    const [outfitData, tickerData, smaData, alertData, compositeData] = await Promise.all([
+      queryOutfitScores(),
+      queryTickerScores(),
+      querySmaPeriodScores(),
+      queryAlerts(),
+      queryCompositeScores(),
+    ]);
+    renderOutfitTable(outfitData);
+    renderTickerTable(tickerData);
+    renderSmaPeriodTable(smaData);
+    renderAlerts(alertData);
+    renderCompositeTable(compositeData);
+
+    // System status (separate, slightly heavier queries)
+    await querySystemStatus();
+
+    dot.className = 'status-dot';
+    lastRefresh = new Date();
+    info.textContent = `Updated: ${getESTTime()} EST`;
+
+    // Market closed banner
+    const banner = document.getElementById('marketBanner');
+    banner.style.display = isMarketOpen() ? 'none' : 'block';
+
+  } catch (e) {
+    dot.className = 'status-dot error';
+    info.textContent = `Error: ${e.message}`;
+    console.error('Refresh error:', e);
+  }
+}
+
+function startAutoRefresh() {
+  // Clear existing timer
+  if (refreshTimer) clearInterval(refreshTimer);
+
+  // Refresh immediately
+  refreshAll();
+
+  // Auto-refresh every 60s during market hours, every 5min outside
+  refreshTimer = setInterval(() => {
+    if (isMarketOpen()) {
+      refreshAll();
+    } else {
+      // Still refresh, but check if it's been 5+ minutes
+      if (!lastRefresh || (Date.now() - lastRefresh.getTime()) > 300000) {
+        refreshAll();
+      }
+    }
+  }, 60000); // check every 60s
+}
+
+// =============================================================================
+// INIT
+// =============================================================================
+startAutoRefresh();
+</script>
+</body>
+</html>
