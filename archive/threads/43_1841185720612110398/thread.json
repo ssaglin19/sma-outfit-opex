@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1841185720612110398",
+  "text": "SPXU 24.61  . 5M MA512 .\nThat's my risk. Think I found it. https://t.co/Zrf0GJDKoQ",
+  "created_at": "2024-10-01T18:37:38.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 5,
+  "favorite_count": 34,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GY00pBCaAAA-3Hp.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1841185720612110398/photo/1",
+    "w": 1470,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Zrf0GJDKoQ",
+     "expanded_url": "https://x.com/rauItrades/status/1841185720612110398/photo/1",
+     "indices": [
+      59,
+      82
+     ],
+     "url": "https://t.co/Zrf0GJDKoQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:05Z",
+  "case": 31,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1841185720612110398",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1841185720612110398",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20241001183738",
+   "wayback_url": "https://twitter.com/rauItrades/status/1841185720612110398"
+  },
+  "media_files": [
+   "media/1841185720612110398/0.jpg"
+  ]
+ }
+]

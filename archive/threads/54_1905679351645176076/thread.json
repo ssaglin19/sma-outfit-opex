@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1905679351645176076",
+  "text": "I picked up XLE. 91.97 .\nThe Energy Select Sector SPDR ETF.\nI will cut the trade on a singular penny break of 91.97.\n404 SMA Outfit. [25 51 101 202 404 808] https://t.co/JIN6ez1OLh",
+  "created_at": "2025-03-28T17:52:17.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 5,
+  "favorite_count": 59,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GnJVFQjbgAEjB-f.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1905679351645176076/photo/1",
+    "w": 1469,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/JIN6ez1OLh",
+     "expanded_url": "https://x.com/rauItrades/status/1905679351645176076/photo/1",
+     "indices": [
+      157,
+      180
+     ],
+     "url": "https://t.co/JIN6ez1OLh"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:12Z",
+  "case": 3,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1905679351645176076",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1905679351645176076",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250328175217",
+   "wayback_url": "https://twitter.com/rauItrades/status/1905679351645176076"
+  },
+  "media_files": [
+   "media/1905679351645176076/0.jpg"
+  ]
+ }
+]

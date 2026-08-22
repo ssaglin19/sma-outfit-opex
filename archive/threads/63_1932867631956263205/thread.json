@@ -1,0 +1,52 @@
+[
+ {
+  "id": "1932867631956263205",
+  "text": "SPY at 599.28, MA464.ISMA Outfit.\n[SPY 5M MA29 MA58 MA116 MA232 MA464 MA928]\nSir Keir Starmer 58ᵗʰ Prime Minister of the United Kingdom\nBought: SPY at 599.28, MA464. \nI'll cut the trade on a singular penny break of the program. https://t.co/BR9AYKlf45",
+  "created_at": "2025-06-11T18:28:49.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 10,
+  "favorite_count": 32,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GtLsqMObIAADoz7.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1932867631956263205/photo/1",
+    "w": 1474,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/BR9AYKlf45",
+     "expanded_url": "https://x.com/rauItrades/status/1932867631956263205/photo/1",
+     "indices": [
+      228,
+      251
+     ],
+     "url": "https://t.co/BR9AYKlf45"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:20Z",
+  "case": 37,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1932867631956263205",
+  "enrichment": {
+   "error": "http_None"
+  },
+  "media_files": [
+   "media/1932867631956263205/0.jpg"
+  ]
+ }
+]

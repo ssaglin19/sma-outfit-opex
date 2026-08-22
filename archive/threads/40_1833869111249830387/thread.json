@@ -1,0 +1,77 @@
+[
+ {
+  "id": "1833869111249830387",
+  "text": "I was asked about why the S&amp;P still has support.\nEven though the DJI dropped like a rock after it enabled a move higher in the major market this week.\nWell right now, being tested, is the NASDAQ's 20M MA100.\nThat's a line in the sand on this drop for equities to go up. https://t.co/KGc2CjCUl6",
+  "created_at": "2024-09-11T14:04:02.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 20,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GXM1tMNagAACRFF.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1833869111249830387/photo/1",
+    "w": 1472,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/KGc2CjCUl6",
+     "expanded_url": "https://x.com/rauItrades/status/1833869111249830387/photo/1",
+     "indices": [
+      274,
+      297
+     ],
+     "url": "https://t.co/KGc2CjCUl6"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:02Z",
+  "case": 6,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1833869111249830387",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1833869111249830387",
+   "context_annotations": [
+    {
+     "domain": "Brand Vertical",
+     "entity": "B2B"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Services - B2B"
+    },
+    {
+     "domain": "Brand",
+     "entity": "S&P Global"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20240911140402",
+   "wayback_url": "https://twitter.com/rauItrades/status/1833869111249830387"
+  },
+  "media_files": [
+   "media/1833869111249830387/0.jpg"
+  ]
+ }
+]

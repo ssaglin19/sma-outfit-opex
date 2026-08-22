@@ -1,0 +1,106 @@
+[
+ {
+  "id": "1790431830908477912",
+  "text": "The entire equity markets are edging on a few things, that apex at 60.30, and now the HFTs at 59.60, triggering the 30/60 SMA outfit, 2m TQQQ.\nIf they weren't manipulating small caps like $GME  , this would be their operation. Only high frequency arbitrage detection like this can https://t.co/ZCtFxg09Nc",
+  "created_at": "2024-05-14T17:19:47.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 1,
+  "favorite_count": 11,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GNjjpdDa8AAQ-SY.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1790431830908477912/photo/1",
+    "w": 1469,
+    "h": 542
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/ZCtFxg09Nc",
+     "expanded_url": "https://x.com/rauItrades/status/1790431830908477912/photo/1",
+     "indices": [
+      281,
+      304
+     ],
+     "url": "https://t.co/ZCtFxg09Nc"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      188,
+      192
+     ],
+     "text": "GME"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:43Z",
+  "case": 19,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1790431830908477912",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1790431830908477912",
+   "context_annotations": [
+    {
+     "domain": "Brand Vertical",
+     "entity": "Entertainment"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Video Games - Entertainment"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Brand",
+     "entity": "GameStop"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "GameStop"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "$GME "
+    },
+    {
+     "domain": "Stocks",
+     "entity": "$GME "
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20240514171947",
+   "wayback_url": "https://twitter.com/rauItrades/status/1790431830908477912"
+  },
+  "media_files": [
+   "media/1790431830908477912/0.jpg"
+  ]
+ }
+]

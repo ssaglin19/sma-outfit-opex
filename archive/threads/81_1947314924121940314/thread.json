@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1947314924121940314",
+  "text": "I've purchased the VXX at 43.89 .\nI will cut the trade on a singular penny break of the program's selection. https://t.co/XfTgmVTCbF",
+  "created_at": "2025-07-21T15:17:11.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 5,
+  "favorite_count": 22,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GwZAWUMasAAWVG1.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1947314924121940314/photo/1",
+    "w": 1473,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/XfTgmVTCbF",
+     "expanded_url": "https://x.com/rauItrades/status/1947314924121940314/photo/1",
+     "indices": [
+      109,
+      132
+     ],
+     "url": "https://t.co/XfTgmVTCbF"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:35Z",
+  "case": 19,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1947314924121940314",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 3,
+    "reply_count": 5,
+    "like_count": 16,
+    "quote_count": 1,
+    "bookmark_count": 0,
+    "impression_count": 4372
+   },
+   "conversation_id": "1947314924121940314",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250721151711",
+   "wayback_url": "https://twitter.com/rauItrades/status/1947314924121940314"
+  },
+  "media_files": [
+   "media/1947314924121940314/0.jpg"
+  ]
+ }
+]

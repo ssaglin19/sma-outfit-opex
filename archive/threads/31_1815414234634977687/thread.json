@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1815414234634977687",
+  "text": "TQQQ 72.12 .\n3m MA188\n47 outfit, it's rapid work here but worth documenting.\nOnly issue is that the system is negative and it's rapid fire arbitrage. https://t.co/GQJ5nv4iJq",
+  "created_at": "2024-07-22T15:50:56.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 29,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GTGk00nbkAAllRb.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1815414234634977687/photo/1",
+    "w": 1476,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/GQJ5nv4iJq",
+     "expanded_url": "https://x.com/rauItrades/status/1815414234634977687/photo/1",
+     "indices": [
+      150,
+      173
+     ],
+     "url": "https://t.co/GQJ5nv4iJq"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:53Z",
+  "case": 26,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1815414234634977687",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1815414234634977687",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240722155056",
+   "wayback_url": "https://twitter.com/rauItrades/status/1815414234634977687"
+  },
+  "media_files": [
+   "media/1815414234634977687/0.jpg"
+  ]
+ }
+]

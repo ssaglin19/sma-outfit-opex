@@ -1,0 +1,52 @@
+[
+ {
+  "id": "1828864244819095888",
+  "text": "This is the NASDAQ's System.\nSince the SVIX is in an uptrend, the parameter set for the [NASDAQ System] is [Buying when ma100 is above the ma250].\nAnother reason I have bought the TQQQ on the drop going into NVDA's Earnings. https://t.co/PctqOCINr6",
+  "created_at": "2024-08-28T18:36:29.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 4,
+  "favorite_count": 39,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GWFt2KZaMAAdyKP.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1828864244819095888/photo/1",
+    "w": 1471,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/PctqOCINr6",
+     "expanded_url": "https://x.com/rauItrades/status/1828864244819095888/photo/1",
+     "indices": [
+      225,
+      248
+     ],
+     "url": "https://t.co/PctqOCINr6"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:59Z",
+  "case": 4,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1828864244819095888",
+  "enrichment": {
+   "error": "http_None"
+  },
+  "media_files": [
+   "media/1828864244819095888/0.jpg"
+  ]
+ }
+]

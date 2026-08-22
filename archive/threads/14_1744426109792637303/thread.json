@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1744426109792637303",
+  "text": "For whatever reason they've operated the Dollar using Elon's outfit. \nYou can see on the 20m DXY how the high frequency operators bid on that flash down to the 840.\nIt's all very organized. The weakness in the dollar today is what struck the Nasdaq higher and the SP500 positive. https://t.co/me6I5A4Emw",
+  "created_at": "2024-01-08T18:29:29.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 6,
+  "favorite_count": 70,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GDVxhyYbUAAg1Rv.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1744426109792637303/photo/1",
+    "w": 1472,
+    "h": 541
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/me6I5A4Emw",
+     "expanded_url": "https://x.com/rauItrades/status/1744426109792637303/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/me6I5A4Emw"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:38Z",
+  "case": 14,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1744426109792637303",
+  "enrichment": {},
+  "media_files": [
+   "media/1744426109792637303/0.jpg"
+  ]
+ }
+]

@@ -1,0 +1,118 @@
+[
+ {
+  "id": "1937512126815641782",
+  "text": "I've speculated here on megacap leader $AAPL and bought AAPL at 200.20 .\nMA16 MA31 MA63 MA125 MA250 MA500\nRussia.\n365 Outfit at 345.02 at [parm: MA125 at 200.20] https://t.co/Pud066UZWc",
+  "created_at": "2025-06-24T14:04:22.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 6,
+  "favorite_count": 34,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GuNsscVbMAAEf0k.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1937512126815641782/photo/1",
+    "w": 1471,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Pud066UZWc",
+     "expanded_url": "https://x.com/rauItrades/status/1937512126815641782/photo/1",
+     "indices": [
+      162,
+      185
+     ],
+     "url": "https://t.co/Pud066UZWc"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      39,
+      44
+     ],
+     "text": "AAPL"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:26Z",
+  "case": 13,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1937512126815641782",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1937512126815641782",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Apple"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Apple"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "S&P 500"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "$AAPL"
+    },
+    {
+     "domain": "Stocks",
+     "entity": "$AAPL"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Personal finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Events [Entity Service]",
+     "entity": "Cheddar"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20250624140422",
+   "wayback_url": "https://twitter.com/rauItrades/status/1937512126815641782"
+  },
+  "media_files": [
+   "media/1937512126815641782/0.jpg"
+  ]
+ }
+]

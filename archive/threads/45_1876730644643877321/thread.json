@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1876730644643877321",
+  "text": "I'm trading aggressively today. Picked up SOX on the IXIC, integer 20 outfit] 5M MA320]. 5186 as risk. I will cut on the singular point break. https://t.co/2Yy5aXzC1h",
+  "created_at": "2025-01-07T20:40:28.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 19,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/Ggt8kcPasAA9Kux.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1876730644643877321/photo/1",
+    "w": 1474,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/2Yy5aXzC1h",
+     "expanded_url": "https://x.com/rauItrades/status/1876730644643877321/photo/1",
+     "indices": [
+      143,
+      166
+     ],
+     "url": "https://t.co/2Yy5aXzC1h"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:07Z",
+  "case": 34,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1876730644643877321",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1876730644643877321",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250107204028",
+   "wayback_url": "https://twitter.com/rauItrades/status/1876730644643877321"
+  },
+  "media_files": [
+   "media/1876730644643877321/0.jpg"
+  ]
+ }
+]

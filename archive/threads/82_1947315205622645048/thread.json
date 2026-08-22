@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1947315205622645048",
+  "text": "I've shorted the SVIX at 16.88 .\nThere's a high frequency short operating on the outfit:\n[MA27 MA54 MA108 MA216 MA432 MA864]\nThis outfit is a cryptographic play on binary and the sequential descent of the integers 4, 3, and 2 of 432.\nOr the... 432 Outfit.\n\n[MA432 at 16.88],\nThis https://t.co/K2nikX3U7F",
+  "created_at": "2025-07-21T15:18:19.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 6,
+  "favorite_count": 21,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GwY_m0cawAAPOXo.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1947315205622645048/photo/1",
+    "w": 1471,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/K2nikX3U7F",
+     "expanded_url": "https://x.com/rauItrades/status/1947315205622645048/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/K2nikX3U7F"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:36Z",
+  "case": 5,
+  "category": "Automated Short Orders",
+  "thread_index": 1,
+  "thread_of": "1947315205622645048",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 2,
+    "like_count": 3,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 203
+   },
+   "conversation_id": "1947315205622645048",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250721151819",
+   "wayback_url": "https://twitter.com/rauItrades/status/1947315205622645048"
+  },
+  "media_files": [
+   "media/1947315205622645048/0.jpg"
+  ]
+ }
+]

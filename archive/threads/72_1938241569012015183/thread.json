@@ -1,0 +1,73 @@
+[
+ {
+  "id": "1938241569012015183",
+  "text": "I think Real Estate insiders purchased $IVR .\nSo I bought the vehicle in anticipation of a move higher from\nIVR at 92.88 . \n\nI'll liquidate the program on a singular penny break of the sequence. https://t.co/QDtjhelRXW",
+  "created_at": "2025-06-26T14:22:55.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 18,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GuYEZCTaMAAYBip.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1938241569012015183/photo/1",
+    "w": 1471,
+    "h": 557
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/QDtjhelRXW",
+     "expanded_url": "https://x.com/rauItrades/status/1938241569012015183/photo/1",
+     "indices": [
+      195,
+      218
+     ],
+     "url": "https://t.co/QDtjhelRXW"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      39,
+      43
+     ],
+     "text": "IVR"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:28Z",
+  "case": 16,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1938241569012015183",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1938241569012015183",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250626142255",
+   "wayback_url": "https://twitter.com/rauItrades/status/1938241569012015183"
+  },
+  "media_files": [
+   "media/1938241569012015183/0.jpg"
+  ]
+ }
+]

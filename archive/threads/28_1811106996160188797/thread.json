@@ -1,0 +1,81 @@
+[
+ {
+  "id": "1811106996160188797",
+  "text": "I don't like sharing small cap equities because they are extremely manipulated and not made to be gamed but the ticker GME is in fact operating on a high frequency arbitrage selection @\n\n25.16 , GME (144 MA outfit), on the MA144. https://t.co/6sTDACGC1A",
+  "created_at": "2024-07-10T18:35:31.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 68,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GSJXyMfb0AAFDre.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1811106996160188797/photo/1",
+    "w": 1471,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/6sTDACGC1A",
+     "expanded_url": "https://x.com/rauItrades/status/1811106996160188797/photo/1",
+     "indices": [
+      230,
+      253
+     ],
+     "url": "https://t.co/6sTDACGC1A"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:50Z",
+  "case": 2,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1811106996160188797",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1811106996160188797",
+   "context_annotations": [
+    {
+     "domain": "Brand Vertical",
+     "entity": "Entertainment"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Video Games - Entertainment"
+    },
+    {
+     "domain": "Brand",
+     "entity": "GameStop"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "GameStop"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20240710183531",
+   "wayback_url": "https://twitter.com/rauItrades/status/1811106996160188797"
+  },
+  "media_files": [
+   "media/1811106996160188797/0.jpg"
+  ]
+ }
+]

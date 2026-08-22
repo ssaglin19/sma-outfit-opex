@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1814382183920050199",
+  "text": "Looks like this is what the final leg consists of.\n2m 25 51 101 202 404 808 SPXU\n@ MA808, 28.08 .\nThis is just to document as EOD approaches. https://t.co/JDlYo7dixc",
+  "created_at": "2024-07-19T19:29:56.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 1,
+  "favorite_count": 31,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GS355R-aIAASn2u.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1814382183920050199/photo/1",
+    "w": 1473,
+    "h": 565
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/JDlYo7dixc",
+     "expanded_url": "https://x.com/rauItrades/status/1814382183920050199/photo/1",
+     "indices": [
+      142,
+      165
+     ],
+     "url": "https://t.co/JDlYo7dixc"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:52Z",
+  "case": 25,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1814382183920050199",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1814382183920050199",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240719192956",
+   "wayback_url": "https://twitter.com/rauItrades/status/1814382183920050199"
+  },
+  "media_files": [
+   "media/1814382183920050199/0.jpg"
+  ]
+ }
+]

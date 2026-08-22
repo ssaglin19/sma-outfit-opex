@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1884973416471839009",
+  "text": "I've purchased the RWM.\n18.04 is the computer program's established risk.\nThere's a magnetized buying algorithm on the 30M SVIX Outfit.\nMA26 MA52 MA116 MA211 MA422 MA844 https://t.co/sMWJiDslZc",
+  "created_at": "2025-01-30T14:34:18.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 5,
+  "favorite_count": 36,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GijFULdaYAA7ITH.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1884973416471839009/photo/1",
+    "w": 1472,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/sMWJiDslZc",
+     "expanded_url": "https://x.com/rauItrades/status/1884973416471839009/photo/1",
+     "indices": [
+      170,
+      193
+     ],
+     "url": "https://t.co/sMWJiDslZc"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:10Z",
+  "case": 12,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1884973416471839009",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1884973416471839009",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250130143418",
+   "wayback_url": "https://twitter.com/rauItrades/status/1884973416471839009"
+  },
+  "media_files": [
+   "media/1884973416471839009/0.jpg"
+  ]
+ }
+]

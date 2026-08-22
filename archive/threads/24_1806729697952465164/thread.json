@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1806729697952465164",
+  "text": "I picked up TQQQ here at 74.35 because I believe there is a buy algo here on the 3m MA448. https://t.co/PrNWK0xJ1L",
+  "created_at": "2024-06-28T16:41:42.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 4,
+  "favorite_count": 14,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLK9cVbAAEnXbu.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806729697952465164/photo/1",
+    "w": 1473,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/PrNWK0xJ1L",
+     "expanded_url": "https://x.com/rauItrades/status/1806729697952465164/photo/1",
+     "indices": [
+      91,
+      114
+     ],
+     "url": "https://t.co/PrNWK0xJ1L"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:47Z",
+  "case": 1,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1806729697952465164",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240628164142",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806729697952465164"
+  },
+  "media_files": [
+   "media/1806729697952465164/0.jpg"
+  ]
+ }
+]

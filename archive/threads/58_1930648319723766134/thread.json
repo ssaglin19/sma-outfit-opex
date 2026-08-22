@@ -1,0 +1,73 @@
+[
+ {
+  "id": "1930648319723766134",
+  "text": "Since this buy algorithm on Energy is fully intact I've also purchased the ERX Direxion Daily Energy Bull 2X ETF.\nI will cut the trade on a singular penny break of that capitular low of 47.50 in order to protect myself on a highly volatile ultiplied ETF.\n$ERX at 47.50 . https://t.co/BcIiAJW5tN",
+  "created_at": "2025-06-05T15:30:03.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 34,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GssKAlHasAA6aCn.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1930648319723766134/photo/1",
+    "w": 1470,
+    "h": 555
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/BcIiAJW5tN",
+     "expanded_url": "https://x.com/rauItrades/status/1930648319723766134/photo/1",
+     "indices": [
+      271,
+      294
+     ],
+     "url": "https://t.co/BcIiAJW5tN"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      255,
+      259
+     ],
+     "text": "ERX"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:15Z",
+  "case": 6,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1930648319723766134",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1930648319723766134",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250605153003",
+   "wayback_url": "https://twitter.com/rauItrades/status/1930648319723766134"
+  },
+  "media_files": [
+   "media/1930648319723766134/0.jpg"
+  ]
+ }
+]

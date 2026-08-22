@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1948088844764741770",
+  "text": "I've purchased SOXS at 7.54 . I will cut the trade on a singular penny break of the program's selection. https://t.co/PqaGoanVoO",
+  "created_at": "2025-07-23T18:32:28.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 15,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GwkAcn5awAA3FzS.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1948088844764741770/photo/1",
+    "w": 1467,
+    "h": 553
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/PqaGoanVoO",
+     "expanded_url": "https://x.com/rauItrades/status/1948088844764741770/photo/1",
+     "indices": [
+      105,
+      128
+     ],
+     "url": "https://t.co/PqaGoanVoO"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:37Z",
+  "case": 20,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1948088844764741770",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1948088844764741770",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250723183228",
+   "wayback_url": "https://twitter.com/rauItrades/status/1948088844764741770"
+  },
+  "media_files": [
+   "media/1948088844764741770/0.jpg"
+  ]
+ }
+]

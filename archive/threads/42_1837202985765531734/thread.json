@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1837202985765531734",
+  "text": "This is rather hard to organize and define for most people that only care about the visually concise and streamlined SMA outfit protocols that are bought on the exact drop.\nBut this volatile drop and on the [366] outfit is where banks are working the NASDAQ.\nTQQQ @ 478.30 . https://t.co/fn1iptwgXh",
+  "created_at": "2024-09-20T18:51:40.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 37,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GX8N3WiXUAAi8tD.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1837202985765531734/photo/1",
+    "w": 1473,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/fn1iptwgXh",
+     "expanded_url": "https://x.com/rauItrades/status/1837202985765531734/photo/1",
+     "indices": [
+      275,
+      298
+     ],
+     "url": "https://t.co/fn1iptwgXh"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:04Z",
+  "case": 7,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1837202985765531734",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+   },
+   "conversation_id": "1837202985765531734",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240920185140",
+   "wayback_url": "https://twitter.com/rauItrades/status/1837202985765531734"
+  },
+  "media_files": [
+   "media/1837202985765531734/0.jpg"
+  ]
+ }
+]

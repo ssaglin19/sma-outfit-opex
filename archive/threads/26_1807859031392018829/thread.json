@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1807859031392018829",
+  "text": "Earlier there was precision arbitrage at QQQ's 2m MA200 at 480.21 and those traders are capitalizing on the operation. I'd like to share it here live. It flashed down because of semiconductors taking fire on their daily chart. https://t.co/eDqQgyYQ0g",
+  "created_at": "2024-07-01T19:29:16.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 14,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRbN37WaYAAVPjH.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1807859031392018829/photo/1",
+    "w": 1471,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/eDqQgyYQ0g",
+     "expanded_url": "https://x.com/rauItrades/status/1807859031392018829/photo/1",
+     "indices": [
+      227,
+      250
+     ],
+     "url": "https://t.co/eDqQgyYQ0g"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:49Z",
+  "case": 23,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1807859031392018829",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1807859031392018829",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240701192916",
+   "wayback_url": "https://twitter.com/rauItrades/status/1807859031392018829"
+  },
+  "media_files": [
+   "media/1807859031392018829/0.jpg"
+  ]
+ }
+]

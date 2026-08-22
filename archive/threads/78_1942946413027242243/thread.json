@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1942946413027242243",
+  "text": "I've purchased the RWM again on this capitular low.\nRWM at 18.21 is where banks have an established risk parameter and will only cut the trade on a single penny break of this operation. These same institutions used the [2000] SMA outfit to signal the program.\n\nRWM at 18.21. https://t.co/oi7QlYEbkx",
+  "created_at": "2025-07-09T13:58:17.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 10,
+  "favorite_count": 14,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/Gva7cDMXkAIJ7fW.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1942946413027242243/photo/1",
+    "w": 1469,
+    "h": 554
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/oi7QlYEbkx",
+     "expanded_url": "https://x.com/rauItrades/status/1942946413027242243/photo/1",
+     "indices": [
+      275,
+      298
+     ],
+     "url": "https://t.co/oi7QlYEbkx"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:33Z",
+  "case": 18,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1942946413027242243",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1942946413027242243",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250709135817",
+   "wayback_url": "https://twitter.com/rauItrades/status/1942946413027242243"
+  },
+  "media_files": [
+   "media/1942946413027242243/0.jpg"
+  ]
+ }
+]

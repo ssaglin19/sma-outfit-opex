@@ -1,0 +1,152 @@
+[
+ {
+  "id": "1828454173874303382",
+  "text": "this is a post for those who care to look at the work and information themselves. if you have the tabulated grid to look at sma outfits go ahead and check out the new svix outfit on ixic, 26/52/106/211/422/844, you'll see on multiple timeframes that there is arbitrage operating.",
+  "created_at": "2024-08-27T15:27:00.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 55,
+  "media": [],
+  "entities": {},
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:49Z",
+  "case": 28,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1828458249819140212",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1828454173874303382",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240827152700",
+   "wayback_url": "https://twitter.com/rauItrades/status/1828454173874303382"
+  },
+  "media_files": []
+ },
+ {
+  "id": "1828454968896167993",
+  "text": "sadly it's super skewed [so that other detection systems don't execute on it] but as the ixic made an apex there, at specifically the 211/422/844 it kept stalling-- disproportionate to any other outfit/timeframes [2m/3m] or equity vehicle. just fyi. eventually i'll share it.",
+  "created_at": "2024-08-27T15:30:10.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1828454173874303382",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 13,
+  "media": [],
+  "entities": {},
+  "source": "syndication:parent_of_1828458249819140212",
+  "captured_at": "2026-08-22T14:57:57Z",
+  "case": 28,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 2,
+  "thread_of": "1828458249819140212",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1828454173874303382",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1828454173874303382"
+    }
+   ],
+   "wayback_ts": "20240827153010",
+   "wayback_url": "https://twitter.com/rauItrades/status/1828454968896167993"
+  },
+  "media_files": []
+ },
+ {
+  "id": "1828458249819140212",
+  "text": "I picked up the TQQQ. \n68.04 is where some firms picked up the NASDAQ's TQQQ, with 68.04 as risk.\n\n30s MA52 is where the high frequency selection commenced.\nI will cut/liquidate/dispose the trade on a singular penny break of the selection of TQQQ @ 68.04 . https://t.co/I73qOKnk3k",
+  "created_at": "2024-08-27T15:43:12.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1828454968896167993",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 17,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GV_8iFtWsAACqJI.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1828458249819140212/photo/1",
+    "w": 1474,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/I73qOKnk3k",
+     "expanded_url": "https://x.com/rauItrades/status/1828458249819140212/photo/1",
+     "indices": [
+      257,
+      280
+     ],
+     "url": "https://t.co/I73qOKnk3k"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:57Z",
+  "case": 28,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 3,
+  "thread_of": "1828458249819140212",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1828454173874303382",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1828454968896167993"
+    }
+   ],
+   "wayback_ts": "20240827154312",
+   "wayback_url": "https://twitter.com/rauItrades/status/1828458249819140212"
+  },
+  "media_files": [
+   "media/1828458249819140212/0.jpg"
+  ]
+ }
+]

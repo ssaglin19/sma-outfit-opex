@@ -1,0 +1,83 @@
+[
+ {
+  "id": "1836091941202858086",
+  "text": "This is the $SVIX operating on the 10M Waring's Problem SMA outfit on this volatile drop across the major market.\nSVIX at 26.48.\nSVIX -1X Short VIX Futures ETF 10m MA279.\nMA279:26.47\nSelection, SVIX 26.48.\n[.01 difference to outperform detection systems]. https://t.co/ZSw07biFlC",
+  "created_at": "2024-09-17T17:16:46.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 36,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GXsa-RWbEAAK1Ty.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1836091941202858086/photo/1",
+    "w": 1471,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/ZSw07biFlC",
+     "expanded_url": "https://x.com/rauItrades/status/1836091941202858086/photo/1",
+     "indices": [
+      256,
+      279
+     ],
+     "url": "https://t.co/ZSw07biFlC"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      12,
+      17
+     ],
+     "text": "SVIX"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:03Z",
+  "case": 30,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1836091941202858086",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1836091941202858086",
+   "context_annotations": [
+    {
+     "domain": "Brand",
+     "entity": "Vix"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "quoted",
+     "id": "1835821340529660260"
+    }
+   ],
+   "wayback_ts": "20240917171646",
+   "wayback_url": "https://twitter.com/rauItrades/status/1836091941202858086"
+  },
+  "media_files": [
+   "media/1836091941202858086/0.jpg"
+  ]
+ }
+]

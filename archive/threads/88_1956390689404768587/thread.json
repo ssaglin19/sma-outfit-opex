@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1956390689404768587",
+  "text": "As a final conditional base trade, I've purchased the RWM with the [30M MA25 at 17.85 as risk].\nThis is the RWM 30M 404 MA25 at 17.85 . https://t.co/KQsEIPBtyE",
+  "created_at": "2025-08-15T16:21:02.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 7,
+  "favorite_count": 46,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GyZ-qu6bQAAwBz1.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1956390689404768587/photo/1",
+    "w": 1469,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/KQsEIPBtyE",
+     "expanded_url": "https://x.com/rauItrades/status/1956390689404768587/photo/1",
+     "indices": [
+      136,
+      159
+     ],
+     "url": "https://t.co/KQsEIPBtyE"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:41Z",
+  "case": 15,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1956390689404768587",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1956390689404768587",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250815162102",
+   "wayback_url": "https://twitter.com/rauItrades/status/1956390689404768587"
+  },
+  "media_files": [
+   "media/1956390689404768587/0.jpg"
+  ]
+ }
+]

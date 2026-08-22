@@ -1,0 +1,155 @@
+[
+ {
+  "id": "1638589747525472257",
+  "text": "There are two trades right now. Both are operating on the 22/55. The Sqqq 15s ma222. The Tqqq 2m ma222. https://t.co/SwsTxk4aMV",
+  "created_at": "2023-03-22T17:13:33.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 1,
+  "favorite_count": 4,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/Fr1wScdacAAowA3.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1638589747525472257/photo/1",
+    "w": 1465,
+    "h": 490
+   },
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/Fr1wY6iaYAEA8X9.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1638589747525472257/photo/1",
+    "w": 1472,
+    "h": 488
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/SwsTxk4aMV",
+     "expanded_url": "https://x.com/rauItrades/status/1638589747525472257/photo/1",
+     "indices": [
+      104,
+      127
+     ],
+     "url": "https://t.co/SwsTxk4aMV"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:42Z",
+  "case": 8,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1638591891926315008",
+  "enrichment": {},
+  "media_files": [
+   "media/1638589747525472257/0.jpg",
+   "media/1638589747525472257/1.jpg"
+  ]
+ },
+ {
+  "id": "1638590730485784577",
+  "text": "https://t.co/R5taLYeCRA",
+  "created_at": "2023-03-22T17:17:28.000Z",
+  "lang": "zxx",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1638589747525472257",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/Fr1xlBCagAADQgy.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1638590730485784577/photo/1",
+    "w": 1469,
+    "h": 490
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/R5taLYeCRA",
+     "expanded_url": "https://x.com/rauItrades/status/1638590730485784577/photo/1",
+     "indices": [
+      0,
+      23
+     ],
+     "url": "https://t.co/R5taLYeCRA"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1638591891926315008",
+  "captured_at": "2026-08-22T14:57:27Z",
+  "case": 8,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 2,
+  "thread_of": "1638591891926315008",
+  "enrichment": {},
+  "media_files": [
+   "media/1638590730485784577/0.jpg"
+  ]
+ },
+ {
+  "id": "1638591891926315008",
+  "text": "So we can see now which they selected here at least on the short term.\nThat 2m ma222 at 25.70 . https://t.co/UyeNn8gGRm",
+  "created_at": "2023-03-22T17:22:05.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1638590730485784577",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 6,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/Fr1yk1_aAAAFvH3.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1638591891926315008/photo/1",
+    "w": 1468,
+    "h": 490
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/UyeNn8gGRm",
+     "expanded_url": "https://x.com/rauItrades/status/1638591891926315008/photo/1",
+     "indices": [
+      96,
+      119
+     ],
+     "url": "https://t.co/UyeNn8gGRm"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:27Z",
+  "case": 8,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 3,
+  "thread_of": "1638591891926315008",
+  "enrichment": {},
+  "media_files": [
+   "media/1638591891926315008/0.jpg"
+  ]
+ }
+]

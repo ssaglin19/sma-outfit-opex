@@ -1,0 +1,110 @@
+[
+ {
+  "id": "1842195776489066924",
+  "text": "NASDAQ's respective integer 20.\nExtended hour session is recording the program on the UVIX in the extended hour session.\n2x Long VIX Futures ETF.\nI speculated long at 5.330 .\n5M [20 40 80 160 320 640].\n5.330 as risk. https://t.co/h14LsnW1Ca",
+  "created_at": "2024-10-04T13:31:14.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 19,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GZDLQaTaYAABRJO.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1842195776489066924/photo/1",
+    "w": 1473,
+    "h": 554
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/h14LsnW1Ca",
+     "expanded_url": "https://x.com/rauItrades/status/1842195776489066924/photo/1",
+     "indices": [
+      217,
+      240
+     ],
+     "url": "https://t.co/h14LsnW1Ca"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:06Z",
+  "case": 32,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1842195776489066924",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1842195776489066924",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Technology Business"
+    },
+    {
+     "domain": "Brand",
+     "entity": "NYSE"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Vix"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Technology"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Computer programming"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Computer programming"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "B2B"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Services - B2B"
+    },
+    {
+     "domain": "Brand",
+     "entity": "GitHub"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "quoted",
+     "id": "1798082384459599887"
+    }
+   ],
+   "wayback_ts": "20241004133114",
+   "wayback_url": "https://twitter.com/rauItrades/status/1842195776489066924"
+  },
+  "media_files": [
+   "media/1842195776489066924/0.jpg"
+  ]
+ }
+]

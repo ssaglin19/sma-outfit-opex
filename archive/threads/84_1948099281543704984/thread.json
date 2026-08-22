@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1948099281543704984",
+  "text": "I've purchased SQQQ here from this program at 18.47 .\nI will cut the trade on a singular penny break of the protocol.\n\nI purchased SQQQ here because of the [SOXS 8M MA30 MA60 MA90 MA300 MA600 MA900 MA90  at 7.54] and  I have only purchased the SOXS because the VXX/SVXY, following https://t.co/DJSCtTp0ki",
+  "created_at": "2025-07-23T19:13:57.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 4,
+  "favorite_count": 20,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GwkJwcubMAAkvyb.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1948099281543704984/photo/1",
+    "w": 1471,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/DJSCtTp0ki",
+     "expanded_url": "https://x.com/rauItrades/status/1948099281543704984/photo/1",
+     "indices": [
+      281,
+      304
+     ],
+     "url": "https://t.co/DJSCtTp0ki"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:38Z",
+  "case": 21,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1948099281543704984",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1948099281543704984",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250723191357",
+   "wayback_url": "https://twitter.com/rauItrades/status/1948099281543704984"
+  },
+  "media_files": [
+   "media/1948099281543704984/0.jpg"
+  ]
+ }
+]

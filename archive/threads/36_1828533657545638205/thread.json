@@ -1,0 +1,86 @@
+[
+ {
+  "id": "1828533657545638205",
+  "text": "Someone who keeps up with this page. \nWonder how they knew the MA844 on the Nasdaq composite was ‘resistance’ during today’s institutional hour session.\nWell that’s just good data analytics. How else could they have called the apex of 17,789 ? Rhetorical.\nWe all knew in advance. https://t.co/wskhyMPu4H",
+  "created_at": "2024-08-27T20:42:51.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 4,
+  "favorite_count": 27,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GWBBq47WcAAIjFS.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1828533657545638205/photo/1",
+    "w": 1474,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/wskhyMPu4H",
+     "expanded_url": "https://x.com/rauItrades/status/1828533657545638205/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/wskhyMPu4H"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:58Z",
+  "case": 3,
+  "category": "Automated Short Orders",
+  "thread_index": 1,
+  "thread_of": "1828533657545638205",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1828533657545638205",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Technology Business"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Technology"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Data science"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "quoted",
+     "id": "1828532888377114690"
+    }
+   ],
+   "wayback_ts": "20240827204251",
+   "wayback_url": "https://twitter.com/rauItrades/status/1828533657545638205"
+  },
+  "media_files": [
+   "media/1828533657545638205/0.jpg"
+  ]
+ }
+]

@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1821944746127831132",
+  "text": "I picked up the NASDAQ.\nQQQ at the 1m MA444 has magnetized orders I'm betting on. The operation started at 448.86 .\nThe parameter adjustment [optimization] is that there are magnetized orders on that parameter. https://t.co/yJSOXSKkje",
+  "created_at": "2024-08-09T16:20:52.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 44,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GUjZEC8a8AAbmhU.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1821944746127831132/photo/1",
+    "w": 1473,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/yJSOXSKkje",
+     "expanded_url": "https://x.com/rauItrades/status/1821944746127831132/photo/1",
+     "indices": [
+      211,
+      234
+     ],
+     "url": "https://t.co/yJSOXSKkje"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:54Z",
+  "case": 2,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1821944746127831132",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1821944746127831132",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240809162052",
+   "wayback_url": "https://twitter.com/rauItrades/status/1821944746127831132"
+  },
+  "media_files": [
+   "media/1821944746127831132/0.jpg"
+  ]
+ }
+]

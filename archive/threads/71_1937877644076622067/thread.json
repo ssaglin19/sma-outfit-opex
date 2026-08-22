@@ -1,0 +1,110 @@
+[
+ {
+  "id": "1937877644076622067",
+  "text": "I bought $TSLT at 16.33 as risk.\nUS judge blocks Trump's EV charger funding freeze\nAdministration 46.\n[MA23 MA46 MA92 MA184 MA368 MA736]\n[HARD-Stop order at selection of MA184 at 16.32] https://t.co/uiu0R1nYoj",
+  "created_at": "2025-06-25T14:16:49.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 25,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GuS5aYtakAIyXju.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1937877644076622067/photo/1",
+    "w": 1473,
+    "h": 557
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/uiu0R1nYoj",
+     "expanded_url": "https://x.com/rauItrades/status/1937877644076622067/photo/1",
+     "indices": [
+      186,
+      209
+     ],
+     "url": "https://t.co/uiu0R1nYoj"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      9,
+      14
+     ],
+     "text": "TSLT"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:27Z",
+  "case": 14,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1937877644076622067",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1937877644076622067",
+   "context_annotations": [
+    {
+     "domain": "Person",
+     "entity": "Donald Trump"
+    },
+    {
+     "domain": "Events [Entity Service]",
+     "entity": "2024 US Presidential Election"
+    },
+    {
+     "domain": "Politician",
+     "entity": "Donald Trump"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Donald Trump"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Politics"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Political figures"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "United States politics"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "2024 US Presidential Election"
+    },
+    {
+     "domain": "Events [Entity Service]",
+     "entity": "2024 US Election"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20250625141649",
+   "wayback_url": "https://twitter.com/rauItrades/status/1937877644076622067"
+  },
+  "media_files": [
+   "media/1937877644076622067/0.jpg"
+  ]
+ }
+]

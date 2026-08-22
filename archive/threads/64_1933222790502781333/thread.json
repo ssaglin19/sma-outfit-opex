@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1933222790502781333",
+  "text": "VXX at 50.28 .\nMA33 MA66 MA99 MA333 MA666 MA999.\nI've bought the VXX at 50.28.\nThere's a hard stop order at the 3M MA99 at 50.27, I';; cut the trade on a singular penny break of 50.28. https://t.co/c2V2YFx8WB",
+  "created_at": "2025-06-12T18:00:05.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 6,
+  "favorite_count": 20,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GtQvL3gbMAIzj4x.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1933222790502781333/photo/1",
+    "w": 1472,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/c2V2YFx8WB",
+     "expanded_url": "https://x.com/rauItrades/status/1933222790502781333/photo/1",
+     "indices": [
+      185,
+      208
+     ],
+     "url": "https://t.co/c2V2YFx8WB"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:20Z",
+  "case": 38,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1933222790502781333",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1933222790502781333",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250612180005",
+   "wayback_url": "https://twitter.com/rauItrades/status/1933222790502781333"
+  },
+  "media_files": [
+   "media/1933222790502781333/0.jpg"
+  ]
+ }
+]

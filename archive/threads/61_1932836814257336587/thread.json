@@ -1,0 +1,93 @@
+[
+ {
+  "id": "1932836814257336587",
+  "text": "For visual clarity I'll start the thread here.\nBanks are using precise 'time-series analysis' to trigger the UK PM SMA Outfit at MA[SPX 3M MA180].\nI'm holding the S&amp;P 500's 'long' vehicles, (i.e. UPRO, SPY] because banks will manufacture the S&amp;P 500 higher from here.\nSPX at 6028. https://t.co/yYBhkAbqys",
+  "created_at": "2025-06-11T16:26:21.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 7,
+  "favorite_count": 32,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GtLQuFYbMAQyJ3X.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1932836814257336587/photo/1",
+    "w": 1472,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/yYBhkAbqys",
+     "expanded_url": "https://x.com/rauItrades/status/1932836814257336587/photo/1",
+     "indices": [
+      289,
+      312
+     ],
+     "url": "https://t.co/yYBhkAbqys"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:18Z",
+  "case": 14,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1932836814257336587",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1932836814257336587",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "S&P 500"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "B2B"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Services - B2B"
+    },
+    {
+     "domain": "Brand",
+     "entity": "S&P Global"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20250611162621",
+   "wayback_url": "https://twitter.com/rauItrades/status/1932836814257336587"
+  },
+  "media_files": [
+   "media/1932836814257336587/0.jpg"
+  ]
+ }
+]

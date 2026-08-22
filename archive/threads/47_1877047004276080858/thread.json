@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1877047004276080858",
+  "text": "Figured it out.\nTariffs report led into semiconductors and China.\nThis is the XI SMA Outfit, PRC.\n28 56 112 224 448 976. SOXL at 29.18 . https://t.co/IjNDOxcsw6",
+  "created_at": "2025-01-08T17:37:34.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 23,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GgycAVbaMAEqq31.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1877047004276080858/photo/1",
+    "w": 1472,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/IjNDOxcsw6",
+     "expanded_url": "https://x.com/rauItrades/status/1877047004276080858/photo/1",
+     "indices": [
+      137,
+      160
+     ],
+     "url": "https://t.co/IjNDOxcsw6"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:07Z",
+  "case": 35,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1877047004276080858",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1877047004276080858",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250108173734",
+   "wayback_url": "https://twitter.com/rauItrades/status/1877047004276080858"
+  },
+  "media_files": [
+   "media/1877047004276080858/0.jpg"
+  ]
+ }
+]

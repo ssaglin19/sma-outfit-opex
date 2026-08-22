@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1781374864101929388",
+  "text": "50.14 is where the arbitrage commenced. that ma22 https://t.co/nWImLlNqnL",
+  "created_at": "2024-04-19T17:30:38.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 24,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GLi26iWa8AEhnXD.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1781374864101929388/photo/1",
+    "w": 1475,
+    "h": 543
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/nWImLlNqnL",
+     "expanded_url": "https://x.com/rauItrades/status/1781374864101929388/photo/1",
+     "indices": [
+      50,
+      73
+     ],
+     "url": "https://t.co/nWImLlNqnL"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:42Z",
+  "case": 10,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1781374864101929388",
+  "enrichment": {},
+  "media_files": [
+   "media/1781374864101929388/0.jpg"
+  ]
+ }
+]

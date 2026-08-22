@@ -1,0 +1,93 @@
+[
+ {
+  "id": "1824513003234226409",
+  "text": "I was asked about what's going on with the NASDAQ right now.\nIt's the 56, Speaker of the House outfit. \n1M MA224, 474.74 .\nI'm just sharing this for context. This is what high frequency arbitrage entails after firms have already made massive profit higher in the stock market. https://t.co/HyqYFONChp",
+  "created_at": "2024-08-16T18:26:12.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 4,
+  "favorite_count": 22,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GVH40tFaEAQelrB.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1824513003234226409/photo/1",
+    "w": 1470,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/HyqYFONChp",
+     "expanded_url": "https://x.com/rauItrades/status/1824513003234226409/photo/1",
+     "indices": [
+      277,
+      300
+     ],
+     "url": "https://t.co/HyqYFONChp"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:55Z",
+  "case": 27,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1824513003234226409",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1824513003234226409",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Personal finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Investing"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20240816182612",
+   "wayback_url": "https://twitter.com/rauItrades/status/1824513003234226409"
+  },
+  "media_files": [
+   "media/1824513003234226409/0.jpg"
+  ]
+ }
+]

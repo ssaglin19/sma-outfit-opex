@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1726988134590865457",
+  "text": "2m ma999 43.29 . \nThat's the only operation I see so far and this dip was very aggressive. https://t.co/gMyKmJKjc3",
+  "created_at": "2023-11-21T15:37:11.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 31,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/F_d-WQ9bAAAfwUo.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1726988134590865457/photo/1",
+    "w": 1466,
+    "h": 549
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/gMyKmJKjc3",
+     "expanded_url": "https://x.com/rauItrades/status/1726988134590865457/photo/1",
+     "indices": [
+      91,
+      114
+     ],
+     "url": "https://t.co/gMyKmJKjc3"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:34Z",
+  "case": 3,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1726988134590865457",
+  "enrichment": {},
+  "media_files": [
+   "media/1726988134590865457/0.jpg"
+  ]
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1719392379776758111",
+  "text": "Busy trading. \nYou have to feel bad for anyone without these tools. \nIt was the 2m MA808 at 31.97 .\nHappy Halloween. https://t.co/jmi32fv1Qp",
+  "created_at": "2023-10-31T16:34:22.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 20,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/F9yCQb_bEAAf35y.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1719392379776758111/photo/1",
+    "w": 1470,
+    "h": 547
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/jmi32fv1Qp",
+     "expanded_url": "https://x.com/rauItrades/status/1719392379776758111/photo/1",
+     "indices": [
+      117,
+      140
+     ],
+     "url": "https://t.co/jmi32fv1Qp"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:32Z",
+  "case": 16,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1719392379776758111",
+  "enrichment": {},
+  "media_files": [
+   "media/1719392379776758111/0.jpg"
+  ]
+ }
+]

@@ -1,0 +1,73 @@
+[
+ {
+  "id": "1932828618344051095",
+  "text": "I picked up $SOXL at 21.93 .\nCinese bankers placed a hard stop order at the \n[2M MA224 at 21.92] so that's my risk. https://t.co/BTQtNBxfM1",
+  "created_at": "2025-06-11T15:53:47.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 2,
+  "favorite_count": 14,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GtLJUFybMAY9Q5E.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1932828618344051095/photo/1",
+    "w": 1472,
+    "h": 556
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/BTQtNBxfM1",
+     "expanded_url": "https://x.com/rauItrades/status/1932828618344051095/photo/1",
+     "indices": [
+      116,
+      139
+     ],
+     "url": "https://t.co/BTQtNBxfM1"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      12,
+      17
+     ],
+     "text": "SOXL"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:17Z",
+  "case": 8,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1932828618344051095",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1932828618344051095",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250611155347",
+   "wayback_url": "https://twitter.com/rauItrades/status/1932828618344051095"
+  },
+  "media_files": [
+   "media/1932828618344051095/0.jpg"
+  ]
+ }
+]

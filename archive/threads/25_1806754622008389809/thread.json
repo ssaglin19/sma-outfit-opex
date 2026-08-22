@@ -1,0 +1,5800 @@
+[
+ {
+  "id": "1806729697952465164",
+  "text": "I picked up TQQQ here at 74.35 because I believe there is a buy algo here on the 3m MA448. https://t.co/PrNWK0xJ1L",
+  "created_at": "2024-06-28T16:41:42.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 4,
+  "favorite_count": 14,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLK9cVbAAEnXbu.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806729697952465164/photo/1",
+    "w": 1473,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/PrNWK0xJ1L",
+     "expanded_url": "https://x.com/rauItrades/status/1806729697952465164/photo/1",
+     "indices": [
+      91,
+      114
+     ],
+     "url": "https://t.co/PrNWK0xJ1L"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:47Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 1,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20240628164142",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806729697952465164"
+  },
+  "media_files": [
+   "media/1806729697952465164/0.jpg"
+  ]
+ },
+ {
+  "id": "1806729783587569982",
+  "text": "I will cut the trade on a penny break of the selection. https://t.co/fd6241ty9g",
+  "created_at": "2024-06-28T16:42:02.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806729697952465164",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLLHxTbAAUnFoY.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806729783587569982/photo/1",
+    "w": 1474,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/fd6241ty9g",
+     "expanded_url": "https://x.com/rauItrades/status/1806729783587569982/photo/1",
+     "indices": [
+      56,
+      79
+     ],
+     "url": "https://t.co/fd6241ty9g"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:44Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 2,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806729697952465164"
+    }
+   ],
+   "wayback_ts": "20240628164202",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806729783587569982"
+  },
+  "media_files": [
+   "media/1806729783587569982/0.jpg"
+  ]
+ },
+ {
+  "id": "1806729945730945160",
+  "text": "Here's my $TQQQ at 74.35 operating on an aggressive buy algo on the 3m MA448. https://t.co/TqRsF7tR5Z",
+  "created_at": "2024-06-28T16:42:41.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806729783587569982",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLLM3QbAAAdz7U.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806729945730945160/photo/1",
+    "w": 1474,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/TqRsF7tR5Z",
+     "expanded_url": "https://x.com/rauItrades/status/1806729945730945160/photo/1",
+     "indices": [
+      78,
+      101
+     ],
+     "url": "https://t.co/TqRsF7tR5Z"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      10,
+      15
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806730115768058263",
+  "captured_at": "2026-08-22T14:59:43Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 3,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "error": "http_None"
+  },
+  "media_files": [
+   "media/1806729945730945160/0.jpg"
+  ]
+ },
+ {
+  "id": "1806730115768058263",
+  "text": "It's rapid but I need to thread and document this all live and in real time.\nMy $TQQQ at 74.35 . https://t.co/oZIxtSsQm6",
+  "created_at": "2024-06-28T16:43:21.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806729945730945160",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLLW8QbAAIDQwC.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806730115768058263/photo/1",
+    "w": 1473,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/oZIxtSsQm6",
+     "expanded_url": "https://x.com/rauItrades/status/1806730115768058263/photo/1",
+     "indices": [
+      97,
+      120
+     ],
+     "url": "https://t.co/oZIxtSsQm6"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      80,
+      85
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:43Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 4,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "error": "http_None"
+  },
+  "media_files": [
+   "media/1806730115768058263/0.jpg"
+  ]
+ },
+ {
+  "id": "1806730217681195497",
+  "text": "Here's my 3m 74.35 TQQQ. https://t.co/obEUGkfPjG",
+  "created_at": "2024-06-28T16:43:45.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806730115768058263",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLLewXbIAAowC-.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806730217681195497/photo/1",
+    "w": 1473,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/obEUGkfPjG",
+     "expanded_url": "https://x.com/rauItrades/status/1806730217681195497/photo/1",
+     "indices": [
+      25,
+      48
+     ],
+     "url": "https://t.co/obEUGkfPjG"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806730481498751262",
+  "captured_at": "2026-08-22T14:59:42Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 5,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "error": "http_None"
+  },
+  "media_files": [
+   "media/1806730217681195497/0.jpg"
+  ]
+ },
+ {
+  "id": "1806730481498751262",
+  "text": "Just please understand I am a rapid and aggressive trader I will 100% cut and liquidate this trade on the break. I have seen them operate equities all day on this 28/56/112/224/448/976 SMA outfit and I know they have been liquidating all day but I thought it was worth it. https://t.co/Jzefo17QOd",
+  "created_at": "2024-06-28T16:44:48.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806730217681195497",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 2,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLLk6ubYAAouwj.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806730481498751262/photo/1",
+    "w": 1471,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Jzefo17QOd",
+     "expanded_url": "https://x.com/rauItrades/status/1806730481498751262/photo/1",
+     "indices": [
+      273,
+      296
+     ],
+     "url": "https://t.co/Jzefo17QOd"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:42Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 6,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806730217681195497"
+    }
+   ],
+   "wayback_ts": "20240628164448",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806730481498751262"
+  },
+  "media_files": [
+   "media/1806730481498751262/0.jpg"
+  ]
+ },
+ {
+  "id": "1806730605725679971",
+  "text": "My $TQQQ at 74.35 . https://t.co/T30AERlUYr",
+  "created_at": "2024-06-28T16:45:18.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806730481498751262",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLL23jaEAEVauq.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806730605725679971/photo/1",
+    "w": 1472,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/T30AERlUYr",
+     "expanded_url": "https://x.com/rauItrades/status/1806730605725679971/photo/1",
+     "indices": [
+      20,
+      43
+     ],
+     "url": "https://t.co/T30AERlUYr"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806730674000560493",
+  "captured_at": "2026-08-22T14:59:41Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 7,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806730481498751262"
+    }
+   ],
+   "wayback_ts": "20240628164518",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806730605725679971"
+  },
+  "media_files": [
+   "media/1806730605725679971/0.jpg"
+  ]
+ },
+ {
+  "id": "1806730674000560493",
+  "text": "This is my $TQQQ at 74.35 . https://t.co/Bc4QhZXHad",
+  "created_at": "2024-06-28T16:45:34.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806730605725679971",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLL8LqbAAESqSK.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806730674000560493/photo/1",
+    "w": 1477,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Bc4QhZXHad",
+     "expanded_url": "https://x.com/rauItrades/status/1806730674000560493/photo/1",
+     "indices": [
+      28,
+      51
+     ],
+     "url": "https://t.co/Bc4QhZXHad"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      11,
+      16
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:41Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 8,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806730605725679971"
+    }
+   ],
+   "wayback_ts": "20240628164534",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806730674000560493"
+  },
+  "media_files": [
+   "media/1806730674000560493/0.jpg"
+  ]
+ },
+ {
+  "id": "1806730896504193409",
+  "text": "This is what happens when you have optimized systems that detect when they are using arbitrage programs for profit. https://t.co/AwP67lvSx5",
+  "created_at": "2024-06-28T16:46:27.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806730674000560493",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLMB-SaEAA-OTt.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806730896504193409/photo/1",
+    "w": 1473,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/AwP67lvSx5",
+     "expanded_url": "https://x.com/rauItrades/status/1806730896504193409/photo/1",
+     "indices": [
+      116,
+      139
+     ],
+     "url": "https://t.co/AwP67lvSx5"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806731144299221141",
+  "captured_at": "2026-08-22T14:59:40Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 9,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806730674000560493"
+    }
+   ],
+   "wayback_ts": "20240628164627",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806730896504193409"
+  },
+  "media_files": [
+   "media/1806730896504193409/0.jpg"
+  ]
+ },
+ {
+  "id": "1806731144299221141",
+  "text": "I've been in this game long enough to know what's up.\nMy $TQQQ at 74.35 . https://t.co/NxPgev2DVv",
+  "created_at": "2024-06-28T16:47:26.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806730896504193409",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLMMShbAAI2yVS.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806731144299221141/photo/1",
+    "w": 1472,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/NxPgev2DVv",
+     "expanded_url": "https://x.com/rauItrades/status/1806731144299221141/photo/1",
+     "indices": [
+      74,
+      97
+     ],
+     "url": "https://t.co/NxPgev2DVv"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      57,
+      62
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:40Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 10,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806730896504193409"
+    }
+   ],
+   "wayback_ts": "20240628164726",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806731144299221141"
+  },
+  "media_files": [
+   "media/1806731144299221141/0.jpg"
+  ]
+ },
+ {
+  "id": "1806731221516591321",
+  "text": "Here's my $TQQQ at 74.35 . https://t.co/7Dz99X3q8J",
+  "created_at": "2024-06-28T16:47:45.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806731144299221141",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLMat4bEAAhxm6.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806731221516591321/photo/1",
+    "w": 1475,
+    "h": 556
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/7Dz99X3q8J",
+     "expanded_url": "https://x.com/rauItrades/status/1806731221516591321/photo/1",
+     "indices": [
+      27,
+      50
+     ],
+     "url": "https://t.co/7Dz99X3q8J"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      10,
+      15
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806731279481843922",
+  "captured_at": "2026-08-22T14:59:39Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 11,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806731144299221141"
+    }
+   ],
+   "wayback_ts": "20240628164745",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806731221516591321"
+  },
+  "media_files": [
+   "media/1806731221516591321/0.jpg"
+  ]
+ },
+ {
+  "id": "1806731279481843922",
+  "text": "My $TQQQ at 74.35 .\nlive and in real time. https://t.co/NUNIJP7GIb",
+  "created_at": "2024-06-28T16:47:59.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806731221516591321",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLMfKrbAAIWb6l.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806731279481843922/photo/1",
+    "w": 1474,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/NUNIJP7GIb",
+     "expanded_url": "https://x.com/rauItrades/status/1806731279481843922/photo/1",
+     "indices": [
+      43,
+      66
+     ],
+     "url": "https://t.co/NUNIJP7GIb"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:39Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 12,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806731221516591321"
+    }
+   ],
+   "wayback_ts": "20240628164759",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806731279481843922"
+  },
+  "media_files": [
+   "media/1806731279481843922/0.jpg"
+  ]
+ },
+ {
+  "id": "1806731559204225258",
+  "text": "Now look at that precision arbitrage.\nMy $TQQQ at 74.35 .\nThis is what OPTIMIZED trading systems look like.\nYes it went a penny below that 3m MA448 but that's because they only wanted aggressive firms to capitalize on it. Happens. Trading.\n\nMy $TQQQ at 74.34 . https://t.co/0FeJDAVELw",
+  "created_at": "2024-06-28T16:49:05.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806731279481843922",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLMknhaEAINvY0.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806731559204225258/photo/1",
+    "w": 1469,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/0FeJDAVELw",
+     "expanded_url": "https://x.com/rauItrades/status/1806731559204225258/photo/1",
+     "indices": [
+      261,
+      284
+     ],
+     "url": "https://t.co/0FeJDAVELw"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      41,
+      46
+     ],
+     "text": "TQQQ"
+    },
+    {
+     "indices": [
+      244,
+      249
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806731657829089479",
+  "captured_at": "2026-08-22T14:59:38Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 13,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806731279481843922"
+    }
+   ],
+   "wayback_ts": "20240628164905",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806731559204225258"
+  },
+  "media_files": [
+   "media/1806731559204225258/0.jpg"
+  ]
+ },
+ {
+  "id": "1806731657829089479",
+  "text": "My real time threaded $TQQQ at 74.35 . https://t.co/dVYtZtm056",
+  "created_at": "2024-06-28T16:49:29.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806731559204225258",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLM1X5bAAIhnBE.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806731657829089479/photo/1",
+    "w": 1476,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/dVYtZtm056",
+     "expanded_url": "https://x.com/rauItrades/status/1806731657829089479/photo/1",
+     "indices": [
+      39,
+      62
+     ],
+     "url": "https://t.co/dVYtZtm056"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      22,
+      27
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:38Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 14,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806731559204225258"
+    }
+   ],
+   "wayback_ts": "20240628164929",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806731657829089479"
+  },
+  "media_files": [
+   "media/1806731657829089479/0.jpg"
+  ]
+ },
+ {
+  "id": "1806731769355571647",
+  "text": "This is my threaded $TQQQ at 74.35 being threaded live and in real time. https://t.co/AVckgmvNx8",
+  "created_at": "2024-06-28T16:49:55.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806731657829089479",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLM63vaMAAOQkr.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806731769355571647/photo/1",
+    "w": 1474,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/AVckgmvNx8",
+     "expanded_url": "https://x.com/rauItrades/status/1806731769355571647/photo/1",
+     "indices": [
+      73,
+      96
+     ],
+     "url": "https://t.co/AVckgmvNx8"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      20,
+      25
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806731881137967383",
+  "captured_at": "2026-08-22T14:59:37Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 15,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806731657829089479"
+    }
+   ],
+   "wayback_ts": "20240628164955",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806731769355571647"
+  },
+  "media_files": [
+   "media/1806731769355571647/0.jpg"
+  ]
+ },
+ {
+  "id": "1806731881137967383",
+  "text": "Scroll up and you will see why I bought $TQQQ at 74.35 . https://t.co/bDnUsQhHkP",
+  "created_at": "2024-06-28T16:50:22.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806731769355571647",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLNBKybAAA2vJ9.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806731881137967383/photo/1",
+    "w": 1474,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/bDnUsQhHkP",
+     "expanded_url": "https://x.com/rauItrades/status/1806731881137967383/photo/1",
+     "indices": [
+      57,
+      80
+     ],
+     "url": "https://t.co/bDnUsQhHkP"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      40,
+      45
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:37Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 16,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806731769355571647"
+    }
+   ],
+   "wayback_ts": "20240628165022",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806731881137967383"
+  },
+  "media_files": [
+   "media/1806731881137967383/0.jpg"
+  ]
+ },
+ {
+  "id": "1806732137493889125",
+  "text": "This is my $TQQQ at the 3m MA448, a protocol GOLDMAN BLACKROCK CITADEL optimized for profit at 74.35 . FACT! https://t.co/QjRtlsybeY",
+  "created_at": "2024-06-28T16:51:23.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806731881137967383",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLNJOhboAA40Lo.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806732137493889125/photo/1",
+    "w": 1474,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/QjRtlsybeY",
+     "expanded_url": "https://x.com/rauItrades/status/1806732137493889125/photo/1",
+     "indices": [
+      109,
+      132
+     ],
+     "url": "https://t.co/QjRtlsybeY"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      11,
+      16
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806732410140426557",
+  "captured_at": "2026-08-22T14:59:36Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 17,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "TV Shows",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Global TV Show",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Financial services"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Goldman Sachs"
+    },
+    {
+     "domain": "Brand",
+     "entity": "BlackRock"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Government"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Investing"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806731881137967383"
+    }
+   ],
+   "wayback_ts": "20240628165123",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806732137493889125"
+  },
+  "media_files": [
+   "media/1806732137493889125/0.jpg"
+  ]
+ },
+ {
+  "id": "1806732410140426557",
+  "text": "Goldman Blackrock JPM Citadel etc. \nThey ALL have intel teams that tell their trading divisions what to do.\nOn the drawdown they were ciphering the TQQQ working on the 28/56/112/224/448/976 SMA outfit and I'm threaded what the buying program looks like now. https://t.co/Cy25snVhts",
+  "created_at": "2024-06-28T16:52:28.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806732137493889125",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLNUhIaEAAHw3w.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806732410140426557/photo/1",
+    "w": 1471,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Cy25snVhts",
+     "expanded_url": "https://x.com/rauItrades/status/1806732410140426557/photo/1",
+     "indices": [
+      258,
+      281
+     ],
+     "url": "https://t.co/Cy25snVhts"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:36Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 18,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "TV Shows",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Global TV Show",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Financial services"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Goldman Sachs"
+    },
+    {
+     "domain": "Brand",
+     "entity": "BlackRock"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Government"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Investing"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806732137493889125"
+    }
+   ],
+   "wayback_ts": "20240628165228",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806732410140426557"
+  },
+  "media_files": [
+   "media/1806732410140426557/0.jpg"
+  ]
+ },
+ {
+  "id": "1806732646783058278",
+  "text": "Looks like I called the bottom.\nMy $TQQQ bet at 74.35 , threaded live and in real time all because of an optimized trade firms programmed at this 3m MA448. FACT! https://t.co/TxNRPh4V0M",
+  "created_at": "2024-06-28T16:53:25.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806732410140426557",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLNnbuaEAAHFsc.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806732646783058278/photo/1",
+    "w": 1475,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/TxNRPh4V0M",
+     "expanded_url": "https://x.com/rauItrades/status/1806732646783058278/photo/1",
+     "indices": [
+      162,
+      185
+     ],
+     "url": "https://t.co/TxNRPh4V0M"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      35,
+      40
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806732891117981875",
+  "captured_at": "2026-08-22T14:59:35Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 19,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806732410140426557"
+    }
+   ],
+   "wayback_ts": "20240628165325",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806732646783058278"
+  },
+  "media_files": [
+   "media/1806732646783058278/0.jpg"
+  ]
+ },
+ {
+  "id": "1806732891117981875",
+  "text": "This is my $TQQQ at 74.35 .\nFirms were cipphering the (7) SMA outfit all day into this buying program where I picked the Nasdaq up.\nThat's how this trading game works. https://t.co/Wo2uXEJXbW",
+  "created_at": "2024-06-28T16:54:23.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806732646783058278",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLN3VNaEAAPB8S.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806732891117981875/photo/1",
+    "w": 1472,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Wo2uXEJXbW",
+     "expanded_url": "https://x.com/rauItrades/status/1806732891117981875/photo/1",
+     "indices": [
+      168,
+      191
+     ],
+     "url": "https://t.co/Wo2uXEJXbW"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      11,
+      16
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:35Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 20,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806732646783058278"
+    }
+   ],
+   "wayback_ts": "20240628165423",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806732891117981875"
+  },
+  "media_files": [
+   "media/1806732891117981875/0.jpg"
+  ]
+ },
+ {
+  "id": "1806733195054088534",
+  "text": "Wow pretty clear.\n\"I picked up TQQQ here at 74.35 because I believe there is a buy algo here on the 3m MA448.\" https://t.co/BjGcr641Y8",
+  "created_at": "2024-06-28T16:55:35.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806732891117981875",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLOQvEaEAA3L_Y.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806733195054088534/photo/1",
+    "w": 1474,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/BjGcr641Y8",
+     "expanded_url": "https://x.com/rauItrades/status/1806733195054088534/photo/1",
+     "indices": [
+      111,
+      134
+     ],
+     "url": "https://t.co/BjGcr641Y8"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806733580523147637",
+  "captured_at": "2026-08-22T14:59:35Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 21,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806732891117981875"
+    }
+   ],
+   "wayback_ts": "20240628165535",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806733195054088534"
+  },
+  "media_files": [
+   "media/1806733195054088534/0.jpg"
+  ]
+ },
+ {
+  "id": "1806733580523147637",
+  "text": "This is what utter and blatant wealth transfer looks like.\nIf you didn't see them liquidating the NASDAQ all morning on the Xi Jinping SMA outfit you wouldn't have seen them bid on the drawdown to this program.\nIt's fast paced high grade HFT work.\nThat's it.\n\nMy $TQQQ at 74.35 . https://t.co/GkNyXr8UDD",
+  "created_at": "2024-06-28T16:57:07.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806733195054088534",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 2,
+  "favorite_count": 0,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLOVRdbYAA0TZz.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806733580523147637/photo/1",
+    "w": 1474,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/GkNyXr8UDD",
+     "expanded_url": "https://x.com/rauItrades/status/1806733580523147637/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/GkNyXr8UDD"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      263,
+      268
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:35Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 22,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Person",
+     "entity": "Xi Jinping"
+    },
+    {
+     "domain": "Politician",
+     "entity": "Xi Jinping"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Politics"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Xi Jinping"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Political figures"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806733195054088534"
+    }
+   ],
+   "wayback_ts": "20240628165707",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806733580523147637"
+  },
+  "media_files": [
+   "media/1806733580523147637/0.jpg"
+  ]
+ },
+ {
+  "id": "1806733920349851692",
+  "text": "This is my $TQQQ at 74.35 where global wealth operators halted the Nasdaq's drawdown for profit using an optimized trading operation on the 3m MA448.\nThat's the work here folks. Automation and smart pants traders. https://t.co/f1ZF4F932H",
+  "created_at": "2024-06-28T16:58:28.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806733580523147637",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLOvS0bEAArgZj.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806733920349851692/photo/1",
+    "w": 1471,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/f1ZF4F932H",
+     "expanded_url": "https://x.com/rauItrades/status/1806733920349851692/photo/1",
+     "indices": [
+      214,
+      237
+     ],
+     "url": "https://t.co/f1ZF4F932H"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      11,
+      16
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806734064281649657",
+  "captured_at": "2026-08-22T14:59:34Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 23,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806733580523147637"
+    }
+   ],
+   "wayback_ts": "20240628165828",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806733920349851692"
+  },
+  "media_files": [
+   "media/1806733920349851692/0.jpg"
+  ]
+ },
+ {
+  "id": "1806734064281649657",
+  "text": "There you have it.\nMy THREADED $TQQQ at 74.35 . https://t.co/zwtq0donk3",
+  "created_at": "2024-06-28T16:59:03.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806733920349851692",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLO_FeboAAJL07.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806734064281649657/photo/1",
+    "w": 1472,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/zwtq0donk3",
+     "expanded_url": "https://x.com/rauItrades/status/1806734064281649657/photo/1",
+     "indices": [
+      48,
+      71
+     ],
+     "url": "https://t.co/zwtq0donk3"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      31,
+      36
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:34Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 24,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806733920349851692"
+    }
+   ],
+   "wayback_ts": "20240628165903",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806734064281649657"
+  },
+  "media_files": [
+   "media/1806734064281649657/0.jpg"
+  ]
+ },
+ {
+  "id": "1806734176290537582",
+  "text": "Fingers crossed we get new all time highs now.\nMy $TQQQ at 74.35 . https://t.co/XnQiTpkmJv",
+  "created_at": "2024-06-28T16:59:29.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806734064281649657",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLPGlSbAAMkB4H.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806734176290537582/photo/1",
+    "w": 1473,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/XnQiTpkmJv",
+     "expanded_url": "https://x.com/rauItrades/status/1806734176290537582/photo/1",
+     "indices": [
+      67,
+      90
+     ],
+     "url": "https://t.co/XnQiTpkmJv"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      50,
+      55
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806734542210007181",
+  "captured_at": "2026-08-22T14:59:33Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 25,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806734064281649657"
+    }
+   ],
+   "wayback_ts": "20240628165929",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806734176290537582"
+  },
+  "media_files": [
+   "media/1806734176290537582/0.jpg"
+  ]
+ },
+ {
+  "id": "1806734542210007181",
+  "text": "\"I picked up TQQQ here at 74.35 because I believe there is a buy algo here on the 3m MA448.\"\n\"I will cut the trade on a penny break of the selection.\" https://t.co/izn5fEIs8r",
+  "created_at": "2024-06-28T17:00:57.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806734176290537582",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLPU4ibAAAiYwV.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806734542210007181/photo/1",
+    "w": 1477,
+    "h": 557
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/izn5fEIs8r",
+     "expanded_url": "https://x.com/rauItrades/status/1806734542210007181/photo/1",
+     "indices": [
+      151,
+      174
+     ],
+     "url": "https://t.co/izn5fEIs8r"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:33Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 26,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806734176290537582"
+    }
+   ],
+   "wayback_ts": "20240628170057",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806734542210007181"
+  },
+  "media_files": [
+   "media/1806734542210007181/0.jpg"
+  ]
+ },
+ {
+  "id": "1806734624443531496",
+  "text": "$TQQQ at 74.35 . https://t.co/9VxRFTkuml",
+  "created_at": "2024-06-28T17:01:16.000Z",
+  "lang": "und",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806734542210007181",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLPg94aEAABntc.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806734624443531496/photo/1",
+    "w": 1471,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/9VxRFTkuml",
+     "expanded_url": "https://x.com/rauItrades/status/1806734624443531496/photo/1",
+     "indices": [
+      17,
+      40
+     ],
+     "url": "https://t.co/9VxRFTkuml"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      0,
+      5
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806734975242473943",
+  "captured_at": "2026-08-22T14:59:32Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 27,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806734542210007181"
+    }
+   ],
+   "wayback_ts": "20240628170116",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806734624443531496"
+  },
+  "media_files": [
+   "media/1806734624443531496/0.jpg"
+  ]
+ },
+ {
+  "id": "1806734975242473943",
+  "text": "My $TQQQ at 74.35. https://t.co/g9KGrAzCrq",
+  "created_at": "2024-06-28T17:02:40.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806734624443531496",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLPqdebAAQT275.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806734975242473943/photo/1",
+    "w": 1474,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/g9KGrAzCrq",
+     "expanded_url": "https://x.com/rauItrades/status/1806734975242473943/photo/1",
+     "indices": [
+      19,
+      42
+     ],
+     "url": "https://t.co/g9KGrAzCrq"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:32Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 28,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806734624443531496"
+    }
+   ],
+   "wayback_ts": "20240628170240",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806734975242473943"
+  },
+  "media_files": [
+   "media/1806734975242473943/0.jpg"
+  ]
+ },
+ {
+  "id": "1806735072042840287",
+  "text": "This is my real time and threaded $TQQQ call and bet at 74.35 . https://t.co/ReaNDBLD0e",
+  "created_at": "2024-06-28T17:03:03.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806734975242473943",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLP5-QaUAAByzH.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806735072042840287/photo/1",
+    "w": 1475,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/ReaNDBLD0e",
+     "expanded_url": "https://x.com/rauItrades/status/1806735072042840287/photo/1",
+     "indices": [
+      64,
+      87
+     ],
+     "url": "https://t.co/ReaNDBLD0e"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      34,
+      39
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806735287516856592",
+  "captured_at": "2026-08-22T14:59:31Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 29,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806734975242473943"
+    }
+   ],
+   "wayback_ts": "20240628170303",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806735072042840287"
+  },
+  "media_files": [
+   "media/1806735072042840287/0.jpg"
+  ]
+ },
+ {
+  "id": "1806735287516856592",
+  "text": "Someone asked \"Is it going higher?\"\nWell if I start a thread saying I picked up TQQQ at 74.35, and this is what you see, then yes. haha https://t.co/ZWLmLjcTBe",
+  "created_at": "2024-06-28T17:03:54.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806735072042840287",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLQDihaEAABST0.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806735287516856592/photo/1",
+    "w": 1476,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/ZWLmLjcTBe",
+     "expanded_url": "https://x.com/rauItrades/status/1806735287516856592/photo/1",
+     "indices": [
+      136,
+      159
+     ],
+     "url": "https://t.co/ZWLmLjcTBe"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:31Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 30,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806735072042840287"
+    }
+   ],
+   "wayback_ts": "20240628170354",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806735287516856592"
+  },
+  "media_files": [
+   "media/1806735287516856592/0.jpg"
+  ]
+ },
+ {
+  "id": "1806735822047347144",
+  "text": "That's the thing though it only goes higher for FIRMS/aggressive traders who have optimized their trading protocols because everyone picks up the trade at 74.35 give or take and can liquidate on a singular penny break of that selection.\nIt's professional trading. https://t.co/kzyTWC1ogD",
+  "created_at": "2024-06-28T17:06:02.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806735287516856592",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLQPOaaEAAgIt_.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806735822047347144/photo/1",
+    "w": 1476,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/kzyTWC1ogD",
+     "expanded_url": "https://x.com/rauItrades/status/1806735822047347144/photo/1",
+     "indices": [
+      264,
+      287
+     ],
+     "url": "https://t.co/kzyTWC1ogD"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806735927336898895",
+  "captured_at": "2026-08-22T14:59:30Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 31,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806735287516856592"
+    }
+   ],
+   "wayback_ts": "20240628170602",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806735822047347144"
+  },
+  "media_files": [
+   "media/1806735822047347144/0.jpg"
+  ]
+ },
+ {
+  "id": "1806735927336898895",
+  "text": "Here's my threaded real time call of the NASDAQ's $TQQQ operating on my bid at 74.35 . https://t.co/G30B8HxTeP",
+  "created_at": "2024-06-28T17:06:27.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806735822047347144",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLQrCjaEAA6mca.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806735927336898895/photo/1",
+    "w": 1470,
+    "h": 556
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/G30B8HxTeP",
+     "expanded_url": "https://x.com/rauItrades/status/1806735927336898895/photo/1",
+     "indices": [
+      87,
+      110
+     ],
+     "url": "https://t.co/G30B8HxTeP"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      50,
+      55
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:30Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 32,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806735822047347144"
+    }
+   ],
+   "wayback_ts": "20240628170627",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806735927336898895"
+  },
+  "media_files": [
+   "media/1806735927336898895/0.jpg"
+  ]
+ },
+ {
+  "id": "1806736173672566803",
+  "text": "This is my threaded NASDAQ call of the 3m TQQQ getting selected on that 3m MA448, on a highly optimized protocol and buy algo at exactly 74.35 . https://t.co/FzqIJ2a1sh",
+  "created_at": "2024-06-28T17:07:25.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806735927336898895",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLQ1kfaEAEk9nN.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806736173672566803/photo/1",
+    "w": 1470,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/FzqIJ2a1sh",
+     "expanded_url": "https://x.com/rauItrades/status/1806736173672566803/photo/1",
+     "indices": [
+      145,
+      168
+     ],
+     "url": "https://t.co/FzqIJ2a1sh"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806736296293106164",
+  "captured_at": "2026-08-22T14:59:29Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 33,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806735927336898895"
+    }
+   ],
+   "wayback_ts": "20240628170725",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806736173672566803"
+  },
+  "media_files": [
+   "media/1806736173672566803/0.jpg"
+  ]
+ },
+ {
+  "id": "1806736296293106164",
+  "text": "BOOM! $$$$$$$$$$$$$$\nMy $TQQQ at 74.35 . $$$$$$$$$$$$$$$ https://t.co/1rV1pSTjZL",
+  "created_at": "2024-06-28T17:07:55.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806736173672566803",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 2,
+  "favorite_count": 0,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLRCDHagAAI3hr.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806736296293106164/photo/1",
+    "w": 1474,
+    "h": 565
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/1rV1pSTjZL",
+     "expanded_url": "https://x.com/rauItrades/status/1806736296293106164/photo/1",
+     "indices": [
+      57,
+      80
+     ],
+     "url": "https://t.co/1rV1pSTjZL"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      24,
+      29
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:29Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 34,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806736173672566803"
+    }
+   ],
+   "wayback_ts": "20240628170755",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806736296293106164"
+  },
+  "media_files": [
+   "media/1806736296293106164/0.jpg"
+  ]
+ },
+ {
+  "id": "1806736405785456913",
+  "text": "This is all threaded live and in real time.\nMy $TQQQ at 74.35 . https://t.co/TsEiJoSbWV",
+  "created_at": "2024-06-28T17:08:21.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806736296293106164",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLRJQRbAAcfG1T.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806736405785456913/photo/1",
+    "w": 1473,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/TsEiJoSbWV",
+     "expanded_url": "https://x.com/rauItrades/status/1806736405785456913/photo/1",
+     "indices": [
+      64,
+      87
+     ],
+     "url": "https://t.co/TsEiJoSbWV"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      47,
+      52
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806736562450993230",
+  "captured_at": "2026-08-22T14:59:28Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 35,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806736296293106164"
+    }
+   ],
+   "wayback_ts": "20240628170821",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806736405785456913"
+  },
+  "media_files": [
+   "media/1806736405785456913/0.jpg"
+  ]
+ },
+ {
+  "id": "1806736562450993230",
+  "text": "My $TQQQ at 74.35 . https://t.co/8KD1KEuODq",
+  "created_at": "2024-06-28T17:08:58.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806736405785456913",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLRSrObAAALmLs.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806736562450993230/photo/1",
+    "w": 1473,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/8KD1KEuODq",
+     "expanded_url": "https://x.com/rauItrades/status/1806736562450993230/photo/1",
+     "indices": [
+      20,
+      43
+     ],
+     "url": "https://t.co/8KD1KEuODq"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:28Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 36,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806736405785456913"
+    }
+   ],
+   "wayback_ts": "20240628170858",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806736562450993230"
+  },
+  "media_files": [
+   "media/1806736562450993230/0.jpg"
+  ]
+ },
+ {
+  "id": "1806736847827345418",
+  "text": "My $TQQQ bid at 74.35 ?\nNow on its way to new all time highs hahaha https://t.co/Vz8ruJiBUr",
+  "created_at": "2024-06-28T17:10:06.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806736562450993230",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLRhAQbMAAbtf3.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806736847827345418/photo/1",
+    "w": 1474,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Vz8ruJiBUr",
+     "expanded_url": "https://x.com/rauItrades/status/1806736847827345418/photo/1",
+     "indices": [
+      68,
+      91
+     ],
+     "url": "https://t.co/Vz8ruJiBUr"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806737047329321268",
+  "captured_at": "2026-08-22T14:59:27Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 37,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "error": "http_None"
+  },
+  "media_files": [
+   "media/1806736847827345418/0.jpg"
+  ]
+ },
+ {
+  "id": "1806737047329321268",
+  "text": "Best part about these threads is I start them the moment they all go in and feed on the Stock Market like piranhas.\nMy $TQQQ at 74.35 . https://t.co/s7utkLfSLx",
+  "created_at": "2024-06-28T17:10:54.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806736847827345418",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 2,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLRp3taEAAcCWs.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806737047329321268/photo/1",
+    "w": 1473,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/s7utkLfSLx",
+     "expanded_url": "https://x.com/rauItrades/status/1806737047329321268/photo/1",
+     "indices": [
+      136,
+      159
+     ],
+     "url": "https://t.co/s7utkLfSLx"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      119,
+      124
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:27Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 38,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Technology Business"
+    },
+    {
+     "domain": "Product",
+     "entity": "Threads (Meta)"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Technology"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Meta"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Personal finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Investing"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806736847827345418"
+    }
+   ],
+   "wayback_ts": "20240628171054",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806737047329321268"
+  },
+  "media_files": [
+   "media/1806737047329321268/0.jpg"
+  ]
+ },
+ {
+  "id": "1806738021355860023",
+  "text": "My blowout $TQQQ bet at 74.35 . https://t.co/1If8asv62t",
+  "created_at": "2024-06-28T17:14:46.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806737047329321268",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 5,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLSlsPboAAwXlv.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806738021355860023/photo/1",
+    "w": 1473,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/1If8asv62t",
+     "expanded_url": "https://x.com/rauItrades/status/1806738021355860023/photo/1",
+     "indices": [
+      32,
+      55
+     ],
+     "url": "https://t.co/1If8asv62t"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      11,
+      16
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806738437095215501",
+  "captured_at": "2026-08-22T14:59:27Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 39,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806737047329321268"
+    }
+   ],
+   "wayback_ts": "20240628171446",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806738021355860023"
+  },
+  "media_files": [
+   "media/1806738021355860023/0.jpg"
+  ]
+ },
+ {
+  "id": "1806738437095215501",
+  "text": "I would like to think I do a great job providing context.\nI say where I bet. I say where banks and hedge funds go in to reward aggressive trading divisions, and then this happens. \nIt's called gaming and manufacturing wealth distribution.\nStarts here. https://t.co/VeooGLzasq",
+  "created_at": "2024-06-28T17:16:25.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806738021355860023",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 7,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLS4VoawAAKdSc.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806738437095215501/photo/1",
+    "w": 1429,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/VeooGLzasq",
+     "expanded_url": "https://x.com/rauItrades/status/1806738437095215501/photo/1",
+     "indices": [
+      252,
+      275
+     ],
+     "url": "https://t.co/VeooGLzasq"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:27Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 40,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Gaming Business"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Hedge funds"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Personal finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Hedge funds"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Business & finance"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806738021355860023"
+    }
+   ],
+   "wayback_ts": "20240628171625",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806738437095215501"
+  },
+  "media_files": [
+   "media/1806738437095215501/0.jpg"
+  ]
+ },
+ {
+  "id": "1806738817635979647",
+  "text": "I wouldn't be able to share all of this if it weren't for crooked politicians, lobbyists, asshole wealthy computer scientists, and global capitalism operating succinctly so don't thank me. I'm just a mirror of what I see. https://t.co/Ac9ebWbf2r",
+  "created_at": "2024-06-28T17:17:56.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806738437095215501",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 4,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLTLCoaUAAfdKy.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806738817635979647/photo/1",
+    "w": 1471,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Ac9ebWbf2r",
+     "expanded_url": "https://x.com/rauItrades/status/1806738817635979647/photo/1",
+     "indices": [
+      222,
+      245
+     ],
+     "url": "https://t.co/Ac9ebWbf2r"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806739689803747421",
+  "captured_at": "2026-08-22T14:59:26Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 41,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806738437095215501"
+    }
+   ],
+   "wayback_ts": "20240628171756",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806738817635979647"
+  },
+  "media_files": [
+   "media/1806738817635979647/0.jpg"
+  ]
+ },
+ {
+  "id": "1806739689803747421",
+  "text": "Paint the picture a little better here for folks paying attention.\n\nThe reason the move higher stalled? Well everyone at these firms use the same tools. So right now it's the SAME sma outfit, just the 30 second chart. Information overload sorry but it's trained in the systems! https://t.co/4X20ht5viu",
+  "created_at": "2024-06-28T17:21:24.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806738817635979647",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 4,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLTg6XaEAAF5T5.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806739689803747421/photo/1",
+    "w": 680,
+    "h": 261
+   },
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLTiq1bQAEpHyS.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806739689803747421/photo/1",
+    "w": 679,
+    "h": 257
+   },
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLTjLoa8AA3B_a.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806739689803747421/photo/1",
+    "w": 679,
+    "h": 260
+   },
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLTjljbwAAYIWZ.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806739689803747421/photo/1",
+    "w": 680,
+    "h": 258
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/4X20ht5viu",
+     "expanded_url": "https://x.com/rauItrades/status/1806739689803747421/photo/1",
+     "indices": [
+      278,
+      301
+     ],
+     "url": "https://t.co/4X20ht5viu"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:26Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 42,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806738817635979647"
+    }
+   ],
+   "wayback_ts": "20240628172124",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806739689803747421"
+  },
+  "media_files": [
+   "media/1806739689803747421/0.jpg",
+   "media/1806739689803747421/1.jpg",
+   "media/1806739689803747421/2.jpg",
+   "media/1806739689803747421/3.jpg"
+  ]
+ },
+ {
+  "id": "1806740054641180716",
+  "text": "Those last four images are just part of the optimization process firms have to ensure they meet budgets at the end of the day and use TIME!!!!!! as a tool to safeguard the integrity of public equity markets.\nIn this case the NASDAQ.\nRegulators know! Obviously haha! https://t.co/t09MOBRVdc",
+  "created_at": "2024-06-28T17:22:51.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806739689803747421",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLUQ22boAA6bbp.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806740054641180716/photo/1",
+    "w": 1472,
+    "h": 557
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/t09MOBRVdc",
+     "expanded_url": "https://x.com/rauItrades/status/1806740054641180716/photo/1",
+     "indices": [
+      266,
+      289
+     ],
+     "url": "https://t.co/t09MOBRVdc"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806740358644252803",
+  "captured_at": "2026-08-22T14:59:24Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 43,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806739689803747421"
+    }
+   ],
+   "wayback_ts": "20240628172251",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806740054641180716"
+  },
+  "media_files": [
+   "media/1806740054641180716/0.jpg"
+  ]
+ },
+ {
+  "id": "1806740358644252803",
+  "text": "Cheers to the FINAL day of Q2 where I get to add another blowout case study to the SMA outfit operations.\nYes they get a little complicated I know but I am really contextual so just take it step by step. https://t.co/paQ7eoAlVA",
+  "created_at": "2024-06-28T17:24:03.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806740054641180716",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLUnOSasAAeo0Q.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806740358644252803/photo/1",
+    "w": 1472,
+    "h": 557
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/paQ7eoAlVA",
+     "expanded_url": "https://x.com/rauItrades/status/1806740358644252803/photo/1",
+     "indices": [
+      204,
+      227
+     ],
+     "url": "https://t.co/paQ7eoAlVA"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:24Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 44,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806740054641180716"
+    }
+   ],
+   "wayback_ts": "20240628172403",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806740358644252803"
+  },
+  "media_files": [
+   "media/1806740358644252803/0.jpg"
+  ]
+ },
+ {
+  "id": "1806740650840445280",
+  "text": "My $TQQQ at 74.35. https://t.co/yUtw4opNES",
+  "created_at": "2024-06-28T17:25:13.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806740358644252803",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 0,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLU2lpaEAAiZjV.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806740650840445280/photo/1",
+    "w": 1471,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/yUtw4opNES",
+     "expanded_url": "https://x.com/rauItrades/status/1806740650840445280/photo/1",
+     "indices": [
+      19,
+      42
+     ],
+     "url": "https://t.co/yUtw4opNES"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806741164319744016",
+  "captured_at": "2026-08-22T14:59:22Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 45,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806740358644252803"
+    }
+   ],
+   "wayback_ts": "20240628172513",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806740650840445280"
+  },
+  "media_files": [
+   "media/1806740650840445280/0.jpg"
+  ]
+ },
+ {
+  "id": "1806741164319744016",
+  "text": "I haven't seen the NASDAQ perform a technical short squeeze on a single chart in a minute so I'm hoping they get this over with before the close. I'm not in charge of that though. I'm just one little person at a desk doing what I can with the information that exists. https://t.co/E795Z2j7z2",
+  "created_at": "2024-06-28T17:27:15.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806740650840445280",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLVTsvacAA_qvU.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806741164319744016/photo/1",
+    "w": 1471,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/E795Z2j7z2",
+     "expanded_url": "https://x.com/rauItrades/status/1806741164319744016/photo/1",
+     "indices": [
+      268,
+      291
+     ],
+     "url": "https://t.co/E795Z2j7z2"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:22Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 46,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806740650840445280"
+    }
+   ],
+   "wayback_ts": "20240628172715",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806741164319744016"
+  },
+  "media_files": [
+   "media/1806741164319744016/0.jpg"
+  ]
+ },
+ {
+  "id": "1806741976035041619",
+  "text": "This whole operation commenced purely because of the fact that there was a real time buying protocol on the NASDAQ's 3m MA448 but that's what aggressive trading looks like. It's rapid and only suited for fast and aggressive traders. https://t.co/h0Osh5po4T",
+  "created_at": "2024-06-28T17:30:29.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806741164319744016",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLVm9maoAARhfg.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806741976035041619/photo/1",
+    "w": 1475,
+    "h": 564
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/h0Osh5po4T",
+     "expanded_url": "https://x.com/rauItrades/status/1806741976035041619/photo/1",
+     "indices": [
+      233,
+      256
+     ],
+     "url": "https://t.co/h0Osh5po4T"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806742615901249694",
+  "captured_at": "2026-08-22T14:59:20Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 47,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806741164319744016"
+    }
+   ],
+   "wayback_ts": "20240628173029",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806741976035041619"
+  },
+  "media_files": [
+   "media/1806741976035041619/0.jpg"
+  ]
+ },
+ {
+  "id": "1806742615901249694",
+  "text": "For the data oriented people, there was a massive flash to that 3m MA28. It will wipe away as other trading systems take control and budgets throughout the major market shift and cause volatility but it's that [very linear] data that allows for aggressive firms to see what's up! https://t.co/fyBeurJq7d",
+  "created_at": "2024-06-28T17:33:01.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806741976035041619",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 2,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLWRMQa0AA3BMZ.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806742615901249694/photo/1",
+    "w": 1473,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/fyBeurJq7d",
+     "expanded_url": "https://x.com/rauItrades/status/1806742615901249694/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/fyBeurJq7d"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:20Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 48,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806741976035041619"
+    }
+   ],
+   "wayback_ts": "20240628173301",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806742615901249694"
+  },
+  "media_files": [
+   "media/1806742615901249694/0.jpg"
+  ]
+ },
+ {
+  "id": "1806743127761522735",
+  "text": "So now there is a ridiculous amount of volatility as the major market adjusts from bets around the US Dollar, Gold XAUUSD, and fwiw bitcoin and other FX trades.\nShould you wonder about what happened today in the markets, thank the traders who made their days worth on the NASDAQ. https://t.co/dUkzG8ThVF",
+  "created_at": "2024-06-28T17:35:03.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806742615901249694",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLW_hxbUAA4VoA.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806743127761522735/photo/1",
+    "w": 1474,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/dUkzG8ThVF",
+     "expanded_url": "https://x.com/rauItrades/status/1806743127761522735/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/dUkzG8ThVF"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806743698228851109",
+  "captured_at": "2026-08-22T14:59:19Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 49,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Bitcoin cryptocurrency"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Cryptocurrencies"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Cryptocurrencies"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Bitcoin cryptocurrency"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Metals trading"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Cryptocoins"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Digital asset industry"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Digital assets & cryptocurrency"
+    },
+    {
+     "domain": "Digital Assets & Crypto",
+     "entity": "Bitcoin cryptocurrency"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806742615901249694"
+    }
+   ],
+   "wayback_ts": "20240628173503",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806743127761522735"
+  },
+  "media_files": [
+   "media/1806743127761522735/0.jpg"
+  ]
+ },
+ {
+  "id": "1806743698228851109",
+  "text": "Trades like this make sense to folks who have been trading the HK Hang Seng index. They have to deal with 10-fold the volatility of US markets for profit. I presume equity trading will only get more complicated as tension ensues and there's pressure from China about tariffs. https://t.co/Ks9yGfRksk",
+  "created_at": "2024-06-28T17:37:19.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806743127761522735",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLXYi0aQAA9cCG.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806743698228851109/photo/1",
+    "w": 1475,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Ks9yGfRksk",
+     "expanded_url": "https://x.com/rauItrades/status/1806743698228851109/photo/1",
+     "indices": [
+      276,
+      299
+     ],
+     "url": "https://t.co/Ks9yGfRksk"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:19Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 50,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806743127761522735"
+    }
+   ],
+   "wayback_ts": "20240628173719",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806743698228851109"
+  },
+  "media_files": [
+   "media/1806743698228851109/0.jpg"
+  ]
+ },
+ {
+  "id": "1806744194440196577",
+  "text": "I was really hoping they'd blast the NASDAQ higher into the close so that the S&amp;P 500 could record a final good scratch for the session and quarter but again. That's not up to me. I can only work with what I got. https://t.co/banUGr2v3f",
+  "created_at": "2024-06-28T17:39:18.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806743698228851109",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLX6frb0AAI-bo.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806744194440196577/photo/1",
+    "w": 1476,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/banUGr2v3f",
+     "expanded_url": "https://x.com/rauItrades/status/1806744194440196577/photo/1",
+     "indices": [
+      217,
+      240
+     ],
+     "url": "https://t.co/banUGr2v3f"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806744559663337772",
+  "captured_at": "2026-08-22T14:59:17Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 51,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "S&P 500"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "B2B"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Services - B2B"
+    },
+    {
+     "domain": "Brand",
+     "entity": "S&P Global"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806743698228851109"
+    }
+   ],
+   "wayback_ts": "20240628173918",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806744194440196577"
+  },
+  "media_files": [
+   "media/1806744194440196577/0.jpg"
+  ]
+ },
+ {
+  "id": "1806744559663337772",
+  "text": "Here's my $TQQQ at 74.35 . https://t.co/qMGme6Viqn",
+  "created_at": "2024-06-28T17:40:45.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806744194440196577",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLYS1pacAEXR5u.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806744559663337772/photo/1",
+    "w": 1474,
+    "h": 564
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/qMGme6Viqn",
+     "expanded_url": "https://x.com/rauItrades/status/1806744559663337772/photo/1",
+     "indices": [
+      27,
+      50
+     ],
+     "url": "https://t.co/qMGme6Viqn"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      10,
+      15
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:17Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 52,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806744194440196577"
+    }
+   ],
+   "wayback_ts": "20240628174045",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806744559663337772"
+  },
+  "media_files": [
+   "media/1806744559663337772/0.jpg"
+  ]
+ },
+ {
+  "id": "1806745795775037533",
+  "text": "$TQQQ at 74.35 .\nThe other thing that caused pressure today and the reason the NASDAQ got shorted at highs was because of a whipsaw trade for semiconductors.\nSome bank bought the dip on [SOXS 20m 20/100/250] because of China/Taiwan and that caused issue for the tech heavy NASDAQ. https://t.co/Revzs2VSTb",
+  "created_at": "2024-06-28T17:45:40.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806744559663337772",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 0,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLZCu3bgAAlS7i.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806745795775037533/photo/1",
+    "w": 1472,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Revzs2VSTb",
+     "expanded_url": "https://x.com/rauItrades/status/1806745795775037533/photo/1",
+     "indices": [
+      281,
+      304
+     ],
+     "url": "https://t.co/Revzs2VSTb"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      0,
+      5
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806746369589489825",
+  "captured_at": "2026-08-22T14:59:15Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 53,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Politics"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "China politics"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "China political issues"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806744559663337772"
+    }
+   ],
+   "wayback_ts": "20240628174540",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806745795775037533"
+  },
+  "media_files": [
+   "media/1806745795775037533/0.jpg"
+  ]
+ },
+ {
+  "id": "1806746369589489825",
+  "text": "Even though I start these threads at the start of their protocol I like to give context for what's going on around the market so the public gets an idea about how/why trades are budgeted. It's all linear! https://t.co/1Xwo9BRRhM",
+  "created_at": "2024-06-28T17:47:56.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806745795775037533",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 4,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLZ6RPagAA7bBR.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806746369589489825/photo/1",
+    "w": 1472,
+    "h": 564
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/1Xwo9BRRhM",
+     "expanded_url": "https://x.com/rauItrades/status/1806746369589489825/photo/1",
+     "indices": [
+      205,
+      228
+     ],
+     "url": "https://t.co/1Xwo9BRRhM"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:15Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 54,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Technology Business"
+    },
+    {
+     "domain": "Product",
+     "entity": "Threads (Meta)"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Technology"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Meta"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806745795775037533"
+    }
+   ],
+   "wayback_ts": "20240628174756",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806746369589489825"
+  },
+  "media_files": [
+   "media/1806746369589489825/0.jpg"
+  ]
+ },
+ {
+  "id": "1806746911787135069",
+  "text": "I know this chart seems scary but all one needs to grasp is that there was a very expensive multibillion dollar buying algorithm on the TQQQ at 74.35 because of advanced algorithms triggering that 3m ma448.\nScary string of words maybe but hey! https://t.co/icmGhE9BoK",
+  "created_at": "2024-06-28T17:50:06.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806746369589489825",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLaX7zbsAAn8ai.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806746911787135069/photo/1",
+    "w": 1471,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/icmGhE9BoK",
+     "expanded_url": "https://x.com/rauItrades/status/1806746911787135069/photo/1",
+     "indices": [
+      244,
+      267
+     ],
+     "url": "https://t.co/icmGhE9BoK"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806747361718538458",
+  "captured_at": "2026-08-22T14:59:13Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 55,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806746369589489825"
+    }
+   ],
+   "wayback_ts": "20240628175006",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806746911787135069"
+  },
+  "media_files": [
+   "media/1806746911787135069/0.jpg"
+  ]
+ },
+ {
+  "id": "1806747361718538458",
+  "text": "Only live and in real time can the OHLC candles (open high low close) be seen operating the SMA outfit.\nThose flashes you see to specific SMAs are the result of firms using those parameters to wash trades for profit and it is effectively what the public knows as \"market making\". https://t.co/DtNDJZzQME",
+  "created_at": "2024-06-28T17:51:53.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806746911787135069",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 0,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLawjnbEAAW6Xt.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806747361718538458/photo/1",
+    "w": 1427,
+    "h": 535
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/DtNDJZzQME",
+     "expanded_url": "https://x.com/rauItrades/status/1806747361718538458/photo/1",
+     "indices": [
+      280,
+      303
+     ],
+     "url": "https://t.co/DtNDJZzQME"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:13Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 56,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806746911787135069"
+    }
+   ],
+   "wayback_ts": "20240628175153",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806747361718538458"
+  },
+  "media_files": [
+   "media/1806747361718538458/0.jpg"
+  ]
+ },
+ {
+  "id": "1806747896307691848",
+  "text": "My $TQQQ at 74.35 . https://t.co/zaxB7rNzEO",
+  "created_at": "2024-06-28T17:54:00.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806747361718538458",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLbRRSaoAEEqNE.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806747896307691848/photo/1",
+    "w": 1470,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/zaxB7rNzEO",
+     "expanded_url": "https://x.com/rauItrades/status/1806747896307691848/photo/1",
+     "indices": [
+      20,
+      43
+     ],
+     "url": "https://t.co/zaxB7rNzEO"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806747952163217749",
+  "captured_at": "2026-08-22T14:59:11Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 57,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806747361718538458"
+    }
+   ],
+   "wayback_ts": "20240628175400",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806747896307691848"
+  },
+  "media_files": [
+   "media/1806747896307691848/0.jpg"
+  ]
+ },
+ {
+  "id": "1806747952163217749",
+  "text": "My $TQQQ at 74.35 . https://t.co/zBRQ1JJ3og",
+  "created_at": "2024-06-28T17:54:14.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806747896307691848",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLbp07agAAG3F_.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806747952163217749/photo/1",
+    "w": 1472,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/zBRQ1JJ3og",
+     "expanded_url": "https://x.com/rauItrades/status/1806747952163217749/photo/1",
+     "indices": [
+      20,
+      43
+     ],
+     "url": "https://t.co/zBRQ1JJ3og"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:11Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 58,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806747896307691848"
+    }
+   ],
+   "wayback_ts": "20240628175414",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806747952163217749"
+  },
+  "media_files": [
+   "media/1806747952163217749/0.jpg"
+  ]
+ },
+ {
+  "id": "1806748757662511599",
+  "text": "The NASDAQ has sort of just stalled and that sort of sucks but remember, the NASDAQ rewards everyone who can intellectualize wealth as long as it's supporting future economic objectives. That's its whole purpose. https://t.co/5v19dGQ1rw",
+  "created_at": "2024-06-28T17:57:26.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806747952163217749",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLb_k-bkAAxfzo.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806748757662511599/photo/1",
+    "w": 1475,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/5v19dGQ1rw",
+     "expanded_url": "https://x.com/rauItrades/status/1806748757662511599/photo/1",
+     "indices": [
+      213,
+      236
+     ],
+     "url": "https://t.co/5v19dGQ1rw"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806749322744324198",
+  "captured_at": "2026-08-22T14:59:09Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 59,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806747952163217749"
+    }
+   ],
+   "wayback_ts": "20240628175726",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806748757662511599"
+  },
+  "media_files": [
+   "media/1806748757662511599/0.jpg"
+  ]
+ },
+ {
+  "id": "1806749322744324198",
+  "text": "https://t.co/qq4guxh4iJ",
+  "created_at": "2024-06-28T17:59:40.000Z",
+  "lang": "zxx",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806748757662511599",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLc7lxawAAgMKu.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806749322744324198/photo/1",
+    "w": 1473,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/qq4guxh4iJ",
+     "expanded_url": "https://x.com/rauItrades/status/1806749322744324198/photo/1",
+     "indices": [
+      0,
+      23
+     ],
+     "url": "https://t.co/qq4guxh4iJ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:09Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 60,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806748757662511599"
+    }
+   ],
+   "wayback_ts": "20240628175940",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806749322744324198"
+  },
+  "media_files": [
+   "media/1806749322744324198/0.jpg"
+  ]
+ },
+ {
+  "id": "1806749602064015665",
+  "text": "My $TQQQ at 74.35 . https://t.co/rSZzWuUyxh",
+  "created_at": "2024-06-28T18:00:47.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806749322744324198",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLdJXkb0AA3B2V.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806749602064015665/photo/1",
+    "w": 1474,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/rSZzWuUyxh",
+     "expanded_url": "https://x.com/rauItrades/status/1806749602064015665/photo/1",
+     "indices": [
+      20,
+      43
+     ],
+     "url": "https://t.co/rSZzWuUyxh"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806750491415814561",
+  "captured_at": "2026-08-22T14:59:06Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 61,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806749322744324198"
+    }
+   ],
+   "wayback_ts": "20240628180047",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806749602064015665"
+  },
+  "media_files": [
+   "media/1806749602064015665/0.jpg"
+  ]
+ },
+ {
+  "id": "1806750491415814561",
+  "text": "The SMA outfits are the direct line between fact and fiction. This is what effectively controls the Stock Market making \"trends\" or Billionaires accruing billions.\nStarts here.\nWatch this.\n\nMy $TQQQ at 74.35 . https://t.co/lc1hJPuBXI",
+  "created_at": "2024-06-28T18:04:19.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806749602064015665",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 1,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLdxmpbcAAidKX.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806750491415814561/photo/1",
+    "w": 1474,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/lc1hJPuBXI",
+     "expanded_url": "https://x.com/rauItrades/status/1806750491415814561/photo/1",
+     "indices": [
+      210,
+      233
+     ],
+     "url": "https://t.co/lc1hJPuBXI"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      193,
+      198
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:06Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 62,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies Category",
+     "entity": "Personal finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Investing"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806749602064015665"
+    }
+   ],
+   "wayback_ts": "20240628180419",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806750491415814561"
+  },
+  "media_files": [
+   "media/1806750491415814561/0.jpg"
+  ]
+ },
+ {
+  "id": "1806750631186854175",
+  "text": "My real time $TQQQ at 74.35 .\nBOOM!!!!!!!!!!!!! $$$$$$$$$$$$$$$$$$$$$ https://t.co/WOyscSWum0",
+  "created_at": "2024-06-28T18:04:52.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806750491415814561",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLeDTPbEAEiB7Y.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806750631186854175/photo/1",
+    "w": 1472,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/WOyscSWum0",
+     "expanded_url": "https://x.com/rauItrades/status/1806750631186854175/photo/1",
+     "indices": [
+      70,
+      93
+     ],
+     "url": "https://t.co/WOyscSWum0"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      13,
+      18
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806751150009704537",
+  "captured_at": "2026-08-22T14:59:03Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 63,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806750491415814561"
+    }
+   ],
+   "wayback_ts": "20240628180452",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806750631186854175"
+  },
+  "media_files": [
+   "media/1806750631186854175/0.jpg"
+  ]
+ },
+ {
+  "id": "1806751150009704537",
+  "text": "It's no wonder firms decided the manipulate \"gamestop\" and create the world of meme stocks back in 2021. It's really just a game. Game! Gamification.\nThat's all this work is. Advanced, locked in, pattern recognition by grade A computers. https://t.co/slGgBpmRW7",
+  "created_at": "2024-06-28T18:06:56.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806750631186854175",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 5,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLeTg9akAAd_5B.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806751150009704537/photo/1",
+    "w": 1471,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/slGgBpmRW7",
+     "expanded_url": "https://x.com/rauItrades/status/1806751150009704537/photo/1",
+     "indices": [
+      238,
+      261
+     ],
+     "url": "https://t.co/slGgBpmRW7"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:03Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 64,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Brand Vertical",
+     "entity": "Entertainment"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Video Games - Entertainment"
+    },
+    {
+     "domain": "Brand",
+     "entity": "GameStop"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "GameStop"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806750631186854175"
+    }
+   ],
+   "wayback_ts": "20240628180656",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806751150009704537"
+  },
+  "media_files": [
+   "media/1806751150009704537/0.jpg"
+  ]
+ },
+ {
+  "id": "1806751562926297359",
+  "text": "I'm glad I'm sharing the protocol that strikes the NASDAQ higher. This is as complicated as it gets folks. A few SMAs, enough amalgamated data, and enough media misinformation to get the public thinking it's anything other than this.\nPrecision wealth transfer. https://t.co/yNn52ynsem",
+  "created_at": "2024-06-28T18:08:35.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806751150009704537",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 5,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLeqtPbcAAT0Os.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806751562926297359/photo/1",
+    "w": 1472,
+    "h": 564
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/yNn52ynsem",
+     "expanded_url": "https://x.com/rauItrades/status/1806751562926297359/photo/1",
+     "indices": [
+      261,
+      284
+     ],
+     "url": "https://t.co/yNn52ynsem"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806751905600897223",
+  "captured_at": "2026-08-22T14:59:00Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 65,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806751150009704537"
+    }
+   ],
+   "wayback_ts": "20240628180835",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806751562926297359"
+  },
+  "media_files": [
+   "media/1806751562926297359/0.jpg"
+  ]
+ },
+ {
+  "id": "1806751905600897223",
+  "text": "All morning Firms were liquidating the NASDAQ and using really advanced signal generation to tell firms they were using this specific SMA outfit to buy the flash/drop.\nOnly live and in real time could anyone have delineated that information (which I did) and share the buy algo. https://t.co/94l34wROcN",
+  "created_at": "2024-06-28T18:09:56.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806751562926297359",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLfEBgawAAwnMq.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806751905600897223/photo/1",
+    "w": 1477,
+    "h": 563
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/94l34wROcN",
+     "expanded_url": "https://x.com/rauItrades/status/1806751905600897223/photo/1",
+     "indices": [
+      279,
+      302
+     ],
+     "url": "https://t.co/94l34wROcN"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:59:00Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 66,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Entertainment & Leisure Business"
+    },
+    {
+     "domain": "Movie",
+     "entity": "The Flash"
+    },
+    {
+     "domain": "Multimedia Franchise",
+     "entity": "DC Extended Universe"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Entertainment"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Entertainment franchises"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "DC Extended Universe"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "The Flash"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806751562926297359"
+    }
+   ],
+   "wayback_ts": "20240628180956",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806751905600897223"
+  },
+  "media_files": [
+   "media/1806751905600897223/0.jpg"
+  ]
+ },
+ {
+  "id": "1806752161721901253",
+  "text": "I think I really need to emphasize that ALL!!!!!! of these threads literally start at the commencement of their selection in real time. This is a linear and threaded collection of Stock Manipulation happening in real time! https://t.co/0d8uVgrIwX",
+  "created_at": "2024-06-28T18:10:57.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806751905600897223",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLfWKiaIAAdcK6.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806752161721901253/photo/1",
+    "w": 1471,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/0d8uVgrIwX",
+     "expanded_url": "https://x.com/rauItrades/status/1806752161721901253/photo/1",
+     "indices": [
+      223,
+      246
+     ],
+     "url": "https://t.co/0d8uVgrIwX"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806752608805388660",
+  "captured_at": "2026-08-22T14:58:56Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 67,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Technology Business"
+    },
+    {
+     "domain": "Product",
+     "entity": "Threads (Meta)"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Technology"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Meta"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Allstate"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806751905600897223"
+    }
+   ],
+   "wayback_ts": "20240628181057",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806752161721901253"
+  },
+  "media_files": [
+   "media/1806752161721901253/0.jpg"
+  ]
+ },
+ {
+  "id": "1806752608805388660",
+  "text": "I told everyone that Blackrock Citadel Bloomberg etc. have this page on a roster. So just keep that in mind. None of this comes out of thin air, this is advanced signaling work only able to be threaded live, the moment it's happening. https://t.co/MoNpUpWgXh",
+  "created_at": "2024-06-28T18:12:44.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806752161721901253",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLfqd5aYAEYwZM.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806752608805388660/photo/1",
+    "w": 1475,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/MoNpUpWgXh",
+     "expanded_url": "https://x.com/rauItrades/status/1806752608805388660/photo/1",
+     "indices": [
+      235,
+      258
+     ],
+     "url": "https://t.co/MoNpUpWgXh"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:56Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 68,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "TV Shows",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Global TV Show",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Financial services"
+    },
+    {
+     "domain": "Brand",
+     "entity": "BlackRock"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Bloomberg"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Investing"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806752161721901253"
+    }
+   ],
+   "wayback_ts": "20240628181244",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806752608805388660"
+  },
+  "media_files": [
+   "media/1806752608805388660/0.jpg"
+  ]
+ },
+ {
+  "id": "1806752900888371310",
+  "text": "So the TQQQ is hitting all of these SMAs on the move higher which means that for every short order laggard firms try to place there, Blackrock Citadel GS will short squeeze them and force them to cover. That's how it works. It's technical and in real time you can see it happen. https://t.co/Wl9MNFTrCl",
+  "created_at": "2024-06-28T18:13:54.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806752608805388660",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 3,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLgALMbIAAQovt.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806752900888371310/photo/1",
+    "w": 1469,
+    "h": 562
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Wl9MNFTrCl",
+     "expanded_url": "https://x.com/rauItrades/status/1806752900888371310/photo/1",
+     "indices": [
+      279,
+      302
+     ],
+     "url": "https://t.co/Wl9MNFTrCl"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806753104236630496",
+  "captured_at": "2026-08-22T14:58:53Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 69,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "TV Shows",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Forex trading"
+    },
+    {
+     "domain": "Global TV Show",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Financial services"
+    },
+    {
+     "domain": "Brand",
+     "entity": "BlackRock"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Investing"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806752608805388660"
+    }
+   ],
+   "wayback_ts": "20240628181354",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806752900888371310"
+  },
+  "media_files": [
+   "media/1806752900888371310/0.jpg"
+  ]
+ },
+ {
+  "id": "1806753104236630496",
+  "text": "My real time threaded $TQQQ at 74.35 . https://t.co/SmClBumnFU",
+  "created_at": "2024-06-28T18:14:42.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806752900888371310",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLgV5MaYAA8r6F.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806753104236630496/photo/1",
+    "w": 1474,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/SmClBumnFU",
+     "expanded_url": "https://x.com/rauItrades/status/1806753104236630496/photo/1",
+     "indices": [
+      39,
+      62
+     ],
+     "url": "https://t.co/SmClBumnFU"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      22,
+      27
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:53Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 70,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806752900888371310"
+    }
+   ],
+   "wayback_ts": "20240628181442",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806753104236630496"
+  },
+  "media_files": [
+   "media/1806753104236630496/0.jpg"
+  ]
+ },
+ {
+  "id": "1806753231760183774",
+  "text": "My blowout $TQQQ at 74.35 . https://t.co/mktmkejkAr",
+  "created_at": "2024-06-28T18:15:12.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806753104236630496",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLgbTbaoAAk3Ep.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806753231760183774/photo/1",
+    "w": 1473,
+    "h": 559
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/mktmkejkAr",
+     "expanded_url": "https://x.com/rauItrades/status/1806753231760183774/photo/1",
+     "indices": [
+      28,
+      51
+     ],
+     "url": "https://t.co/mktmkejkAr"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      11,
+      16
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806753472077074672",
+  "captured_at": "2026-08-22T14:58:47Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 71,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806753104236630496"
+    }
+   ],
+   "wayback_ts": "20240628181512",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806753231760183774"
+  },
+  "media_files": [
+   "media/1806753231760183774/0.jpg"
+  ]
+ },
+ {
+  "id": "1806753472077074672",
+  "text": "This is the final Q2 blowout trading program operated by Citadel Blackrock GS etc. big banks with aggressive trading divisions that maximize on real time intel and budgets and near unlimited capital. https://t.co/YEpW4rRXcs",
+  "created_at": "2024-06-28T18:16:10.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806753231760183774",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLgiwFbAAATm99.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806753472077074672/photo/1",
+    "w": 1473,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/YEpW4rRXcs",
+     "expanded_url": "https://x.com/rauItrades/status/1806753472077074672/photo/1",
+     "indices": [
+      200,
+      223
+     ],
+     "url": "https://t.co/YEpW4rRXcs"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:47Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 72,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [
+    {
+     "domain": "TV Shows",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Global TV Show",
+     "entity": "Citadel (Prime Video)"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Financial services"
+    },
+    {
+     "domain": "Brand",
+     "entity": "BlackRock"
+    },
+    {
+     "domain": "Interests and Hobbies Vertical",
+     "entity": "Business & finance"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Investing"
+    }
+   ],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806753231760183774"
+    }
+   ],
+   "wayback_ts": "20240628181610",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806753472077074672"
+  },
+  "media_files": [
+   "media/1806753472077074672/0.jpg"
+  ]
+ },
+ {
+  "id": "1806753735953252650",
+  "text": "My $TQQQ at 74.35 . https://t.co/epMyA4Dc5W",
+  "created_at": "2024-06-28T18:17:13.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806753472077074672",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": null,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLgzZEasAAR7ST.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806753735953252650/photo/1",
+    "w": 1475,
+    "h": 560
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/epMyA4Dc5W",
+     "expanded_url": "https://x.com/rauItrades/status/1806753735953252650/photo/1",
+     "indices": [
+      20,
+      43
+     ],
+     "url": "https://t.co/epMyA4Dc5W"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      3,
+      8
+     ],
+     "text": "TQQQ"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1806754622008389809",
+  "captured_at": "2026-08-22T14:57:48Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 73,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806753472077074672"
+    }
+   ],
+   "wayback_ts": "20240628181713",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806753735953252650"
+  },
+  "media_files": [
+   "media/1806753735953252650/0.jpg"
+  ]
+ },
+ {
+  "id": "1806754622008389809",
+  "text": "I'm going to step aside here and add more context now. Remember that SAME sma outfit operating on the 30s chart I shared earlier? ^ There are four images linked and it was a real time optimization trade? Well take a look at this.  Same outfit/timeframe. The last image is now. https://t.co/jYCulKbInB",
+  "created_at": "2024-06-28T18:20:44.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1806753735953252650",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLhpK9acAAb-76.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806754622008389809/photo/1",
+    "w": 1471,
+    "h": 560
+   },
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLhs2Ta8AAXu6x.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806754622008389809/photo/1",
+    "w": 1471,
+    "h": 558
+   },
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLhvYFaEAAqog4.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806754622008389809/photo/1",
+    "w": 1472,
+    "h": 561
+   },
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GRLhv6JbIAE1ySb.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1806754622008389809/photo/1",
+    "w": 680,
+    "h": 259
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/jYCulKbInB",
+     "expanded_url": "https://x.com/rauItrades/status/1806754622008389809/photo/1",
+     "indices": [
+      277,
+      300
+     ],
+     "url": "https://t.co/jYCulKbInB"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:48Z",
+  "case": 1,
+  "category": "Automated Short Orders",
+  "thread_index": 74,
+  "thread_of": "1806754622008389809",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1806729697952465164",
+   "context_annotations": [],
+   "referenced_tweets": [
+    {
+     "type": "replied_to",
+     "id": "1806753735953252650"
+    }
+   ],
+   "wayback_ts": "20240628182044",
+   "wayback_url": "https://twitter.com/rauItrades/status/1806754622008389809"
+  },
+  "media_files": [
+   "media/1806754622008389809/0.jpg",
+   "media/1806754622008389809/1.jpg",
+   "media/1806754622008389809/2.jpg",
+   "media/1806754622008389809/3.jpg"
+  ]
+ }
+]

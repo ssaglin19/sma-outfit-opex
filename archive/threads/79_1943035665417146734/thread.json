@@ -1,0 +1,64 @@
+[
+ {
+  "id": "1943035665417146734",
+  "text": "I've purchased LABD with 6.03 as risk.\n1D MA16 MA32 MA64 AA128 MA256 MA512\n[MA128 at 6.03]. https://t.co/SBRpHqKiZ8",
+  "created_at": "2025-07-09T19:52:57.000Z",
+  "lang": "et",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 6,
+  "favorite_count": 18,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GvcMZnoX0AEZ-4F.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1943035665417146734/photo/1",
+    "w": 1474,
+    "h": 558
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/SBRpHqKiZ8",
+     "expanded_url": "https://x.com/rauItrades/status/1943035665417146734/photo/1",
+     "indices": [
+      92,
+      115
+     ],
+     "url": "https://t.co/SBRpHqKiZ8"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:34Z",
+  "case": 43,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1943035665417146734",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1943035665417146734",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250709195257",
+   "wayback_url": "https://twitter.com/rauItrades/status/1943035665417146734"
+  },
+  "media_files": [
+   "media/1943035665417146734/0.jpg"
+  ]
+ }
+]

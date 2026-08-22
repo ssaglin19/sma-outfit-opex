@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1704869290284085405",
+  "text": "Well happening just now is the Biden MA outfit.\nma368 https://t.co/AUfQzeZ7Rd",
+  "created_at": "2023-09-21T14:44:48.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 23,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/F6jpfbtawAEGV_t.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1704869290284085405/photo/1",
+    "w": 1471,
+    "h": 543
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/AUfQzeZ7Rd",
+     "expanded_url": "https://x.com/rauItrades/status/1704869290284085405/photo/1",
+     "indices": [
+      54,
+      77
+     ],
+     "url": "https://t.co/AUfQzeZ7Rd"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:30Z",
+  "case": 6,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1704869290284085405",
+  "enrichment": {},
+  "media_files": [
+   "media/1704869290284085405/0.jpg"
+  ]
+ }
+]

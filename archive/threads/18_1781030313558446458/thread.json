@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1781030313558446458",
+  "text": "1- palindrome\n0 - palindromes semordnilap\n04202024 = 1\n04200240 = 0\n\nbut there's no linguistic term for a repetition or mirroring around a sequence that would be 0420.0420.\nIt's technically a mirrored number.\n\nThat would make sense for anyone in intelligence looking for https://t.co/iXGGhncNSe",
+  "created_at": "2024-04-18T18:41:31.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 4,
+  "favorite_count": 26,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GLd8aTvakAEcgDg.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1781030313558446458/photo/1",
+    "w": 1474,
+    "h": 542
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/iXGGhncNSe",
+     "expanded_url": "https://x.com/rauItrades/status/1781030313558446458/photo/1",
+     "indices": [
+      271,
+      294
+     ],
+     "url": "https://t.co/iXGGhncNSe"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:42Z",
+  "case": 11,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1781030313558446458",
+  "enrichment": {},
+  "media_files": [
+   "media/1781030313558446458/0.jpg"
+  ]
+ }
+]

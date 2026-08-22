@@ -1,0 +1,77 @@
+[
+ {
+  "id": "1933520636426793325",
+  "text": "I've picked up SQQQ at 22.36 .\nS&amp;P System 10/50/200.\nMA50 at 22.36 .\nI will cut the trade on a singular penny break of that buying protocol, I figure the risk is minimal even if banks break the program lower and force me to cut the trade. https://t.co/uiE4oS8GXi",
+  "created_at": "2025-06-13T13:43:37.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 1,
+  "favorite_count": 19,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GtU-oiSbMAAzBsv.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1933520636426793325/photo/1",
+    "w": 1472,
+    "h": 555
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/uiE4oS8GXi",
+     "expanded_url": "https://x.com/rauItrades/status/1933520636426793325/photo/1",
+     "indices": [
+      243,
+      266
+     ],
+     "url": "https://t.co/uiE4oS8GXi"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:21Z",
+  "case": 10,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1933520636426793325",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1933520636426793325",
+   "context_annotations": [
+    {
+     "domain": "Brand Vertical",
+     "entity": "B2B"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Services - B2B"
+    },
+    {
+     "domain": "Brand",
+     "entity": "S&P Global"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20250613134337",
+   "wayback_url": "https://twitter.com/rauItrades/status/1933520636426793325"
+  },
+  "media_files": [
+   "media/1933520636426793325/0.jpg"
+  ]
+ }
+]

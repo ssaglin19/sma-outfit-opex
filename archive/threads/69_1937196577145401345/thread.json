@@ -1,0 +1,109 @@
+[
+ {
+  "id": "1937196577145401345",
+  "text": "Turkey, Tayyip Erdogan.\n12th PM of Republic of Turkeye\n[MA24 MA48 MA96 MA192 MA384 MA768]\nTurkey, first in line protection of Qatari Airways\n\n[MA384, SVXY at 39.57]\nI've purchased the SVXY at 39.57, that's where banks placed an anticipatory buying program to short the VIX. https://t.co/wOESkB24Q0",
+  "created_at": "2025-06-23T17:10:30.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 7,
+  "favorite_count": 45,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GuJN9tGawAA1_d2.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1937196577145401345/photo/1",
+    "w": 1473,
+    "h": 561
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/wOESkB24Q0",
+     "expanded_url": "https://x.com/rauItrades/status/1937196577145401345/photo/1",
+     "indices": [
+      274,
+      297
+     ],
+     "url": "https://t.co/wOESkB24Q0"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:25Z",
+  "case": 40,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1937196577145401345",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1937196577145401345",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Food & Beverage Business"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Vix"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Politics"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Political figures"
+    },
+    {
+     "domain": "Person",
+     "entity": "Recep Tayyip Erdoğan"
+    },
+    {
+     "domain": "Politician",
+     "entity": "Recep Tayyip Erdoğan"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Food"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Turkey"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Politics"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Recep Tayyip Erdoğan"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Political figures"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20250623171030",
+   "wayback_url": "https://twitter.com/rauItrades/status/1937196577145401345"
+  },
+  "media_files": [
+   "media/1937196577145401345/0.jpg"
+  ]
+ }
+]

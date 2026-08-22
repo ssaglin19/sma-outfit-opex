@@ -1,0 +1,98 @@
+[
+ {
+  "id": "1701640009382780956",
+  "text": "The market's dynamic has altered dramatically since July 19th and the NASDAQ went negative. After 14446 everything changed. That reversal following FED. The break of the MA250. \nThen Billionaires squeezed just to short 1st of the month cash and Jobs data. Now? Negative again. https://t.co/aKTv2Lj7ZH",
+  "created_at": "2023-09-12T16:52:47.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": null,
+  "favorite_count": 9,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/F51wI6XaYAIHHca.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1701640009382780956/photo/1",
+    "w": 1468,
+    "h": 543
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/aKTv2Lj7ZH",
+     "expanded_url": "https://x.com/rauItrades/status/1701640009382780956/photo/1",
+     "indices": [
+      277,
+      300
+     ],
+     "url": "https://t.co/aKTv2Lj7ZH"
+    }
+   ]
+  },
+  "source": "syndication:parent_of_1701648625942823328",
+  "captured_at": "2026-08-22T14:57:29Z",
+  "case": 18,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1701648625942823328",
+  "enrichment": {},
+  "media_files": [
+   "media/1701640009382780956/0.jpg"
+  ]
+ },
+ {
+  "id": "1701648625942823328",
+  "text": "Looks like the 2m ma200. The HFT https://t.co/rLw3C49JrO",
+  "created_at": "2023-09-12T17:27:02.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": "1701640009382780956",
+  "in_reply_to_screen_name": "UnfairMarket",
+  "conversation_count": 1,
+  "favorite_count": 2,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/F513-ahaYAA1-6A.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1701648625942823328/photo/1",
+    "w": 1465,
+    "h": 545
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/rLw3C49JrO",
+     "expanded_url": "https://x.com/rauItrades/status/1701648625942823328/photo/1",
+     "indices": [
+      33,
+      56
+     ],
+     "url": "https://t.co/rLw3C49JrO"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:29Z",
+  "case": 18,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 2,
+  "thread_of": "1701648625942823328",
+  "enrichment": {},
+  "media_files": [
+   "media/1701648625942823328/0.jpg"
+  ]
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1769777022702592176",
+  "text": "TSLA is days leader and that's why you have this high frequency operation on the triple Q. \nqqq invesco at 437.61 .  3m ma420.\nThis happened a few moments ago but I figure it's worth sharing for the public's repertoire. https://t.co/x6KZo6yEyZ",
+  "created_at": "2024-03-18T17:24:57.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 1,
+  "favorite_count": 18,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GI-ADEGagAAWKm4.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1769777022702592176/photo/1",
+    "w": 1471,
+    "h": 540
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/x6KZo6yEyZ",
+     "expanded_url": "https://x.com/rauItrades/status/1769777022702592176/photo/1",
+     "indices": [
+      220,
+      243
+     ],
+     "url": "https://t.co/x6KZo6yEyZ"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:40Z",
+  "case": 13,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1769777022702592176",
+  "enrichment": {},
+  "media_files": [
+   "media/1769777022702592176/0.jpg"
+  ]
+ }
+]

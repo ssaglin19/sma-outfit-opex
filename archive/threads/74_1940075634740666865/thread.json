@@ -1,0 +1,101 @@
+[
+ {
+  "id": "1940075634740666865",
+  "text": "NVDX at 13.38 .\nFor context I have made a great deal of money shorting NVDA by purchasing NVD yesterday and sharing that information live and in real time. You can look up [from:rauitrades NVD].\n\nSo now here's the:\nNVDX T-REX 2X Long NVIDIA Daily Target ETF operating on the https://t.co/sasfJuYEv7",
+  "created_at": "2025-07-01T15:50:50.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 23,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GuyHUNXWcAAlFeJ.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1940075634740666865/photo/1",
+    "w": 1473,
+    "h": 555
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/sasfJuYEv7",
+     "expanded_url": "https://x.com/rauItrades/status/1940075634740666865/photo/1",
+     "indices": [
+      275,
+      298
+     ],
+     "url": "https://t.co/sasfJuYEv7"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:29Z",
+  "case": 41,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1940075634740666865",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1940075634740666865",
+   "context_annotations": [
+    {
+     "domain": "Brand Vertical",
+     "entity": "Retail industry"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Multi-Purpose Department - Retail"
+    },
+    {
+     "domain": "Brand",
+     "entity": "Target"
+    },
+    {
+     "domain": "Brand",
+     "entity": "NVIDIA"
+    },
+    {
+     "domain": "Video Game Hardware",
+     "entity": "NVIDIA"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Target"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Retail industry"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Industries"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Superstores"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20250701155050",
+   "wayback_url": "https://twitter.com/rauItrades/status/1940075634740666865"
+  },
+  "media_files": [
+   "media/1940075634740666865/0.jpg"
+  ]
+ }
+]

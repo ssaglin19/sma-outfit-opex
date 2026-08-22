@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1710286567292670381",
+  "text": "https://t.co/qc6YqmNDT3",
+  "created_at": "2023-10-06T13:31:07.000Z",
+  "lang": "zxx",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 1,
+  "favorite_count": 7,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/F7woVacbYAADwQW.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1710286567292670381/photo/1",
+    "w": 1465,
+    "h": 546
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/qc6YqmNDT3",
+     "expanded_url": "https://x.com/rauItrades/status/1710286567292670381/photo/1",
+     "indices": [
+      0,
+      23
+     ],
+     "url": "https://t.co/qc6YqmNDT3"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:31Z",
+  "case": 7,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1710286567292670381",
+  "enrichment": {},
+  "media_files": [
+   "media/1710286567292670381/0.jpg"
+  ]
+ }
+]

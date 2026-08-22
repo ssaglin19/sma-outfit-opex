@@ -1,0 +1,93 @@
+[
+ {
+  "id": "1929608902343381373",
+  "text": "XLE The Energy Select Sector.\n\nXLE at 81.85 .\n\nThe conditional if then is that, if the program breaches 81.85 by a singular penny, the hard stop order liquidates any orders.\nSo I've picked up XLE.\n3M 404 Outfit with the S&amp;P 500's system positive. https://t.co/lG0g07oQwT",
+  "created_at": "2025-06-02T18:39:47.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 9,
+  "favorite_count": 46,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/GsdY3Z7b0AEM1cg.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1929608902343381373/photo/1",
+    "w": 1474,
+    "h": 556
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/lG0g07oQwT",
+     "expanded_url": "https://x.com/rauItrades/status/1929608902343381373/photo/1",
+     "indices": [
+      251,
+      274
+     ],
+     "url": "https://t.co/lG0g07oQwT"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:14Z",
+  "case": 5,
+  "category": "Singular Point Hard Stop Order",
+  "thread_index": 1,
+  "thread_of": "1929608902343381373",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1929608902343381373",
+   "context_annotations": [
+    {
+     "domain": "Business Taxonomy",
+     "entity": "Financial Services Business"
+    },
+    {
+     "domain": "Interests and Hobbies",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "Stocks & indices"
+    },
+    {
+     "domain": "Unified Twitter Taxonomy",
+     "entity": "S&P 500"
+    },
+    {
+     "domain": "Brand Vertical",
+     "entity": "B2B"
+    },
+    {
+     "domain": "Entities [Entity Service]",
+     "entity": "Services - B2B"
+    },
+    {
+     "domain": "Brand",
+     "entity": "S&P Global"
+    }
+   ],
+   "referenced_tweets": null,
+   "wayback_ts": "20250602183947",
+   "wayback_url": "https://twitter.com/rauItrades/status/1929608902343381373"
+  },
+  "media_files": [
+   "media/1929608902343381373/0.jpg"
+  ]
+ }
+]

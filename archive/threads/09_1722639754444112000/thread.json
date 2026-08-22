@@ -1,0 +1,50 @@
+[
+ {
+  "id": "1722639754444112000",
+  "text": "11/9/23 . \n119 . Play on 911? World Trade Outfit.\nThink that 38.90 is risk if that's a candle close below operation. At least that's where the HFT has been striking. Advanced work. They liquidate on a penny break. https://t.co/XMOBhhaBdf",
+  "created_at": "2023-11-09T15:38:17.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 3,
+  "favorite_count": 10,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/F-gLYtmbYAAi3-e.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1722639754444112000/photo/1",
+    "w": 1469,
+    "h": 548
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/XMOBhhaBdf",
+     "expanded_url": "https://x.com/rauItrades/status/1722639754444112000/photo/1",
+     "indices": [
+      214,
+      237
+     ],
+     "url": "https://t.co/XMOBhhaBdf"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:57:33Z",
+  "case": 4,
+  "category": "Precision Buy Algorithm",
+  "thread_index": 1,
+  "thread_of": "1722639754444112000",
+  "enrichment": {},
+  "media_files": [
+   "media/1722639754444112000/0.jpg"
+  ]
+ }
+]

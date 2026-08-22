@@ -1,0 +1,73 @@
+[
+ {
+  "id": "1949835108959285454",
+  "text": "And finally, amid ending trade talks I've purchased $SDOW\nwith the capitular low of 39.09, with banks, as risk. https://t.co/Fa00myC5ms",
+  "created_at": "2025-07-28T14:11:30.000Z",
+  "lang": "en",
+  "author": {
+   "id": "1442931286365007872",
+   "screen_name": "UnfairMarket",
+   "name": "Unfair Market"
+  },
+  "in_reply_to": null,
+  "in_reply_to_screen_name": null,
+  "conversation_count": 6,
+  "favorite_count": 18,
+  "media": [
+   {
+    "type": "photo",
+    "url": "https://pbs.twimg.com/media/Gw80h5Ca8AAioDl.jpg",
+    "alt_text": null,
+    "expanded_url": "https://x.com/rauItrades/status/1949835108959285454/photo/1",
+    "w": 1472,
+    "h": 557
+   }
+  ],
+  "entities": {
+   "media": [
+    {
+     "display_url": "pic.x.com/Fa00myC5ms",
+     "expanded_url": "https://x.com/rauItrades/status/1949835108959285454/photo/1",
+     "indices": [
+      112,
+      135
+     ],
+     "url": "https://t.co/Fa00myC5ms"
+    }
+   ],
+   "symbols": [
+    {
+     "indices": [
+      52,
+      57
+     ],
+     "text": "SDOW"
+    }
+   ]
+  },
+  "source": "syndication",
+  "captured_at": "2026-08-22T14:58:40Z",
+  "case": 22,
+  "category": "Optimized Buying Algorithms",
+  "thread_index": 1,
+  "thread_of": "1949835108959285454",
+  "enrichment": {
+   "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+   },
+   "conversation_id": "1949835108959285454",
+   "context_annotations": [],
+   "referenced_tweets": null,
+   "wayback_ts": "20250728141130",
+   "wayback_url": "https://twitter.com/rauItrades/status/1949835108959285454"
+  },
+  "media_files": [
+   "media/1949835108959285454/0.jpg"
+  ]
+ }
+]
