@@ -20,6 +20,8 @@
     /* buy-side family: green / teal   |   sell-side family: red / amber */
     --c-precision:#1f7a3d; --c-optimized:#0d8a8a;
     --c-short:#c0392b;     --c-hardstop:#d97706;
+    /* opex layer -- Triple Witching deliberately the most prominent */
+    --c-triple:#6d28d9;    --c-monthly:#3b5bdb;   --c-vix:#64748b;
     --c-unknown:#6b7480;
   }
   *{box-sizing:border-box}
@@ -122,6 +124,7 @@
 </div>
 
 <script src="entries.js"></script>
+<script src="opex_entries.js"></script>
 <script>
 (function(){
   "use strict";
@@ -133,7 +136,11 @@
     "Precision Buy":   "var(--c-precision)",
     "Optimized Buy":   "var(--c-optimized)",
     "Automated Short": "var(--c-short)",
-    "Hard Stop":       "var(--c-hardstop)"
+    "Hard Stop":       "var(--c-hardstop)",
+    /* opex layer (type "opex") -- one toggle, three sub-kinds by category */
+    "Triple Witching": "var(--c-triple)",
+    "Monthly OPEX":    "var(--c-monthly)",
+    "VIX Expiration":  "var(--c-vix)"
   };
   function colourFor(cat){ return CATEGORY_COLOURS[cat] || "var(--c-unknown)"; }
 
