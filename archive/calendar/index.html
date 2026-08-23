@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case-study calendar</title>
+<!--
+  Self-contained. No CDN, no framework, no fetch. Data arrives as a global from
+  entries.js, so this works by double-clicking over file:// with no server.
+
+  Nothing below hardcodes "case_study". The calendar renders whatever types exist
+  in window.CALENDAR_ENTRIES; each distinct `type` becomes its own toggle, and
+  each entry's `fields` object is rendered generically, key by key.
+-->
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#1b1f24; --muted:#6b7480;
+    --line:#dfe3e8; --accent:#2f6feb;
+    --shadow:0 1px 3px rgba(16,24,40,.08),0 8px 24px rgba(16,24,40,.06);
+    /* buy-side family: green / teal   |   sell-side family: red / amber */
+    --c-precision:#1f7a3d; --c-optimized:#0d8a8a;
+    --c-short:#c0392b;     --c-hardstop:#d97706;
+    --c-unknown:#6b7480;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  h1{font-size:18px;margin:0 0 2px}
+  .sub{color:var(--muted);font-size:12.5px;margin-bottom:16px}
+
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+       background:var(--panel);border:1px solid var(--line);border-radius:10px;
+       padding:10px 12px;box-shadow:var(--shadow);margin-bottom:14px}
+  .nav{display:flex;align-items:center;gap:6px}
+  button,select{font:inherit;color:inherit;background:var(--panel);
+       border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer}
+  button:hover:not(:disabled),select:hover{border-color:#c3c9d2}
+  button:disabled{opacity:.4;cursor:default}
+  #monthLabel{min-width:190px;text-align:center;font-weight:650;font-size:15px}
+  .spacer{flex:1}
+  .layers{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .layers label{display:flex;gap:6px;align-items:center;cursor:pointer;font-size:13px}
+  .count{color:var(--muted);font-size:12.5px}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 2px 12px;font-size:12.5px;color:var(--muted)}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  .grid{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+        overflow:hidden;box-shadow:var(--shadow)}
+  .dow,.days{display:grid;grid-template-columns:repeat(7,1fr)}
+  .dow div{padding:9px 8px;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+           color:var(--muted);border-bottom:1px solid var(--line);background:#fafbfc}
+  .cell{min-height:104px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+        padding:6px 7px;display:flex;flex-direction:column;gap:4px}
+  .cell:nth-child(7n){border-right:none}
+  .cell.pad{background:#fbfcfd}
+  .cell.has{cursor:pointer}
+  .cell.has:hover{background:#f2f7ff}
+  .cell.has:focus{outline:2px solid var(--accent);outline-offset:-2px}
+  .dnum{font-size:12px;color:var(--muted)}
+  .cell.has .dnum{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:3px}
+  .chip{font-size:10.5px;line-height:1;padding:3px 5px;border-radius:4px;color:#fff;
+        white-space:nowrap;font-weight:600}
+  .more{font-size:10.5px;color:var(--muted);align-self:center}
+
+  .back{position:fixed;inset:0;background:rgba(16,24,40,.42);display:none;
+        align-items:flex-start;justify-content:center;padding:6vh 16px;z-index:20}
+  .back.open{display:flex}
+  .modal{background:var(--panel);border-radius:12px;max-width:640px;width:100%;
+         max-height:82vh;overflow:auto;box-shadow:0 20px 60px rgba(16,24,40,.28)}
+  .mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;
+         padding:14px 16px;border-bottom:1px solid var(--line);
+         position:sticky;top:0;background:var(--panel)}
+  .mhead h2{margin:0;font-size:15px}
+  .entry{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .entry:last-child{border-bottom:none}
+  .etop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+  .etop strong{font-size:14px}
+  .tag{font-size:10.5px;padding:2px 7px;border-radius:999px;color:#fff;font-weight:600}
+  .ttype{font-size:10.5px;padding:2px 7px;border-radius:999px;background:#eef1f5;
+         color:var(--muted);font-weight:600}
+  dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0}
+  dt{color:var(--muted);font-size:12.5px}
+  dd{margin:0;font-size:13px;word-break:break-word}
+  .lk{display:inline-block;margin-top:10px;color:var(--accent);font-size:13px}
+  .empty{padding:22px 16px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Case-study calendar</h1>
+  <div class="sub" id="sub"></div>
+
+  <div class="bar">
+    <div class="nav">
+      <button id="prev" title="Previous month with entries">&#8592;</button>
+      <div id="monthLabel"></div>
+      <button id="next" title="Next month with entries">&#8594;</button>
+    </div>
+    <select id="jump" title="Jump to a populated month"></select>
+    <div class="spacer"></div>
+    <div class="layers" id="layers"></div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div class="legend" id="legend"></div>
+
+  <div class="grid">
+    <div class="dow"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+    <div class="days" id="days"></div>
+  </div>
+</div>
+
+<div class="back" id="back">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+    <div class="mhead"><h2 id="mtitle"></h2><button id="close">Close</button></div>
+    <div id="mbody"></div>
+  </div>
+</div>
+
+<script src="entries.js"></script>
+<script>
+(function(){
+  "use strict";
+  var ALL = (window.CALENDAR_ENTRIES || []).slice();
+
+  /* Colour by category. Unknown categories fall through to neutral grey, so a
+     new category never breaks rendering -- add here only if you want a colour. */
+  var CATEGORY_COLOURS = {
+    "Precision Buy":   "var(--c-precision)",
+    "Optimized Buy":   "var(--c-optimized)",
+    "Automated Short": "var(--c-short)",
+    "Hard Stop":       "var(--c-hardstop)"
+  };
+  function colourFor(cat){ return CATEGORY_COLOURS[cat] || "var(--c-unknown)"; }
+
+  var MON = ["January","February","March","April","May","June","July",
+             "August","September","October","November","December"];
+
+  /* ---- state ---------------------------------------------------------- */
+  var types = [];
+  ALL.forEach(function(e){ if(types.indexOf(e.type) < 0) types.push(e.type); });
+  types.sort();
+  var active = {};
+  types.forEach(function(t){ active[t] = true; });
+  var current = null;                       /* "YYYY-MM" */
+
+  function visible(){ return ALL.filter(function(e){ return active[e.type]; }); }
+
+  /* Populated months derive from the VISIBLE entries, so toggling a layer
+     changes which months the arrows and the dropdown step through. */
+  function months(){
+    var seen = {}, out = [];
+    visible().forEach(function(e){
+      var m = String(e.date).slice(0,7);
+      if(!seen[m]){ seen[m] = 1; out.push(m); }
+    });
+    return out.sort();
+  }
+  function byDate(){
+    var map = {};
+    visible().forEach(function(e){ (map[e.date] = map[e.date] || []).push(e); });
+    return map;
+  }
+
+  /* ---- chrome --------------------------------------------------------- */
+  function buildLegend(){
+    var cats = [];
+    ALL.forEach(function(e){
+      if(e.category && cats.indexOf(e.category) < 0) cats.push(e.category);
+    });
+    cats.sort();
+    document.getElementById("legend").innerHTML = cats.map(function(c){
+      return '<span><i class="sw" style="background:' + colourFor(c) + '"></i>' + esc(c) + "</span>";
+    }).join("");
+  }
+
+  function buildLayers(){
+    var host = document.getElementById("layers");
+    host.innerHTML = "";
+    types.forEach(function(t){
+      var n = ALL.filter(function(e){ return e.type === t; }).length;
+      var lab = document.createElement("label");
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = active[t];
+      cb.addEventListener("change", function(){
+        active[t] = cb.checked;
+        var ms = months();
+        if(ms.length && ms.indexOf(current) < 0){
+          var after = ms.filter(function(m){ return m >= current; });
+          current = after.length ? after[0] : ms[ms.length - 1];
+        }
+        buildJump();
+        render();
+      });
+      lab.appendChild(cb);
+      lab.appendChild(document.createTextNode(t + " (" + n + ")"));
+      host.appendChild(lab);
+    });
+  }
+
+  function buildJump(){
+    var sel = document.getElementById("jump"), ms = months();
+    sel.innerHTML = ms.map(function(m){
+      var p = m.split("-");
+      return '<option value="' + m + '">' + MON[+p[1] - 1] + " " + p[0] + "</option>";
+    }).join("");
+    sel.disabled = !ms.length;
+    if(ms.length) sel.value = current;
+  }
+
+  /* ---- grid ----------------------------------------------------------- */
+  function render(){
+    var ms = months(), map = byDate();
+    var days = document.getElementById("days");
+
+    if(!ms.length){
+      document.getElementById("monthLabel").textContent = "No entries";
+      days.innerHTML = '<div class="empty">No layers selected.</div>';
+      document.getElementById("count").textContent = "";
+      document.getElementById("prev").disabled = true;
+      document.getElementById("next").disabled = true;
+      return;
+    }
+    if(ms.indexOf(current) < 0) current = ms[0];
+
+    var y = +current.slice(0,4), m = +current.slice(5,7) - 1;
+    document.getElementById("monthLabel").textContent = MON[m] + " " + y;
+
+    var i = ms.indexOf(current);
+    document.getElementById("prev").disabled = (i <= 0);
+    document.getElementById("next").disabled = (i >= ms.length - 1);
+
+    var first = new Date(y, m, 1).getDay();
+    var len = new Date(y, m + 1, 0).getDate();
+    var prevLen = new Date(y, m, 0).getDate();
+    days.innerHTML = "";
+
+    var cells = [], p, d;
+    for(p = first - 1; p >= 0; p--) cells.push({pad:true, n:prevLen - p});
+    for(d = 1; d <= len; d++) cells.push({pad:false, n:d});
+    while(cells.length % 7) cells.push({pad:true, n:(cells.length % 7)});
+
+    var monthCount = 0;
+    cells.forEach(function(c){
+      var el = document.createElement("div");
+      el.className = "cell" + (c.pad ? " pad" : "");
+      var num = document.createElement("div");
+      num.className = "dnum";
+      num.textContent = c.n;
+      el.appendChild(num);
+
+      if(!c.pad){
+        var key = current + "-" + (c.n < 10 ? "0" + c.n : c.n);
+        var list = map[key] || [];
+        if(list.length){
+          monthCount += list.length;
+          el.className += " has";
+          el.setAttribute("role", "button");
+          el.setAttribute("tabindex", "0");
+          el.setAttribute("aria-label", key + ", " + list.length + " entries");
+          var chips = document.createElement("div");
+          chips.className = "chips";
+          var show = (list.length > 3) ? 2 : list.length;
+          for(var k = 0; k < show; k++){
+            var e = list[k], ch = document.createElement("span");
+            ch.className = "chip";
+            ch.style.background = colourFor(e.category);
+            ch.textContent = shortLabel(e);
+            ch.title = (e.label || "") + (e.category ? " -- " + e.category : "");
+            chips.appendChild(ch);
+          }
+          if(list.length > show){
+            var more = document.createElement("span");
+            more.className = "more";
+            more.textContent = "+" + (list.length - show);
+            chips.appendChild(more);
+          }
+          el.appendChild(chips);
+          (function(kk, ll){
+            el.addEventListener("click", function(){ openDay(kk, ll); });
+            el.addEventListener("keydown", function(ev){
+              if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); openDay(kk, ll); }
+            });
+          })(key, list);
+        }
+      }
+      days.appendChild(el);
+    });
+
+    document.getElementById("count").textContent =
+      monthCount + (monthCount === 1 ? " entry" : " entries") + " this month";
+    document.getElementById("jump").value = current;
+  }
+
+  /* "Case Study #7" -> "#7"; any other label falls back to a short prefix. */
+  function shortLabel(e){
+    var m = /#\s*([0-9A-Za-z._-]+)/.exec(e.label || "");
+    if(m) return "#" + m[1];
+    return String(e.label || e.type || "?").slice(0, 8);
+  }
+
+  /* ---- day detail ------------------------------------------------------ */
+  function openDay(key, list){
+    var p = key.split("-");
+    document.getElementById("mtitle").textContent =
+      MON[+p[1] - 1] + " " + (+p[2]) + ", " + p[0] + "  --  " +
+      list.length + (list.length === 1 ? " entry" : " entries");
+
+    var body = document.getElementById("mbody");
+    body.innerHTML = "";
+    list.forEach(function(e){
+      var d = document.createElement("div");
+      d.className = "entry";
+
+      var top = document.createElement("div");
+      top.className = "etop";
+      top.innerHTML =
+        "<strong>" + esc(e.label || "(untitled)") + "</strong>" +
+        (e.category ? '<span class="tag" style="background:' + colourFor(e.category) + '">'
+                      + esc(e.category) + "</span>" : "") +
+        '<span class="ttype">' + esc(e.type || "entry") + "</span>";
+      d.appendChild(top);
+
+      /* Generic: render whatever keys this entry happens to carry. */
+      var f = e.fields || {}, keys = Object.keys(f);
+      if(keys.length){
+        var dl = document.createElement("dl");
+        keys.forEach(function(k){
+          var dt = document.createElement("dt");
+          dt.textContent = k;
+          var dd = document.createElement("dd");
+          var v = f[k];
+          dd.textContent = (v && typeof v === "object") ? JSON.stringify(v) : String(v);
+          dl.appendChild(dt);
+          dl.appendChild(dd);
+        });
+        d.appendChild(dl);
+      }
+      if(e.link){
+        var a = document.createElement("a");
+        a.className = "lk";
+        a.href = e.link;
+        a.textContent = "Open archived thread";
+        d.appendChild(a);
+      }
+      body.appendChild(d);
+    });
+    document.getElementById("back").classList.add("open");
+    document.getElementById("close").focus();
+  }
+  function closeDay(){ document.getElementById("back").classList.remove("open"); }
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  /* ---- wire up --------------------------------------------------------- */
+  document.getElementById("prev").addEventListener("click", function(){
+    var ms = months(), i = ms.indexOf(current);
+    if(i > 0){ current = ms[i - 1]; render(); }   /* skips empty months by construction */
+  });
+  document.getElementById("next").addEventListener("click", function(){
+    var ms = months(), i = ms.indexOf(current);
+    if(i > -1 && i < ms.length - 1){ current = ms[i + 1]; render(); }
+  });
+  document.getElementById("jump").addEventListener("change", function(ev){
+    current = ev.target.value;
+    render();
+  });
+  document.getElementById("close").addEventListener("click", closeDay);
+  document.getElementById("back").addEventListener("click", function(ev){
+    if(ev.target === this) closeDay();
+  });
+  document.addEventListener("keydown", function(ev){
+    if(ev.key === "Escape") closeDay();
+  });
+
+  var ms0 = months();
+  current = ms0.length ? ms0[0] : null;      /* earliest populated month, from the data */
+  document.getElementById("sub").textContent =
+    ALL.length + " entries across " + ms0.length + " populated months" +
+    (ms0.length ? "  (" + ms0[0] + " to " + ms0[ms0.length - 1] + ")" : "") +
+    "  --  offline, no dependencies";
+  buildLegend();
+  buildLayers();
+  buildJump();
+  render();
+})();
+</script>
+</body>
+</html>
