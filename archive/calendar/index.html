@@ -22,6 +22,9 @@
     --c-short:#c0392b;     --c-hardstop:#d97706;
     /* opex layer -- Triple Witching deliberately the most prominent */
     --c-triple:#6d28d9;    --c-monthly:#3b5bdb;   --c-vix:#64748b;
+    /* findings layer -- deliberately MUTED: there are thousands of these and they
+       must not shout over the curated case studies or the OPEX anchors */
+    --c-finding:#a08a6a;
     --c-unknown:#6b7480;
   }
   *{box-sizing:border-box}
@@ -125,6 +128,7 @@
 
 <script src="entries.js"></script>
 <script src="opex_entries.js"></script>
+<script src="finding_entries.js"></script>
 <script>
 (function(){
   "use strict";
@@ -140,7 +144,9 @@
     /* opex layer (type "opex") -- one toggle, three sub-kinds by category */
     "Triple Witching": "var(--c-triple)",
     "Monthly OPEX":    "var(--c-monthly)",
-    "VIX Expiration":  "var(--c-vix)"
+    "VIX Expiration":  "var(--c-vix)",
+    /* findings layer (type "finding") -- dates only, unenriched */
+    "Finding":         "var(--c-finding)"
   };
   function colourFor(cat){ return CATEGORY_COLOURS[cat] || "var(--c-unknown)"; }
 
