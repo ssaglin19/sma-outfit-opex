@@ -5,114 +5,140 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Case-study calendar</title>
 <!--
-  Self-contained. No CDN, no framework, no fetch. Data arrives as a global from
-  entries.js, so this works by double-clicking over file:// with no server.
+  Self-contained. No CDN, no framework, no fetch. Data arrives as globals from
+  the *_entries.js files and ticker_direction.js, so this works by double-click
+  over file:// with no server.
 
-  Nothing below hardcodes "case_study". The calendar renders whatever types exist
-  in window.CALENDAR_ENTRIES; each distinct `type` becomes its own toggle, and
-  each entry's `fields` object is rendered generically, key by key.
+  NON-DESTRUCTIVE: the scraped layers are read-only. Every user edit lives in a
+  single `user_overlay` object, auto-saved to localStorage and exportable to
+  user_overlay.json. Nothing here ever writes back to the data files.
+
+  Nothing hardcodes an entry type or a ticker. Types become toggles by
+  themselves; directions come from ticker_direction.js plus overlay overrides.
 -->
 <style>
   :root{
     --bg:#f6f7f9; --panel:#ffffff; --ink:#1b1f24; --muted:#6b7480;
     --line:#dfe3e8; --accent:#2f6feb;
     --shadow:0 1px 3px rgba(16,24,40,.08),0 8px 24px rgba(16,24,40,.06);
-    /* buy-side family: green / teal   |   sell-side family: red / amber */
     --c-precision:#1f7a3d; --c-optimized:#0d8a8a;
     --c-short:#c0392b;     --c-hardstop:#d97706;
-    /* opex layer -- Triple Witching deliberately the most prominent */
     --c-triple:#6d28d9;    --c-monthly:#3b5bdb;   --c-vix:#64748b;
-    /* findings layer -- deliberately MUTED: there are thousands of these and they
-       must not shout over the curated case studies or the OPEX anchors */
     --c-finding:#a08a6a;
-    /* gap-findings layer -- the undocumented year, enriched from caption text.
-       Distinct magenta so it reads clearly against the muted plain findings it
-       overlaps from 2025-08-21 onward. */
     --c-gap:#b02a8f;
+    --c-user:#0f766e;
     --c-unknown:#6b7480;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
        font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  .wrap{max-width:1140px;margin:0 auto;padding:18px 16px 60px}
   h1{font-size:18px;margin:0 0 2px}
-  .sub{color:var(--muted);font-size:12.5px;margin-bottom:16px}
+  .sub{color:var(--muted);font-size:12.5px;margin-bottom:6px}
+  .save-note{font-size:12px;color:var(--muted);background:#fffbe8;border:1px solid #f0e2b6;
+             border-radius:8px;padding:7px 10px;margin-bottom:12px}
 
-  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;
-       background:var(--panel);border:1px solid var(--line);border-radius:10px;
-       padding:10px 12px;box-shadow:var(--shadow);margin-bottom:14px}
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--panel);
+       border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+       box-shadow:var(--shadow);margin-bottom:10px}
   .nav{display:flex;align-items:center;gap:6px}
-  button,select{font:inherit;color:inherit;background:var(--panel);
-       border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer}
+  button,select,input,textarea{font:inherit;color:inherit;background:var(--panel);
+       border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+  button{cursor:pointer}
   button:hover:not(:disabled),select:hover{border-color:#c3c9d2}
   button:disabled{opacity:.4;cursor:default}
-  #monthLabel{min-width:190px;text-align:center;font-weight:650;font-size:15px}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  button.danger{color:#c0392b}
+  button.on{background:#e7f0ff;border-color:var(--accent)}
+  #monthLabel{min-width:180px;text-align:center;font-weight:650;font-size:15px}
   .spacer{flex:1}
   .layers{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .layers label{display:flex;gap:6px;align-items:center;cursor:pointer;font-size:13px}
   .count{color:var(--muted);font-size:12.5px}
-
-  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 2px 12px;font-size:12.5px;color:var(--muted)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 2px 10px;font-size:12.5px;color:var(--muted)}
   .legend span{display:flex;align-items:center;gap:6px}
   .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  .hint{background:#e7f0ff;border:1px solid #bcd3ff;border-radius:8px;padding:8px 11px;
+        margin-bottom:10px;font-size:13px;display:none}
+  .hint.on{display:block}
 
   .grid{background:var(--panel);border:1px solid var(--line);border-radius:12px;
         overflow:hidden;box-shadow:var(--shadow)}
   .dow,.days{display:grid;grid-template-columns:repeat(7,1fr)}
   .dow div{padding:9px 8px;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
            color:var(--muted);border-bottom:1px solid var(--line);background:#fafbfc}
-  .cell{min-height:104px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-        padding:6px 7px;display:flex;flex-direction:column;gap:4px}
+  .cell{min-height:112px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+        padding:0 0 6px;display:flex;flex-direction:column;gap:3px;position:relative}
   .cell:nth-child(7n){border-right:none}
   .cell.pad{background:#fbfcfd}
   .cell.has{cursor:pointer}
   .cell.has:hover{background:#f2f7ff}
-  /* directional tint from the day's VISIBLE tickers. Kept low-alpha so the date
-     number and the ticker chips stay fully readable on top. */
+  .cell.sel{outline:2px solid var(--accent);outline-offset:-2px}
+  /* directional tint -- low alpha so the date and chips stay readable */
   .cell.dir-bear{background:rgba(192,57,43,.10)}
   .cell.dir-bull{background:rgba(13,138,138,.10)}
   .cell.dir-mixed{background:rgba(217,119,6,.20)}
   .cell.has.dir-bear:hover{background:rgba(192,57,43,.19)}
   .cell.has.dir-bull:hover{background:rgba(13,138,138,.19)}
   .cell.has.dir-mixed:hover{background:rgba(217,119,6,.30)}
-  .cell.has:focus{outline:2px solid var(--accent);outline-offset:-2px}
+  /* shaded range blocks -- a ribbon across the top, separate from the tint */
+  .bands{display:flex;flex-direction:column}
+  .band{height:15px;font-size:10px;line-height:15px;color:#fff;padding:0 5px;
+        white-space:nowrap;overflow:hidden;font-weight:650}
+  .band.mid{opacity:.72}
+  .inner{padding:2px 7px 0;display:flex;flex-direction:column;gap:4px}
   .dnum{font-size:12px;color:var(--muted)}
   .cell.has .dnum{color:var(--ink);font-weight:600}
   .chips{display:flex;flex-wrap:wrap;gap:3px}
   .chip{font-size:10.5px;line-height:1;padding:3px 5px;border-radius:4px;color:#fff;
         white-space:nowrap;font-weight:600}
   .more{font-size:10.5px;color:var(--muted);align-self:center}
-  /* neutral marker for entries that carry no ticker (the date-only finding layer) */
-  .dot{font-size:10.5px;line-height:1;padding:3px 5px;border-radius:4px;
-       background:#eef1f5;color:var(--muted);font-weight:600;white-space:nowrap}
+  .dot{font-size:10.5px;line-height:1;padding:3px 5px;border-radius:4px;background:#eef1f5;
+       color:var(--muted);font-weight:600;white-space:nowrap}
+  .nmark{position:absolute;top:2px;right:4px;font-size:11px;color:var(--accent)}
 
   .back{position:fixed;inset:0;background:rgba(16,24,40,.42);display:none;
-        align-items:flex-start;justify-content:center;padding:6vh 16px;z-index:20}
+        align-items:flex-start;justify-content:center;padding:5vh 16px;z-index:30}
   .back.open{display:flex}
-  .modal{background:var(--panel);border-radius:12px;max-width:640px;width:100%;
-         max-height:82vh;overflow:auto;box-shadow:0 20px 60px rgba(16,24,40,.28)}
-  .mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;
-         padding:14px 16px;border-bottom:1px solid var(--line);
-         position:sticky;top:0;background:var(--panel)}
+  .modal{background:var(--panel);border-radius:12px;max-width:720px;width:100%;
+         max-height:86vh;overflow:auto;box-shadow:0 20px 60px rgba(16,24,40,.28)}
+  .mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;
+         border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
   .mhead h2{margin:0;font-size:15px}
-  .entry{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .sec{padding:12px 16px;border-bottom:1px solid var(--line)}
+  .sec h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .entry{padding:12px 16px;border-bottom:1px solid var(--line)}
   .entry:last-child{border-bottom:none}
-  .etop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+  .etop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:7px}
   .etop strong{font-size:14px}
   .tag{font-size:10.5px;padding:2px 7px;border-radius:999px;color:#fff;font-weight:600}
   .ttype{font-size:10.5px;padding:2px 7px;border-radius:999px;background:#eef1f5;
          color:var(--muted);font-weight:600}
+  .flag{font-size:10.5px;padding:2px 7px;border-radius:999px;background:#fff4d6;
+        color:#8a5a00;font-weight:700}
   dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0}
   dt{color:var(--muted);font-size:12.5px}
   dd{margin:0;font-size:13px;word-break:break-word}
-  .lk{display:inline-block;margin-top:10px;color:var(--accent);font-size:13px}
+  .was{color:var(--muted);text-decoration:line-through;margin-right:6px}
+  .lk{display:inline-block;margin-top:9px;color:var(--accent);font-size:13px}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-top:9px}
+  textarea{width:100%;min-height:56px;resize:vertical}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:5px 7px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12px}
   .empty{padding:22px 16px;color:var(--muted)}
+  .mini{font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Case-study calendar</h1>
   <div class="sub" id="sub"></div>
+  <div class="save-note">
+    Your edits auto-save in this browser. Use <b>Export</b> to keep a durable copy &mdash;
+    localStorage is machine-local and can be cleared. The scraped archive is never modified.
+  </div>
 
   <div class="bar">
     <div class="nav">
@@ -126,6 +152,18 @@
     <div class="count" id="count"></div>
   </div>
 
+  <div class="bar">
+    <button id="blockMode">+ Shaded block</button>
+    <button id="blocksBtn">Blocks&hellip;</button>
+    <button id="classBtn">Classification &amp; colours&hellip;</button>
+    <div class="spacer"></div>
+    <button id="exportBtn">Export overlay</button>
+    <button id="importBtn">Import&hellip;</button>
+    <input type="file" id="importFile" accept="application/json,.json" style="display:none">
+    <button id="resetBtn" class="danger">Reset overlay</button>
+  </div>
+
+  <div class="hint" id="hint"></div>
   <div class="legend" id="legend"></div>
 
   <div class="grid">
@@ -149,107 +187,258 @@
 <script>
 (function(){
   "use strict";
-  var ALL = (window.CALENDAR_ENTRIES || []).slice();
 
-  /* Colour by category. Unknown categories fall through to neutral grey, so a
-     new category never breaks rendering -- add here only if you want a colour. */
+  /* ================= base data (READ-ONLY) ================= */
+  var BASE = (window.CALENDAR_ENTRIES || []).slice();
+  var BASE_DIR = window.TICKER_DIRECTION || {};
+
+  /* stable id per entry: prefer post_id, else link, else type|date|label, deduped */
+  var idSeen = {};
+  BASE.forEach(function(e){
+    var f = e.fields || {}, base;
+    if(f.post_id) base = String(f.post_id);
+    else if(e.link){ var m = /(\d{6,})/.exec(e.link); base = m ? m[1] : e.link; }
+    else base = e.date + "|" + (e.label || "");
+    base = e.type + ":" + base;
+    idSeen[base] = (idSeen[base] || 0) + 1;
+    e.__id = idSeen[base] > 1 ? base + "#" + idSeen[base] : base;
+  });
+
+  /* ================= overlay ================= */
+  var LSKEY = "sma_calendar_overlay_v1";
+  function blankOverlay(){
+    return { version:1, notes:{ day:{}, entry:{} }, added:[], hidden:[],
+             overrides:{}, classification:{}, palette:{ categories:{}, tints:{} }, blocks:[] };
+  }
+  var OV = blankOverlay();
+  function normalise(o){
+    var b = blankOverlay();
+    if(!o || typeof o !== "object") return b;
+    b.version = o.version || 1;
+    if(o.notes){ b.notes.day = o.notes.day || {}; b.notes.entry = o.notes.entry || {}; }
+    b.added = Array.isArray(o.added) ? o.added : [];
+    b.hidden = Array.isArray(o.hidden) ? o.hidden : [];
+    b.overrides = o.overrides || {};
+    b.classification = o.classification || {};
+    if(o.palette){ b.palette.categories = o.palette.categories || {};
+                   b.palette.tints = o.palette.tints || {}; }
+    b.blocks = Array.isArray(o.blocks) ? o.blocks : [];
+    return b;
+  }
+  function loadOverlay(){
+    try{
+      var raw = localStorage.getItem(LSKEY);
+      if(raw) OV = normalise(JSON.parse(raw));
+    }catch(err){ /* private mode / blocked storage: run with an empty overlay */ }
+  }
+  function saveOverlay(){
+    try{ localStorage.setItem(LSKEY, JSON.stringify(OV)); }
+    catch(err){ /* storage unavailable: session still works, Export still available */ }
+  }
+  function touch(){ saveOverlay(); render(); }
+
+  /* ================= effective view = base + overlay ================= */
+  function isHidden(id){ return OV.hidden.indexOf(id) >= 0; }
+  function effective(){
+    var out = [];
+    BASE.forEach(function(e){
+      if(isHidden(e.__id)) return;
+      var ov = OV.overrides[e.__id];
+      if(!ov){ out.push(e); return; }
+      var c = { date: ov.date || e.date, type: e.type,
+                label: ("label" in ov ? ov.label : e.label),
+                category: ("category" in ov ? ov.category : e.category),
+                fields: {}, link: e.link, __id: e.__id, __edited: true, __orig: e };
+      var f = e.fields || {};
+      Object.keys(f).forEach(function(k){ c.fields[k] = f[k]; });
+      Object.keys(ov).forEach(function(k){
+        if(k === "date" || k === "label" || k === "category") return;
+        c.fields[k] = ov[k];
+      });
+      out.push(c);
+    });
+    OV.added.forEach(function(a, i){
+      if(!a.__id) a.__id = "user:" + (a.date || "") + ":" + i;
+      if(isHidden(a.__id)) return;
+      a.type = a.type || "user";
+      a.__user = true;
+      out.push(a);
+    });
+    return out;
+  }
+
+  /* ================= colours & direction ================= */
   var CATEGORY_COLOURS = {
-    "Precision Buy":   "var(--c-precision)",
-    "Optimized Buy":   "var(--c-optimized)",
-    "Automated Short": "var(--c-short)",
-    "Hard Stop":       "var(--c-hardstop)",
-    /* opex layer (type "opex") -- one toggle, three sub-kinds by category */
-    "Triple Witching": "var(--c-triple)",
-    "Monthly OPEX":    "var(--c-monthly)",
-    "VIX Expiration":  "var(--c-vix)",
-    /* findings layer (type "finding") -- dates only, unenriched */
-    "Finding":         "var(--c-finding)",
-    /* gap-findings layer (type "gap_finding") -- overlaps "finding" post-2025-08-20 */
-    "Gap Finding":     "var(--c-gap)"
+    "Precision Buy":"var(--c-precision)", "Optimized Buy":"var(--c-optimized)",
+    "Automated Short":"var(--c-short)",   "Hard Stop":"var(--c-hardstop)",
+    "Triple Witching":"var(--c-triple)",  "Monthly OPEX":"var(--c-monthly)",
+    "VIX Expiration":"var(--c-vix)",      "Finding":"var(--c-finding)",
+    "Gap Finding":"var(--c-gap)",         "User":"var(--c-user)"
   };
-  function colourFor(cat){ return CATEGORY_COLOURS[cat] || "var(--c-unknown)"; }
+  function colourFor(cat){
+    if(cat && OV.palette.categories[cat]) return OV.palette.categories[cat];
+    return CATEGORY_COLOURS[cat] || "var(--c-unknown)";
+  }
+  function dirOfTicker(t){
+    if(t in OV.classification) return OV.classification[t];   /* overlay wins */
+    return BASE_DIR[t] || "unknown";
+  }
 
   var MON = ["January","February","March","April","May","June","July",
              "August","September","October","November","December"];
+  var TICKER_CAP = 4;
+  var LAYER_RANK = { case_study:3, gap_finding:2, user:2, finding:1 };
 
-  /* ---- state ---------------------------------------------------------- */
-  var types = [];
-  ALL.forEach(function(e){ if(types.indexOf(e.type) < 0) types.push(e.type); });
-  types.sort();
-  var active = {};
-  types.forEach(function(t){ active[t] = true; });
-  var current = null;                       /* "YYYY-MM" */
+  /* ================= state ================= */
+  var types = [], active = {}, current = null, selDay = null;
+  var blockMode = 0, blockStart = null;   /* 0 off, 1 awaiting start, 2 awaiting end */
 
-  function visible(){ return ALL.filter(function(e){ return active[e.type]; }); }
-
-  /* Populated months derive from the VISIBLE entries, so toggling a layer
-     changes which months the arrows and the dropdown step through. */
+  function recomputeTypes(){
+    var all = effective(), seen = {};
+    types = [];
+    all.forEach(function(e){ if(!seen[e.type]){ seen[e.type]=1; types.push(e.type); } });
+    types.sort();
+    types.forEach(function(t){ if(!(t in active)) active[t] = true; });
+  }
+  function visible(){ return effective().filter(function(e){ return active[e.type]; }); }
   function months(){
     var seen = {}, out = [];
     visible().forEach(function(e){
       var m = String(e.date).slice(0,7);
-      if(!seen[m]){ seen[m] = 1; out.push(m); }
+      if(!seen[m]){ seen[m]=1; out.push(m); }
     });
     return out.sort();
   }
   function byDate(){
-    var map = {};
-    visible().forEach(function(e){ (map[e.date] = map[e.date] || []).push(e); });
-    return map;
+    var m = {};
+    visible().forEach(function(e){ (m[e.date] = m[e.date] || []).push(e); });
+    return m;
   }
 
-  /* ---- chrome --------------------------------------------------------- */
+  /* ================= chrome ================= */
   function buildLegend(){
-    var cats = [];
-    ALL.forEach(function(e){
-      if(e.category && cats.indexOf(e.category) < 0) cats.push(e.category);
-    });
+    var cats = [], all = effective();
+    all.forEach(function(e){ if(e.category && cats.indexOf(e.category)<0) cats.push(e.category); });
     cats.sort();
-    document.getElementById("legend").innerHTML = cats.map(function(c){
-      return '<span><i class="sw" style="background:' + colourFor(c) + '"></i>' + esc(c) + "</span>";
+    var h = cats.map(function(c){
+      return '<span><i class="sw" style="background:'+colourFor(c)+'"></i>'+esc(c)+"</span>";
     }).join("");
+    h += '<span><i class="sw" style="background:rgba(192,57,43,.35)"></i>bearish day</span>'
+      +  '<span><i class="sw" style="background:rgba(13,138,138,.35)"></i>bullish day</span>'
+      +  '<span><i class="sw" style="background:rgba(217,119,6,.5)"></i>mixed day</span>';
+    document.getElementById("legend").innerHTML = h;
   }
-
   function buildLayers(){
-    var host = document.getElementById("layers");
+    var host = document.getElementById("layers"), all = effective();
     host.innerHTML = "";
     types.forEach(function(t){
-      var n = ALL.filter(function(e){ return e.type === t; }).length;
-      var lab = document.createElement("label");
-      var cb = document.createElement("input");
-      cb.type = "checkbox";
-      cb.checked = active[t];
+      var n = all.filter(function(e){ return e.type === t; }).length;
+      var lab = document.createElement("label"), cb = document.createElement("input");
+      cb.type = "checkbox"; cb.checked = !!active[t];
       cb.addEventListener("change", function(){
         active[t] = cb.checked;
         var ms = months();
         if(ms.length && ms.indexOf(current) < 0){
           var after = ms.filter(function(m){ return m >= current; });
-          current = after.length ? after[0] : ms[ms.length - 1];
+          current = after.length ? after[0] : ms[ms.length-1];
         }
-        buildJump();
-        render();
+        buildJump(); render();
       });
       lab.appendChild(cb);
       lab.appendChild(document.createTextNode(t + " (" + n + ")"));
       host.appendChild(lab);
     });
   }
-
   function buildJump(){
     var sel = document.getElementById("jump"), ms = months();
     sel.innerHTML = ms.map(function(m){
       var p = m.split("-");
-      return '<option value="' + m + '">' + MON[+p[1] - 1] + " " + p[0] + "</option>";
+      return '<option value="'+m+'">'+MON[+p[1]-1]+" "+p[0]+"</option>";
     }).join("");
     sel.disabled = !ms.length;
     if(ms.length) sel.value = current;
   }
 
-  /* ---- grid ----------------------------------------------------------- */
-  function render(){
-    var ms = months(), map = byDate();
-    var days = document.getElementById("days");
+  /* ================= tickers, direction, chips ================= */
+  function tickersOf(e){
+    var out = [], f = e.fields || {};
+    ["ticker","co_executed"].forEach(function(k){
+      if(!f[k]) return;
+      String(f[k]).split(/[\s,]+/).forEach(function(t){ t=t.trim(); if(t) out.push(t); });
+    });
+    return out;
+  }
+  function dayDirection(tickers){
+    var bear=false, bull=false;
+    tickers.forEach(function(t){
+      var d = dirOfTicker(t);
+      if(d === "bearish") bear = true;
+      else if(d === "bullish") bull = true;
+    });
+    if(bear && bull) return "mixed";
+    if(bear) return "bear";
+    if(bull) return "bull";
+    return "";
+  }
+  var MIXED_DAYS = [];
+  function shortLabel(e){
+    var m=/#\s*([0-9A-Za-z._-]+)/.exec(e.label||"");
+    if(m) return "#"+m[1];
+    return String(e.label||e.type||"?").slice(0,8);
+  }
+  function dayChips(list){
+    var chips = document.createElement("div"); chips.className = "chips";
+    var best={}, order=[], opex=[], untick=0;
+    list.forEach(function(e){
+      if(e.type === "opex"){ opex.push(e); return; }
+      var ts = tickersOf(e);
+      if(!ts.length){ untick++; return; }
+      ts.forEach(function(t){
+        var rank = LAYER_RANK[e.type] || 0;
+        if(!(t in best)){ best[t]={rank:rank,cat:e.category,type:e.type}; order.push(t); }
+        else if(rank > best[t].rank){ best[t]={rank:rank,cat:e.category,type:e.type}; }
+      });
+    });
+    opex.forEach(function(e){
+      var ch=document.createElement("span"); ch.className="chip";
+      ch.style.background=colourFor(e.category); ch.textContent=shortLabel(e);
+      ch.title=(e.label||"")+(e.category?" -- "+e.category:""); chips.appendChild(ch);
+    });
+    order.sort();
+    var show = Math.min(order.length, TICKER_CAP);
+    for(var i=0;i<show;i++){
+      var t=order[i], b=best[t], ch2=document.createElement("span");
+      ch2.className="chip"; ch2.style.background=colourFor(b.cat);
+      ch2.textContent=t; ch2.title=t+" -- "+(b.cat||b.type)+" ("+dirOfTicker(t)+")";
+      chips.appendChild(ch2);
+    }
+    if(order.length>show){
+      var more=document.createElement("span"); more.className="more";
+      more.textContent="+"+(order.length-show);
+      more.title=order.slice(show).join(", "); chips.appendChild(more);
+    }
+    if(untick){
+      var dt=document.createElement("span"); dt.className="dot"; dt.textContent="·"+untick;
+      dt.title=untick+" further post"+(untick===1?"":"s")+" with no ticker";
+      chips.appendChild(dt);
+    }
+    chips.dataset.dir = dayDirection(order);
+    return chips;
+  }
 
+  /* ================= blocks ================= */
+  function bandsFor(dateStr){
+    return OV.blocks.filter(function(b){
+      return b.start_date <= dateStr && dateStr <= b.end_date;
+    });
+  }
+
+  /* ================= render ================= */
+  function render(){
+    recomputeTypes();
+    buildLayers(); buildLegend();
+    var ms = months(), map = byDate(), days = document.getElementById("days");
+    MIXED_DAYS = [];
     if(!ms.length){
       document.getElementById("monthLabel").textContent = "No entries";
       days.innerHTML = '<div class="empty">No layers selected.</div>';
@@ -259,266 +448,524 @@
       return;
     }
     if(ms.indexOf(current) < 0) current = ms[0];
-
-    var y = +current.slice(0,4), m = +current.slice(5,7) - 1;
-    document.getElementById("monthLabel").textContent = MON[m] + " " + y;
-
+    var y=+current.slice(0,4), mo=+current.slice(5,7)-1;
+    document.getElementById("monthLabel").textContent = MON[mo]+" "+y;
     var i = ms.indexOf(current);
-    document.getElementById("prev").disabled = (i <= 0);
-    document.getElementById("next").disabled = (i >= ms.length - 1);
+    document.getElementById("prev").disabled = (i<=0);
+    document.getElementById("next").disabled = (i>=ms.length-1);
 
-    var first = new Date(y, m, 1).getDay();
-    var len = new Date(y, m + 1, 0).getDate();
-    var prevLen = new Date(y, m, 0).getDate();
-    days.innerHTML = "";
+    var first=new Date(y,mo,1).getDay(), len=new Date(y,mo+1,0).getDate(),
+        prevLen=new Date(y,mo,0).getDate();
+    days.innerHTML="";
+    var cells=[],p,d;
+    for(p=first-1;p>=0;p--) cells.push({pad:true,n:prevLen-p});
+    for(d=1;d<=len;d++) cells.push({pad:false,n:d});
+    while(cells.length%7) cells.push({pad:true,n:cells.length%7});
 
-    var cells = [], p, d;
-    for(p = first - 1; p >= 0; p--) cells.push({pad:true, n:prevLen - p});
-    for(d = 1; d <= len; d++) cells.push({pad:false, n:d});
-    while(cells.length % 7) cells.push({pad:true, n:(cells.length % 7)});
+    var monthCount=0;
+    cells.forEach(function(c,ci){
+      var el=document.createElement("div");
+      el.className="cell"+(c.pad?" pad":"");
+      var key = c.pad ? null : current+"-"+(c.n<10?"0"+c.n:c.n);
 
-    var monthCount = 0;
-    cells.forEach(function(c){
-      var el = document.createElement("div");
-      el.className = "cell" + (c.pad ? " pad" : "");
-      var num = document.createElement("div");
-      num.className = "dnum";
-      num.textContent = c.n;
-      el.appendChild(num);
-
-      if(!c.pad){
-        var key = current + "-" + (c.n < 10 ? "0" + c.n : c.n);
-        var list = map[key] || [];
-        if(list.length){
-          monthCount += list.length;
-          el.className += " has";
-          el.setAttribute("role", "button");
-          el.setAttribute("tabindex", "0");
-          el.setAttribute("aria-label", key + ", " + list.length + " entries");
-          var ch = dayChips(list);
-          var dir = ch.dataset.dir;
-          if(dir){
-            el.className += " dir-" + dir;
-            if(dir === "mixed" && MIXED_DAYS.indexOf(key) < 0) MIXED_DAYS.push(key);
-          }
-          el.appendChild(ch);
-          (function(kk, ll){
-            el.addEventListener("click", function(){ openDay(kk, ll); });
-            el.addEventListener("keydown", function(ev){
-              if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); openDay(kk, ll); }
-            });
-          })(key, list);
+      if(key){
+        var bands=bandsFor(key);
+        if(bands.length){
+          var bh=document.createElement("div"); bh.className="bands";
+          bands.forEach(function(b){
+            var bd=document.createElement("div");
+            var isStart = (b.start_date===key) || (ci%7===0);
+            bd.className="band"+(isStart?"":" mid");
+            bd.style.background=b.color||"#6d28d9";
+            bd.textContent=isStart?(b.label||""):"";
+            bd.title=(b.label||"(block)")+"  "+b.start_date+" → "+b.end_date+(b.note?"\n"+b.note:"");
+            bh.appendChild(bd);
+          });
+          el.appendChild(bh);
         }
       }
+      var inner=document.createElement("div"); inner.className="inner";
+      var num=document.createElement("div"); num.className="dnum"; num.textContent=c.n;
+      inner.appendChild(num);
+
+      if(key){
+        var list=map[key]||[];
+        if(OV.notes.day[key]){
+          var nm=document.createElement("div"); nm.className="nmark"; nm.textContent="✎";
+          nm.title=OV.notes.day[key]; el.appendChild(nm);
+        }
+        if(list.length){
+          monthCount+=list.length;
+          el.className+=" has";
+          el.setAttribute("role","button"); el.setAttribute("tabindex","0");
+          var ch=dayChips(list), dir=ch.dataset.dir;
+          if(dir){
+            el.className+=" dir-"+dir;
+            if(dir==="mixed" && MIXED_DAYS.indexOf(key)<0) MIXED_DAYS.push(key);
+          }
+          inner.appendChild(ch);
+        } else if(blockMode || OV.notes.day[key]){
+          el.className+=" has";
+          el.setAttribute("role","button"); el.setAttribute("tabindex","0");
+        }
+        if(selDay===key) el.className+=" sel";
+        if(el.className.indexOf("has")>=0){
+          (function(kk,ll){
+            el.addEventListener("click",function(){ dayClick(kk,ll); });
+            el.addEventListener("keydown",function(ev){
+              if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); dayClick(kk,ll); }
+            });
+          })(key,list);
+        }
+      }
+      el.appendChild(inner);
       days.appendChild(el);
     });
-
     document.getElementById("count").textContent =
-      monthCount + (monthCount === 1 ? " entry" : " entries") + " this month";
-    document.getElementById("jump").value = current;
-    if(MIXED_DAYS.length){
-      console.warn("MIXED direction days (bearish and bullish tickers on the same day):",
-                   MIXED_DAYS.slice().sort());
+      monthCount+(monthCount===1?" entry":" entries")+" this month";
+    document.getElementById("jump").value=current;
+    if(MIXED_DAYS.length) console.warn("MIXED direction days:", MIXED_DAYS.slice().sort());
+  }
+
+  /* ================= day click ================= */
+  function dayClick(key,list){
+    if(blockMode===1){ blockStart=key; blockMode=2; selDay=key; setHint(); render(); return; }
+    if(blockMode===2){
+      var a=blockStart, b=key;
+      if(a>b){ var t=a; a=b; b=t; }
+      blockMode=0; blockStart=null; selDay=null; setHint();
+      openBlockForm({ id:"b"+Date.now(), start_date:a, end_date:b,
+                      color:"#6d28d9", label:"", note:"" }, true);
+      return;
     }
+    openDay(key,list);
+  }
+  function setHint(){
+    var h=document.getElementById("hint"), b=document.getElementById("blockMode");
+    if(blockMode===1){ h.className="hint on"; h.textContent="Shaded block: click the START day."; }
+    else if(blockMode===2){ h.className="hint on";
+      h.textContent="Shaded block: start "+blockStart+" — now click the END day."; }
+    else { h.className="hint"; h.textContent=""; }
+    b.className = blockMode ? "on" : "";
+    b.textContent = blockMode ? "Cancel block" : "+ Shaded block";
   }
 
-  /* ---- day-cell chips -------------------------------------------------
-     The cell shows the day's UNIQUE TICKERS, not one chip per post: a day with
-     24 posts across two symbols reads as two chips. The detail panel is
-     unaffected and still lists every entry -- only the cell is deduped. */
-
-  var TICKER_CAP = 4;
-  /* which layer wins the colour when one ticker appears under several */
-  var LAYER_RANK = { case_study: 3, gap_finding: 2, finding: 1 };
-
-  /* Generic: any entry may expose tickers via fields.ticker / fields.co_executed,
-     space- or comma-separated. An entry type that carries neither simply yields
-     none, so new layers need no code change here. */
-  function tickersOf(e){
-    var out = [], f = e.fields || {};
-    ["ticker", "co_executed"].forEach(function(k){
-      if(!f[k]) return;
-      String(f[k]).split(/[\s,]+/).forEach(function(t){
-        t = t.trim();
-        if(t) out.push(t);
-      });
-    });
-    return out;
-  }
-
-  /* Binary directional read of a day, from its VISIBLE tickers only. Direction
-     comes entirely from ticker_direction.js -- nothing is hardcoded here, so a
-     correction there takes effect on reload. Unknown symbols are inert: they
-     never tint and never force MIXED. */
-  function dayDirection(tickers){
-    var map = window.TICKER_DIRECTION || {};
-    var bear = false, bull = false;
-    tickers.forEach(function(t){
-      var d = map[t];
-      if(d === "bearish") bear = true;
-      else if(d === "bullish") bull = true;
-    });
-    if(bear && bull) return "mixed";
-    if(bear) return "bear";
-    if(bull) return "bull";
-    return "";                      /* unknown-only, or no tickers: no tint */
-  }
-
-  var MIXED_DAYS = [];              /* surfaced after render -- expected empty */
-
-  function dayChips(list){
-    var chips = document.createElement("div");
-    chips.className = "chips";
-    var best = {}, order = [], opex = [], untickered = 0;
-
-    list.forEach(function(e){
-      if(e.type === "opex"){ opex.push(e); return; }   /* no ticker: own marker */
-      var ts = tickersOf(e);
-      if(!ts.length){ untickered++; return; }
-      ts.forEach(function(t){
-        var rank = LAYER_RANK[e.type] || 0;
-        if(!(t in best)){ best[t] = {rank: rank, cat: e.category, type: e.type}; order.push(t); }
-        else if(rank > best[t].rank){ best[t] = {rank: rank, cat: e.category, type: e.type}; }
-      });
-    });
-
-    /* OPEX first, rendered exactly as before */
-    opex.forEach(function(e){
-      var ch = document.createElement("span");
-      ch.className = "chip";
-      ch.style.background = colourFor(e.category);
-      ch.textContent = shortLabel(e);
-      ch.title = (e.label || "") + (e.category ? " -- " + e.category : "");
-      chips.appendChild(ch);
-    });
-
-    /* then one chip per unique ticker, highest-priority layer wins the colour */
-    order.sort();
-    var show = Math.min(order.length, TICKER_CAP);
-    for(var i = 0; i < show; i++){
-      var t = order[i], b = best[t];
-      var ch = document.createElement("span");
-      ch.className = "chip";
-      ch.style.background = colourFor(b.cat);
-      ch.textContent = t;
-      ch.title = t + " -- " + (b.cat || b.type);
-      chips.appendChild(ch);
-    }
-    if(order.length > show){
-      var more = document.createElement("span");
-      more.className = "more";
-      more.textContent = "+" + (order.length - show);
-      more.title = (order.length - show) + " more tickers: " + order.slice(show).join(", ");
-      chips.appendChild(more);
-    }
-
-    /* entries with no ticker at all still have to make the day read as populated */
-    if(untickered){
-      var d = document.createElement("span");
-      d.className = "dot";
-      d.textContent = "·" + untickered;
-      d.title = untickered + " further post" + (untickered === 1 ? "" : "s") + " with no ticker in the caption";
-      chips.appendChild(d);
-    }
-    chips.dataset.dir = dayDirection(order);   /* read back by render() */
-    return chips;
-  }
-
-  /* "Case Study #7" -> "#7"; any other label falls back to a short prefix. */
-  function shortLabel(e){
-    var m = /#\s*([0-9A-Za-z._-]+)/.exec(e.label || "");
-    if(m) return "#" + m[1];
-    return String(e.label || e.type || "?").slice(0, 8);
-  }
-
-  /* ---- day detail ------------------------------------------------------ */
-  function openDay(key, list){
-    var p = key.split("-");
-    document.getElementById("mtitle").textContent =
-      MON[+p[1] - 1] + " " + (+p[2]) + ", " + p[0] + "  --  " +
-      list.length + (list.length === 1 ? " entry" : " entries");
-
-    var body = document.getElementById("mbody");
-    body.innerHTML = "";
-    list.forEach(function(e){
-      var d = document.createElement("div");
-      d.className = "entry";
-
-      var top = document.createElement("div");
-      top.className = "etop";
-      top.innerHTML =
-        "<strong>" + esc(e.label || "(untitled)") + "</strong>" +
-        (e.category ? '<span class="tag" style="background:' + colourFor(e.category) + '">'
-                      + esc(e.category) + "</span>" : "") +
-        '<span class="ttype">' + esc(e.type || "entry") + "</span>";
-      d.appendChild(top);
-
-      /* Generic: render whatever keys this entry happens to carry. */
-      var f = e.fields || {}, keys = Object.keys(f);
-      if(keys.length){
-        var dl = document.createElement("dl");
-        keys.forEach(function(k){
-          var dt = document.createElement("dt");
-          dt.textContent = k;
-          var dd = document.createElement("dd");
-          var v = f[k];
-          dd.textContent = (v && typeof v === "object") ? JSON.stringify(v) : String(v);
-          dl.appendChild(dt);
-          dl.appendChild(dd);
-        });
-        d.appendChild(dl);
-      }
-      if(e.link){
-        var a = document.createElement("a");
-        a.className = "lk";
-        a.href = e.link;
-        a.textContent = "Open archived thread";
-        d.appendChild(a);
-      }
-      body.appendChild(d);
-    });
+  /* ================= modal + detail ================= */
+  function modal(title){
+    document.getElementById("mtitle").textContent=title;
+    var b=document.getElementById("mbody"); b.innerHTML="";
     document.getElementById("back").classList.add("open");
-    document.getElementById("close").focus();
+    return b;
   }
-  function closeDay(){ document.getElementById("back").classList.remove("open"); }
+  function closeModal(){ document.getElementById("back").classList.remove("open"); }
+  function reopen(key){ openDay(key, byDate()[key] || []); }
 
+  function openDay(key,list){
+    var p=key.split("-");
+    var body=modal(MON[+p[1]-1]+" "+(+p[2])+", "+p[0]+"  —  "+list.length+
+                   (list.length===1?" entry":" entries"));
+
+    var s=document.createElement("div"); s.className="sec";
+    s.innerHTML="<h3>Day note</h3>";
+    var ta=document.createElement("textarea");
+    ta.value=OV.notes.day[key]||""; ta.placeholder="Note for "+key;
+    var sv=document.createElement("button"); sv.className="primary"; sv.textContent="Save note";
+    sv.addEventListener("click",function(){
+      if(ta.value.trim()) OV.notes.day[key]=ta.value.trim(); else delete OV.notes.day[key];
+      touch(); reopen(key);
+    });
+    var r=document.createElement("div"); r.className="row"; r.appendChild(sv);
+    s.appendChild(ta); s.appendChild(r); body.appendChild(s);
+
+    var s2=document.createElement("div"); s2.className="sec";
+    s2.innerHTML="<h3>Add your own entry</h3>";
+    var f1=mkInput("Label","e.g. My trade"), f2=mkInput("Ticker","e.g. SPXU"),
+        f3=mkInput("Category","default: User");
+    var add=document.createElement("button"); add.className="primary"; add.textContent="Add entry";
+    add.addEventListener("click",function(){
+      var ent={ date:key, type:"user", label:f1.input.value.trim()||"User entry",
+                category:f3.input.value.trim()||"User", fields:{} };
+      if(f2.input.value.trim()) ent.fields.ticker=f2.input.value.trim().toUpperCase();
+      ent.__id="user:"+key+":"+Date.now();
+      OV.added.push(ent); touch(); reopen(key);
+    });
+    var r2=document.createElement("div"); r2.className="row";
+    r2.appendChild(f1.wrap); r2.appendChild(f2.wrap); r2.appendChild(f3.wrap); r2.appendChild(add);
+    s2.appendChild(r2); body.appendChild(s2);
+
+    var hiddenHere=BASE.filter(function(e){ return e.date===key && isHidden(e.__id); })
+      .concat(OV.added.filter(function(e){ return e.date===key && isHidden(e.__id); }));
+    if(hiddenHere.length){
+      var s3=document.createElement("div"); s3.className="sec";
+      s3.innerHTML="<h3>Hidden on this day ("+hiddenHere.length+") — recoverable</h3>";
+      hiddenHere.forEach(function(e){
+        var dd=document.createElement("div"); dd.className="row";
+        var sp=document.createElement("span"); sp.className="mini";
+        sp.textContent=(e.label||e.type)+"  —  "+e.__id;
+        var un=document.createElement("button"); un.textContent="Unhide";
+        un.addEventListener("click",function(){
+          OV.hidden=OV.hidden.filter(function(x){ return x!==e.__id; });
+          touch(); reopen(key);
+        });
+        dd.appendChild(sp); dd.appendChild(un); s3.appendChild(dd);
+      });
+      body.appendChild(s3);
+    }
+
+    list.forEach(function(e){ body.appendChild(entryBlock(e,key)); });
+  }
+
+  function entryBlock(e,key){
+    var d=document.createElement("div"); d.className="entry";
+    var top=document.createElement("div"); top.className="etop";
+    top.innerHTML="<strong>"+esc(e.label||"(untitled)")+"</strong>"+
+      (e.category?'<span class="tag" style="background:'+colourFor(e.category)+'">'+esc(e.category)+"</span>":"")+
+      '<span class="ttype">'+esc(e.type||"entry")+"</span>"+
+      (e.__edited?'<span class="flag">edited</span>':"")+
+      (e.__user?'<span class="flag">yours</span>':"");
+    d.appendChild(top);
+
+    var f=e.fields||{}, keys=Object.keys(f);
+    if(keys.length){
+      var dl=document.createElement("dl");
+      keys.forEach(function(k){
+        var dt=document.createElement("dt"); dt.textContent=k;
+        var dd=document.createElement("dd");
+        var orig=e.__orig?(e.__orig.fields||{})[k]:undefined;
+        if(e.__edited && orig!==undefined && String(orig)!==String(f[k])){
+          var w=document.createElement("span"); w.className="was"; w.textContent=String(orig);
+          dd.appendChild(w);
+        }
+        dd.appendChild(document.createTextNode(
+          f[k]&&typeof f[k]==="object"?JSON.stringify(f[k]):String(f[k])));
+        dl.appendChild(dt); dl.appendChild(dd);
+      });
+      d.appendChild(dl);
+    }
+    if(e.link){
+      var a=document.createElement("a"); a.className="lk"; a.href=e.link;
+      a.textContent="Open archived thread"; d.appendChild(a);
+    }
+
+    var note=document.createElement("textarea");
+    note.value=OV.notes.entry[e.__id]||""; note.placeholder="Note on this entry";
+    note.style.marginTop="9px";
+    d.appendChild(note);
+
+    var row=document.createElement("div"); row.className="row";
+    var sv=document.createElement("button"); sv.textContent="Save note";
+    sv.addEventListener("click",function(){
+      if(note.value.trim()) OV.notes.entry[e.__id]=note.value.trim();
+      else delete OV.notes.entry[e.__id];
+      touch(); reopen(key);
+    });
+    var ed=document.createElement("button"); ed.textContent="Edit fields";
+    ed.addEventListener("click",function(){ openEdit(e,key); });
+    var hd=document.createElement("button"); hd.textContent="Hide";
+    hd.addEventListener("click",function(){
+      if(OV.hidden.indexOf(e.__id)<0) OV.hidden.push(e.__id);
+      touch(); reopen(key);
+    });
+    row.appendChild(sv); row.appendChild(ed); row.appendChild(hd);
+    if(e.__edited){
+      var rv=document.createElement("button"); rv.className="danger"; rv.textContent="Revert edits";
+      rv.addEventListener("click",function(){
+        delete OV.overrides[e.__id]; touch(); reopen(key);
+      });
+      row.appendChild(rv);
+    }
+    if(e.__user){
+      var del=document.createElement("button"); del.className="danger"; del.textContent="Delete";
+      del.addEventListener("click",function(){
+        OV.added=OV.added.filter(function(x){ return x.__id!==e.__id; });
+        touch(); reopen(key);
+      });
+      row.appendChild(del);
+    }
+    d.appendChild(row);
+    return d;
+  }
+
+  function openEdit(e,key){
+    var body=modal("Edit — "+(e.label||e.type));
+    var s=document.createElement("div"); s.className="sec";
+    s.innerHTML="<h3>The original is preserved; the entry is marked <b>edited</b></h3>";
+    var base=null;
+    BASE.forEach(function(x){ if(x.__id===e.__id) base=x; });
+    if(!base) base=e;
+    var fields=Object.keys(base.fields||{});
+    if(fields.indexOf("ticker")<0) fields.push("ticker");
+    var inputs={};
+    var lab=mkInput("label",""); lab.input.value=e.label||""; inputs.__label=lab.input;
+    s.appendChild(lab.wrap);
+    fields.forEach(function(k){
+      var fi=mkInput(k,"");
+      var v=(e.fields||{})[k];
+      fi.input.value=(v===undefined||v===null)?"":String(v);
+      inputs[k]=fi.input; s.appendChild(fi.wrap);
+    });
+    var row=document.createElement("div"); row.className="row";
+    var sv=document.createElement("button"); sv.className="primary"; sv.textContent="Save edits";
+    sv.addEventListener("click",function(){
+      var ov={};
+      if(inputs.__label.value!==(base.label||"")) ov.label=inputs.__label.value;
+      fields.forEach(function(k){
+        var was=(base.fields||{})[k];
+        var wasS=(was===undefined||was===null)?"":String(was);
+        var now=inputs[k].value;
+        if(wasS!==now && now!=="") ov[k]=now;
+      });
+      if(Object.keys(ov).length) OV.overrides[e.__id]=ov; else delete OV.overrides[e.__id];
+      touch(); reopen(key);
+    });
+    var cn=document.createElement("button"); cn.textContent="Cancel";
+    cn.addEventListener("click",function(){ reopen(key); });
+    row.appendChild(sv); row.appendChild(cn); s.appendChild(row);
+    body.appendChild(s);
+  }
+
+  /* ================= blocks manager ================= */
+  function openBlockForm(b,isNew){
+    var body=modal(isNew?"New shaded block":"Edit shaded block");
+    var s=document.createElement("div"); s.className="sec";
+    var f1=mkInput("start_date",""); f1.input.type="date"; f1.input.value=b.start_date;
+    var f2=mkInput("end_date","");   f2.input.type="date"; f2.input.value=b.end_date;
+    var f3=mkInput("label","e.g. earnings window"); f3.input.value=b.label||"";
+    var f4=mkInput("colour",""); f4.input.type="color"; f4.input.value=b.color||"#6d28d9";
+    var ta=document.createElement("textarea"); ta.placeholder="Note"; ta.value=b.note||"";
+    var rowA=document.createElement("div"); rowA.className="row";
+    [f1,f2,f3,f4].forEach(function(x){ rowA.appendChild(x.wrap); });
+    s.appendChild(rowA); s.appendChild(ta);
+    var row=document.createElement("div"); row.className="row";
+    var sv=document.createElement("button"); sv.className="primary"; sv.textContent="Save block";
+    sv.addEventListener("click",function(){
+      var a=f1.input.value, z=f2.input.value;
+      if(!a||!z){ alert("Both dates are required."); return; }
+      if(a>z){ var t=a; a=z; z=t; }
+      var rec={ id:b.id, start_date:a, end_date:z, color:f4.input.value,
+                label:f3.input.value.trim(), note:ta.value.trim() };
+      var idx=-1;
+      OV.blocks.forEach(function(x,i){ if(x.id===b.id) idx=i; });
+      if(idx>=0) OV.blocks[idx]=rec; else OV.blocks.push(rec);
+      current=a.slice(0,7);
+      touch(); openBlocks();
+    });
+    var cn=document.createElement("button"); cn.textContent="Cancel";
+    cn.addEventListener("click",function(){ closeModal(); render(); });
+    row.appendChild(sv); row.appendChild(cn); s.appendChild(row);
+    body.appendChild(s);
+  }
+  function openBlocks(){
+    var body=modal("Shaded blocks ("+OV.blocks.length+")");
+    var s=document.createElement("div"); s.className="sec";
+    var nb=document.createElement("button"); nb.className="primary";
+    nb.textContent="+ New block (pick two days on the calendar)";
+    nb.addEventListener("click",function(){
+      closeModal(); blockMode=1; blockStart=null; setHint(); render();
+    });
+    s.appendChild(nb); body.appendChild(s);
+    if(!OV.blocks.length){
+      var em=document.createElement("div"); em.className="empty";
+      em.textContent="No blocks yet."; body.appendChild(em); return;
+    }
+    var tb=document.createElement("div"); tb.className="sec";
+    var t=document.createElement("table");
+    var hd=document.createElement("tr");
+    hd.innerHTML="<th></th><th>label</th><th>from</th><th>to</th><th></th>";
+    t.appendChild(hd);
+    OV.blocks.slice().sort(function(a,b2){ return a.start_date<b2.start_date?-1:1; })
+      .forEach(function(b2){
+      var tr=document.createElement("tr");
+      var c0=document.createElement("td");
+      var sw=document.createElement("i"); sw.className="sw"; sw.style.background=b2.color;
+      c0.appendChild(sw);
+      var c1=document.createElement("td"); c1.textContent=b2.label||"(no label)";
+      var c2=document.createElement("td"); c2.textContent=b2.start_date;
+      var c3=document.createElement("td"); c3.textContent=b2.end_date;
+      var c4=document.createElement("td");
+      var ed=document.createElement("button"); ed.textContent="Edit";
+      ed.addEventListener("click",function(){ openBlockForm(b2,false); });
+      var rm=document.createElement("button"); rm.className="danger"; rm.textContent="Delete";
+      rm.addEventListener("click",function(){
+        OV.blocks=OV.blocks.filter(function(x){ return x.id!==b2.id; }); touch(); openBlocks();
+      });
+      c4.appendChild(ed); c4.appendChild(rm);
+      [c0,c1,c2,c3,c4].forEach(function(c){ tr.appendChild(c); });
+      t.appendChild(tr);
+    });
+    tb.appendChild(t); body.appendChild(tb);
+  }
+
+  /* ================= classification & colours ================= */
+  function openClassify(){
+    var body=modal("Classification & colours");
+    var all=effective(), seen={};
+    all.forEach(function(e){ tickersOf(e).forEach(function(t){ seen[t]=(seen[t]||0)+1; }); });
+    var list=Object.keys(seen).sort();
+
+    var s0=document.createElement("div"); s0.className="sec";
+    s0.innerHTML="<h3>Category colours</h3>";
+    var cats=[];
+    all.forEach(function(e){ if(e.category&&cats.indexOf(e.category)<0) cats.push(e.category); });
+    cats.sort().forEach(function(c){
+      var row=document.createElement("div"); row.className="row";
+      var sp=document.createElement("span"); sp.textContent=c; sp.style.minWidth="150px";
+      var ci=document.createElement("input"); ci.type="color";
+      ci.value=OV.palette.categories[c]||"#888888";
+      ci.addEventListener("change",function(){ OV.palette.categories[c]=ci.value; touch(); });
+      var rs=document.createElement("button"); rs.textContent="Reset";
+      rs.addEventListener("click",function(){
+        delete OV.palette.categories[c]; touch(); openClassify();
+      });
+      row.appendChild(sp); row.appendChild(ci); row.appendChild(rs);
+      s0.appendChild(row);
+    });
+    body.appendChild(s0);
+
+    var s=document.createElement("div"); s.className="sec";
+    s.innerHTML="<h3>Ticker direction ("+list.length+") — overlay overrides the map file</h3>";
+    var t=document.createElement("table");
+    var hd=document.createElement("tr");
+    hd.innerHTML="<th>ticker</th><th>n</th><th>direction</th><th></th>";
+    t.appendChild(hd);
+    list.forEach(function(tk){
+      var tr=document.createElement("tr");
+      var c1=document.createElement("td"); c1.textContent=tk;
+      var c2=document.createElement("td"); c2.textContent=seen[tk];
+      var c3=document.createElement("td");
+      var sel=document.createElement("select");
+      ["bullish","bearish","unknown"].forEach(function(v){
+        var o=document.createElement("option"); o.value=v; o.textContent=v; sel.appendChild(o);
+      });
+      sel.value=dirOfTicker(tk);
+      sel.addEventListener("change",function(){
+        if(sel.value===(BASE_DIR[tk]||"unknown")) delete OV.classification[tk];
+        else OV.classification[tk]=sel.value;
+        touch();
+      });
+      c3.appendChild(sel);
+      var c4=document.createElement("td");
+      if(tk in OV.classification){
+        var fl=document.createElement("span"); fl.className="flag"; fl.textContent="overridden";
+        c4.appendChild(fl);
+      }
+      [c1,c2,c3,c4].forEach(function(c){ tr.appendChild(c); });
+      t.appendChild(tr);
+    });
+    s.appendChild(t); body.appendChild(s);
+  }
+
+  /* ================= export / import / reset ================= */
+  function exportOverlay(){
+    var blob=new Blob([JSON.stringify(OV,null,1)],{type:"application/json"});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement("a");
+    a.href=url; a.download="user_overlay.json";
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); },0);
+  }
+  function importOverlay(file,merge){
+    var fr=new FileReader();
+    fr.onload=function(){
+      var o;
+      try{ o=JSON.parse(fr.result); }
+      catch(err){ alert("Not valid JSON."); return; }
+      var inc=normalise(o);
+      if(!merge){ OV=inc; }
+      else{
+        Object.keys(inc.notes.day).forEach(function(k){ OV.notes.day[k]=inc.notes.day[k]; });
+        Object.keys(inc.notes.entry).forEach(function(k){ OV.notes.entry[k]=inc.notes.entry[k]; });
+        OV.added=OV.added.concat(inc.added);
+        inc.hidden.forEach(function(h){ if(OV.hidden.indexOf(h)<0) OV.hidden.push(h); });
+        Object.keys(inc.overrides).forEach(function(k){ OV.overrides[k]=inc.overrides[k]; });
+        Object.keys(inc.classification).forEach(function(k){ OV.classification[k]=inc.classification[k]; });
+        Object.keys(inc.palette.categories).forEach(function(k){
+          OV.palette.categories[k]=inc.palette.categories[k]; });
+        var ids={}; OV.blocks.forEach(function(b){ ids[b.id]=1; });
+        inc.blocks.forEach(function(b){ if(!ids[b.id]) OV.blocks.push(b); });
+      }
+      touch();
+      alert("Imported. Blocks "+OV.blocks.length+", added "+OV.added.length+
+            ", hidden "+OV.hidden.length+", overrides "+Object.keys(OV.overrides).length+".");
+    };
+    fr.readAsText(file);
+  }
+
+  /* ================= helpers ================= */
+  function mkInput(label,ph){
+    var wrap=document.createElement("label");
+    wrap.style.display="flex"; wrap.style.flexDirection="column"; wrap.style.gap="3px";
+    wrap.style.fontSize="12px"; wrap.style.color="var(--muted)";
+    wrap.appendChild(document.createTextNode(label));
+    var i=document.createElement("input"); i.type="text"; i.placeholder=ph||"";
+    wrap.appendChild(i);
+    return { wrap:wrap, input:i };
+  }
   function esc(s){
-    return String(s).replace(/[&<>"']/g, function(c){
+    return String(s).replace(/[&<>"']/g,function(c){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
     });
   }
 
-  /* ---- wire up --------------------------------------------------------- */
-  document.getElementById("prev").addEventListener("click", function(){
-    var ms = months(), i = ms.indexOf(current);
-    if(i > 0){ current = ms[i - 1]; render(); }   /* skips empty months by construction */
+  /* ================= wiring ================= */
+  document.getElementById("prev").addEventListener("click",function(){
+    var ms=months(), i=ms.indexOf(current);
+    if(i>0){ current=ms[i-1]; render(); }
   });
-  document.getElementById("next").addEventListener("click", function(){
-    var ms = months(), i = ms.indexOf(current);
-    if(i > -1 && i < ms.length - 1){ current = ms[i + 1]; render(); }
+  document.getElementById("next").addEventListener("click",function(){
+    var ms=months(), i=ms.indexOf(current);
+    if(i>-1 && i<ms.length-1){ current=ms[i+1]; render(); }
   });
-  document.getElementById("jump").addEventListener("change", function(ev){
-    current = ev.target.value;
-    render();
+  document.getElementById("jump").addEventListener("change",function(ev){
+    current=ev.target.value; render();
   });
-  document.getElementById("close").addEventListener("click", closeDay);
-  document.getElementById("back").addEventListener("click", function(ev){
-    if(ev.target === this) closeDay();
+  document.getElementById("close").addEventListener("click",function(){ closeModal(); render(); });
+  document.getElementById("back").addEventListener("click",function(ev){
+    if(ev.target===this){ closeModal(); render(); }
   });
-  document.addEventListener("keydown", function(ev){
-    if(ev.key === "Escape") closeDay();
+  document.addEventListener("keydown",function(ev){
+    if(ev.key==="Escape"){
+      if(blockMode){ blockMode=0; blockStart=null; selDay=null; setHint(); render(); }
+      else { closeModal(); render(); }
+    }
+  });
+  document.getElementById("blockMode").addEventListener("click",function(){
+    blockMode = blockMode ? 0 : 1; blockStart=null; selDay=null; setHint(); render();
+  });
+  document.getElementById("blocksBtn").addEventListener("click",openBlocks);
+  document.getElementById("classBtn").addEventListener("click",openClassify);
+  document.getElementById("exportBtn").addEventListener("click",exportOverlay);
+  document.getElementById("importBtn").addEventListener("click",function(){
+    document.getElementById("importFile").click();
+  });
+  document.getElementById("importFile").addEventListener("change",function(ev){
+    var f=ev.target.files && ev.target.files[0];
+    if(!f) return;
+    var merge=confirm("OK = MERGE into the current overlay.\nCancel = REPLACE it.");
+    importOverlay(f,merge);
+    ev.target.value="";
+  });
+  document.getElementById("resetBtn").addEventListener("click",function(){
+    if(!confirm("Discard ALL overlay edits (notes, blocks, added, hidden, overrides)?")) return;
+    OV=blankOverlay(); touch();
   });
 
-  var ms0 = months();
-  current = ms0.length ? ms0[0] : null;      /* earliest populated month, from the data */
+  /* ================= boot ================= */
+  loadOverlay();
+  recomputeTypes();
+  var ms0=months();
+  current=ms0.length?ms0[0]:null;
   document.getElementById("sub").textContent =
-    ALL.length + " entries across " + ms0.length + " populated months" +
-    (ms0.length ? "  (" + ms0[0] + " to " + ms0[ms0.length - 1] + ")" : "") +
-    "  --  offline, no dependencies";
-  buildLegend();
-  buildLayers();
-  buildJump();
-  render();
+    BASE.length+" archived entries across "+ms0.length+" populated months"+
+    (ms0.length?"  ("+ms0[0]+" to "+ms0[ms0.length-1]+")":"")+
+    "  —  offline, no dependencies";
+  buildJump(); setHint(); render();
+
+  /* exposed for verification harnesses only; the UI does not depend on it */
+  window.__cal = { overlay:function(){ return OV; }, setOverlay:function(o){ OV=normalise(o); },
+                   effective:effective, blank:blankOverlay, normalise:normalise,
+                   save:saveOverlay, load:loadOverlay,
+                   ids:function(){ return BASE.map(function(e){ return e.__id; }); } };
 })();
 </script>
 </body>
