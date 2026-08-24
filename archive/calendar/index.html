@@ -67,6 +67,14 @@
   .cell.pad{background:#fbfcfd}
   .cell.has{cursor:pointer}
   .cell.has:hover{background:#f2f7ff}
+  /* directional tint from the day's VISIBLE tickers. Kept low-alpha so the date
+     number and the ticker chips stay fully readable on top. */
+  .cell.dir-bear{background:rgba(192,57,43,.10)}
+  .cell.dir-bull{background:rgba(13,138,138,.10)}
+  .cell.dir-mixed{background:rgba(217,119,6,.20)}
+  .cell.has.dir-bear:hover{background:rgba(192,57,43,.19)}
+  .cell.has.dir-bull:hover{background:rgba(13,138,138,.19)}
+  .cell.has.dir-mixed:hover{background:rgba(217,119,6,.30)}
   .cell.has:focus{outline:2px solid var(--accent);outline-offset:-2px}
   .dnum{font-size:12px;color:var(--muted)}
   .cell.has .dnum{color:var(--ink);font-weight:600}
@@ -137,6 +145,7 @@
 <script src="opex_entries.js"></script>
 <script src="finding_entries.js"></script>
 <script src="gap_entries.js"></script>
+<script src="ticker_direction.js"></script>
 <script>
 (function(){
   "use strict";
@@ -286,7 +295,13 @@
           el.setAttribute("role", "button");
           el.setAttribute("tabindex", "0");
           el.setAttribute("aria-label", key + ", " + list.length + " entries");
-          el.appendChild(dayChips(list));
+          var ch = dayChips(list);
+          var dir = ch.dataset.dir;
+          if(dir){
+            el.className += " dir-" + dir;
+            if(dir === "mixed" && MIXED_DAYS.indexOf(key) < 0) MIXED_DAYS.push(key);
+          }
+          el.appendChild(ch);
           (function(kk, ll){
             el.addEventListener("click", function(){ openDay(kk, ll); });
             el.addEventListener("keydown", function(ev){
@@ -301,6 +316,10 @@
     document.getElementById("count").textContent =
       monthCount + (monthCount === 1 ? " entry" : " entries") + " this month";
     document.getElementById("jump").value = current;
+    if(MIXED_DAYS.length){
+      console.warn("MIXED direction days (bearish and bullish tickers on the same day):",
+                   MIXED_DAYS.slice().sort());
+    }
   }
 
   /* ---- day-cell chips -------------------------------------------------
@@ -326,6 +345,26 @@
     });
     return out;
   }
+
+  /* Binary directional read of a day, from its VISIBLE tickers only. Direction
+     comes entirely from ticker_direction.js -- nothing is hardcoded here, so a
+     correction there takes effect on reload. Unknown symbols are inert: they
+     never tint and never force MIXED. */
+  function dayDirection(tickers){
+    var map = window.TICKER_DIRECTION || {};
+    var bear = false, bull = false;
+    tickers.forEach(function(t){
+      var d = map[t];
+      if(d === "bearish") bear = true;
+      else if(d === "bullish") bull = true;
+    });
+    if(bear && bull) return "mixed";
+    if(bear) return "bear";
+    if(bull) return "bull";
+    return "";                      /* unknown-only, or no tickers: no tint */
+  }
+
+  var MIXED_DAYS = [];              /* surfaced after render -- expected empty */
 
   function dayChips(list){
     var chips = document.createElement("div");
@@ -381,6 +420,7 @@
       d.title = untickered + " further post" + (untickered === 1 ? "" : "s") + " with no ticker in the caption";
       chips.appendChild(d);
     }
+    chips.dataset.dir = dayDirection(order);   /* read back by render() */
     return chips;
   }
 
