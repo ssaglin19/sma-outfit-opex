@@ -25,6 +25,10 @@
     /* findings layer -- deliberately MUTED: there are thousands of these and they
        must not shout over the curated case studies or the OPEX anchors */
     --c-finding:#a08a6a;
+    /* gap-findings layer -- the undocumented year, enriched from caption text.
+       Distinct magenta so it reads clearly against the muted plain findings it
+       overlaps from 2025-08-21 onward. */
+    --c-gap:#b02a8f;
     --c-unknown:#6b7480;
   }
   *{box-sizing:border-box}
@@ -129,6 +133,7 @@
 <script src="entries.js"></script>
 <script src="opex_entries.js"></script>
 <script src="finding_entries.js"></script>
+<script src="gap_entries.js"></script>
 <script>
 (function(){
   "use strict";
@@ -146,7 +151,9 @@
     "Monthly OPEX":    "var(--c-monthly)",
     "VIX Expiration":  "var(--c-vix)",
     /* findings layer (type "finding") -- dates only, unenriched */
-    "Finding":         "var(--c-finding)"
+    "Finding":         "var(--c-finding)",
+    /* gap-findings layer (type "gap_finding") -- overlaps "finding" post-2025-08-20 */
+    "Gap Finding":     "var(--c-gap)"
   };
   function colourFor(cat){ return CATEGORY_COLOURS[cat] || "var(--c-unknown)"; }
 
