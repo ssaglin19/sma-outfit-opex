@@ -20,10 +20,11 @@
  *
  * FIELDS
  *   ticker / price / action / co_executed come from the caption text.
- *   `outfit` is deliberately null: the author records the outfit on the CHART,
- *   and only ~7% of gap captions name it. Where the text DOES name one, the
- *   value is preserved in `outfit_text` and the note says so -- nothing measured
- *   was thrown away to satisfy the schema.
+ *   `outfit` is populated ONLY where the caption itself names one, and those
+ *   entries carry `outfit_source: "text"` so a later vision pass can tell what
+ *   it may overwrite and what it must not. Where the caption is silent, `outfit`
+ *   is null and stays that way until a chart is read -- the author records the
+ *   outfit on the CHART, and most gap captions do not repeat it.
  *
  * REGENERATE from archive/analysis/gap_findings.jsonl. Do not hand-edit.
  * entries.js, opex_entries.js and finding_entries.js are separate and untouched.
@@ -72,9 +73,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.25",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA33"
+   "outfit": "MA33",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -313,9 +314,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "18.59",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA28 / MA57 / MA114 / MA228 / MA456 / MA911"
+   "outfit": "MA28 / MA57 / MA114 / MA228 / MA456 / MA911",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -359,9 +360,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "18.25",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA228 / [GLL 3M 911 MA28 MA57 MA114 MA228 MA456 MA911] / MA28 / MA57 / MA114 / MA456 / MA911"
+   "outfit": "MA228 / [GLL 3M 911 MA28 MA57 MA114 MA228 MA456 MA911] / MA28 / MA57 / MA114 / MA456 / MA911",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -405,9 +406,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": "GLL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "sadogeenakamoto positive arbitrage outfit"
+   "outfit": "sadogeenakamoto positive arbitrage outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -451,9 +452,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "32.95",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX outfit / [SVIX outfit SMA 36 52 106 211 422 844]"
+   "outfit": "SVIX outfit / [SVIX outfit SMA 36 52 106 211 422 844]",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -467,9 +468,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "32.95",
    "action": "cut",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[5M MA422] / MA422"
+   "outfit": "[5M MA422] / MA422",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -588,9 +589,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "21.43",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX from 21.43 . 33 SMA outfit"
+   "outfit": "SVIX from 21.43 . 33 SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -604,9 +605,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "21.43",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX from 21.43 . 33 SMA outfit"
+   "outfit": "SVIX from 21.43 . 33 SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -620,9 +621,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "21.43",
    "action": null,
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX from 21.43 . 33 SMA outfit"
+   "outfit": "SVIX from 21.43 . 33 SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -636,9 +637,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "21.43",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX from 21.43 . 33 SMA outfit"
+   "outfit": "SVIX from 21.43 . 33 SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -667,9 +668,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "21.43",
    "action": null,
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX from 21.43 . 33 SMA outfit"
+   "outfit": "SVIX from 21.43 . 33 SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -743,9 +744,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.00",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "33 outfit / MA66 / [parm:MA66]"
+   "outfit": "33 outfit / MA66 / [parm:MA66]",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -834,9 +835,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "13.90",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA37"
+   "outfit": "MA37",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -985,9 +986,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.00",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "33 outfit / MA66 / [parm:MA66]"
+   "outfit": "33 outfit / MA66 / [parm:MA66]",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1196,9 +1197,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "16.08",
    "action": "purchased",
    "co_executed": "SPX, DJI, IXIC",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SMA outfit"
+   "outfit": "SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1212,9 +1213,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "there was extremely high outfit / MA66 / [parm:MA66]"
+   "outfit": "there was extremely high outfit / MA66 / [parm:MA66]",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1243,9 +1244,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": "IWM",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "iding scale based on how relevant a SMA outfit"
+   "outfit": "iding scale based on how relevant a SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1319,9 +1320,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "20.54",
    "action": "purchased",
    "co_executed": "COIN",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1395,9 +1396,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "56.96",
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA30 / MA41 / MA81 / MA163 / MA325 / MA650"
+   "outfit": "MA30 / MA41 / MA81 / MA163 / MA325 / MA650",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1411,9 +1412,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "7.58",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "e's an outfitting program at the 10M 47 outfit"
+   "outfit": "e's an outfitting program at the 10M 47 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1592,9 +1593,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": "SOX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "itting program operating on the 15M 180 outfit"
+   "outfit": "itting program operating on the 15M 180 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1788,9 +1789,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "36.40",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SOXL 36.40 as risk. 2H 46 outfit / MA368 / MA23 / MA46 / MA92 / MA184 / MA736"
+   "outfit": "SOXL 36.40 as risk. 2H 46 outfit / MA368 / MA23 / MA46 / MA92 / MA184 / MA736",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1834,9 +1835,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "63.36",
    "action": "purchased",
    "co_executed": "MU",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "22 55 77 222 555 777 outfit / MA777"
+   "outfit": "22 55 77 222 555 777 outfit / MA777",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1865,9 +1866,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "63.63",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "ies analysis based on this specific SMA outfit / [MA777] / MA777"
+   "outfit": "ies analysis based on this specific SMA outfit / [MA777] / MA777",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -1926,9 +1927,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "63.63",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA777"
+   "outfit": "MA777",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2107,9 +2108,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "91.97",
    "action": "sold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "XLE 404 outfit"
+   "outfit": "XLE 404 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2348,9 +2349,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "purchased",
    "co_executed": "FAS",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2454,9 +2455,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[XLF 2h MA548] / MA548"
+   "outfit": "[XLF 2h MA548] / MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2470,9 +2471,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": "FAS, JPM",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2486,9 +2487,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": "FAS, JPM",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2517,9 +2518,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2533,9 +2534,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2549,9 +2550,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": "FAS, JPM",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2565,9 +2566,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2581,9 +2582,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2627,9 +2628,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2643,9 +2644,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2659,9 +2660,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2675,9 +2676,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2691,9 +2692,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2707,9 +2708,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "purchased",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2723,9 +2724,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2739,9 +2740,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "hold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2755,9 +2756,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "purchased",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2771,9 +2772,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2787,9 +2788,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "purchased",
    "co_executed": "JPM, FAS",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[XLF, magnetized buying algorithm at 2H MA548] / MA548"
+   "outfit": "[XLF, magnetized buying algorithm at 2H MA548] / MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2803,9 +2804,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "52.84",
    "action": "sold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[XLF, magnetized buying algorithm at 2H MA548] / MA548"
+   "outfit": "[XLF, magnetized buying algorithm at 2H MA548] / MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2819,9 +2820,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "52.84",
    "action": "sold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[XLF, magnetized buying algorithm at 2H MA548] / MA548"
+   "outfit": "[XLF, magnetized buying algorithm at 2H MA548] / MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2835,9 +2836,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "52.84",
    "action": "sold",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[XLF, magnetized buying algorithm at 2H MA548] / MA548"
+   "outfit": "[XLF, magnetized buying algorithm at 2H MA548] / MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2851,9 +2852,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "52.84",
    "action": "cut",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2867,9 +2868,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "52.84",
    "action": "cut",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2883,9 +2884,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "52.84",
    "action": "cut",
    "co_executed": "XLF",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA548"
+   "outfit": "MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -2899,9 +2900,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.07",
    "action": "purchased",
    "co_executed": "JPM, FAS",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[XLF, magnetized buying algorithm at 2H MA548] / MA548"
+   "outfit": "[XLF, magnetized buying algorithm at 2H MA548] / MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3275,9 +3276,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "48.78",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SPXU . 48.78 180 SMA outfit / MA720"
+   "outfit": "SPXU . 48.78 180 SMA outfit / MA720",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3336,9 +3337,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "48.78",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "180 SMA outfit"
+   "outfit": "180 SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3382,9 +3383,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "48.78",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "P500 30M 180 outfit"
+   "outfit": "P500 30M 180 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3428,9 +3429,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "23.23",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "DOG . 366 outfit"
+   "outfit": "DOG . 366 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3459,9 +3460,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "23.23",
    "action": "purchased",
    "co_executed": "SDOW",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "urchase at 23.23 operating from the 365 outfit / MA183 / MA23 / MA46 / MA91 / MA365 / MA730"
+   "outfit": "urchase at 23.23 operating from the 365 outfit / MA183 / MA23 / MA46 / MA91 / MA365 / MA730",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3550,9 +3551,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "23.23",
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA183"
+   "outfit": "MA183",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3566,9 +3567,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "23.23",
    "action": "purchased",
    "co_executed": "SDOW",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "enced at 23.23 with banks using the 366 outfit / MA183"
+   "outfit": "enced at 23.23 with banks using the 366 outfit / MA183",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3687,9 +3688,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "26.37",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "PLTZ . Palantir's SMA outfit / MA150"
+   "outfit": "PLTZ . Palantir's SMA outfit / MA150",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3883,9 +3884,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "23.22",
    "action": "hold",
    "co_executed": "SDOW",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "366 outfit / MA183 / [366 Outfit Korea’s 9M at PARM:MA183 [coexecuted SDOW]"
+   "outfit": "366 outfit / MA183 / [366 Outfit Korea’s 9M at PARM:MA183 [coexecuted SDOW]",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3929,9 +3930,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "48.78",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "on the 30m 180 outfit"
+   "outfit": "on the 30m 180 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -3975,9 +3976,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "9.43",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "Long ORCL ETF. 15M 33 66 99 333 666 999 outfit / MA333"
+   "outfit": "Long ORCL ETF. 15M 33 66 99 333 666 999 outfit / MA333",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4021,9 +4022,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": "IXIC",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "TQQQ. IXIC at 21853. MA884 outfit / MA884 / MA28 / MA55 / MA111 / MA221 / MA442"
+   "outfit": "TQQQ. IXIC at 21853. MA884 outfit / MA884 / MA28 / MA55 / MA111 / MA221 / MA442",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4052,9 +4053,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "23.98",
    "action": "purchased",
    "co_executed": "TSLQ, TSLA",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "2x Short TSLA Daily ETF. Dual Sequence outfit / MA39 / MA78 / MA156 / MA311 / MA622 / MA944"
+   "outfit": "2x Short TSLA Daily ETF. Dual Sequence outfit / MA39 / MA78 / MA156 / MA311 / MA622 / MA944",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4173,9 +4174,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": "IXIC",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA884 / MA28 / MA55 / MA111 / MA221 / MA442"
+   "outfit": "MA884 / MA28 / MA55 / MA111 / MA221 / MA442",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4189,9 +4190,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA884"
+   "outfit": "MA884",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4205,9 +4206,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA884"
+   "outfit": "MA884",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4221,9 +4222,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA884"
+   "outfit": "MA884",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4237,9 +4238,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "26.73",
    "action": "purchased",
    "co_executed": "AAPL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA31 / MA61 / MA122 / MA244 / MA466 / MA668"
+   "outfit": "MA31 / MA61 / MA122 / MA244 / MA466 / MA668",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4268,9 +4269,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "26.73",
    "action": "hold",
    "co_executed": "AAPU, AAPL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[AAPU Direxion AAPL Bull 2X Shares. 1D MA31 MA61 MA122 MA244 MA466 MA668 1D MA244 at 26.73.] / MA31 / MA61 / MA122 / MA244 / MA466 / MA668"
+   "outfit": "[AAPU Direxion AAPL Bull 2X Shares. 1D MA31 MA61 MA122 MA244 MA466 MA668 1D MA244 at 26.73.] / MA31 / MA61 / MA122 / MA244 / MA466 / MA668",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4299,9 +4300,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "246.00",
    "action": "purchased",
    "co_executed": "AAPU",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "dual sequencing program with the SMA outfit"
+   "outfit": "dual sequencing program with the SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4540,9 +4541,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "11.71",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "Octane outfit / MA102"
+   "outfit": "Octane outfit / MA102",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4616,9 +4617,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "11.52",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SMR. 3M 818 Octane outfit / MA102"
+   "outfit": "SMR. 3M 818 Octane outfit / MA102",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4647,9 +4648,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "11.52",
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA102"
+   "outfit": "MA102",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4663,9 +4664,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "11.52",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "erating on a real time and threaded SMA outfit / MA102"
+   "outfit": "erating on a real time and threaded SMA outfit / MA102",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4739,9 +4740,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.37",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA143"
+   "outfit": "MA143",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4755,9 +4756,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.37",
    "action": null,
    "co_executed": "MSTR",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA19 / MA37 / MA73 / MA143 / MA279 / MA548"
+   "outfit": "MA19 / MA37 / MA73 / MA143 / MA279 / MA548",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4801,9 +4802,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.36",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA143"
+   "outfit": "MA143",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4832,9 +4833,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.36",
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA143"
+   "outfit": "MA143",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4848,9 +4849,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.28",
    "action": "cut",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "Octane outfit / MA409"
+   "outfit": "Octane outfit / MA409",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4864,9 +4865,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.28",
    "action": null,
    "co_executed": "MSTR",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA409"
+   "outfit": "MA409",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4910,9 +4911,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.20",
    "action": "purchased",
    "co_executed": "MSTR",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA26 / MA51 / MA102 / MA205 / MA409 / MA818"
+   "outfit": "MA26 / MA51 / MA102 / MA205 / MA409 / MA818",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4956,9 +4957,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "positioning on MSTX here. This 30M 818 outfit"
+   "outfit": "positioning on MSTX here. This 30M 818 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -4972,9 +4973,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": "MSTX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "quity higher for profit. For over 5 SMA outfit"
+   "outfit": "quity higher for profit. For over 5 SMA outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5003,9 +5004,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "8.26",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA205"
+   "outfit": "MA205",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5034,9 +5035,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "8.26",
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SCO at 8.26. 10M 818 outfit / MA205"
+   "outfit": "SCO at 8.26. 10M 818 outfit / MA205",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5080,9 +5081,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "8.16",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "t of trading divisions using the Octane outfit"
+   "outfit": "t of trading divisions using the Octane outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5111,9 +5112,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "92.10",
    "action": "purchased",
    "co_executed": "AAPL, AAPU",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA468"
+   "outfit": "MA468",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5142,9 +5143,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "92.10",
    "action": "purchased",
    "co_executed": "UPRO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "1st integer of 420 outfit"
+   "outfit": "1st integer of 420 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5233,9 +5234,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.93",
    "action": "purchased",
    "co_executed": "UDOW, NVDA, AAPL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "Octuple and NVDA/AAPL Area Code outfit / MA26 / MA51 / MA102 / MA204 / MA408 / MA816"
+   "outfit": "Octuple and NVDA/AAPL Area Code outfit / MA26 / MA51 / MA102 / MA204 / MA408 / MA816",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5309,9 +5310,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.65",
    "action": "cut",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MYY at 17.65 . Palantir outfit / MA22 / MA55 / MA77 / MA220 / MA550 / MA770"
+   "outfit": "MYY at 17.65 . Palantir outfit / MA22 / MA55 / MA77 / MA220 / MA550 / MA770",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5325,9 +5326,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.65",
    "action": "purchased",
    "co_executed": "MYY",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[Short: MYY at 2H MA550 at 17.65] / MA550"
+   "outfit": "[Short: MYY at 2H MA550 at 17.65] / MA550",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5416,9 +5417,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "53.34",
    "action": "cut",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "om the flash higher on Putin's 2000 SMA outfit / MA500"
+   "outfit": "om the flash higher on Putin's 2000 SMA outfit / MA500",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5792,9 +5793,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "86.13",
    "action": "purchased",
    "co_executed": "NVDA, AAPL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "Octople and NVDA/AAPL Area outfit / MA26 / MA51 / MA102 / MA204 / MA408 / MA816"
+   "outfit": "Octople and NVDA/AAPL Area outfit / MA26 / MA51 / MA102 / MA204 / MA408 / MA816",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5823,9 +5824,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "101.25",
    "action": null,
    "co_executed": "NVDA, AAPL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "Octople and NVDA/AAPL Area outfit / MA26 / MA51 / MA102 / MA204 / MA408 / MA816"
+   "outfit": "Octople and NVDA/AAPL Area outfit / MA26 / MA51 / MA102 / MA204 / MA408 / MA816",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -5884,9 +5885,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "27.33",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA22 / MA55 / MA77 / MA222 / MA555 / MA777"
+   "outfit": "MA22 / MA55 / MA77 / MA222 / MA555 / MA777",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -6230,9 +6231,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "21.88",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA408"
+   "outfit": "MA408",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -6306,9 +6307,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "21.74",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA200"
+   "outfit": "MA200",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -6427,9 +6428,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "31.58",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "ort PLTR ETF 39 78 156 311 622 944 tslq outfit / MA311"
+   "outfit": "ort PLTR ETF 39 78 156 311 622 944 tslq outfit / MA311",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -6443,9 +6444,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "23.13",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "BITI . I'll explain this outfit / MA124"
+   "outfit": "BITI . I'll explain this outfit / MA124",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -6924,9 +6925,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "41.22",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA200"
+   "outfit": "MA200",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -7195,9 +7196,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "19.34",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA400"
+   "outfit": "MA400",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -7631,9 +7632,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "19.37",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "high frequency short operating on the outfit / [MA27 MA54 MA108 MA216 MA432 MA864] / MA27 / MA54 / MA108 / MA216 / MA432 / MA864"
+   "outfit": "high frequency short operating on the outfit / [MA27 MA54 MA108 MA216 MA432 MA864] / MA27 / MA54 / MA108 / MA216 / MA432 / MA864",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8022,9 +8023,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.67",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "NVDX at 17.67 as risk. Japan's 225 outfit / MA25 / MA45 / MA75 / MA225 / MA450 / MA900"
+   "outfit": "NVDX at 17.67 as risk. Japan's 225 outfit / MA25 / MA45 / MA75 / MA225 / MA450 / MA900",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8068,9 +8069,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.28",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MSFL . 22² or 484 outfit / MA22 / MA44 / MA121 / MA242 / MA484 / MA968"
+   "outfit": "MSFL . 22² or 484 outfit / MA22 / MA44 / MA121 / MA242 / MA484 / MA968",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8144,9 +8145,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "15.14",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "RIVN . RIVN at 15.14 . SVIX outfit / MA26 / MA52 / MA106 / MA211 / MA422 / MA855"
+   "outfit": "RIVN . RIVN at 15.14 . SVIX outfit / MA26 / MA52 / MA106 / MA211 / MA422 / MA855",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8190,9 +8191,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "14.24",
    "action": "purchased",
    "co_executed": "RIVNL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA636"
+   "outfit": "MA636",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8221,9 +8222,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA18 / MA36 / MA65 / MA180 / MA360 / MA650"
+   "outfit": "MA18 / MA36 / MA65 / MA180 / MA360 / MA650",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8252,9 +8253,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "14.55",
    "action": "purchased",
    "co_executed": "PLTZ, SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA211"
+   "outfit": "MA211",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8388,9 +8389,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "this specific outfit"
+   "outfit": "this specific outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8419,9 +8420,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA102"
+   "outfit": "MA102",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8495,9 +8496,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA650"
+   "outfit": "MA650",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8511,9 +8512,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "13.87",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA16"
+   "outfit": "MA16",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8572,9 +8573,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "24.76",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA125"
+   "outfit": "MA125",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8693,9 +8694,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "13.11",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MSFD on this drop. 32M 22² or 484 outfit / MA22 / MA44 / MA121 / MA242 / MA484 / MA968"
+   "outfit": "MSFD on this drop. 32M 22² or 484 outfit / MA22 / MA44 / MA121 / MA242 / MA484 / MA968",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8724,9 +8725,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "13.11",
    "action": "purchased",
    "co_executed": "MSFD, QQQ",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "32M 22² or 484 outfit / [MSFD , 32M 22² or 484 outfit MA22 MA44 MA121 MA242 MA484 MA968 32M MA121 at 13.11] / MA22 / MA44 / MA121 / MA242 / MA484 / MA968"
+   "outfit": "32M 22² or 484 outfit / [MSFD , 32M 22² or 484 outfit MA22 MA44 MA121 MA242 MA484 MA968 32M MA121 at 13.11] / MA22 / MA44 / MA121 / MA242 / MA484 / MA968",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -8860,9 +8861,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "13.11",
    "action": "purchased",
    "co_executed": "MSFD",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "32M 22² or 484 outfit / [MSFD , 32M 22² or 484 outfit MA22 MA44 MA121 MA242 MA484 MA968 32M MA121 at 13.11] / MA22 / MA44 / MA121 / MA242 / MA484 / MA968"
+   "outfit": "32M 22² or 484 outfit / [MSFD , 32M 22² or 484 outfit MA22 MA44 MA121 MA242 MA484 MA968 32M MA121 at 13.11] / MA22 / MA44 / MA121 / MA242 / MA484 / MA968",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9071,9 +9072,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "20.90",
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA420"
+   "outfit": "MA420",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9102,9 +9103,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "45.41",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA600"
+   "outfit": "MA600",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9148,9 +9149,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "45.41",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "s 30 60 90 outfit"
+   "outfit": "s 30 60 90 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9194,9 +9195,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA600 / [parm:MA600]"
+   "outfit": "MA600 / [parm:MA600]",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9210,9 +9211,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": "USO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "UCO into this drop. There's a positive outfit / MA600"
+   "outfit": "UCO into this drop. There's a positive outfit / MA600",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9241,9 +9242,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "purchased",
    "co_executed": "USO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "positive microterm USO sma outfit / MA600"
+   "outfit": "positive microterm USO sma outfit / MA600",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9257,9 +9258,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": null,
    "action": "hold",
    "co_executed": "UCO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[MA27 MA54 MA108 MA216 MA432 MA864.] / MA27 / MA54 / MA108 / MA216 / MA432 / MA864"
+   "outfit": "[MA27 MA54 MA108 MA216 MA432 MA864.] / MA27 / MA54 / MA108 / MA216 / MA432 / MA864",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9303,9 +9304,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "129.78",
    "action": null,
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA108"
+   "outfit": "MA108",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9364,9 +9365,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "129.64",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA512"
+   "outfit": "MA512",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9380,9 +9381,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "129.64",
    "action": null,
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "n't know why this specific timeframe or outfit / MA512"
+   "outfit": "n't know why this specific timeframe or outfit / MA512",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9426,9 +9427,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "127.77",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "USO as my final Oil trade. 22² or 484 outfit / MA22 / MA44 / MA121 / MA242 / MA484 / MA986"
+   "outfit": "USO as my final Oil trade. 22² or 484 outfit / MA22 / MA44 / MA121 / MA242 / MA484 / MA986",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9502,9 +9503,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "28.38",
    "action": "purchased",
    "co_executed": "UCO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA770"
+   "outfit": "MA770",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9518,9 +9519,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "28.38",
    "action": "purchased",
    "co_executed": "SCO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[SCO 20M 22 55 77 220 550 770 20M MA770 at 28.38] / MA770"
+   "outfit": "[SCO 20M 22 55 77 220 550 770 20M MA770 at 28.38] / MA770",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9789,9 +9790,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "20.01",
    "action": "purchased",
    "co_executed": "VIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA777"
+   "outfit": "MA777",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9850,9 +9851,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "19.95",
    "action": "purchased",
    "co_executed": "VIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA500"
+   "outfit": "MA500",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -9986,9 +9987,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "19.95",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "31 63 125 250 500 simple moving average outfit / MA500"
+   "outfit": "31 63 125 250 500 simple moving average outfit / MA500",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10047,9 +10048,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "41.31",
    "action": "purchased",
    "co_executed": "UPRO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "31 . 33M 22 55 77 220 550 770 palantir outfit"
+   "outfit": "31 . 33M 22 55 77 220 550 770 palantir outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10183,9 +10184,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "28.38",
    "action": "purchased",
    "co_executed": "SCO",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "[SCO 20M 22 55 77 220 550 770 20M MA770 at 28.38] / MA770"
+   "outfit": "[SCO 20M 22 55 77 220 550 770 20M MA770 at 28.38] / MA770",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10259,9 +10260,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "29.48",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "P Oil 2x 29.48 . 404 outfit / MA404"
+   "outfit": "P Oil 2x 29.48 . 404 outfit / MA404",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10365,9 +10366,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "29.41",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SH now. 4H SVIX's 26 52 106 211 422 844 outfit / MA422"
+   "outfit": "SH now. 4H SVIX's 26 52 106 211 422 844 outfit / MA422",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10441,9 +10442,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "29.23",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX's 26 52 106 211 422 844 outfit"
+   "outfit": "SVIX's 26 52 106 211 422 844 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10457,9 +10458,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "29.23",
    "action": "purchased",
    "co_executed": "SVIX",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "SVIX's 26 52 106 211 422 844 outfit"
+   "outfit": "SVIX's 26 52 106 211 422 844 outfit",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10683,9 +10684,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "30.65",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA332"
+   "outfit": "MA332",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10864,9 +10865,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "17.92",
    "action": "purchased",
    "co_executed": null,
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA19"
+   "outfit": "MA19",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
@@ -10970,9 +10971,9 @@ window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, [
    "price": "120.00",
    "action": "purchased",
    "co_executed": "SQQQ, HIBS, HIBL",
-   "outfit": null,
-   "note": "gap era; date+ticker+price from text; outfit stated IN TEXT (rare) - see outfit_text",
-   "outfit_text": "MA83"
+   "outfit": "MA83",
+   "outfit_source": "text",
+   "note": "gap era; date+ticker+price+outfit from caption text"
   }
  },
  {
