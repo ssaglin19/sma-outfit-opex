@@ -74,6 +74,9 @@
   .chip{font-size:10.5px;line-height:1;padding:3px 5px;border-radius:4px;color:#fff;
         white-space:nowrap;font-weight:600}
   .more{font-size:10.5px;color:var(--muted);align-self:center}
+  /* neutral marker for entries that carry no ticker (the date-only finding layer) */
+  .dot{font-size:10.5px;line-height:1;padding:3px 5px;border-radius:4px;
+       background:#eef1f5;color:var(--muted);font-weight:600;white-space:nowrap}
 
   .back{position:fixed;inset:0;background:rgba(16,24,40,.42);display:none;
         align-items:flex-start;justify-content:center;padding:6vh 16px;z-index:20}
@@ -283,24 +286,7 @@
           el.setAttribute("role", "button");
           el.setAttribute("tabindex", "0");
           el.setAttribute("aria-label", key + ", " + list.length + " entries");
-          var chips = document.createElement("div");
-          chips.className = "chips";
-          var show = (list.length > 3) ? 2 : list.length;
-          for(var k = 0; k < show; k++){
-            var e = list[k], ch = document.createElement("span");
-            ch.className = "chip";
-            ch.style.background = colourFor(e.category);
-            ch.textContent = shortLabel(e);
-            ch.title = (e.label || "") + (e.category ? " -- " + e.category : "");
-            chips.appendChild(ch);
-          }
-          if(list.length > show){
-            var more = document.createElement("span");
-            more.className = "more";
-            more.textContent = "+" + (list.length - show);
-            chips.appendChild(more);
-          }
-          el.appendChild(chips);
+          el.appendChild(dayChips(list));
           (function(kk, ll){
             el.addEventListener("click", function(){ openDay(kk, ll); });
             el.addEventListener("keydown", function(ev){
@@ -315,6 +301,87 @@
     document.getElementById("count").textContent =
       monthCount + (monthCount === 1 ? " entry" : " entries") + " this month";
     document.getElementById("jump").value = current;
+  }
+
+  /* ---- day-cell chips -------------------------------------------------
+     The cell shows the day's UNIQUE TICKERS, not one chip per post: a day with
+     24 posts across two symbols reads as two chips. The detail panel is
+     unaffected and still lists every entry -- only the cell is deduped. */
+
+  var TICKER_CAP = 4;
+  /* which layer wins the colour when one ticker appears under several */
+  var LAYER_RANK = { case_study: 3, gap_finding: 2, finding: 1 };
+
+  /* Generic: any entry may expose tickers via fields.ticker / fields.co_executed,
+     space- or comma-separated. An entry type that carries neither simply yields
+     none, so new layers need no code change here. */
+  function tickersOf(e){
+    var out = [], f = e.fields || {};
+    ["ticker", "co_executed"].forEach(function(k){
+      if(!f[k]) return;
+      String(f[k]).split(/[\s,]+/).forEach(function(t){
+        t = t.trim();
+        if(t) out.push(t);
+      });
+    });
+    return out;
+  }
+
+  function dayChips(list){
+    var chips = document.createElement("div");
+    chips.className = "chips";
+    var best = {}, order = [], opex = [], untickered = 0;
+
+    list.forEach(function(e){
+      if(e.type === "opex"){ opex.push(e); return; }   /* no ticker: own marker */
+      var ts = tickersOf(e);
+      if(!ts.length){ untickered++; return; }
+      ts.forEach(function(t){
+        var rank = LAYER_RANK[e.type] || 0;
+        if(!(t in best)){ best[t] = {rank: rank, cat: e.category, type: e.type}; order.push(t); }
+        else if(rank > best[t].rank){ best[t] = {rank: rank, cat: e.category, type: e.type}; }
+      });
+    });
+
+    /* OPEX first, rendered exactly as before */
+    opex.forEach(function(e){
+      var ch = document.createElement("span");
+      ch.className = "chip";
+      ch.style.background = colourFor(e.category);
+      ch.textContent = shortLabel(e);
+      ch.title = (e.label || "") + (e.category ? " -- " + e.category : "");
+      chips.appendChild(ch);
+    });
+
+    /* then one chip per unique ticker, highest-priority layer wins the colour */
+    order.sort();
+    var show = Math.min(order.length, TICKER_CAP);
+    for(var i = 0; i < show; i++){
+      var t = order[i], b = best[t];
+      var ch = document.createElement("span");
+      ch.className = "chip";
+      ch.style.background = colourFor(b.cat);
+      ch.textContent = t;
+      ch.title = t + " -- " + (b.cat || b.type);
+      chips.appendChild(ch);
+    }
+    if(order.length > show){
+      var more = document.createElement("span");
+      more.className = "more";
+      more.textContent = "+" + (order.length - show);
+      more.title = (order.length - show) + " more tickers: " + order.slice(show).join(", ");
+      chips.appendChild(more);
+    }
+
+    /* entries with no ticker at all still have to make the day read as populated */
+    if(untickered){
+      var d = document.createElement("span");
+      d.className = "dot";
+      d.textContent = "·" + untickered;
+      d.title = untickered + " further post" + (untickered === 1 ? "" : "s") + " with no ticker in the caption";
+      chips.appendChild(d);
+    }
+    return chips;
   }
 
   /* "Case Study #7" -> "#7"; any other label falls back to a short prefix. */
