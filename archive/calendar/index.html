@@ -129,6 +129,11 @@
   th{color:var(--muted);font-weight:600;font-size:12px}
   .empty{padding:22px 16px;color:var(--muted)}
   .mini{font-size:12px;color:var(--muted)}
+  .spx-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+  .spx-last{font-size:22px;font-weight:700;letter-spacing:-.02em}
+  .spx-chg{font-size:13px;font-weight:700;padding:2px 7px;border-radius:999px}
+  .spx-chg.up{color:#0d8a5f;background:rgba(13,138,95,.12)}
+  .spx-chg.dn{color:#c0392b;background:rgba(192,57,43,.12)}
 </style>
 </head>
 <body>
@@ -184,6 +189,7 @@
 <script src="finding_entries.js"></script>
 <script src="gap_entries.js"></script>
 <script src="ticker_direction.js"></script>
+<script src="prices.js"></script>
 <script>
 (function(){
   "use strict";
@@ -550,6 +556,61 @@
     b.textContent = blockMode ? "Cancel block" : "+ Shaded block";
   }
 
+  /* ================= SPX daily OHLC (read-only, from prices.js) =================
+     Generated data, exactly like the other layers: never written to, never part
+     of user_overlay. Absent bars are stated as weekend / holiday / beyond-bake
+     rather than shown as a blank. */
+  var SPX = window.SPX_DAILY || {}, SPX_KEYS = Object.keys(SPX).sort();
+  function fmtN(n){ return Number(n).toLocaleString(undefined,
+                    {minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function prevSession(key){                      /* last session strictly before key */
+    var lo=0, hi=SPX_KEYS.length-1, best=null;
+    while(lo<=hi){ var m=(lo+hi)>>1;
+      if(SPX_KEYS[m]<key){ best=SPX_KEYS[m]; lo=m+1; } else hi=m-1; }
+    return best;
+  }
+  function spxSection(key){
+    var s=document.createElement("div"); s.className="sec";
+    var b=SPX[key];
+    if(!b){
+      var wd=new Date(key+"T12:00:00").getDay();
+      var last=SPX_KEYS.length?SPX_KEYS[SPX_KEYS.length-1]:null;
+      var why = (wd===0||wd===6) ? "weekend — no session"
+              : (last && key>last) ? "past the last baked session ("+last+")"
+              : "market holiday — no session";
+      s.innerHTML="<h3>SPX</h3>";
+      var n=document.createElement("div"); n.className="mini"; n.textContent=why;
+      s.appendChild(n); return s;
+    }
+    s.innerHTML="<h3>SPX — "+key+"</h3>";
+    var head=document.createElement("div"); head.className="spx-head";
+    var lastEl=document.createElement("span"); lastEl.className="spx-last";
+    lastEl.textContent=fmtN(b.c); head.appendChild(lastEl);
+    var pk=prevSession(key);
+    if(pk){
+      var chg=(b.c-SPX[pk].c)/SPX[pk].c*100;
+      var ce=document.createElement("span");
+      ce.className="spx-chg "+(chg>=0?"up":"dn");
+      ce.textContent=(chg>=0?"+":"")+chg.toFixed(2)+"%";
+      ce.title="vs previous session "+pk+" close "+fmtN(SPX[pk].c);
+      head.appendChild(ce);
+    }
+    s.appendChild(head);
+    var dl=document.createElement("dl");
+    [["open",b.o],["high",b.h],["low",b.l],["close",b.c],["volume",b.v]].forEach(function(r){
+      var dt=document.createElement("dt"); dt.textContent=r[0];
+      var dd=document.createElement("dd");
+      dd.textContent = r[0]==="volume" ? Number(r[1]).toLocaleString() : fmtN(r[1]);
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+    s.appendChild(dl);
+    var M=window.SPX_META||{};
+    var src=document.createElement("div"); src.className="mini"; src.style.marginTop="7px";
+    src.textContent=(M.symbol||"$SPX.X")+" · "+(M.source||"?")+" daily · baked "+(M.generated_at||"?");
+    s.appendChild(src);
+    return s;
+  }
+
   /* ================= modal + detail ================= */
   function modal(title){
     document.getElementById("mtitle").textContent=title;
@@ -564,6 +625,8 @@
     var p=key.split("-");
     var body=modal(MON[+p[1]-1]+" "+(+p[2])+", "+p[0]+"  —  "+list.length+
                    (list.length===1?" entry":" entries"));
+
+    body.appendChild(spxSection(key));
 
     var s=document.createElement("div"); s.className="sec";
     s.innerHTML="<h3>Day note</h3>";
