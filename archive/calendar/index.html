@@ -26,6 +26,7 @@
     --c-triple:#6d28d9;    --c-monthly:#3b5bdb;   --c-vix:#64748b;
     --c-finding:#a08a6a;
     --c-gap:#b02a8f;
+    --c-auto:#65a30d;
     --c-user:#0f766e;
     --c-unknown:#6b7480;
   }
@@ -189,6 +190,7 @@
 <script src="finding_entries.js"></script>
 <script src="gap_entries.js"></script>
 <script src="ticker_direction.js"></script>
+<script src="auto_entries.js"></script>
 <script src="prices.js"></script>
 <script>
 (function(){
@@ -279,7 +281,8 @@
     "Automated Short":"var(--c-short)",   "Hard Stop":"var(--c-hardstop)",
     "Triple Witching":"var(--c-triple)",  "Monthly OPEX":"var(--c-monthly)",
     "VIX Expiration":"var(--c-vix)",      "Finding":"var(--c-finding)",
-    "Gap Finding":"var(--c-gap)",         "User":"var(--c-user)"
+    "Gap Finding":"var(--c-gap)",         "User":"var(--c-user)",
+    "Auto Finding":"var(--c-auto)"
   };
   function colourFor(cat){
     if(cat && OV.palette.categories[cat]) return OV.palette.categories[cat];
@@ -293,7 +296,7 @@
   var MON = ["January","February","March","April","May","June","July",
              "August","September","October","November","December"];
   var TICKER_CAP = 4;
-  var LAYER_RANK = { case_study:3, gap_finding:2, user:2, finding:1 };
+  var LAYER_RANK = { case_study:3, gap_finding:2, user:2, auto_finding:2, finding:1 };
 
   /* ================= state ================= */
   var types = [], active = {}, current = null, selDay = null;
