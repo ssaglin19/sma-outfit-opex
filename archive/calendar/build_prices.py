@@ -13,7 +13,7 @@ high/low is not the day's high/low, and showing it would be quietly wrong.
 import platform
 platform._wmi = None          # wedged WMI provider on this PC; pandas blocks forever without it
 
-import sys, os, json, datetime, zoneinfo
+import sys, os, re, json, datetime, zoneinfo
 
 ENGINE = r"C:\Users\ssagl\Documents\sma-alerts"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prices.js")
@@ -44,6 +44,21 @@ for ts, r in df.iterrows():
     rows[d.isoformat()] = {"o": round(float(r.Open), 2), "h": round(float(r.High), 2),
                            "l": round(float(r.Low), 2),  "c": round(float(r.Close), 2),
                            "v": int(r.Volume)}
+
+# If the actual bars are unchanged, leave the file alone. Rewriting it just to
+# stamp a new generated_at would produce a diff -- and a commit -- every single
+# night even when no price moved.
+if os.path.exists(OUT):
+    try:
+        prev = open(OUT, encoding="utf-8").read()
+        m = re.search(r"window\.SPX_DAILY\s*=\s*(\{.*\});\s*$", prev, re.S)
+        if m and json.loads(m.group(1)) == rows:
+            print("no change in %d sessions -- prices.js left untouched" % len(rows))
+            raise SystemExit(0)
+    except SystemExit:
+        raise
+    except Exception:
+        pass                                  # unreadable/older format: just rewrite
 
 keys = sorted(rows)
 meta = {"symbol": SYMBOL, "source": "TradeStation", "unit": "Daily",
