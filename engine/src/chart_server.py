@@ -29,6 +29,13 @@ from urllib.parse import urlparse, parse_qs
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ts_client import TradeStationClient
 from config import SMA_OUTFITS
+try:
+    from bridge import bridge_outfit_to_horizon
+    from adapters.opex import OPEXCalendar
+    BRIDGE_AVAILABLE = True
+except ImportError:
+    BRIDGE_AVAILABLE = False
+    bridge_outfit_to_horizon = None
 
 # Symbol mapping (same as data_source.py)
 SYMBOL_MAP = {
@@ -305,8 +312,12 @@ class ChartHandler(BaseHTTPRequestHandler):
 
         if parsed.path == '/chart':
             self.handle_chart(parse_qs(parsed.query))
+        elif parsed.path == '/bridge':
+            self.handle_bridge(parse_qs(parsed.query))
+        elif parsed.path == '/opex':
+            self.handle_opex(parse_qs(parsed.query))
         elif parsed.path == '/health':
-            self.send_json({"status": "ok"})
+            self.send_json({"status": "ok", "bridge": BRIDGE_AVAILABLE})
         else:
             self.send_error_json(404, "Not found")
 
@@ -352,6 +363,57 @@ class ChartHandler(BaseHTTPRequestHandler):
         data = build_chart_data(df, ticker, timeframe, sma_period, outfit)
         self.send_json(data)
 
+    def handle_bridge(self, params):
+        """GET /bridge?ticker=DOG&date=2026-03-05&outfit=56+Reversal&sma=28&target=IXIC
+        Returns unified {ok, ...} from bridge_outfit_to_horizon. No Influx/TS needed for horizon-only.
+        If bars are requested via &bars=1, caller should fetch /chart separately and post to /bridge POST.
+        """
+        if not BRIDGE_AVAILABLE:
+            self.send_error_json(500, "Bridge not available — check adapters/")
+            return
+        ticker = params.get('ticker', [None])[0]
+        date = params.get('date', [None])[0]
+        outfit = params.get('outfit', [''])[0]
+        sma = params.get('sma', [None])[0]
+        target = params.get('target', ['IXIC'])[0]
+        # date may be passed as 'time' from alert (_time) — accept both
+        if not date:
+            date = params.get('time', [None])[0]
+        if date and 'T' in date:
+            date = date.split('T')[0]
+        if not ticker or not date:
+            self.send_error_json(400, "Missing ticker or date (YYYY-MM-DD). Use /bridge?ticker=DOG&date=2026-03-05")
+            return
+        try:
+            sma_int = int(sma) if sma and str(sma).isdigit() else None
+        except:
+            sma_int = None
+        result = bridge_outfit_to_horizon(ticker, date, outfit or None, sma_int, accumulation_index=target)
+        self.send_json(result)
+
+    def handle_opex(self, params):
+        """GET /opex?date=2026-03-05  → next OPEX events"""
+        if not BRIDGE_AVAILABLE:
+            self.send_error_json(500, "Bridge not available")
+            return
+        date = params.get('date', [None])[0]
+        if not date:
+            self.send_error_json(400, "Missing date")
+            return
+        if 'T' in date:
+            date = date.split('T')[0]
+        try:
+            cal = OPEXCalendar()
+            # next events after date
+            import datetime
+            d = datetime.date.fromisoformat(date)
+            nxt = cal.next_opex(d)
+            triple = cal.next_opex(d, kind="Triple Witching")
+            horizon = cal.resolve_event_horizon(d)
+            self.send_json({"date": date, "next": nxt.__dict__ if nxt else None, "triple": triple.__dict__ if triple else None, "horizon": horizon, "all_next_5": [e.__dict__ for e in cal.events if e.date > d][:5]})
+        except Exception as e:
+            self.send_error_json(400, str(e))
+
     def send_json(self, data):
         body = json.dumps(data).encode()
         self.send_response(200)
@@ -362,7 +424,7 @@ class ChartHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def send_error_json(self, code, msg):
-        body = json.dumps({"error": msg}).encode()
+        body = json.dumps({"ok": False, "error": msg, "code": "ERROR"}).encode()
         self.send_response(code)
         self.send_header('Content-Type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')

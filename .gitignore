@@ -29,3 +29,4 @@ Thumbs.db
 
 # nightly refresh output (local only)
 refresh.log
+alerts.log

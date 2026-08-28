@@ -35,10 +35,20 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 from ts_client import TradeStationClient
-from sma_alert_engine import (
-    SMA_OUTFITS, PENNY,
-    compute_all_smas, count_ohlc_interactions
-)
+from config import SMA_OUTFITS
+PENNY = 0.01  # canonical, same as detector.py:47 / historical_scan.py:23
+try:
+    from detector import compute_all_smas, count_ohlc_interactions  # type: ignore
+except ImportError:
+    try:
+        from historical_scan import compute_all_smas  # type: ignore
+        from detector import count_ohlc_interactions  # type: ignore
+    except ImportError:
+        # Last resort: legacy retired engine still holds count_ohlc_interactions at archive/old_system
+        import os as _os, sys as _sys
+        _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), '..', 'archive', 'old_system'))
+        from sma_alert_engine import compute_all_smas, count_ohlc_interactions  # type: ignore
+
 
 SYMBOL = 'SPXU'
 TARGET_DATE = '2026-03-02'

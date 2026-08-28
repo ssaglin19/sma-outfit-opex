@@ -604,7 +604,29 @@ function onMouseLeave() {
     document.getElementById('crossY').style.display = 'none';
 }
 
+async function loadBridgeBadge(){
+  const qs = new URLSearchParams(location.search);
+  const ticker = qs.get('ticker')||'';
+  const outfit = qs.get('outfit')||'';
+  const sma = qs.get('sma')||'';
+  const date = qs.get('bridge_date') || new Date().toISOString().split('T')[0];
+  const target = qs.get('bridge_target')||'IXIC';
+  if(!ticker) return;
+  try{
+    const r = await fetch(`http://localhost:5555/bridge?ticker=${encodeURIComponent(ticker)}&date=${encodeURIComponent(date)}&outfit=${encodeURIComponent(outfit)}&sma=${encodeURIComponent(sma)}&target=${encodeURIComponent(target)}`);
+    const j = await r.json();
+    const el = document.getElementById('bridgeBadge') || (()=>{ const d=document.createElement('div'); d.id='bridgeBadge'; d.style.cssText='margin:8px 16px;padding:10px 12px;border:1px solid #2a2a4a;border-radius:8px;background:#14142a;color:#c8c8ff;font-size:12px'; document.querySelector('.header')?.after(d); return d; })();
+    if(j.ok){
+      el.innerHTML = `<b>${j.inverse_correlation}</b> &nbsp;→&nbsp; <b>${j.horizon.event_horizon}</b> (${j.horizon.event_horizon_kind}, ${j.horizon.days_to_horizon}d) &nbsp;|&nbsp; <span style="color:${j.is_bottom_candidate?'#4ade80':'#fbbf24'}">${j.thesis}</span> &nbsp;|&nbsp; regime: <b>${j.regime.regime}</b> (${Math.round(j.regime.confidence*100)}%)<br><span style="color:#888">${j.narrative}</span>`;
+      if(j.horizon.vix_expiration) el.innerHTML += ` &nbsp; VIX exp ${j.horizon.vix_expiration}`;
+    } else {
+      el.textContent = `[bridge] ${j.code}: ${j.error}`;
+      el.style.color = '#f87171';
+    }
+  }catch(e){ console.warn('[bridge badge]', e); }
+}
 loadData();
+loadBridgeBadge();
 </script>
 </body>
 </html>
