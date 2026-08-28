@@ -62,6 +62,27 @@ _INVERSE_MAP_RAW = {
     "UVIX": InversePair("UVIX", "VIX",  "VIX",  "1×",  "leveraged", "$VIX.X"),
     # Gold inverse (from gap findings: GLL)
     "GLL":  InversePair("GLL",  "GLD",  "GOLD", "-2×", "inverse", "GLD"),
+    # --- Gap-anomaly vehicles (high media in 2025-08 → 2026-08 gap, not in engine) ---
+    # Discovered by Miner: UCO 31, VIXY 21, DUST 17, MSTX 16, SCO 13, UVIX 14, TZA 10, GLL 7, SOXS/SOXS etc already covered
+    # Energy / Oil
+    "UCO":  InversePair("UCO",  "OIL",  "OIL",  "2×",  "leveraged", "USO"),
+    "SCO":  InversePair("SCO",  "OIL",  "OIL",  "-2×", "inverse", "USO"),
+    # VIX family extension
+    "VIXY": InversePair("VIXY", "VIX",  "VIX",  "1×",  "leveraged", "$VIX.X"),
+    # Gold miners inverse
+    "DUST": InversePair("DUST", "GDX",  "GOLD", "-2×", "inverse", "GDX"),
+    # MicroStrategy leveraged (MSTX 16 media, MSTU, MSTX, MSTR)
+    "MSTX": InversePair("MSTX", "MSTR", "MSTR", "2×",  "leveraged", "MSTR"),
+    "MSTU": InversePair("MSTU", "MSTR", "MSTR", "2×",  "leveraged", "MSTR"),
+    "MSTR": InversePair("MSTR", "MSTR", "MSTR", "1×",  "underlying", "MSTR"),
+    # Small-cap / Russell extended
+    "TZA":  InversePair("TZA",  "IWM",  "RUT",  "-3×", "inverse", "$RUT.X"),
+    "UVIX": InversePair("UVIX", "VIX",  "VIX",  "2×",  "leveraged", "$VIX.X"),
+    # Tech / Semi already have SOXS/SOXL, add YANG, FAS etc.
+    "YANG": InversePair("YANG", "FXI",  "FXI",  "-3×", "inverse", "FXI"),
+    "FAS":  InversePair("FAS",  "XLF",  "XLF",  "3×",  "leveraged", "XLF"),
+    "XLF":  InversePair("XLF",  "XLF",  "XLF",  "1×",  "underlying", "XLF"),
+
     # Keep DIA/QQQ/SPY themselves as "underlying" self-maps for convenience
     "DIA":  InversePair("DIA",  "DIA",  "DJI",  "1×",  "underlying", "$DJX.X"),
     "QQQ":  InversePair("QQQ",  "QQQ",  "IXIC", "1×",  "underlying", "$NDX.X"),

@@ -140,6 +140,8 @@ TICKERS = [
     "WEBS", "LABU", "DRN", "REK", "GLD", "TLT", "TBT", "BITO",
     # Mega-cap equities
     "AAPL", "MSFT", "AMZN", "GOOG", "NVDA", "META", "TSLA",
+    # Gap-anomaly tickers (2025-08 → 2026-08: UCO 31, VIXY 21, DUST 17, MSTX 16, SCO 13, UVIX 14, TZA 10)
+    "UCO", "SCO", "VIXY", "DUST", "MSTX", "MSTU", "MSTR", "TZA", "UVIX", "YANG", "FAS", "XLF",
     # Other equities
     "AMD", "NFLX", "INTC", "COIN", "QCOM", "PYPL",
     "UPST", "RBLX", "AI", "ARM",

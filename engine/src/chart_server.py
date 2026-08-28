@@ -32,6 +32,7 @@ from config import SMA_OUTFITS
 try:
     from bridge import bridge_outfit_to_horizon
     from adapters.opex import OPEXCalendar
+    from adapters.gap_index import query_gap, gap_stats, cluster_months
     BRIDGE_AVAILABLE = True
 except ImportError:
     BRIDGE_AVAILABLE = False
@@ -314,6 +315,8 @@ class ChartHandler(BaseHTTPRequestHandler):
             self.handle_chart(parse_qs(parsed.query))
         elif parsed.path == '/bridge':
             self.handle_bridge(parse_qs(parsed.query))
+        elif parsed.path == '/gap':
+            self.handle_gap(parse_qs(parsed.query))
         elif parsed.path == '/opex':
             self.handle_opex(parse_qs(parsed.query))
         elif parsed.path == '/health':
@@ -417,6 +420,25 @@ class ChartHandler(BaseHTTPRequestHandler):
             self.send_json({"date": date, "next": _ser(nxt), "triple": _ser(triple), "horizon": horizon, "all_next_5": [_ser(e) for e in cal.events if e.date > d][:5]})
         except Exception as e:
             self.send_error_json(400, str(e))
+
+    def handle_gap(self, params):
+        """GET /gap?ticker=DOG&has_media=true&limit=20  → gap rows + horizon+inverse"""
+        if not BRIDGE_AVAILABLE:
+            self.send_error_json(500, "Bridge not available")
+            return
+        ticker = params.get('ticker', [None])[0]
+        has_media = params.get('has_media', [None])[0]
+        limit = int(params.get('limit', ['20'])[0])
+        if has_media is not None:
+            has_media = has_media.lower() in ('true','1','yes')
+        else:
+            has_media = None
+        try:
+            rows = query_gap(ticker=ticker, has_media=has_media, limit=limit)
+            stats = gap_stats()
+            self.send_json({"count": len(rows), "stats": stats, "rows": rows})
+        except Exception as e:
+            self.send_error_json(500, str(e))
 
     def send_json(self, data):
         body = json.dumps(data).encode()

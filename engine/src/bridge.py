@@ -21,6 +21,7 @@ from typing import Optional, List
 from adapters.opex import resolve_event_horizon
 from adapters.inverse_map import get_inverse_pair, MAJOR_INDEXES
 from adapters.regime import label_regime
+from adapters.gap_index import query_gap, gap_stats
 
 def bridge_outfit_to_horizon(
     firing_ticker: str,
