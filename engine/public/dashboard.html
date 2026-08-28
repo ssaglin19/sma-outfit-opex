@@ -1176,6 +1176,16 @@ function setTickerFilter(group, btn) {
 // CHART: OPEN IN NEW WINDOW
 // =============================================================================
 function openChart(ticker, timeframe, smaPeriod, outfit, type, smaValue) {
+  // Bridge wiring: fetch horizon + inverse correlation before opening chart
+  // Unified error shape {ok, error, code} — shows badge even if bridge fails
+  const alertTime = (typeof cachedAlertData !== 'undefined' && cachedAlertData.find(a => a.ticker===ticker && String(a.sma_period)===String(smaPeriod)))?.time || new Date().toISOString();
+  const dateOnly = alertTime.split('T')[0];
+  const bridgeUrl = `http://localhost:5555/bridge?ticker=${encodeURIComponent(ticker)}&date=${encodeURIComponent(dateOnly)}&outfit=${encodeURIComponent(outfit)}&sma=${encodeURIComponent(smaPeriod)}&target=IXIC`;
+  // Fire-and-forget prefetch for UX; live_chart will also fetch bridge itself
+  fetch(bridgeUrl).then(r=>r.json()).then(j=>{
+    if(j.ok) console.log(`[bridge] ${j.inverse_correlation} → ${j.horizon.event_horizon} (${j.horizon.event_horizon_kind}) — ${j.thesis}`);
+    else console.warn('[bridge]', j.error);
+  }).catch(e=> console.warn('[bridge fetch failed — chart_server not running]', e.message));
   const params = new URLSearchParams({
     ticker: ticker,
     timeframe: timeframe,
@@ -1184,6 +1194,9 @@ function openChart(ticker, timeframe, smaPeriod, outfit, type, smaValue) {
     type: type,
     bars: '300',
   });
+  // Pass bridge context to live_chart so it can render the horizon badge without extra fetch
+  params.set('bridge_date', dateOnly);
+  params.set('bridge_target', 'IXIC');
   window.open(`live_chart.html?${params.toString()}`, '_blank',
     'width=1400,height=800,menubar=no,toolbar=no,location=no,status=no');
 }
