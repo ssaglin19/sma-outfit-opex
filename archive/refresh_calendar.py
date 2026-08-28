@@ -127,8 +127,9 @@ ACTION_PATTERNS = [                       # order matters: first match wins
 ]
 RE_PRICE = re.compile(r"\b(\d{1,6}\.\d{2})\b")
 RE_TF = re.compile(r"\b(\d{1,3})\s?(s|sec|m|min|M|h|hr|H|d|D)\b")
-RE_MA = re.compile(r"\bMA\s?(\d{1,4})\b")
+RE_MA = re.compile(r"\bMA\s?(\d{1,4})\b", re.I)      # he writes "ma100" lowercase
 RE_BRACKET = re.compile(r"\[(\d{2,4})\]")
+RE_RATIO = re.compile(r"\b\d{2,3}/\d{2,3}(?:/\d{2,3})*\b")   # "[20/100]", "33/66/99"
 RE_NAMED = re.compile(r"([A-Z0-9][\w'&/.\- ]{1,38}?)\s+(?:SMA\s+)?[Oo]utfit\b")
 
 
@@ -162,21 +163,31 @@ def extract(text, vocab):
         unit = {"sec": "s", "min": "m", "hr": "h"}.get(mt.group(2).lower(), mt.group(2).lower())
         tf = mt.group(1) + unit
 
-    bits = []
+    named = ""
     nm = RE_NAMED.search(t)
     if nm:
         cand = re.sub(r"^(the|its|it'?s|a|an|my)\s+", "", nm.group(1).strip(" ,.;:"), flags=re.I)
         if cand and len(cand) <= 40:
-            bits.append(cand + " outfit")
-    for b in dict.fromkeys(RE_BRACKET.findall(t)):
-        bits.append("[" + b + "]")
-    mas = list(dict.fromkeys(RE_MA.findall(t)))
-    if len(mas) >= 3:
-        bits.append(" ".join("MA" + x for x in mas))
-    outfit = " / ".join(dict.fromkeys(bits))
+            named = cand + " outfit"
 
+    # ma_designation is ANY moving-average reference: a single "ma100" counts.
+    # Kept separate from a full named ladder because one MA reference is enough
+    # to make a post a finding, which is how he actually writes in replies.
+    desig = []
+    for b in dict.fromkeys(RE_RATIO.findall(t)):
+        desig.append(b)
+    for b in dict.fromkeys(RE_BRACKET.findall(t)):
+        if b not in desig:
+            desig.append("[" + b + "]")
+    mas = list(dict.fromkeys(x for x in RE_MA.findall(t)))
+    if mas:
+        desig.append(" ".join("MA" + x for x in mas))
+    ma_designation = " / ".join(dict.fromkeys(desig))
+
+    outfit = " / ".join(x for x in (named, ma_designation) if x)
     return {"tickers": tickers, "action": action, "prices": prices,
-            "timeframe": tf, "outfit": outfit}
+            "timeframe": tf, "outfit": outfit,
+            "named_outfit": named, "ma_designation": ma_designation}
 
 
 # ------------------------------------------------------------------------ state
@@ -227,8 +238,16 @@ def main():
     vocab = load_vocab()
     state = load_state()
     have = existing_ids() | curated_ids()
-    watermark = int(state.get("last_id") or 0) or seed_watermark()
-    print("watermark (last post_id seen): %d" % watermark)
+    # FLOOR, not a moving watermark. CDX backfills: it indexes captures days
+    # late and out of order, so a "max id seen" watermark silently skips any
+    # post indexed after it advanced past that id. The floor is fixed at the
+    # newest curated post and never moves; `processed` records every id we have
+    # already fetched, whatever the outcome, so nothing is fetched twice and
+    # nothing is missed.
+    floor = int(state.get("floor_id") or 0) or seed_watermark()
+    processed = set(state.get("processed") or [])
+    print("floor (fixed): %d" % floor)
+    print("already processed: %d ids" % len(processed))
     print("already on the calendar (auto + curated): %d posts" % len(have))
     print("ticker vocabulary: %d symbols" % len(vocab))
 
@@ -244,13 +263,13 @@ def main():
         if not m:
             continue
         pid = m.group(1)
-        if int(pid) > watermark and pid not in have:
+        if int(pid) > floor and pid not in have and pid not in processed:
             found.setdefault(pid, ts)
     new_ids = sorted(found, key=int)
     print("CDX rows: %d  ->  new post IDs: %d" % (len(rows), len(new_ids)))
     if not new_ids:
         state.update(last_run=datetime.datetime.now().isoformat(timespec="seconds"),
-                     last_id=watermark)
+                     floor_id=floor)
         json.dump(state, open(STATE, "w", encoding="utf-8"), indent=1)
         print("nothing new -- auto_entries.js untouched")
         return 0
@@ -283,9 +302,14 @@ def main():
         media = j.get("mediaDetails") or []
         e = extract(text, vocab)
 
-        # Selection rule, same as the curated gap layer: has media, OR carries
-        # both a ticker and an action. Chatter without either is not a finding.
-        if not (media or (e["tickers"] and e["action"])):
+        # Selection: media, OR ticker+action, OR ticker+MA-designation.
+        # That third clause matters -- he analyses outfits in plain replies with
+        # no chart and no purchase verb ("Consider IXIC's ma100! ... the HIBL
+        # short at [2H MA83]"), which a media-or-action rule throws away.
+        # Ticker alone is NOT enough: that would sweep in ordinary chatter.
+        interesting = bool(media) or bool(
+            e["tickers"] and (e["action"] or e["ma_designation"] or e["named_outfit"]))
+        if not interesting:
             skipped += 1
             continue
 
@@ -302,6 +326,7 @@ def main():
                 "action": e["action"] or None,
                 "co_executed": " ".join(e["tickers"][1:4]) or None,
                 "outfit": e["outfit"] or None,
+                "ma_designation": e["ma_designation"] or None,
                 "timeframe": e["timeframe"] or None,
                 "has_media": bool(media),
                 "provenance": "auto",
@@ -337,19 +362,24 @@ def main():
                     " * user_overlay notes and hides (keyed to post_id) survive every refresh.\n"
                     " * --------------------------------------------------------------------------- */\n\n"
                     "window.CALENDAR_ENTRIES = window.CALENDAR_ENTRIES || [];\n"
-                    "window.CALENDAR_ENTRIES.push(\n")
+                    # push.apply, NOT push(array) -- a plain push appends the
+                    # array itself as one phantom entry with no .type, which
+                    # shows up in the calendar as an "undefined" layer toggle.
+                    "window.CALENDAR_ENTRIES.push.apply(window.CALENDAR_ENTRIES, ")
             f.write(json.dumps(merged, indent=1, ensure_ascii=False))
-            f.write("\n);\n")
+            f.write(");\n")
         print("auto_entries.js: %d total (%d new)  %d bytes"
               % (len(merged), len(kept), os.path.getsize(OUT)))
 
     prior_tomb = state.get("tombstoned") or []
     state.update(last_run=datetime.datetime.now().isoformat(timespec="seconds"),
-                 last_id=int(new_ids[-1]),
+                 floor_id=floor,
                  last_cdx_rows=len(rows),
+                 newest_cdx_capture=max((ts for ts, _ in rows), default=None),
+                 processed=sorted(processed | set(new_ids), key=int),
                  tombstoned=sorted(set(prior_tomb) | set(tombstoned), key=int))
     json.dump(state, open(STATE, "w", encoding="utf-8"), indent=1)
-    print("watermark advanced to %s" % new_ids[-1])
+    print("processed set now %d ids" % (len(processed) + len(new_ids)))
     return 0
 
 
