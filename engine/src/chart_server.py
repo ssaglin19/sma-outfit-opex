@@ -410,7 +410,11 @@ class ChartHandler(BaseHTTPRequestHandler):
             nxt = cal.next_opex(d)
             triple = cal.next_opex(d, kind="Triple Witching")
             horizon = cal.resolve_event_horizon(d)
-            self.send_json({"date": date, "next": nxt.__dict__ if nxt else None, "triple": triple.__dict__ if triple else None, "horizon": horizon, "all_next_5": [e.__dict__ for e in cal.events if e.date > d][:5]})
+            def _ser(e):
+                if e is None: return None
+                d = dict(e.__dict__); d["date"] = d["date"].isoformat() if hasattr(d["date"], "isoformat") else d["date"]
+                return d
+            self.send_json({"date": date, "next": _ser(nxt), "triple": _ser(triple), "horizon": horizon, "all_next_5": [_ser(e) for e in cal.events if e.date > d][:5]})
         except Exception as e:
             self.send_error_json(400, str(e))
 
