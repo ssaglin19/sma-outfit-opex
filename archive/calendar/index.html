@@ -75,6 +75,13 @@
   .cell.pad{background:#fbfcfd}
   .cell.has{cursor:pointer}
   .cell.has:hover{background:#f2f7ff}
+  /* empty days are clickable too, for manual entry -- quieter than .has so
+     populated days still read as the populated ones at a glance */
+  .cell.open{cursor:pointer}
+  .cell.open:hover{background:#f7f9fc}
+  .cell.open:hover .dnum{color:var(--ink)}
+  .cell.open:hover::after{content:"+";position:absolute;bottom:4px;right:7px;
+    font-size:15px;line-height:1;color:var(--accent);font-weight:700}
   .cell.sel{outline:2px solid var(--accent);outline-offset:-2px}
   /* directional tint -- low alpha so the date and chips stay readable */
   .cell.dir-bear{background:rgba(192,57,43,.10)}
@@ -513,12 +520,16 @@
             if(dir==="mixed" && MIXED_DAYS.indexOf(key)<0) MIXED_DAYS.push(key);
           }
           inner.appendChild(ch);
-        } else if(blockMode || OV.notes.day[key]){
-          el.className+=" has";
+        } else {
+          /* EVERY real day opens, even an empty one. That is the whole point of
+             manual entry: the logger trails the tweets by days, so an empty cell
+             is exactly where an idea needs recording. ".open" is a lighter
+             affordance than ".has", so populated days still stand out. */
+          el.className += (blockMode || OV.notes.day[key]) ? " has" : " open";
           el.setAttribute("role","button"); el.setAttribute("tabindex","0");
         }
         if(selDay===key) el.className+=" sel";
-        if(el.className.indexOf("has")>=0){
+        if(el.className.indexOf("has")>=0 || el.className.indexOf("open")>=0){
           (function(kk,ll){
             el.addEventListener("click",function(){ dayClick(kk,ll); });
             el.addEventListener("keydown",function(ev){
@@ -643,21 +654,57 @@
     var r=document.createElement("div"); r.className="row"; r.appendChild(sv);
     s.appendChild(ta); s.appendChild(r); body.appendChild(s);
 
+    /* Manual entry. The auto-logger trails the tweets by a few days, so this is
+       where an idea gets recorded before the logger catches up. Lives entirely
+       in user_overlay -- it never touches the scraped layers, and every manual
+       entry keeps a Delete button (see entryBlock). */
     var s2=document.createElement("div"); s2.className="sec";
     s2.innerHTML="<h3>Add your own entry</h3>";
-    var f1=mkInput("Label","e.g. My trade"), f2=mkInput("Ticker","e.g. SPXU"),
-        f3=mkInput("Category","default: User");
+    var fT=mkInput("Ticker","SPXU"),
+        fA=mkInput("Action","purchased / hold / cut / sold"),
+        fP=mkInput("Entry price","15.55"),
+        fS=mkInput("SPX","index level"),
+        fL=mkInput("Label","optional"),
+        fN=mkInput("Note","optional");
+    /* Prefill SPX from the baked close when we have that session, so the common
+       case is one keystroke. Days past the last bake stay blank to type into. */
+    var bar = SPX[key];
+    if(bar){ fS.input.value = String(bar.c); fS.input.title = "baked close for " + key; }
+
     var add=document.createElement("button"); add.className="primary"; add.textContent="Add entry";
-    add.addEventListener("click",function(){
-      var ent={ date:key, type:"user", label:f1.input.value.trim()||"User entry",
-                category:f3.input.value.trim()||"User", fields:{} };
-      if(f2.input.value.trim()) ent.fields.ticker=f2.input.value.trim().toUpperCase();
+    function doAdd(){
+      var tk=fT.input.value.trim().toUpperCase();
+      if(!tk && !fL.input.value.trim() && !fN.input.value.trim()){
+        alert("Give it at least a ticker, a label, or a note.");
+        return;
+      }
+      var ent={ date:key, type:"user", category:"User", fields:{},
+                label: fL.input.value.trim() || (tk ? tk + (fA.input.value.trim()
+                        ? " " + fA.input.value.trim() : "") : "Manual entry") };
+      if(tk) ent.fields.ticker=tk;
+      if(fA.input.value.trim()) ent.fields.action=fA.input.value.trim();
+      if(fP.input.value.trim()) ent.fields.price=fP.input.value.trim();
+      if(fS.input.value.trim()) ent.fields.spx=fS.input.value.trim();
+      if(fN.input.value.trim()) ent.fields.note=fN.input.value.trim();
+      ent.fields.provenance="manual";
       ent.__id="user:"+key+":"+Date.now();
       OV.added.push(ent); touch(); reopen(key);
+    }
+    add.addEventListener("click", doAdd);
+    [fT,fA,fP,fS,fL,fN].forEach(function(f){          /* Enter submits */
+      f.input.addEventListener("keydown",function(ev){
+        if(ev.key==="Enter"){ ev.preventDefault(); doAdd(); }
+      });
     });
     var r2=document.createElement("div"); r2.className="row";
-    r2.appendChild(f1.wrap); r2.appendChild(f2.wrap); r2.appendChild(f3.wrap); r2.appendChild(add);
-    s2.appendChild(r2); body.appendChild(s2);
+    [fT,fA,fP,fS,fL,fN].forEach(function(f){ r2.appendChild(f.wrap); });
+    r2.appendChild(add);
+    s2.appendChild(r2);
+    var hint2=document.createElement("div"); hint2.className="mini";
+    hint2.style.marginTop="7px";
+    hint2.textContent="Saved to your overlay only. Delete it any time from the entry below.";
+    s2.appendChild(hint2);
+    body.appendChild(s2);
 
     var hiddenHere=BASE.filter(function(e){ return e.date===key && isHidden(e.__id); })
       .concat(OV.added.filter(function(e){ return e.date===key && isHidden(e.__id); }));
