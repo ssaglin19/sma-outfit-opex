@@ -81,6 +81,7 @@ _INVERSE_MAP_RAW = {
     # Tech / Semi already have SOXS/SOXL, add YANG, FAS etc.
     "YANG": InversePair("YANG", "FXI",  "FXI",  "-3×", "inverse", "FXI"),
     "FAS":  InversePair("FAS",  "XLF",  "XLF",  "3×",  "leveraged", "XLF"),
+    "XLE":  InversePair("XLE",  "XLE",  "XLE",  "1×",  "underlying", "XLE"),
     "XLF":  InversePair("XLF",  "XLF",  "XLF",  "1×",  "underlying", "XLF"),
 
     # Keep DIA/QQQ/SPY themselves as "underlying" self-maps for convenience
