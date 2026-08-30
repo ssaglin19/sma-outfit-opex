@@ -324,11 +324,45 @@ class ChartHandler(BaseHTTPRequestHandler):
         else:
             self.send_error_json(404, "Not found")
 
+    def do_POST(self):
+        parsed = urlparse(self.path)
+        if parsed.path == '/bridge':
+            length = int(self.headers.get('Content-Length', 0))
+            body = self.rfile.read(length) if length else b'{}'
+            try:
+                data = __import__('json').loads(body.decode() or '{}')
+            except:
+                data = {}
+            # Merge query + body, body wins
+            qs = parse_qs(parsed.query)
+            # body may contain closes/volumes/sma_values
+            ticker = data.get('ticker') or qs.get('ticker', [None])[0]
+            date = data.get('date') or qs.get('date', [None])[0] or qs.get('time', [None])[0]
+            outfit = data.get('outfit') or qs.get('outfit', [''])[0]
+            sma = data.get('sma') or qs.get('sma', [None])[0]
+            target = data.get('target') or qs.get('target', ['IXIC'])[0]
+            closes = data.get('closes')
+            volumes = data.get('volumes')
+            sma_values = data.get('sma_values')
+            if date and 'T' in str(date):
+                date = str(date).split('T')[0]
+            if not ticker or not date:
+                self.send_error_json(400, "Missing ticker or date")
+                return
+            try:
+                sma_int = int(sma) if sma and str(sma).isdigit() else None
+            except:
+                sma_int = None
+            result = bridge_outfit_to_horizon(ticker, date, outfit or None, sma_int, closes, volumes, sma_values, accumulation_index=target)
+            self.send_json(result)
+        else:
+            self.send_error_json(404, "Not found")
+
     def do_OPTIONS(self):
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
         self.end_headers()
 
     def handle_chart(self, params):
